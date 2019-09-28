@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.23)  28 SEP 2019 12:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.23)  28 SEP 2019 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,77 +1115,64 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (./capitulos/Hahn-Banach.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
-Package mdframed Info: mdframed works in twoside mode on input line 21.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+Package mdframed Info: mdframed works in twoside mode on input line 20.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 21.
+(mdframed)              on input line 20.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 27.
  [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 66.
+Package mdframed Info: mdframed works in twoside mode on input line 65.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 66.
+(mdframed)              on input line 65.
 
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 68.
-
-Package mdframed Info: You first box width is to small
- mdframed fixed it
-(mdframed)              on input line 68.
-[2]
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last split box is empty
-(mdframed)                You have to change the settings on input line 68.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
 [3]
-Package mdframed Info: mdframed works in twoside mode on input line 115.
+Package mdframed Info: mdframed works in twoside mode on input line 114.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 115.
+(mdframed)              on input line 114.
 
-Overfull \hbox (7.71478pt too wide) detected at line 130
+Overfull \hbox (7.71478pt too wide) detected at line 129
 \OML/cmm/m/it/10.95 ^^UP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/1
 0.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^Ud\OT1/
 cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
@@ -1200,19 +1187,20 @@ P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/1
 0.95 ^^Ud\OT1/cmr/m/n/10.95 )
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 148.
+Package mdframed Info: mdframed works in twoside mode on input line 147.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 148.
-Package mdframed Info: Not enough space on this page on input line 150.
+(mdframed)              on input line 147.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 149.
 [4]
-Package mdframed Info: Not enough space on this page on input line 150.
-Package mdframed Info: mdframed works in twoside mode on input line 174.
+Package mdframed Info: mdframed works in twoside mode on input line 173.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 174.
- [5]
-Overfull \hbox (17.10799pt too wide) detected at line 197
+(mdframed)              on input line 173.
+
+Overfull \hbox (17.10799pt too wide) detected at line 196
 \OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 c\OT1/cmr/m/n/10
 .95 ) = \OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 ((1 \OMS/cmsy/m/n/10.95 ^^@ \
 OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 c[] \OT1/cmr/m/n/
@@ -1226,13 +1214,13 @@ msy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.9
 ML/cmm/m/it/10.95 i \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; :::; N
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
  []
 
@@ -1253,7 +1241,7 @@ Here is how much of TeX's memory you used:
  21577 multiletter control sequences out of 15000+600000
  536180 words of font info for 44 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 39i,16n,43p,10415b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,16n,43p,10415b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1265,7 +1253,7 @@ ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on Memoria.pdf (6 pages, 135232 bytes).
+Output written on Memoria.pdf (6 pages, 135198 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
