@@ -1,5 +1,21 @@
-\chapter*{Teorema de Hanh-Banach, Mazur-Orlicz y consecuencias}
+\chapter*{Teorema de Hanh-Banach y de Mazur-Orlicz}
 	\thispagestyle{empty}
+
+	\paragraph{}El objetivo principal de esta sección es demostrar tanto una versión no tan conocida del clásico teorema de Hanh-Banach como el teorema de Mazur-Orlicz. Para ello, iremos utilizando una serie de lemas previos que nos facilitarán el proceso. Así, una vez vistos estos resultados, estaremos preparados para enunciar los conocidos teoremas de la alternativa necesarios en el campo de la optimización convexa.
+	
+	\paragraph{} En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace . Notar que todos los espacios vectoriales que vamos a usar son reales.  
+	
+	\begin{definicion}
+		Sea \vecSpace un espacio vectorial distinto de cero. Decimos que el $P:\vecSpace \rightarrow \RR$ es sublineal si cumple las siguientes condiciones:
+		\begin{itemize}
+			\item $ P $ es subaditiva: $x_1, x_2 \in \vecSpace \Longrightarrow P(x_1 + x_2) \leq P(x_1) + P(x_2) $
+			\item $ P $ es positivamente homogénea: $x_1 \in \vecSpace $ y $ \lambda > 0 \Longrightarrow P(\lambda x) = \lambda P(x) $
+		\end{itemize}
+	\end{definicion}
+
+	\paragraph{}Por ejemplo, toda seminorma sobre \vecSpace es un funcional sublineal. También, si $ \vecSpace = \RR $ y definimos $ P(x) = m\acute{a}x \{0,x\}, \forall x \in \RR $ obtenemos un funcional sublineal sobre $\RR$.
+	
+	\paragraph{} El lema que exponemos a continuación, y que generalizaremos posteriormente en \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. Antes de comenzar, si $ P $ y $ Q $ son funcionales lineales sobre \vecSpace, escribiremos $ Q \leq P $ si $ Q(x) \leq P(x), \forall x \in \vecSpace $.
 	
 	\begin{lemaBox}\label{lema1}
 		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Fijamos un elemento $ y \in V $. Para todo $ x \in V $ tomamos  
@@ -36,7 +52,7 @@
 		
 		Obtenemos que $ P_y $ es positivamente homogénea y como consecuencia sublineal. \\
 		
-		Para demostrar que $ P_y \leq P $, sea $ x \in V $ y tomando $ \lambda = 1 $. Como P es sublineal se tiene: 
+		Para demostrar que $ P_y \leq P $, sea $ x \in V $ y tomando $ \lambda = 1 $: 
 		\[ P_y(x) \leq P(x+y) - P(y) \leq P(x)+ P(y) - P(y) = P(x) \Longrightarrow P_y \leq P  \]
 		
 		Finalmente, actuando de manera similar al caso anterior:
@@ -44,16 +60,18 @@
 		
 	\end{proof}
 	
-	\begin{teoremaBox}[Hanh-Banach]
+	\paragraph{} Ahora procedemos a probar el teorema de Hanh-Banch para funcionales sublineales, el cual es uno de los resultados más importantes del análisis funcional.
+	
+	\begin{teoremaBox}[Hanh-Banach]\label{H-B}
 		Sea V un espacio vectorial distinto de cero y $P:V \rightarrow \RR$ un funcional sublineal. Entonces existe un funcional lineal L en V tal que $ L \leq P $.
 	\end{teoremaBox}
 	\begin{proof}
-		Sea $ \mathcal{Q} $ el conjunto de funcionales lineales $ Q $ en\vecSpace tales que $ Q \leq P $. Primero probaremos que todo subconjunto $ \mathcal{T} $ totalmente ordenado de $ \mathcal{Q} $ tiene una cota inferior en $ \mathcal{Q} $. Para $ T_1 ,T_2 \in \mathcal{Q} $ definimos:
+		Sea $ \mathcal{Q} $ el conjunto de funcionales sublineales $ Q $ en\vecSpace tales que $ Q \leq P $. Primero probaremos que todo subconjunto $ \mathcal{T} $ totalmente ordenado de $ \mathcal{Q} $ tiene una cota inferior en $ \mathcal{Q} $. Para $ T_1 ,T_2 \in \mathcal{Q} $ definimos:
 		\begin{center}
 			$ T_1 \leq T_2 \Longleftrightarrow T_1 (x) \leq T_2 (x) \quad \forall x \in \vecSpace $
 		\end{center}
 		
-		obteniendo la relación de orden en  $ \mathcal{Q} $. Definimos $ Q(x):=\inf \{ T(x): T \in \mathcal{T} \} $. Si $ x \in \vecSpace $ y $ T \in \mathcal{T} $, como T es subaditiva al ser sublineal obtenemos la siguiente relación $ 0 = T(0) = T(x-x) \leq T(x) + T(-x) \Longrightarrow T(x) \geq -T(-x) $ (1). Como $ T \in \mathcal{Q} \Longrightarrow T(x) \leq P(x) \Longrightarrow -T(x) \geq -P(x)$ (2). Usando (1) y (2) y tomando ínfimo sobre T  llegamos a $ Q(x) \geq -P(x) \geq - \infty $. Por lo tanto $ Q:V \rightarrow \RR$. \\
+		obteniendo la relación de orden en  $ \mathcal{Q} $. Definimos $ Q(x):=\inf \{ T(x): T \in \mathcal{T} \} $. Si $ x \in \vecSpace $ y $ T \in \mathcal{T} $, como T es subaditiva obtenemos la siguiente relación $ 0 = T(0) = T(x-x) \leq T(x) + T(-x) \Longrightarrow T(x) \geq -T(-x) $ (1). Como $ T \in \mathcal{Q} \Longrightarrow T(x) \leq P(x) \Longrightarrow -T(x) \geq -P(x)$ (2). Usando (1), (2) y tomando ínfimo sobre $  T $  llegamos a $ Q(x) \geq -P(x) \geq - \infty $. Por lo tanto $ Q:V \rightarrow \RR$. \\
 		
 		Ahora probaremos que $ Q $ es subaditiva. Para ello, tomamos $ x_1, x_2\in \vecSpace $. Sean $ T_1 , T_2 \in \mathcal{T} $ arbitrarios. Si $ T_1 \geq T_2 $:
 		
@@ -72,14 +90,14 @@
 		\end{split}
 		\end{equation*}
 		
-		De este modo, Q es sublineal y como es claro que $ Q \leq P \Longrightarrow Q \in \mathcal{Q}$. \\
+		De este modo, Q es sublineal y como es claro que $ Q \leq P \Longrightarrow Q \in \mathcal{Q}$. Así, $ Q $ es el elemento minimal de $ \mathcal{T} $ en $\mathcal{Q}$.\\
 		
-		El lema de Zorn nos proporciona un elemento minimal que llamaremos $ L $ de $ \mathcal{Q} $. Tomamos ahora $ y \in \vecSpace $. Con la notación del lema anterior, $ L_y : \vecSpace \longrightarrow \RR $ es sublineal, $ L_y \leq L $ (como consecuencia $ L_y \in \mathcal{Q} $) y $ L_y (-y) \leq L(-y) $. De hecho, como $ L $ es minimal en $ \mathcal{Q} $, $ L_y = L $ y por ello $ L (-y) \leq L(-y) $. Por otro lado, como L es subaditiva, $ L(-y) \geq -L(y) $. Combinando ambas desigualdades, $ L(-y) = -L(y) $. Tomamos $ x \in \vecSpace $ y $ \lambda < 0 $, usando la igualdad anterior llegamos a:
+		El lema de Zorn nos proporciona entonces un elemento minimal de $ \mathcal{Q} $ que llamaremos $ L $. Tomamos ahora $ y \in \vecSpace $. Con la notación del lema anterior, $ L_y : \vecSpace \longrightarrow \RR $ es sublineal, $ L_y \leq L $ (como consecuencia $ L_y \in \mathcal{Q} $) y $ L_y (-y) \leq L(-y) $. De hecho, como $ L $ es minimal en $ \mathcal{Q} $, $ L_y = L $ y por ello $ L (-y) \leq L(-y) $. Por otro lado, como L es subaditiva, $ L(-y) \geq -L(y) $. Combinando ambas desigualdades, $ L(-y) = -L(y) $. Tomamos $ x \in \vecSpace $ y $ \lambda < 0 $, usando la igualdad anterior llegamos a:
 		\[ \qquad \quad
 		L(\lambda x) = L (-(-\lambda)x) = -L(-\lambda x) = -(-\lambda)L(x) = \lambda L(x) \label{1}
 		\] 
 		
-		obteniendo que $ L $ es homogénea. Si $ x_1, x_2 \in \vecSpace $, la subaditividad de L nos da $ L(-x_1-x_2) \leq L(-x_1) + L(-x_2) $. Usando la homogeneidad de L:
+		obteniendo que $ L $ es homogénea. Si $ x_1, x_2 \in \vecSpace $, la subaditividad de $ L $ nos da $ L(-x_1-x_2) \leq L(-x_1) + L(-x_2) $. Usando la homogeneidad de $ L $:
 		\begin{equation*}
 		\begin{split} \qquad
 		L(x_1+x_2) &= L(-(-x_1-x_2)) = -L(-x_1-x_2) \\ 
@@ -90,6 +108,8 @@
 		Por ello, $	L(x_1+x_2) = L(x_1) + L (x_2) $ y concluimos que $ L $ es lineal.
 		
 	\end{proof}
+
+	\paragraph{} El siguiente resultado importante que demostraremos será el teorema de Mazur-Orlicz. Primero, veamos un lema previo.
 	
 	\begin{lemaBox}\label{lema2}
 		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Sea $ D $ un subconjunto no vacío y convexo de \vecSpace y $ \beta := \inf_D P \in \RR $. Para todo $ x \in V $ tomamos  
@@ -108,7 +128,7 @@
 		La primera igualdad se deduce de la linealidad de P ya que:
 		\[ \lambda P(d) = P(\lambda d) =P(\lambda d +x-x) \leq P(x+\lambda d)+ P(-x) \Longrightarrow -P(-x) \leq P(x+\lambda d)\]
 		
-		Y la segunda a que como $ \beta = \inf_D P \Longrightarrow \lambda P(d) \geq \lambda\beta \Longrightarrow\lambda P(d) - \lambda\beta \geq 0 $. Tomando el ínfimo sobre $ d \in D  $ y $ \lambda > 0 $ llegamos a $ Q(x)\geq -P(-x) > -\infty$. Por consiguiente, $ Q:V \rightarrow \RR$. Es relativamente fácil probar qu $ Q $ es positivamente homogénea por lo que para ver que es sublineal solo queda ver la subaditividad. Para ello, tomamos $ x_1, x_2 \in V $. Sean $ d_1, d_2 \in D $ y $ \lambda_1, \lambda_2 > 0$ arbitrarios. Para simplificar la notación llamamos $ x := x_1 + x_2 $, $ \lambda := \lambda_1 + \lambda_2 $ y $ d:= (\lambda_1/\lambda)d_1 + (\lambda_2/\lambda)d_2 $ Entonces: 
+		Y la segunda a que como $ \beta = \inf_D P \Longrightarrow \lambda P(d) \geq \lambda\beta \Longrightarrow\lambda P(d) - \lambda\beta \geq 0 $. Tomando el ínfimo sobre $ d \in D  $ y $ \lambda > 0 $ llegamos a $ Q(x)\geq -P(-x) > -\infty$. Por consiguiente, $ Q:V \rightarrow \RR$. Es relativamente fácil probar que $ Q $ es positivamente homogénea por lo que para ver que es sublineal solo queda ver la subaditividad. Para ello, tomamos $ x_1, x_2 \in V $. Sean $ d_1, d_2 \in D $ y $ \lambda_1, \lambda_2 > 0$ arbitrarios. Para simplificar la notación llamamos $ x := x_1 + x_2 $, $ \lambda := \lambda_1 + \lambda_2 $ y $ d:= (\lambda_1/\lambda)d_1 + (\lambda_2/\lambda)d_2 $. Notar que $ d \in D $ al ser este convexo. Entonces: 
 		\begin{equation*}
 		\begin{split}
 		\left[ P(x_1 + \lambda_1 d_1) - \lambda_1 \beta \right] + \left[ P(x_2 + \lambda_2 d_2) - \lambda_2 \beta \right] &\geq P(x + \lambda_1 d_1 + \lambda_2 d_2) - \lambda \beta\\
@@ -121,17 +141,19 @@
 		\[ \qquad \qquad \qquad Q(-d) \leq Q(-d+d) - \beta = -\beta \Longrightarrow  -Q(-d) \geq \beta  \]
 		
 	\end{proof}
+
+	\paragraph{}Visto este lema, estamos preparados para ver el siguiente resultado:
 	
 	\begin{teoremaBox}[Mazur-Orlicz]
-		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal.  Sea $ D $ un subconjunto no vacío y convexo de \vecSpace. Entonces existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq P $ y $ \inf_D L = \inf_D P $
+		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal.  Sea $ D $ un subconjunto no vacío y convexo de \vecSpace. Entonces existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq P $ e $ \inf_D L = \inf_D P $
 	\end{teoremaBox}
 	\begin{proof}
-		Sea $ \beta := \inf_D P $. En el caso de que $ \beta = -\infty $ por el lema \ref{lema1} tenemos que $ L $ es lineal y $ L \leq P$. Así:
+		Sea $ \beta := \inf_D P $. En el caso de que $ \beta = -\infty $ por el teorema \ref{H-B} tenemos que $ \exists L $ sobre \vecSpace tal que es lineal y $ L \leq P$. Así:
 		\begin{center}
 			$ L \leq P \Longrightarrow inf_D L \leq \inf_D P = -\infty \Longrightarrow inf_D L = \inf_D P$ 
 		\end{center}
 		
-		Supongamos entonces que $ \beta \in \RR $. Definimos el funcional auxiliar $ Q $ tal y como en el lema \ref{lema2}. Del lema \ref{lema1} obtenemos que existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq Q$ (como $ Q \leq P $ tenemos que $ L \leq P $). Sea $ d \in D $, entonces:
+		Supongamos entonces que $ \beta \in \RR $. Definimos el funcional auxiliar $ Q $ tal y como en el lema \ref{lema2}. Del teorema \ref{H-B} obtenemos que existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq Q$ (como $ Q \leq P $ tenemos que $ L \leq P $). Sea $ d \in D $, entonces:
 		\[
 		L(d) = -L(-d) \geq -Q(-d) \geq \beta
 		\]
@@ -145,9 +167,11 @@
 		\]
 		Juntando ambas desigualdades obtenemos $ \inf_D L =\inf_D P $
 	\end{proof}
+
+	\paragraph{} Enunciamos ahora el siguiente lema en que destacamos la ausencia de hipótesis topológicas, lo que será importante posteriormente.
 	
 	\begin{lemaBox}
-		Sea $ C $ un subconjunto no vacío y convexo de un espacio vectorial. Dadas $ f_1, ..., f_N $ funciones reales y convexas sobre $ C $, entones existen $ \lambda_1, ..., \lambda_N \geq 0$ tales que $ \lambda_1+ ...+ \lambda_N = 1$ y
+		Sea $ C $ un subconjunto no vacío y convexo de un espacio vectorial. Dadas $ f_1, ..., f_N $  funciones sobre $ C $ reales y convexas, entones existen $ \lambda_1, ..., \lambda_N \geq 0$ tales que $ \lambda_1+ ...+ \lambda_N = 1$ y
 		\[
 		\inf_C\left[ m\acute{a}x \{f_1, ..., f_N\}\right] = \inf_C \left[ \lambda_1 f_1+ ...+\lambda_N f_N \right]
 		\] 
@@ -166,7 +190,7 @@
 		D = \{ (x_1, ..., x_N)\in V: \exists c \in C \quad tal \quad que \quad \forall i = 1,...N,\quad f_i(c) \leq x_i \}
 		\]
 		
-		Veamos que $ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que caulquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así:	
+		Veamos que $ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así:	
 		\[
 		f_i(c) = f_i((1-\lambda)c_x + \lambda c_y) \leq (1-\lambda)f(c_x) + \lambda f(c_y) \leq (1-\lambda)x_i + \lambda y_i \quad , \forall i =1,...,N 
 		\]

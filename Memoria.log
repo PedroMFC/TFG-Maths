@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.23)  27 SEP 2019 20:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.23)  28 SEP 2019 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,54 +1115,64 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (./capitulos/Hahn-Banach.tex
-Package mdframed Info: mdframed works in twoside mode on input line 4.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4.
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-[1
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+Package mdframed Info: mdframed works in twoside mode on input line 20.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 20.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 27.
+ [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package mdframed Info: mdframed works in twoside mode on input line 47.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 47.
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 65.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 65.
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
 [2]
-Package mdframed Info: mdframed works in twoside mode on input line 94.
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+[3]
+Package mdframed Info: mdframed works in twoside mode on input line 114.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 94.
+(mdframed)              on input line 114.
 
-Overfull \hbox (7.71478pt too wide) detected at line 109
+Overfull \hbox (7.71478pt too wide) detected at line 129
 \OML/cmm/m/it/10.95 ^^UP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/1
 0.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^Ud\OT1/
 cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
@@ -1177,17 +1187,20 @@ P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/1
 0.95 ^^Ud\OT1/cmr/m/n/10.95 )
  []
 
-[3]
-Package mdframed Info: mdframed works in twoside mode on input line 125.
+Package mdframed Info: mdframed works in twoside mode on input line 147.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 125.
-Package mdframed Info: mdframed works in twoside mode on input line 149.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
+(mdframed)              on input line 147.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
 (mdframed)              on input line 149.
- [4]
-Overfull \hbox (17.10799pt too wide) detected at line 172
+[4]
+Package mdframed Info: mdframed works in twoside mode on input line 173.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 173.
+
+Overfull \hbox (17.10799pt too wide) detected at line 196
 \OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 c\OT1/cmr/m/n/10
 .95 ) = \OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 ((1 \OMS/cmsy/m/n/10.95 ^^@ \
 OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 c[] \OT1/cmr/m/n/
@@ -1201,19 +1214,19 @@ msy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.9
 ML/cmm/m/it/10.95 i \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; :::; N
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--181
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
  []
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
- [5]
+ [6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
  (./Memoria.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
@@ -1222,13 +1235,13 @@ Package rerunfilecheck Info: File `Memoria.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18457 strings out of 494923
- 320793 string characters out of 6180742
- 503140 words of memory out of 5000000
- 21559 multiletter control sequences out of 15000+600000
+ 18488 strings out of 494923
+ 321238 string characters out of 6180742
+ 503163 words of memory out of 5000000
+ 21577 multiletter control sequences out of 15000+600000
  536180 words of font info for 44 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 39i,16n,43p,10415b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,16n,43p,10415b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1240,10 +1253,10 @@ ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on Memoria.pdf (5 pages, 130449 bytes).
+Output written on Memoria.pdf (6 pages, 135198 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
