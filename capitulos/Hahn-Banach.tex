@@ -1,7 +1,7 @@
 \chapter*{Teorema de Hanh-Banach y de Mazur-Orlicz}
 	\thispagestyle{empty}
 
-	\paragraph{}El objetivo principal de esta sección es demostrar tanto una versión no tan conocida del clásico teorema de Hanh-Banach como el teorema de Mazur-Orlicz. Para ello, iremos utilizando una serie de lemas previos que nos facilitarán el proceso. Así, una vez vistos estos resultados, estaremos preparados para enunciar los conocidos teoremas de la alternativa necesarios en el campo de la optimización convexa.
+	\paragraph{}El objetivo principal de esta sección es demostrar tanto una versión no tan conocida del clásico teorema de Hanh-Banach como el teorema de Mazur-Orlicz. Para ello, iremos utilizando una serie de lemas previos que nos facilitarán el proceso. Así, una vez vistos estos resultados, estaremos preparados para enunciar los conocidos como teoremas de la alternativa necesarios en el campo de la optimización convexa.
 	
 	\paragraph{} En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace . Notar que todos los espacios vectoriales que vamos a usar son reales.  
 	
@@ -15,7 +15,7 @@
 
 	\paragraph{}Por ejemplo, toda seminorma sobre \vecSpace es un funcional sublineal. También, si $ \vecSpace = \RR $ y definimos $ P(x) = m\acute{a}x \{0,x\}, \forall x \in \RR $ obtenemos un funcional sublineal sobre $\RR$.
 	
-	\paragraph{} El lema que exponemos a continuación, y que generalizaremos posteriormente en \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. Antes de comenzar, si $ P $ y $ Q $ son funcionales lineales sobre \vecSpace, escribiremos $ Q \leq P $ si $ Q(x) \leq P(x), \forall x \in \vecSpace $.
+	\paragraph{} El lema que exponemos a continuación, y que generalizaremos posteriormente en \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. Antes de comenzar, escribiremos $ Q \leq P $ con $ P $ y $ Q $ funcionales lineales sobre \vecSpace si $ Q(x) \leq P(x), \forall x \in \vecSpace $.
 	
 	\begin{lemaBox}\label{lema1}
 		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Fijamos un elemento $ y \in V $. Para todo $ x \in V $ tomamos  
@@ -142,7 +142,7 @@
 		
 	\end{proof}
 
-	\paragraph{}Visto este lema, estamos preparados para ver el siguiente resultado:
+	\paragraph{}Visto este lema, estamos preparados para ver el resultado que nos interesa:
 	
 	\begin{teoremaBox}[Mazur-Orlicz]
 		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal.  Sea $ D $ un subconjunto no vacío y convexo de \vecSpace. Entonces existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq P $ e $ \inf_D L = \inf_D P $
