@@ -3,7 +3,7 @@
 
 	\paragraph{}El objetivo principal de esta sección es demostrar tanto una versión no tan conocida del clásico teorema de Hanh-Banach como el teorema de Mazur-Orlicz. Para ello, iremos utilizando una serie de lemas previos que nos facilitarán el proceso. Así, una vez vistos estos resultados, estaremos preparados para enunciar los conocidos como teoremas de la alternativa necesarios en el campo de la optimización convexa.
 	
-	\paragraph{} En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace . Notar que todos los espacios vectoriales que vamos a usar son reales.  
+	\paragraph{} En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace . Notar que todos los espacios vectoriales que vamos a usar son reales. Del mismo modo, los subconjuntos que usaremos asumiremos que son no vacíos
 	
 	\begin{definicion}
 		Sea \vecSpace un espacio vectorial distinto de cero. Decimos que el $P:\vecSpace \rightarrow \RR$ es sublineal si cumple las siguientes condiciones:
@@ -15,7 +15,7 @@
 
 	\paragraph{}Por ejemplo, toda seminorma sobre \vecSpace es un funcional sublineal. También, si $ \vecSpace = \RR $ y definimos $ P(x) = m\acute{a}x \{0,x\}, \forall x \in \RR $ obtenemos un funcional sublineal sobre $\RR$.
 	
-	\paragraph{} El lema que exponemos a continuación, y que generalizaremos posteriormente en \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. Antes de comenzar, escribiremos $ Q \leq P $ con $ P $ y $ Q $ funcionales lineales sobre \vecSpace si $ Q(x) \leq P(x), \forall x \in \vecSpace $.
+	\paragraph{} El lema que exponemos a continuación, y que generalizaremos posteriormente en \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. 
 	
 	\begin{lemaBox}\label{lema1}
 		Sea\vecSpace un espacio vectorial distinto de cero y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Fijamos un elemento $ y \in V $. Para todo $ x \in V $ tomamos  
@@ -82,7 +82,6 @@
 		El caso de $ T_2 \geq T_1 $ es análogo. Concluimos que ambos casos $ T_1 (x_1)+  T_2 (x_2) \geq Q(x_1 + x_2)$. Tomando ínfimo en $ T_1 $ y $ T_2 $ obtenemos que $ Q (x_1)+  Q(x_2) \geq Q(x_1 + x_2)$. Así, $ Q $ es sublineal. Que sea positivamente homogénea es consecuencia de que $ T $ también lo es. Dado $ \mu > 0 $:
 		\begin{equation*}
 		\begin{split}
-		\qquad \qquad \qquad \qquad 
 		Q(\mu x) &=\inf \{ T(\mu x): T \in \mathcal{T} \} \\ 
 		& = \inf \{ \mu T( x): T \in \mathcal{T} \} \\ 
 		&= \mu\inf \{ T( x): T \in \mathcal{T} \} \\ 
@@ -166,52 +165,5 @@
 		\inf_D L \leq\inf_D P
 		\]
 		Juntando ambas desigualdades obtenemos $ \inf_D L =\inf_D P $
-	\end{proof}
-
-	\paragraph{} Enunciamos ahora el siguiente lema en que destacamos la ausencia de hipótesis topológicas, lo que será importante posteriormente.
-	
-	\begin{lemaBox}
-		Sea $ C $ un subconjunto no vacío y convexo de un espacio vectorial. Dadas $ f_1, ..., f_N $  funciones sobre $ C $ reales y convexas, entones existen $ \lambda_1, ..., \lambda_N \geq 0$ tales que $ \lambda_1+ ...+ \lambda_N = 1$ y
-		\[
-		\inf_C\left[ m\acute{a}x \{f_1, ..., f_N\}\right] = \inf_C \left[ \lambda_1 f_1+ ...+\lambda_N f_N \right]
-		\] 
-	\end{lemaBox}
-	\begin{proof}
-		Sea  \vecSpace = $ \RR^N $. Definimos $S:\vecSpace \longrightarrow P $ como \[ S(x_1, ..., x_N) := m\acute{a}x \{x_1, ..., x_N\} \]. Claramente, $ S $ es positivamente homogénea. También es subaditiva ya que dados $ x,y \in \vecSpace $ : 
-		\begin{equation*}
-		\begin{split}
-		S(x+y) &= m\acute{a}x \{x_1 + y_1, ..., x_N +y_N \}\\ 
-		&\leq m\acute{a}x \{x_1, ..., x_N\} + m\acute{a}x \{y_1, ...,y_N\} = S(x) + S(y)
-		\end{split}
-		\end{equation*}
-		
-		Por ello, $ S $ es sublineal. Tomamos el subconjunto:
-		\[ 
-		D = \{ (x_1, ..., x_N)\in V: \exists c \in C \quad tal \quad que \quad \forall i = 1,...N,\quad f_i(c) \leq x_i \}
-		\]
-		
-		Veamos que $ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así:	
-		\[
-		f_i(c) = f_i((1-\lambda)c_x + \lambda c_y) \leq (1-\lambda)f(c_x) + \lambda f(c_y) \leq (1-\lambda)x_i + \lambda y_i \quad , \forall i =1,...,N 
-		\]
-		donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ x,y \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc, existe $ L $ sobre \vecSpace tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
-		
-		Al ser $ L $ lineal, existen $ \lambda_1, .., \lambda_N \in \RR$ tales que: 
-		\[
-		L(x) =  \lambda_1 x_1 + ..+ \lambda_N x_N , \forall x \in V \] 
-		
-		Como $ L \leq S $ tenemos que $ \lambda_1 x_1 + ..+ \lambda_N x_N \leq m\acute{a}x \{x_1, ..., x_N\} $
-		por lo que también se tiene que cumplir que $ \lambda_1, ..., \lambda_N \geq 0$ y $ \lambda_1+ ...+ \lambda_N = 1$. \\
-		
-		Finalmente:
-		\[
-		\inf_D L = \inf_{c\in C} \left[ \lambda_1 f(c) + ..+ \lambda_N f(c) \right] = \inf_{C} \left[ \lambda_1 f + ..+ \lambda_N f \right]
-		\]
-		y
-		\[
-		\inf_D S = \inf_{c\in C} \left[ m\acute{a}x \{f_1(c), ..., f_N(c)\} \right] = \inf_C\left[ m\acute{a}x \{f_1, ..., f_N\}\right] 
-		\]
-		por lo que 
-		\[ \inf_{C} \left[ \lambda_1 f + ..+ \lambda_N f \right] = \inf_C\left[ m\acute{a}x \{f_1, ..., f_N\}\right]  \] 
 	\end{proof}
 

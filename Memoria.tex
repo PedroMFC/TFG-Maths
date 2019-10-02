@@ -5,6 +5,7 @@
 % \usepackage[style=list, number=none]{glossary} %
 %\usepackage{titlesec}
 %\usepackage{pailatino}
+\usepackage[spanish]{babel}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mdframed}
 \usepackage{lipsum}
@@ -207,9 +208,17 @@ pdfproducer = {pdflatex}
 %\mainmatter
 %\setlength{\parskip}{5pt}
 
-\input{capitulos/Hahn-Banach.tex}
+%\input{portada/portada}
+
+\input{capitulos/HB-MO.tex}
 %
-%\input{capitulos/02_EspecificacionRequisitos}
+\input{capitulos/Simons-Gordan}
+
+\bibliographystyle{alpha-es}
+\bibliography{bibliografia/bibliografia}
+
+%\bibliographystyle{apalike-es}
+%\bibliography{bibliografia/bibliografia}
 %
 %\input{capitulos/03_Planificacion}
 %
