@@ -6,10 +6,11 @@
 %\usepackage{titlesec}
 %\usepackage{pailatino}
 \usepackage[spanish]{babel}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{mdframed}
 \usepackage{lipsum}
 \usepackage{dcolumn}
+\usepackage{titlesec}
 
 \newcolumntype{.}{D{.}{\esperiod}{-1}}
 \makeatletter
@@ -19,9 +20,14 @@
  % Recuadrar teorema/lema y asignarlo a un capítulo
 \newmdtheoremenv{teoremaBox}{Teorema}[chapter]
 \newmdtheoremenv{lemaBox}{Lema}[chapter]
+
+\newtheorem{observacion}{Observación}
  % Usar recuadro negro el terminar demostración
 \renewcommand\qedsymbol{$ \blacksquare $}
 %\renewcommand\proof{\textit{Demostración:}  \qedsymbol}
+
+ % EVITAR QUE PONGA "CHAPTER *" AL INICIO DEL CAPÍTULO
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 
 \def\spanishoperators{adj traza vect dom dist sop vol sgn  Hess Jac rango grado diag img longitud Maximizar Minimizar Optimizar sec cotan cosec}
 \newcommand{\refPar}[1]{(#1)}
@@ -211,9 +217,11 @@ pdfproducer = {pdflatex}
 %\input{portada/portada}
 
 \input{capitulos/HB-MO.tex}
-%
+
 \input{capitulos/Simons-Gordan}
 
+%% Incluir en la bibliografía las referencias no citadas
+% \nocite{Alfonso2010a}
 \bibliographystyle{alpha-es}
 \bibliography{bibliografia/bibliografia}
 
