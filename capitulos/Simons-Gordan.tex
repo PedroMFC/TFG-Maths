@@ -1,6 +1,6 @@
 \chapter{Lema de Simons y Teorema de la Alternativa de Gordan}
 	\thispagestyle{empty}
-	\paragraph{}Este capítulo se centra en lema de Simons, el cual nos aporta una gran ventaja para demostrar el Teorema de la Alternativa de Gordan.
+	\paragraph{}Este capítulo se centra en lema de Simons, el cual será de gran ayuda para demostrar el Teorema de la Alternativa de Gordan.
 
 	\paragraph{}Antes de comenzar, necesitamos hacer la siguiente definición.
 	
@@ -13,10 +13,10 @@
 
 	Por ejemplo, si $ N = 2 $, tenemos que $ \Delta_2 = co\{(1,0),(0,1)\}$, es decir es la envolvente convexa de los vectores de la base usual de $ \RR^2 $. De hecho en general, $ \Delta_N = co\{e_1,...e_N\} $.
 
-	\paragraph{} Enunciamos un lema que nos será de gran ayuda para demostrar el lema de Simons.
+	\paragraph{} Enunciamos este lema provio que usaremos posteriormente el la demostración del de Simons.
 	
 	\begin{lemaBox}\label{lema2.1}
-		Sea $ N \in \NN $, con $ N > 1 $ y $ L: \RR^N \longrightarrow \RR $ definida por $ S(x):=\max\{x_1,...,x_N\}$. Entonces, $ S $ es sublineal. Además, si $ L:\RR^N \longrightarrow \RR $ es un funcional lineal tal que $ L \leq S $ entonces $ L $ es de la forma $ L(x) = \lambda_1 x_1 + ... + \lambda_N x_N $ con $ (\lambda_1,...,\lambda_N) \in \Delta_N$. De hecho, el recíproco también es cierto, es decir, si $ L =  (\lambda_1,...,\lambda_N) \in \Delta_N $ entonces $ L \leq S $.
+		Sea $ N \in \NN $, con $ N \geq 1 $ y $ L: \RR^N \longrightarrow \RR $ definida por $ S(x):=\max\{x_1,...,x_N\}$. Entonces, $ S $ es sublineal. Además, si $ L:\RR^N \longrightarrow \RR $ es un funcional lineal tal que $ L \leq S $ entonces $ L $ es de la forma $ L(x) = t_1 x_1 + ... + t_N x_N $ con $ (t_1,...,t_N) \in \Delta_N$. De hecho, el recíproco también es cierto, es decir, si $ L =  (t_1,...,t_N) \in \Delta_N $ entonces $ L \leq S $.
 		
 		%%%%%% NOTA %%%%%%%%
 		%% Las aplicaciones lineales coninciden con el dual del espacio. Es decir, podemos identificar la aplicación con sus coeficientes obeniendo de ese modo un punto del espacio.
@@ -37,11 +37,11 @@
 		\end{equation*}
 		
 		\begin{itemize}
-			\item[$ \supseteq $ )] Sea $ t \in \Delta_N$ definimos $ L:\RR^N \longrightarrow \RR $ como $ L(x):= <t,x> $. Es evidente que $ L $ es lineal al serlo el producto escalar. Dado $ x \in \RR $:
+			\item[$ \supseteq $ )] Sea $ \mathbf{t} \in \Delta_N$ definimos $ L:\RR^N \longrightarrow \RR $ como $ L(x):= \langle \mathbf{t},x \rangle $. Es evidente que $ L $ es lineal al serlo el producto escalar. Dado $ x \in \RR $:
 			\begin{equation*}
 				L(x) = \sum_{i=1}^{N}{t_i x_i} \leq \sum_{i=1}^{N}{t_i S(x)} = S(x)\sum_{i=1}^{N}{t_i} = S(x)
 			\end{equation*}
-			donde la primera desigualdad se debe a que $ x_i \leq S(x)$ para todo $ x_i$ con $ i=1,...,N $ y que $ t_i \geq 0 $ ya que $ t \in \Delta_N$. Esto también justifica la que última igualdad ya que $ \sum_{i=1}^{N}{t_i} = 1 $.
+			donde la primera desigualdad se debe a que $ x_i \leq S(x)$ para todo $ x_i$ con $ i=1,...,N $ y a que $ t_i \geq 0 $ ya que $ \mathbf{t} \in \Delta_N$. Esto también justifica la que última igualdad ya que $ \sum_{i=1}^{N}{t_i} = 1 $.
 			
 			\item[$ \subseteq $ )] Sea $ L =  (t_1,...,t_N) \in \RR^N $ lineal tal que $ \forall x \in \RR^N $ cumple $ \sum_{i=1}^{N}{t_i x_i} \leq \max\{x_1,...,x_N\}$. Así, si tomamos $ e_i \in \RR^N $ donde $ e_i $ representa el i-ésimo elemento de la base usual de $ \RR^N $ con $ i=1,...,N $. Entonces:   		
 			\begin{equation*}
@@ -61,10 +61,10 @@
 
 	\paragraph{} Enunciamos ahora lema de Simons\cite{Simons2008} en que destacamos la ausencia de hipótesis topológicas, lo que será importante posteriormente.
 	
-	\begin{lemaBox}\label{Simons}
-		Sea $ C $ un subconjunto no vacío y convexo de un espacio vectorial. Dadas $ f_1, ..., f_N $  funciones sobre $ C $ reales y convexas, entones existen $ \lambda_1, ..., \lambda_N \geq 0$ tales que $ \lambda_1+ ...+ \lambda_N = 1$ y
+	\begin{lemaBox}[Lema de Simons]\label{Simons}
+		Sea $ C $ un subconjunto no vacío y convexo de un espacio vectorial. Dadas $ f_1, ..., f_N $ ($ N \geq 1 $)  funciones sobre $ C $ reales y convexas, entones existen $ (t_1, ..., t_N) \in \Delta_N $ que cumplen
 		\[
-		\inf_C\left[ \max \{f_1, ..., f_N\}\right] = \inf_C \left[ \lambda_1 f_1+ ...+\lambda_N f_N \right]
+		\inf_C\left[ \max \{f_1, ..., f_N\}\right] = \inf_C \left[ t_1 f_1+ ...+t_N f_N \right]
 		\] 
 	\end{lemaBox}
 	\begin{proof}
@@ -73,33 +73,33 @@
 		D = \{ (x_1, ..., x_N)\in V: \exists c \in C \quad tal \quad que \quad \forall i = 1,...N,\quad f_i(c) \leq x_i \}
 		\]
 		
-		Veamos que $ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
+		$ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
 		\[
 		f_i(c) = f_i((1-\lambda)c_x + \lambda c_y) \leq (1-\lambda)f(c_x) + \lambda f(c_y) \leq (1-\lambda)x_i + \lambda y_i 
 		\]
 		donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ x,y \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc, existe $ L $ funcinal lineal sobre \vecSpace tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
 		
-		Nuevamente, por el lema \ref{lema2.1} tenemos que $ L = (\lambda_1,...,\lambda_N) \in \Delta_N$, es decir, $ \lambda_1, ..., \lambda_N \geq 0$ y $ \lambda_1+ ...+ \lambda_N = 1$. \\
+		Nuevamente, por el lema \ref{lema2.1} tenemos que $ L = (t_1,...,t_N) \in \Delta_N$. \\
 		
 		Finalmente:
 		\[
-		\inf_D L = \inf_{c\in C} \left[ \lambda_1 f(c) + ..+ \lambda_N f(c) \right] = \inf_{C} \left[ \lambda_1 f + ..+ \lambda_N f \right]
+		\inf_D L = \inf_{c\in C} \left[ t_1 f(c) + ..+ t_N f(c) \right] = \inf_{C} \left[ t_1 f + ..+ t_N f \right]
 		\]
 		y
 		\[
 		\inf_D S = \inf_{c\in C} \left[ \max \{f_1(c), ..., f_N(c)\} \right] = \inf_C\left[ \max \{f_1, ..., f_N\}\right] 
 		\]
 		por lo que 
-		\[ \inf_{C} \left[ \lambda_1 f + ..+ \lambda_N f \right] = \inf_C\left[ \max \{f_1, ..., f_N\}\right]  \] 
+		\[ \inf_{C} \left[ t_1 f + ..+ t_N f \right] = \inf_C\left[ \max \{f_1, ..., f_N\}\right]  \] 
 	\end{proof}
 
 	\paragraph{}Enunciamos ahora el Teorema de la alternativa de Gordan en su versión convexa.
 	
-	\begin{teoremaBox}[Teorema de la Alternativa de Gordan-versión convexa]
-		Sea $ C $ un subconjunto convexo de un espacio vectorial y sean $ f_1,...,f_N : C \longrightarrow \RR^N $ funciones convexas. Entonces una, y solo una, de la siguientes afirmaciones se cumple:
+	\begin{teoremaBox}[Teorema de la Alternativa de Gordan-versión convexa]\label{Gordan}
+		Sea $ C $ un subconjunto convexo de un espacio vectorial y sean $ f_1,...,f_N : C \longrightarrow \RR $ funciones convexas ($ N \geq 1 $). Entonces una, y solo una, de la siguientes afirmaciones se cumple:
 		\begin{itemize}
-			\item[i)] $ \exists t \in \Delta_N $ tal que $ 0 \leq \inf_{c \in C}  \sum_{i=1}^{N}{t_i f_i(c)}$.
-			\item[ii)] $ \exists c \in C $ tal que cumple $ \max_{i=i,...,N}f_i (c) < 0 $.
+			\item[i)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 \leq \inf_{c \in C}  \sum_{i=1}^{N}{t_i f_i(c)}$.
+			\item[ii)] $ \exists c \in C $ que cumple $ \max_{i=i,...,N}f_i (c) < 0 $.
 		\end{itemize}
 	\end{teoremaBox}
 	\begin{proof}
@@ -109,17 +109,17 @@
 			\exists t \in \Delta_N \text{ : } \inf_{c \in C}\left[ \max_{i=1,...,N}f_i(c)\right] = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i(c)
 		\end{equation*}
 		
-		Supongamos en primer lugar que $ \alpha := \inf_{c \in C}\left[ \max_{i=1,...,N}f_i(c)\right] \in \RR $. Planteamos la siguiente alternativa, cuyos cosas son excluyentes:
+		Supongamos en primer lugar que $ \alpha := \inf_{c \in C}\left[ \max_{i=1,...,N}f_i(c)\right] \in \RR $. Planteamos la siguiente alternativa, cuyos casos son excluyentes:
 		\begin{itemize}
-			\item[a)] $ \alpha < 0 $: este caso implica obviamente $ ii) $ ya que:
+			\item[a)] $ 0 \leq \alpha $: implica $ i) $ ya que $ \alpha = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i(c) $ 
+			\item[b)] $ \alpha < 0 $: este caso, por su parte, implica $ ii) $ ya que:
 			
 			\begin{equation*}
 				\alpha = \inf_{c \in C}\left[ \max_{i=1,...,N}f_i(c)\right] < 0 \Longleftrightarrow \exists c \in C  : \max_{i=i,...,N}f_i (c) < 0 
 			\end{equation*}  
-			\item[b)] $ 0 \leq \alpha $: este, por su parte, implica $ i) $ ya que $ \alpha = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i(c) $ 
 		\end{itemize}
 	
-		Para finalizar, veamos el caso $ \alpha =-\infty $. COMPLETARRRRRRRRRRR
+		Para finalizar, veamos cuando $ \alpha =-\infty $. En este caso, estamos en la misma situación que en b) por lo que solo se puede dar $ ii) $.
 	\end{proof}
 
 	\paragraph{} Destacamos las siguientes observaciones:
@@ -128,7 +128,14 @@
 		Esta versión convexa del teorema implica la versión clásica del mismo.
 	\end{observacion}
 
-	Para ello, dado $ \{x_1,...x_N\}$ con $ x_i \in \RR^M , (M \geq 1 )$ con $i=1,...,N $ basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. En este caso, la alternativa $ ii) $ es:
+	Dados $ \{x_1,...x_N\}$ con $ x_i \in \RR^M , (M \geq 1 )$ $i=1,...,N$, la versión clásica del teorema nos aporta las siguientes alternativas:
+
+	\begin{itemize}
+		\item[i*)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 = \sum_{i=1}^{N}{t_i x_i}$.
+		\item[ii*)] $ \exists y \in \RR^M $ tal que cumple $ \max_{i=i,...,N} \langle y, x_i \rangle < 0 $.
+	\end{itemize}
+
+	Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
 	
 	\begin{equation*}
 		\exists c \in C = \RR^M \text{ : } \max_{i=i,...,N} {\langle c,x_i \rangle}  =  \max_{i=i,...,N}f_i (c) < 0 
@@ -136,21 +143,19 @@
 	
 	Por su parte, la alternativa $ i) $ nos da:
 	\begin{equation*}
-		\exists t \in \Delta_N \text{ : } 0 \leq \inf_{c \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(c) } = \inf_{c \in \RR^M} \sum_{i=1}^{N}{t_i\langle c,x_i \rangle} = \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle
+		\exists \mathbf{t} \in \Delta_N \text{ : } 0 \leq \inf_{c \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(c) } = \inf_{c \in \RR^M} \sum_{i=1}^{N}{t_i\langle c,x_i \rangle} = \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle
 	\end{equation*}
 	
-	Si para $ c \in \RR^M $ se cumple que
-	\begin{equation*}
-		\langle c, \sum_{i=1}^{N}{t_i x_i} \rangle  = 0 \Longleftrightarrow \sum_{i=1}^{N}{t_i x_i} = 0
-	\end{equation*}
-	
-	ya que $ \sum_{i=1}^{N}{t_i x_i} \in (\RR^M)^{\perp} = \{0\} $. Así pues, tenemos que
+	Si para $ c \in \RR^M $ se cumple que $ \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle = 0 $ entonces podemos deducir que $ \sum_{i=1}^{N}{t_i x_i} = 0 $	ya que $ \sum_{i=1}^{N}{t_i x_i} \in (\RR^M)^{\perp} = \{0\} $. Así pues, tenemos que
 	\begin{equation*}
 		\text{Se cumple }i) \Longleftrightarrow \exists t \in \Delta_N \text{ : }  0 = \sum_{i=1}^{N}{t_i x_i}
 	\end{equation*}
 	
+	Es claro entonces que obtenemos $ i*) $.
+	
 	\begin{observacion}
-		El lema de Simons, \ref{Simons}, es equivalente al Teorema de la Alternativa de Gordan.
+		El lema de Simons(lema \ref{Simons}) y el Teorema de la Alternativa de Gordan (teorema \ref{Gordan}) son equivalentes.
 	\end{observacion}
 
 	\paragraph{} Ya hemos visto que el Lema de Simons implica el Teorema de la Alternativa de Gordan. Veamos que el recíproco también es cierto.  
+	COMPLETAR.
