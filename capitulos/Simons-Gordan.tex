@@ -154,13 +154,13 @@
 
 	\begin{itemize}
 		\item[i*)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 = \sum_{i=1}^{N}{t_i x_i}$.
-		\item[ii*)] $ \exists y \in \RR^M $ tal que cumple $ \max_{i=i,...,N} \langle y, x_i \rangle < 0 $.
+		\item[ii*)] $ \exists y \in \RR^M $ tal que cumple $ \max_{i=1,...,N} \langle y, x_i \rangle < 0 $.
 	\end{itemize}
 
-	Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
+	Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. Notar que las funciones $ f_1,...,f_N $ son lineales por lo que en particular son convexas. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
 	
 	\begin{equation*}
-		\exists c \in C = \RR^M \text{ : } \max_{i=i,...,N} {\langle c,x_i \rangle}  =  \max_{i=i,...,N}f_i (c) < 0 
+		\exists c \in C = \RR^M \text{ : } \max_{i=1,...,N} {\langle c,x_i \rangle}  =  \max_{i=1,...,N}f_i (c) < 0 
 	\end{equation*}
 	
 	Por su parte, la alternativa $ i) $ nos da:

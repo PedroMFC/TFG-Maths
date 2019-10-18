@@ -1,8 +1,14 @@
-\begin{thebibliography}{Sim08}
+\begin{thebibliography}{BL10}
 
-\bibitem[Sim08]{Simons2008}
-Stephen Simons.
-\newblock {\em From Hanh-Banach to Monotonicity}.
-\newblock Springer, 2ª edición, 2008.
+\bibitem[BL10]{borwein2010convex}
+Jonathan Borwein y Adrian~S Lewis.
+\newblock {\em Convex analysis and nonlinear optimization: theory and
+  examples}.
+\newblock Springer Science \& Business Media, 2010.
+
+\bibitem[ST08]{Simons2008}
+Stephen Simons y F~Takens.
+\newblock {\em From Hahn-Banach to Monotonicity}, volumen 1693.
+\newblock Springer, 2008.
 
 \end{thebibliography}

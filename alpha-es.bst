@@ -303,12 +303,12 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { "volume" volume tie.or.space.connect
+    { "volumen" volume tie.or.space.connect
       series empty$
         'skip$
         { " of " * series emphasize * }
       if$
-      "volume and number" number either.or.check
+      "volumen y número" number either.or.check
     }
   if$
 }
@@ -492,7 +492,7 @@ FUNCTION {format.book.crossref}
     { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
       "In "
     }
-    { "Volume" volume tie.or.space.connect
+    { "Volumen" volume tie.or.space.connect
       " of " *
     }
   if$

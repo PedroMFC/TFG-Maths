@@ -20,6 +20,7 @@
  % Recuadrar teorema/lema y asignarlo a un capítulo
 \newmdtheoremenv{teoremaBox}{Teorema}[chapter]
 \newmdtheoremenv{lemaBox}{Lema}[chapter]
+\newmdtheoremenv{proposicionBox}{Proposición}[chapter]
 
 \newtheorem{observacion}{Observación}
  % Usar recuadro negro el terminar demostración
@@ -220,9 +221,12 @@ pdfproducer = {pdflatex}
 
 \input{capitulos/Simons-Gordan}
 
+\input{capitulos/Minimax}
+
 %% Incluir en la bibliografía las referencias no citadas
 % \nocite{Alfonso2010a}
 \bibliographystyle{alpha-es}
+\nocite{borwein2010convex}
 \bibliography{bibliografia/bibliografia}
 
 %\bibliographystyle{apalike-es}
