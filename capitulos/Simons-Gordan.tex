@@ -29,8 +29,8 @@
 		
 		\item Compacto: al encontrarnos en $ \RR^N $ y aplicando el conocido Teorema de Heine-Borel basta ver que $ \Delta_N $ es cerrado y acotado. Claramente es acotado por lo que nos centraremos en la de cerrado. Sea $ \lbrace \ttt_n \rbrace_{ n \in \NN} $ una sucesión de $ \Delta_N $ y sea $ \ttt_0 \in \RR^N $ tal que $ \lbrace \ttt_n \rbrace_{ n \in \NN} \longrightarrow \ttt_0 $. Tenemos que comprobar que $ \ttt_0 \in \Delta_N $. 
 		\begin{itemize}
-		\item[i) ] Como todas las coordenadas de $ \ttt_n $ son no negativas podemos asegurar que las de $ \ttt_0 $ también lo son.
-		\item[ii) ] la función $ f: \RR^N \longrightarrow \RR $ definida como $ f(\ttt) =  \sum_{i=1}^{N} t_i $ es continua. Claramente $ f(\ttt) = 1 $ para todo $ \ttt \in \Delta_N $ y por ello $ \lbrace f(\ttt_n) \rbrace_{ n \in \NN} \longrightarrow 1$. Por continuidad de $ f $ y unicidad de límite tenemos que $ f(\ttt_0) = 1 $ pero eso implica que la suma de sus componentes vale 1
+		\item[i) ] Como todas las coordenadas de cada $ \ttt_n $ para $ n \in \NN $ son no negativas podemos asegurar que las de $ \ttt_0 $ también lo son.
+		\item[ii) ] La función $ f: \RR^N \longrightarrow \RR $ definida como $ f(\ttt) =  \sum_{i=1}^{N} t_i $ es continua. Claramente $ f(\ttt) = 1 $ para todo $ \ttt \in \Delta_N $ y por ello $ \lbrace f(\ttt_n) \rbrace_{ n \in \NN} \longrightarrow 1$. Por continuidad de $ f $ y unicidad de límite tenemos que $ f(\ttt_0) = 1 $ pero eso implica que la suma de sus componentes vale 1
 		\end{itemize} 
 	
 		Así, hemos demostrado que $ \ttt_0 \in \Delta_N $ y por lo tanto $ \Delta_N $ es compacto. 
@@ -157,7 +157,7 @@
 		\item[ii*)] $ \exists y \in \RR^M $ tal que cumple $ \max_{i=1,...,N} \langle y, x_i \rangle < 0 $.
 	\end{itemize}
 
-	Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. Notar que las funciones $ f_1,...,f_N $ son lineales por lo que en particular son convexas. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
+	Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por $ f_i(c):=\langle c,x_i \rangle , \forall i=1,...,N  $. Notar que las funciones $ f_1,...,f_N $ son lineales por la izquierda y como consecuencia son convexas. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
 	
 	\begin{equation*}
 		\exists c \in C = \RR^M \text{ : } \max_{i=1,...,N} {\langle c,x_i \rangle}  =  \max_{i=1,...,N}f_i (c) < 0 
@@ -168,7 +168,7 @@
 		\exists \mathbf{t} \in \Delta_N \text{ : } 0 \leq \inf_{c \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(c) } = \inf_{c \in \RR^M} \sum_{i=1}^{N}{t_i\langle c,x_i \rangle} = \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle 
 	\end{equation*}
 	
-	Hemos obtenido por ello que : $0  \leq \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle  $ lo que nos lleva a $ 0 \leq \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle  $ para todo $ c \in \RR^M $. Usando la linealidad por la izquierda del producto escalar:
+	Hemos obtenido por ello que  $0  \leq \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle  $ lo que nos lleva a $ 0 \leq \langle c, \sum_{i=1}^{N}{t_i x_i} \rangle  $ para todo $ c \in \RR^M $. Usando la linealidad por la izquierda del producto escalar:
 	\[
 	0 \leq \langle -c, \sum_{i=1}^{N}{t_i x_i} \rangle \Longleftrightarrow 	0 \leq -\langle c, \sum_{i=1}^{N}{t_i x_i} \rangle 
 	\Longleftrightarrow  \langle c, \sum_{i=1}^{N}{t_i x_i}\rangle \leq 0, \quad \forall c \in \RR^M
