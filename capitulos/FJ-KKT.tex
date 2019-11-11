@@ -4,19 +4,22 @@
 		
 	En primer lugar, empezamos recordando la definición de derivada direccional. 
 	\begin{definicion}
-			Sea $ D \subset \vecSpace $ subconjunto de un espacio vectorial y sea la función $ g: D \longrightarrow  \RR$ definimos la derivada direccional de g en la dirección del vector $ d\in \vecSpace $ como
+			Sea $ D \subset \RR^M $ con $ M \in \NN $ y sea la función $ g: D \longrightarrow  \RR$, definimos la derivada direccional de g en $ x \in D $ en la dirección del vector $ d\in \RR^M $ como
 			\[
 			g'(x;d) = \lim_{t\rightarrow0}\frac{g(x+td) - g(x)}{t}
 			\]
-			siempre y cuando el límite exista. Diremos que g es diferenciable en el sentido de Gâteaux en x si $ g'(x;d) $ es lineal en d, es decir, $ g'(x;d) = \langle \nabla g(x), d\rangle $.
+			siempre y cuando el límite exista. Diremos que g es diferenciable en el sentido de Gâteaux en x si $ g'(x;\cdot):\RR^M \longrightarrow \RR $ es lineal y en ese caso escribimos $ \nabla g(x) = g'(x;\cdot) $, es decir, $ g'(x;d) = \langle \nabla g(x), d\rangle $ con $ d \in \RR^M $.
 	\end{definicion}
-
-	Dentro de este contexto, cuando decimos que una función es diferenciable nos referimos a que es diferenciable en el sentido de Gâteaux. Antes de continuar demostremos cómo se calcula la derivada de la función máximo, lo que nos será útil en posteriores resultados.
 	
+	Dentro del contexto de este trabajo, cuando decimos que una función es diferenciable nos referimos a que lo es en el sentido de Gâteaux. Destacamos que este concepto de diferenciabilidad es más débil que el de Fréchet, que es el más frecuente dentro de nuestros estudios. De hecho, si una función $ g $ es diferenciable en $ x_0 \in D$ en el sentido de Fréchet, y notamos su derivada como $ Dg(x_0) $ entonces $ g $ también es diferenciable en el sentido de Gâteaux en $ x_0 $ y además $ Dg(x_0) = \nabla g(x_0) $. El recíproco no es cierto tal y como mostramos en el siguiente ejemplo:\\
+	
+	EJEMPLO \\
+	
+	A continuación, demostremos cómo se calcula la derivada de la función máximo, lo que nos será útil en posteriores resultados.
 	\begin{proposicionBox}\label{dirDeriv}
-		Sea $ D \subset \vecSpace$ un subconjunto de un espacio vectorial, $ \barx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como $ g(x):=\max_{i=1,...,N}\{g_i(x)\} $ y el conjunto de índices $ K = \lbrace  i : g_i(\barx) =  g(\barx) \rbrace $. Entonces, para toda $ d \in \vecSpace $ dirección del espacio vectorial, la derivada direccional de $ g $ viene dada por la siguiente expresión:
+		Sean $ D \subset \RR^M$ ($ M \in \NN $) , $ \barx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como $ g(x):=\max_{i=1,...,N}\{g_i(x)\} $ y el conjunto de índices $ K = \lbrace  i : g_i(\barx) =  g(\barx) \rbrace $. Entonces, para toda dirección $ d \in \RR^M $ la derivada direccional de $ g $ existe en todo $ \RR^M $ y viene dada por la siguiente expresión:
 		\begin{equation}
-			g'(\barx;d) = \max_{i \in K}\{ \langle \nabla g_i(\barx), d \rangle\}.
+			g'(\barx;d) = \max_{i \in K}\{ \langle \nabla g_i(\barx), d \rangle\}, \quad d\in\RR^M.
 		\end{equation}
 	\end{proposicionBox}
 	\begin{proof}
@@ -57,18 +60,26 @@
 	
 		\begin{equation}\label{probMin}
 		\begin{cases}
-		\text{minimizar } f(x)\\
-		\text{sujeto a } g_i(x) \leq 0 \quad \forall i =1,...,N, \quad N \in \NN \\
-		\text{con }x \in C
+		\inf_{x\in C} f(x)\\
+		\begin{split}
+		\text{s.a. } g_1(x) &\leq 0 \\
+		&\vdots \\
+		g_N(x) &\leq 0, \quad N \in \NN
+		\end{split}
+		
 		\end{cases} 
 		\end{equation}
-		donde $ C \subset \vecSpace$ es un subconjunto del espacio vectorial, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i \in I $ son continuas en $ C $. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región de factibilidad} al conjunto de todos los puntos factibles. Para un punto factible $ \barx $ definimos el \textit{conjunto activo} como $ I(\barx) = \{i: g_i(\barx) = 0\}$. Para este problema y asumiendo que $ \barx \in C $ llamamos \textit{vector de multiplicadores de Lagrange para $ \barx $} a $ \lambda \in (\RR^N)^+ $ si $ \barx $ es un punto crítico de:
+		donde $ C \subset \RR^M$, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i =1,\dots, N $ funciones reales definidas en $ C $ y continuas. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región de factibilidad} al conjunto de todos los puntos factibles. Para un punto factible $ \barx $ definimos el \textit{conjunto activo} como $ I(\barx) = \{i: g_i(\barx) = 0\}$. Para este problema y asumiendo que $ \barx \in C $, llamamos \textit{vector de multiplicadores de Lagrange para $ \barx $} a $ \lambda \in (\RR^N)^+ $ si $ \barx $ es un punto crítico de:
 		\[
-		L(x;\lambda) = f(x) + \sum_{i=1}^{N} \lambda_i g_i(x).
+		L(x;\lambda) = f(x) + \sum_{i=1}^{N} \lambda_i g_i(x),
 		\]
-		
-		\begin{teoremaBox}[Condiciones de Fritz John]\label{FritzJohn}
-			Supongamos que el problema \ref{probMin} tiene un mínimo local en $ \barx \in C $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ entonces existen $ \lambda_0, \lambda_i \in \RR^+ $ para $ i \in I(\barx) $, no todas cero, que satisfacen:
+		es decir, se cumple que (cuando $ f,g_1,\dots,g_N $ sean diferenciables):
+		\[
+		\nabla f(\barx) + \sum_{i=1}^{N} \lambda_i \nabla g_i(\barx) = 0
+		\]
+		y además $ \lambda_i = 0 $ si $ i \notin I(\barx) $.
+		\begin{teoremaBox}[Teorema de Fritz John]\label{FritzJohn}
+			Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in C $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ entonces existen $ \lambda_0, \lambda_i \in \RR^+ $ para $ i \in I(\barx) $, no todas cero, que satisfacen:
 			\[
 			\lambda_0 \nabla f(\barx) + \sum_{i \in I(\barx)} \lambda_i \nabla g_i(\barx) = 0.
 			\]
@@ -78,7 +89,7 @@
 			\[
 			g(x) = \max \{ f(x) - f(\barx),\text{ } g_i(x) : i \in I(\barx)\}.
 			\]
-			Como $ \barx $ es un mínimo local del problema \ref{probMin} también lo es de $ g $. Esto se debe a que como $ f(x) \geq f(\barx) $ entonces $ f(x) - f(\barx) \geq 0$ para todo $ x $ en un entorno de $ \barx $. Por otro lado, $ g_i(x) \leq 0 $ si $ x \in C $ y si $ i \in I(\barx) $ entonces $ g_i(\barx)=0 $. De este modo $ g(x) \geq 0 \text{ } $ para todo $ x $ en un entorno de $ \barx $ y $ g(\barx) = 0 $ por lo que efectivamente alcanza un mínimo local en $ \barx $. Por la proposición \ref{dirDeriv} tenemos que para toda dirección d del espacio vectorial se cumple:
+			Como $ \barx $ es un mínimo local del problema (\ref{probMin}) también lo es de $ g $. Esto se debe a que como $ f(x) \geq f(\barx) $ entonces $ f(x) - f(\barx) \geq 0$ para todo $ x $ en un entorno de $ \barx $. Por otro lado, $ g_i(x) \leq 0 $ para todo $ x \in C $ y como $ i \in I(\barx) $ entonces $ g_i(\barx)=0 $. De este modo $ g(x) \geq 0 \text{ } $ para todo $ x $ en un entorno de $ \barx $ y $ g(\barx) = 0 $ por lo que efectivamente alcanza un mínimo local en $ \barx $. Por la proposición \ref{dirDeriv} tenemos que para toda dirección $ d \in \vecSpace $ se cumple:
 			\[
 			g'(\barx;d) = \max \{ \langle \nabla f(\barx), d\rangle , \langle \nabla g_i(\barx),d \rangle : i \in I(\barx)\} \geq 0,
 			\]
@@ -99,32 +110,29 @@
 			con $ M $ el cardinal del conjunto $ I(\barx) $. La demostración concluye llamando $ \lambda_0 = t_0 $ y $ \lambda_i = t_i $ con $ i \in I(\barx) $.
 		\end{proof}
 	
-		\paragraph{}Las condiciones de Fritz John nos pueden aportan una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente a las restricciones. Por ello, necesitamos imponer algunas condiciones extra. En esta situación diremos que se cumple el \textit{requisito de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema que soluciona el problema que acabamos de comentar.
+		\paragraph{}El teorema de Fritz John nos pueden aportan una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente a las restricciones. Por ello, necesitamos imponer algunas condiciones extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema que soluciona el problema que acabamos de comentar.
 		
-		\begin{teoremaBox}[Condiciones de Karush-Kuhn-Tucker]
-		Supongamos que el problema \ref{probMin} tiene un mínimo local en $ \barx \in C $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple el requisito de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
+		\begin{teoremaBox}[Teorema de Karush-Kuhn-Tucker]
+		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in C $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
 		\end{teoremaBox} 
 	
 		\begin{proof}
 		El teorema \ref{FritzJohn} de las condiciones de Fritz John obtenemos que:
 		\[
 		\exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx)
-		\]
-		
+		\]		
 		con $ M $ el cardinal de $ I(\barx) $. Si multiplicamos escalarmente la igualdad por $ d_0 $ (dirección del espacio vectorial que nos aporta el requisito de  Mangasarian-Fromovitz) obtenemos:
 		\[
-		0 = t_0 \langle \nabla f(\barx), d_0 \rangle + \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle
+		0 = t_0 \langle \nabla f(\barx), d_0 \rangle + \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
 		\]
-		
 		El requisito también nos da que $ t_0 \neq 0$. Razonemos por reducción al absurdo. Si se diese el caso tendríamos que
 		\[
-		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle
+		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
 		\]
-		
 		Al tener $ \ttt \in \Delta_{M+1} $ se cumple que todas sus compnentes son positivas y $ \sum_{i \in I(\barx)}  t_i = 1 $ (estamos suponiendo que $ t_0 = 0 $ por lo que no influye en la suma de la definición de $ \Delta_{M+1} $) por lo que algún término es distinto de 0. Tenemos garantizado que $  \langle g_i (\barx), d_0 \rangle < 0 \quad \forall i \in I(\barx) $. Así tendríamos que:
 			\[
-		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle < 0
+		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle < 0,
 		\]
-		lo cual es imposible. Por ello, concluimos que $ t_0 \neq 0 $.
+		lo cual es imposible. Por ello, concluimos que $ t_0 \neq 0 $. La demostración concluye tomando $ \lambda_i = t_i / t_0 $ para $ i \in I(\barx) $.
 		\end{proof}
 		

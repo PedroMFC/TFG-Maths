@@ -1,4 +1,4 @@
-\chapter{Igualdad ???}
+\chapter{Igualdad}
 \newcommand{\normSpace}{E}
 	
 Ahora, queremos obtener una igualdad que nos será de utilidad posteriormente para el Teorema de Separación. Empezamos recordando algunas nociones básicas de Análisis Funcional. El primer resultado que caracteriza la continuidad de operadores lineales en espacios normados.
@@ -14,7 +14,7 @@ Destacar que notamos de igual manera a la norma de $ \normSpace_1 \text{ y } \no
 
 En primer lugar, supongamos que $ L $ es continuo. Como es continuo en todo punto de $ \normSpace_1 $, en particular, lo es en 0. De este modo, para $ \varepsilon = 1 $, existe $ \delta >0  $  tal que, para $ y \in \normSpace_1 $ con $ \norm{y} \leq \delta$ se tiene $ \norm{L(y)} \leq 1 $. Dado $ x \in \normSpace_1 \setminus \{0\} $, podemos tomar $ y = \delta x / \norm{x} $, para obtener $ \delta \norm{L(x)} / \norm{x} = \norm{L(y)} \leq 1 $. Esto es $ \norm{L(x)} \leq (1/\delta) \norm{x} $. Esto es válido para todo $ x \in \normSpace_1 \setminus \{0\} $ y obvio para $ x = 0 $ por lo que podemos tomar $ \alpha = 1/\delta $. \\
 
-Por otro lado si $ \exists \alpha > 0 $ tal que  $ \norm{L(x)} \leq \alpha \norm{x} $ para todo $ x \in \normSpace_1 $, para cualesquiera $ x,y \in \normSpace_1 $ se tiene que $ \norm{L(x) - L(y)} \leq \alpha \norm{x-y} $. Así, $ L $ es lipschitziana de $ \normSpace_1 \text{ a } \normSpace_2$ por lo que es continua (en realidad uniformemente continua).
+Por otro lado, si $ \exists \alpha > 0 $ tal que  $ \norm{L(x)} \leq \alpha \norm{x} $ para todo $ x \in \normSpace_1 $, para cualesquiera $ x,y \in \normSpace_1 $ se tiene que $ \norm{L(x) - L(y)} \leq \alpha \norm{x-y} $. Así, $ L $ es lipschitziana de $ \normSpace_1 \text{ a } \normSpace_2$ por lo que es continua (en realidad uniformemente continua).
 \end{proof}
 
 Consideramos el espacio dado por:
@@ -26,17 +26,17 @@ Para todo $ L \in \normSpace^* $ definimos su norma como su constante de Lipschi
 \norm{L} = \min \lbrace \alpha > 0:  \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1\rbrace.
 \]
 De este modo, podemos escribir:
-\begin{equation}\label{desigNorma}
+\begin{equation*}\label{desigNorma}
 	\norm{L(x)} \leq \norm{L} \norm{x}
-\end{equation}
-siendo dicha desigualdad óptima. También podemos expresar su norma como el mínimo mayorante de un conjunto mayorado, que es el supremo:
+\end{equation*}
+siendo dicha desigualdad óptima. También podemos expresar su norma como el mínimo mayorante de un conjunto mayorado, es decir, el supremo:
 \[
 \norm{L} = \sup \lbrace \norm{L(x)}/\norm{x} : \forall x \in \normSpace_1 \setminus \{0\}\rbrace.
 \]
 Para $  x \in \normSpace_1 \setminus \{0\} $ tenemos que $ \norm{L(x)}/\norm{x} = \norm{L(x/\norm{x})}$ y es claro que $ \{ x/\norm{x} : x \in \normSpace_1 \setminus \{0\}\} $ es la esfera unidad de $ \normSpace $ que notamos como $ S_\normSpace $. Si en vez de la esfera consideramos la bola unidad, $ B_\normSpace $ el supremo no varía. Efectivamente, si $ x \in B_\normSpace  $ se tiene que $ x = \norm{x}u $ con $ u \in  S_\normSpace$, y por ello $ \norm{L(x)} = \norm{x}\norm{L(u)} \leq \norm{L(u)} $ ya que $ \norm{x} \leq 1 $. De este modo, también tenemos que:
-\begin{equation}\label{normSup}
+\begin{equation*}\label{normSup}
 	\norm{L} =\sup_{x \in B_\normSpace} \norm{L(x)}.
-\end{equation}
+\end{equation*}
 
 En este momento, estamos en disposición de enunciar y demostrar la igualdad que deseamos:
 \begin{proposicionBox}
@@ -57,7 +57,7 @@ y el conjunto $ D = \{x_0\} $ con $ x_0 \in \normSpace $ arbitrario. Es claro qu
 \begin{equation*}
  	\norm{L(x)} \leq \norm{P(x)} = \norm{x} \quad \forall x \in \normSpace.
 \end{equation*}
-Usando la proposición \ref{caracCont} concluimos que $ L $ es continua. Como $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$ ($ x^* \in  B_{\normSpace ^ *} $).  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
+Usando la proposición \ref{caracCont} concluimos que $ L $ es continua. Además, como tenemos que $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$ ($ x^* \in  B_{\normSpace ^ *} $).  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si tomamos cualquier elemento $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
 \[
 \sup_{x^* \in B_{\normSpace ^ *}} x^*(x_0) = \norm{x_0}.
 \] 
