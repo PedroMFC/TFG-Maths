@@ -1,0 +1,89 @@
+\chapter{Teorema de Separación}
+
+\begin{teoremaBox}\label{sep1}
+Dado $ N \in \NN $ y sea $ C \in \RR^N $ subconjunto convexo y definimos
+\[
+\delta := \inf\{ \norm{c}: c \in C \}.
+\]
+Entonces, existe $ x_0 \in \RR^N $ tal que si $ c \in C $ se cumple que $ \delta \leq \langle x_0,c\rangle $.
+\end{teoremaBox}
+\begin{proof}
+En primer lugar, vamos a reescribir la tesis del teorema. Queremos ver que:
+\[
+\exists x_0 \in \RR^N : c \in C \Longrightarrow \delta \leq \langle x_0,c\rangle.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists \alpha > 0, \exists x_0 \in \alpha B_{\RR^N} : c \in C \Longrightarrow \delta \leq \langle x_0,c\rangle.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists \alpha > 0, \exists x_0 \in \alpha B_{\RR^N} : \delta \leq \inf_{c\in C}\langle x_0,c\rangle.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists \alpha > 0 : \delta \leq \max_{x\in \alpha B_{\RR^N}}\inf_{c\in C}\langle x,c\rangle.
+\]
+Llamamos $ \topSpace := \alpha B_{\RR^N}$ que es compacto y conexo, $ \topSpaceY:= C$ convexo y $ f $ función a la real y continua con valores en $ \topSpace \times \topSpaceY $ definida como $ f(x,y):=\langle x,y \rangle $ (al ser $ f $ continua, en particular es superiormente semicontinua). Aplicamos el teorema Minimax (\ref{MinMax}) y obtenemos que probar la última desigualdad es equivalente a probar que
+\[
+\exists \alpha > 0 : \delta \leq \inf_{c\in C}\max_{x\in \alpha B_{\RR^N}}\langle x_0,c\rangle.
+\]
+Tenemos que $ \max_{x\in \alpha B_{\RR^N}}\langle x,c\rangle \leq \alpha \norm{c} $ por la desigualdad de Cauchy–Schwarz. Así, debemos demostrar que
+\[
+\exists \alpha > 0 : \delta \leq \inf_{c\in C} \alpha \norm{c} \leq \alpha  \inf_{c\in C}\norm{c} = \alpha \delta.
+\]
+Pero esta desigualdad es cierta tomando, por ejemplo, $ \alpha = 1 $.
+\end{proof}
+
+Ahora, vamos a hacer una generalización de este resultado.
+\begin{teoremaBox}
+Sean $ A,B $ subconjuntos convexos de $ \RR^N $ para $ N \in \NN $ tal que $ A $ es cerrado, $ B $ es compacto y $ A \cap B = \emptyset$. Entonces existe $ x_0 \in \RR^N $ tal que
+\[
+\sup_{a \in A} \langle x_0,a\rangle < \inf_{b\in B} \langle x_0,b\rangle.
+\]
+\end{teoremaBox}
+\begin{proof}
+En primer lugar, veamos que $ \dist(A,B) > 0 $ donde la distancia viene dada por $\dist(A,B) = \inf\{ \norm{a-b} : a\in A, b\in B\}$. Para ello, razonemos por reducción al absurdo. Suponemos $ \dist(A,B) = 0 $, entonces existe una sucesión $ \{u_n\}_{n\in\NN} \subset A-B $ tal que $ \{u_n\}_{n\in\NN} \longrightarrow 0 $. Para $ n\in\NN $ tenemos que $ u_n = a_n - b_n $ con $ a_n \in A $ y $ b_n \in B $. De este modo obtenemos las sucesiones $ \{a_n\}_{n\in\NN} \subset A $ y $ \{b_n\}_{n\in\NN} \subset B $. Como $ B $ es compacto, existe una sucesión parcial convergente, es decir, existe $ \sigma: \NN \longrightarrow \NN $ estrictamente creciente tal que $ \{b_{\sigma(n)}\}_{n\in\NN} \longrightarrow b$ con $ b \in B $. Así,
+\[
+\norm{a_{\sigma(n)}-b} = \norm{a_{\sigma(n)} - b_{\sigma(n)} + b_{\sigma(n)} - b} \leq  \norm{a_{\sigma(n)} - b_{\sigma(n)}} + \norm{b_{\sigma(n)} - b}.
+\]
+Entonces tenemos que $ \norm{a_{\sigma(n)}-b} \longrightarrow 0 $ ya que $ \{b_{\sigma(n)}\}_{n\in\NN} \longrightarrow b$ y como $ \norm{a_n - b_n}\longrightarrow 0$ también se cumple que $ \norm{a_{\sigma(n)} - b_{\sigma(n)}}\longrightarrow 0$. Por ello hemos llegado a que $ \{a_{\sigma(n)}\}_{n\in\NN} \longrightarrow b$. Al ser $ A $ cerrado se debe cumplir que $ b \in A $ lo cual es imposible ya que $ A \cap B = \emptyset$. \\
+
+Ahora, aplicamos el teorema (\ref{sep1}) a $ C:= B-A $. Notar que $ C $ es convexo por serlo $ A $ y $ B $. Obtenemos entonces que existe $ x_0 \in \RR^N $ tal que si $ c \in C $ se cumple que:
+\[
+\delta = \inf_{c \in C} \norm{c} \leq \langle x_0, c\rangle.
+\]
+Por la definición de $ C $, se tiene que:
+\[
+\delta = \inf\{ \norm{b-a} : a\in A, b\in B\} = \dist(A,B) > 0.
+\] 
+Del mismo modo, $ c = b-a $ para todo $ c \in C $ con $ a \in A $ y $ b \in B $. Así.
+\[
+\exists x_0 \in \RR^N: a\in A, b\in B \Longrightarrow 0 <\delta \leq \langle x_0, b-a\rangle = \langle x_0, b\rangle - \langle x_0,a\rangle.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists x_0 \in \RR^N: a\in A, b\in B \Longrightarrow \langle x_0, a\rangle + \delta \leq \langle x_0, b\rangle ,\text{ con } \delta > 0.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists x_0 \in \RR^N: a\in A, b\in B \Longrightarrow \langle x_0, a\rangle < \langle x_0, b\rangle.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists x_0 \in \RR^N : \sup_{a\in A}\langle x_0, a\rangle < \inf_{b \in B}\langle x_0, a\rangle.
+\]
+Por ello, queda probado el teorema.
+\end{proof}

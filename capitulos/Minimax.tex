@@ -46,22 +46,22 @@ f(x) = \begin{cases}
 es superiormente semicontinua. \\
 
 En estos momentos nos encontramos en condiciones de enunciar y demostrar nuestro teorema Minimax.
-\begin{teoremaBox}
+\begin{teoremaBox}\label{MinMax}
 Sean $ \topSpace, \topSpaceY $ subconjuntos convexos de espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto.Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
 \begin{itemize}	
 \item[i)] cóncava y superiormente semicontinua en $ \topSpace $ y
 \item[ii)] convexa en $ \topSpaceY $.
 \end{itemize}
 Entonces:
-\begin{equation}\label{eqMinMax}
+\begin{equation*}\label{eqMinMax}
 \inf_{y \in Y} \max_{x \in X} f(x,y) = \max_{x \in X} \inf_{y \in Y} f(x,y).
-\end{equation}
+\end{equation*}
 \end{teoremaBox}
 \begin{proof}
 En primer lugar, podemos escribir máximo en ambos casos en vez de supremo ya que $ f $ es superiormente semicontinua en $ \topSpace $, por ello $ \inf_{y \in Y} f(x,y) $ también lo es (referenciar) y $ \topSpace $ es compacto (referenciar). Como hemos explicado anteriormente, solo necesitamos la desigualdad 
-\begin{equation}\label{desAux}
+\begin{equation*}
 \inf_{y \in Y} \max_{x \in X} f(x,y) \leq \max_{x \in X} \inf_{y \in Y} f(x,y).
-\end{equation}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux}) es equivalente a:\\
+\end{equation*}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux}) es equivalente a:\\
 \[
 \exists x_0 \in X:\text{ }\alpha \leq \inf_{y \in Y} f(x_0,y),
 \]
@@ -86,9 +86,9 @@ N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \exists x_0\in\top
 \[
 \big\Updownarrow
 \]
-\[
+\begin{equation}\label{desAux}
 N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \alpha \leq \max_{x \in X} \min_{i=1\dots,N }f(x,y_i).
-\]
+\end{equation}
 En efecto, sean \vecN{y}$ \in \topSpaceY$ con $ N \in \NN $. Aplicamos el lema de Simons, lema (\ref{Simons}), tomando $ C := \topSpace $ y $ f_i: \topSpace \longrightarrow \RR $ definidas como $ f_i(x):=-f(x,y_i) $ para $ i=1,\dots,N $. Como $ f $ es cóncava respecto a $ X $ tenemos que las $ f_i $ son convexas para X con $  i=1,\dots,N $. De este modo, existe $ \ttt \in \Delta_N$ tal que
 \[
 \inf_{x \in \topSpace}\left[ \max_{i=1\dots,N } \{f_i(x)\}\right] = \inf_{x \in \topSpace} \left[ \sum_{i=1}^{N} t_i f_i(x) \right].
