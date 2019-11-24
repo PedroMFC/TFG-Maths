@@ -1,22 +1,10 @@
 \chapter{Igualdad}
 \newcommand{\normSpace}{E}
 	
-Ahora, queremos obtener una igualdad que nos será de utilidad posteriormente para el Teorema de Separación. Empezamos recordando algunas nociones básicas de Análisis Funcional. El primer resultado que caracteriza la continuidad de operadores lineales en espacios normados.
-	
-\begin{proposicionBox}\label{caracCont}
-Sean $ \normSpace_1, \normSpace_2 $ dos espacios normados y $ L:\normSpace_1 \longrightarrow \normSpace_2 $ un operador lineal. Entonces, L es continuo si, y solo si, verifica la siguiente condición:
+Ahora, queremos obtener una igualdad que nos será de utilidad posteriormente para el Teorema de Separación. Recordemos dados $ \normSpace_1, \normSpace_2 $ dos espacios normados y $ L:\normSpace_1 \longrightarrow \normSpace_2 $ un operador lineal, entonces L es continuo si, y solo si, verifica la siguiente condición:
 \[
-\exists \alpha > 0 : \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1
+\exists \alpha > 0 : \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1.
 \]
-\end{proposicionBox}
-\begin{proof}
-Destacar que notamos de igual manera a la norma de $ \normSpace_1 \text{ y } \normSpace_2$ lo que no debería causar confusión.\\
-
-En primer lugar, supongamos que $ L $ es continuo. Como es continuo en todo punto de $ \normSpace_1 $, en particular, lo es en 0. De este modo, para $ \varepsilon = 1 $, existe $ \delta >0  $  tal que, para $ y \in \normSpace_1 $ con $ \norm{y} \leq \delta$ se tiene $ \norm{L(y)} \leq 1 $. Dado $ x \in \normSpace_1 \setminus \{0\} $, podemos tomar $ y = \delta x / \norm{x} $, para obtener $ \delta \norm{L(x)} / \norm{x} = \norm{L(y)} \leq 1 $. Esto es $ \norm{L(x)} \leq (1/\delta) \norm{x} $. Esto es válido para todo $ x \in \normSpace_1 \setminus \{0\} $ y obvio para $ x = 0 $ por lo que podemos tomar $ \alpha = 1/\delta $. \\
-
-Por otro lado, si $ \exists \alpha > 0 $ tal que  $ \norm{L(x)} \leq \alpha \norm{x} $ para todo $ x \in \normSpace_1 $, para cualesquiera $ x,y \in \normSpace_1 $ se tiene que $ \norm{L(x) - L(y)} \leq \alpha \norm{x-y} $. Así, $ L $ es lipschitziana de $ \normSpace_1 \text{ a } \normSpace_2$ por lo que es continua (en realidad uniformemente continua).
-\end{proof}
-
 Consideramos el espacio dado por:
 \[
 \normSpace^* =  \lbrace L:\normSpace \longrightarrow \RR: L \text{ es lineal y continuo} \rbrace.
@@ -57,7 +45,7 @@ y el conjunto $ D = \{x_0\} $ con $ x_0 \in \normSpace $ arbitrario. Es claro qu
 \begin{equation*}
  	\norm{L(x)} \leq \norm{P(x)} = \norm{x} \quad \forall x \in \normSpace.
 \end{equation*}
-Usando la proposición \ref{caracCont} concluimos que $ L $ es continua. Además, como tenemos que $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$ ($ x^* \in  B_{\normSpace ^ *} $).  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si tomamos cualquier elemento $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
+Concluimos que $ L $ es continua. Además, como tenemos que $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$ ($ x^* \in  B_{\normSpace ^ *} $).  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si tomamos cualquier elemento $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
 \[
 \sup_{x^* \in B_{\normSpace ^ *}} x^*(x_0) = \norm{x_0}.
 \] 

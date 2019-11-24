@@ -1,4 +1,9 @@
-\begin{thebibliography}{BL10}
+\begin{thebibliography}{ABCD10}
+
+\bibitem[ABCD10]{Alfonso2010a}
+M.~Alfonso, B.~Bernardo, C.~Carlos, y D.~Domingo.
+\newblock El problema de los gatos y los perros.
+\newblock {\em Mascotas}, 50:112--115, 2010.
 
 \bibitem[BL10]{borwein2010convex}
 Jonathan Borwein y Adrian~S Lewis.

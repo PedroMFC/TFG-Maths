@@ -58,10 +58,10 @@ Entonces:
 \end{equation*}
 \end{teoremaBox}
 \begin{proof}
-En primer lugar, podemos escribir máximo en ambos casos en vez de supremo ya que $ f $ es superiormente semicontinua en $ \topSpace $, por ello $ \inf_{y \in Y} f(x,y) $ también lo es (referenciar) y $ \topSpace $ es compacto (referenciar). Como hemos explicado anteriormente, solo necesitamos la desigualdad 
-\begin{equation*}
+En primer lugar, podemos escribir máximo en ambos casos en vez de supremo ya que $ f $ es superiormente semicontinua en $ \topSpace $, por ello $ \inf_{y \in Y} f(x,y) $ también lo es (referenciar), y $ \topSpace $ es compacto (referenciar). Como hemos explicado anteriormente, solo necesitamos la desigualdad 
+\begin{equation}\label{desAux1}
 \inf_{y \in Y} \max_{x \in X} f(x,y) \leq \max_{x \in X} \inf_{y \in Y} f(x,y).
-\end{equation*}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux}) es equivalente a:\\
+\end{equation}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux1}) es equivalente a:\\
 \[
 \exists x_0 \in X:\text{ }\alpha \leq \inf_{y \in Y} f(x_0,y),
 \]
@@ -107,7 +107,7 @@ Al ser $ f $ convexa en $ \topSpaceY $:
 \[
 \max_{x \in \topSpace}\left[ \min_{i=1\dots,N } \{f(x,y_i)\}\right] \geq \max_{x \in \topSpace} \left[ f(x,\sum_{i=1}^{N} t_i y_i) \right] \geq \inf_{y \in Y} \max_{x \in \topSpace} f(x,y)= \alpha.
 \]
-Hemos probado entonces la desigualdad (\ref{desAux}), al ser la otra desigualdad sabida, podemos concluir que
+Hemos probado entonces la desigualdad (\ref{desAux}) y, al ser la otra desigualdad sabida, podemos concluir que
 \[
 \max_{x \in X} \inf_{y \in Y} f(x,y) = \inf_{y \in Y} \max_{x \in X} f(x,y).
 \]

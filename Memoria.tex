@@ -22,7 +22,7 @@
 \newmdtheoremenv{lemaBox}{Lema}[chapter]
 \newmdtheoremenv{proposicionBox}{Proposición}[chapter]
 
-\newtheorem{observacion}{Observación}
+\newtheorem{observacion}{Observación}[chapter]
  % Usar recuadro negro el terminar demostración
 \renewcommand\qedsymbol{$ \blacksquare $}
 %\renewcommand\proof{\textit{Demostración:}  \qedsymbol}
@@ -229,7 +229,7 @@ pdfproducer = {pdflatex}
 
 \input{capitulos/Separación}
 %% Incluir en la bibliografía las referencias no citadas
-% \nocite{Alfonso2010a}
+ \nocite{Alfonso2010a}
 \bibliographystyle{alpha-es}
 \nocite{borwein2010convex}
 \bibliography{bibliografia/bibliografia}
