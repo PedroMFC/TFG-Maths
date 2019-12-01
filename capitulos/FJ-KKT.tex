@@ -113,11 +113,11 @@
 		\paragraph{}El teorema de Fritz John nos pueden aportan una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente a las restricciones. Por ello, necesitamos imponer algunas condiciones extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema que soluciona el problema que acabamos de comentar.
 		
 		\begin{teoremaBox}[Teorema de Karush-Kuhn-Tucker]
-		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in M $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
+		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
 		\end{teoremaBox} 
 	
 		\begin{proof}
-		El teorema \ref{FritzJohn} de las condiciones de Fritz John obtenemos que:
+		Del teorema \ref{FritzJohn} de las condiciones de Fritz John obtenemos que:
 		\[
 		\exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx)
 		\]		

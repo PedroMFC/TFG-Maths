@@ -1,9 +1,24 @@
 \chapter{Teorema de Separación}
 
-Poner introducción....
+En esta sección introducimos algunos resultados sobre separación. En general, estos nos aportan herramientas para poder concluir cuándo dos subconjuntos convexos pueden ser separados mediante un hiperplano. En la siguiente imagen vemos un ejemplo sobre la situación en la que nos encontramos:
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[thick,fill opacity=0.5]
+\filldraw[fill=red][rotate = 30] (0:4cm) ellipse (8mm and 5 mm);
+\filldraw[fill=green] (1cm:1cm) circle (12mm);
+\draw (-1,3) -- (5,0);
+%\node at (0.9cm,0.6cm) {\large A};
+%\node at (3.5cm,2.1cm) {\large B};
+\end{tikzpicture}
+\end{center}
+\caption{Situación de teoremas de separación}
+\end{figure}
+
+Expones un resultado sencillo en el que solo involucramos un conjunto
 
 \begin{teoremaBox}\label{sep1}
-Dado $ N \in \NN $ y sea $ C \in \RR^N $ subconjunto convexo y definimos
+Dado $ N \in \NN $ y sea $ C \subset \RR^N $ convexo y definimos
 \[
 \delta := \inf\{ \norm{c}: c \in C \}.
 \]
@@ -44,7 +59,7 @@ Pero esta desigualdad es cierta tomando, por ejemplo, $ \alpha = 1 $.
 \end{proof}
 
 Ahora, vamos a hacer una generalización de este resultado.
-\begin{teoremaBox}
+\begin{teoremaBox}\label{separacion1}
 Sean $ A,B $ subconjuntos convexos de $ \RR^N $ para $ N \in \NN $ tal que $ A $ es cerrado, $ B $ es compacto y $ A \cap B = \emptyset$. Entonces existe $ x_0 \in \RR^N $ tal que
 \[
 \sup_{a \in A} \langle x_0,a\rangle < \inf_{b\in B} \langle x_0,b\rangle.
@@ -89,3 +104,64 @@ Del mismo modo, $ c = b-a $ para todo $ c \in C $ con $ a \in A $ y $ b \in B $.
 \]
 Por ello, queda probado el teorema.
 \end{proof}
+
+El teorema de separación anterior podemos escribirlo no solo en $ \RR^N $ sino que se puede generalizar a cualquier espacio normado finito dimensional. A continuación, exponemos otro teorema de separación válido solo en espacios normados reales pero que con unas hipótesis más débiles podemos obtener una tesis parecida.
+
+\begin{teoremaBox}
+Sea $ N \in \NN $ y $ A \text{ y } B$ dos subconjuntos convexos y disjuntos de $ \RR^N $. Entonces existe $ x_0 \in \RR^N \setminus \{0\} $ tal que
+\[
+\sup_{a \in A} \langle x_0,a\rangle \leq \inf_{b\in B} \langle x_0,b\rangle.
+\]
+\end{teoremaBox}
+\begin{proof}
+Al igual que en el teorema anterior, podemos reducir la prueba al caso en que $ C $ es un subconjunto de $ \RR^N $ convexo de forma que $ 0 \notin C $, demostrando que:
+\[
+\exists x_0 \in \RR^N \setminus \{0\}: \quad \sup_{c \in C} \langle x_0, c \rangle \leq 0,
+\]
+equivalentemente, 
+\[
+\exists x_0 \in S_{\RR^N} \setminus \{0\}: \quad \sup_{c \in C} \langle x_0, c \rangle \leq 0.
+\]
+Pero esta afirmación no es más que:
+\[
+\bigcap_{c \in C} \{x \in S_{\RR^N}: \langle x, c \rangle \leq 0 \} \neq \emptyset.
+\]
+Usando que $ S_{\RR^N} $ es compacta y por ello tenemos la propiedad ed intersección finita, equivale a que:
+\[
+\emptyset \neq C_0 \subset C \text{ finito} \Longrightarrow \bigcap_{c \in C_0} \{x \in S_{\RR^N}: \langle x, c \rangle \leq 0 \} \neq \emptyset.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+M \in \NN, \text{ } \{c_1,\dots, c_M\} \subset C\Longrightarrow \exists x_0 \in S_{\RR^N}: \quad \max_{i=1,\dots,M} \langle x_0, c_i \rangle \leq 0.
+\]
+Esta condición se cumple, ya que si $ M \geq 1 $ y $ \{c_1,\dots, c_M\} \subset C $, entonces, por ser $ C $ convexo se cumple que $ \mathrm{co}\{c_1,\dots, c_M \} \subset C $ y como $ 0 \notin C $, entonces $  0 \notin \mathrm{co}\{c_1,\dots, c_M \} $. Por tanto, la versión clásica del Teorema de Gordan, teorema (\ref{GordanClasic}):
+\[
+\exists z_0 \in \RR^N \setminus \{0\}: \quad \max_{i=1,\dots,M} \langle z_0, c_i \rangle \leq 0.
+\]
+En particular, $ z_0 \neq 0 $ y tomando $ x_0 = \frac{z_0}{\norm{z_0}} $ queda probado el enunciado.
+\end{proof}
+
+Destacamos ahora lo siguiente:
+\begin{observacion}
+El Teorema de separación (\ref{separacion1}) implica el Teorema de Gordan, teorema (\ref{GordanClasic}).
+\end{observacion}
+
+En efecto, dados $ \{x_1,\dots, x_M \} \subset \RR^N $ con $ M, N \in \NN  $ del enunciado de la alternativa de Gordan planteamos las siguientes alternativas excluyentes:
+\begin{enumerate}
+\item Si $ 0 \in \mathrm{co}\{x_1,\dots, x_M \} $ entonces es claro que se cumple la alternativa $ i*) $.
+\item Si $ 0 \notin \mathrm{co}\{x_1,\dots, x_M \} $ entonces $ \{0\} \cap \mathrm{co}\{x_1,\dots, x_M \} = \emptyset $. Al ser ambos conjuntos son compactos usamos el teorema de separación y obtenemos que:
+\[
+\exists y \in \RR^M: \quad \sup_{x \in \mathrm{co}\{x_1,\dots, x_M \}} \langle y, x \rangle < 0.
+\]
+\[
+\big\Updownarrow
+\]
+\[
+\exists y \in \RR^M: \quad \max_{i = 1,\dots, M} \langle y, x_i \rangle < 0.
+\]
+Esta última equivalencia es válida ya que como
+\[ \{x_1,\dots, x_M \} \subset \mathrm{co}\{x_1,\dots, x_M \}  \Longrightarrow \max_{i = 1,\dots, M} \langle y, x_i \rangle \leq \sup_{x \in \mathrm{co}\{x_1,\dots, x_M \}} \langle y, x \rangle.
+\]
+\end{enumerate}
