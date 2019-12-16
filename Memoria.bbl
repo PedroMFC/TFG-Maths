@@ -5,15 +5,30 @@ M.~Alfonso, B.~Bernardo, C.~Carlos, y D.~Domingo.
 \newblock El problema de los gatos y los perros.
 \newblock {\em Mascotas}, 50:112--115, 2010.
 
+\bibitem[AMN10]{Alfonso2010b}
+M.~Alfonso, M.~Marta, y N.~Nuria.
+\newblock Mi viaje a {EEUU}.
+\newblock {\em Revista de viajes}, 14:50--56, 2010.
+
 \bibitem[BL10]{borwein2010convex}
 Jonathan Borwein y Adrian~S Lewis.
 \newblock {\em Convex analysis and nonlinear optimization: theory and
   examples}.
 \newblock Springer Science \& Business Media, 2010.
 
+\bibitem[Pat11]{Patricio2011}
+A.~Patricio.
+\newblock Una estrella rosa en el fondo del mar.
+\newblock {\em El mar}, 3:1071--1090, 2011.
+
 \bibitem[ST08]{Simons2008}
 Stephen Simons y F~Takens.
 \newblock {\em From Hahn-Banach to Monotonicity}, volumen 1693.
 \newblock Springer, 2008.
+
+\bibitem[ZG09]{Zacarias2009}
+R.~Zacarias y G.~Graciela.
+\newblock ¿{C}uál te gusta más?
+\newblock {\em Flores}, 5:45--49, 2009.
 
 \end{thebibliography}

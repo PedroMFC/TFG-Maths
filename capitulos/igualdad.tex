@@ -3,15 +3,16 @@
 	
 Ahora, queremos obtener una igualdad que nos será de utilidad posteriormente para el Teorema de Separación. Recordemos dados $ \normSpace_1, \normSpace_2 $ dos espacios normados y $ L:\normSpace_1 \longrightarrow \normSpace_2 $ un operador lineal, entonces L es continuo si, y solo si, verifica la siguiente condición:
 \[
-\exists \alpha > 0 : \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1.
+\exists \alpha > 0 : \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1,
 \]
-Consideramos el espacio dado por:
+conocido como el espacio dual (topológico) de $ E $.
+Consideramos el espacio vectorial dado por:
 \[
 \normSpace^* =  \lbrace L:\normSpace \longrightarrow \RR: L \text{ es lineal y continuo} \rbrace.
 \]
-Para todo $ L \in \normSpace^* $ definimos su norma como su constante de Lipschitz, es decir:
+Para todo $ L \in \normSpace^* $ definimos su norma como:
 \[
-\norm{L} = \min \lbrace \alpha > 0:  \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1\rbrace.
+\norm{L} = \min \lbrace \alpha > 0:  \norm{L(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace\rbrace.
 \]
 De este modo, podemos escribir:
 \begin{equation*}\label{desigNorma}
@@ -19,7 +20,7 @@ De este modo, podemos escribir:
 \end{equation*}
 siendo dicha desigualdad óptima. También podemos expresar su norma como el mínimo mayorante de un conjunto mayorado, es decir, el supremo:
 \[
-\norm{L} = \sup \lbrace \norm{L(x)}/\norm{x} : \forall x \in \normSpace_1 \setminus \{0\}\rbrace.
+\norm{L} = \sup \lbrace \norm{L(x)}/\norm{x} : \forall x \in \normSpace \setminus \{0\}\rbrace.
 \]
 Para $  x \in \normSpace_1 \setminus \{0\} $ tenemos que $ \norm{L(x)}/\norm{x} = \norm{L(x/\norm{x})}$ y es claro que $ \{ x/\norm{x} : x \in \normSpace_1 \setminus \{0\}\} $ es la esfera unidad de $ \normSpace $ que notamos como $ S_\normSpace $. Si en vez de la esfera consideramos la bola unidad, $ B_\normSpace $ el supremo no varía. Efectivamente, si $ x \in B_\normSpace  $ se tiene que $ x = \norm{x}u $ con $ u \in  S_\normSpace$, y por ello $ \norm{L(x)} = \norm{x}\norm{L(u)} \leq \norm{L(u)} $ ya que $ \norm{x} \leq 1 $. De este modo, también tenemos que:
 \begin{equation*}\label{normSup}
@@ -34,23 +35,20 @@ En este momento, estamos en disposición de enunciar y demostrar la igualdad que
 	\end{equation}
 \end{proposicionBox}
 \begin{proof}
-Consideramos el funcional 
+Sea $ x_0 \in E$ y sea $ D := \{x_0\} $ Consideramos el funcional 
 \begin{equation*}
 \begin{split}
 P:\normSpace \longrightarrow &\RR \\
-x \longmapsto &\norm{x}
+x \longmapsto &\norm{x}.
 \end{split}
 \end{equation*} 
-y el conjunto $ D = \{x_0\} $ con $ x_0 \in \normSpace $ arbitrario. Es claro que $ P $ es sublineal al estar definido como la norma en $ \normSpace $ y que $ D $ es convexo. Podemos aplicar el Teorema de Mazur-Orlicz, teorema \ref{M-O}, y obtenemos que existe un funcional $ L:\normSpace \longrightarrow \RR $ lineal tal que $ L \leq P $ e $ \inf_D L = \inf_D P $. Como $ L \leq P $, entonces 
+Es claro que $ P $ es sublineal y que $ D $ es convexo. Podemos aplicar el Teorema de Mazur-Orlicz, teorema \ref{M-O}, y obtenemos que existe un funcional $ L:\normSpace \longrightarrow \RR $ lineal tal que $ L \leq P $ e $ \inf_D L = \inf_D P $. Como $ L \leq P $, entonces 
 \begin{equation*}
  	\norm{L(x)} \leq \norm{P(x)} = \norm{x} \quad \forall x \in \normSpace.
 \end{equation*}
-Concluimos que $ L $ es continua. Además, como tenemos que $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$ ($ x^* \in  B_{\normSpace ^ *} $).  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si tomamos cualquier elemento $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
+Concluimos que $ L $ es continua. Además, como tenemos que $ L \in \normSpace ^* $, llamamos $ L = x^* $ y llegamos a que $ \norm{L} = \norm{x^*}  \leq 1$, es decri, $ x^* \in  B_{\normSpace ^ *} $.  Por su parte, como  $ \inf_D L = \inf_D x^* = \inf_D P $ y $ D = \{x_0\} $ entonces, $ x^*(x_0) = \norm{x_0} $. De este modo, llegamos a que existe $ x^* \in B_{\normSpace^*} $ tal que $ x^*(x_0) = \norm{x_0} $. Si tomamos cualquier elemento $ y^* \in B_{\normSpace^*}  $, entonces $ \norm{y^*(x_0)} \leq \norm{y^*} \norm{x_0} \leq \norm{x_0} $ y podemos asegurar que:
 \[
 \sup_{x^* \in B_{\normSpace ^ *}} x^*(x_0) = \norm{x_0}.
 \] 
-Como $ x_0 \in \normSpace $ es arbitrario concluimos que dado $ x \in \normSpace $ se cumple que:
-\begin{equation*}
-\sup_{x^* \in B_{\normSpace ^ *}} x^*(x) = \norm{x}.
-\end{equation*}
+Como $ x_0 \in \normSpace $ es arbitrario, la desigualdad enunciada queda probada.
 \end{proof}

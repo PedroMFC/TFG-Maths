@@ -2,11 +2,11 @@
 \newcommand{\topSpace}{X}
 \newcommand{\topSpaceY}{Y}
 
-\paragraph{}En esta sección llegaremos a otro de los resultados clave del trabajo. Será uno de los denominados teoremas Minimax. A rasgos generales y a modo introductorio, podemos decir que un teroema Minimax es un resultado que afirma, bajo ciertas hipótesis, que:
+\paragraph{}En esta sección llegaremos a otro de los resultados clave del trabajo. Será uno de los denominados teoremas minimax. A rasgos generales y a modo introductorio, podemos decir que un teroema minimax es un resultado que afirma, bajo ciertas hipótesis, que:
 \[
 \inf_{y \in Y} \sup_{x \in X} f(x,y) = \sup_{x \in X} \inf_{y \in Y} f(x,y),
 \] 
-donde $ X \text{ e } Y$ son subconjuntos de un espacio vectorial y $ f: X \times Y \longrightarrow \RR $. Obviamente, esta igualdad no es cierta en general tal y como mostramos en el siguiente ejemplo. Definimos $ f:\{0,1\} \times \{0,1\} \longrightarrow \RR$ como:
+donde $ X \text{ e } Y$ son conjuntos no vacíos y $ f: X \times Y \longrightarrow \RR $. Obviamente, esta igualdad no es cierta en general tal y como mostramos en el siguiente ejemplo. Definimos $ f:\{0,1\} \times \{0,1\} \longrightarrow \RR$ como:
 \[
 f(x,y) = \begin{cases}
 0, & \mbox{si $ x=y $ } \\
@@ -21,33 +21,32 @@ y por otro
 \[
 \sup_{x \in X} \inf_{ y \in Y}f(x,y) = \max_{x \in X}\min_{ y \in Y}f(x,y) = \min_{ y \in Y}\{0\} = 0.
 \]
-Es claro, como muestra el ejemplo, que la desigualdad 
+Notemos que la desigualdad 
 \[
 \inf_{y \in Y} \sup_{x \in X} f(x,y) \geq \sup_{x \in X} \inf_{y \in Y} f(x,y)
 \] 
-siempre se da ya que
+siempre se da ya que si $ (x_0, y_0) \in X \times Y $, entonces:
 \[
-\sup_{x \in X} f(x,y) \geq f(x,y) \geq \inf_{y \in Y}f(x,y) .
+\sup_{x \in X} f(x,y_0) \geq f(x_0,y_0) \geq \inf_{y \in Y}f(x_0,y) .
 \]
-Por lo ello, algunas veces los teoremas Minimax solo nos aportan la otra desigualdad necesaria. \\
+Por lo ello, los teoremas minimax solo nos aportan la otra desigualdad necesaria, de ahí que este tipo de resultados se conozcan también como desigualdad minimax. \\
 
 Antes de continuar, exponemos la siguiente definición que aparecerá posteriormente en el teorema. Se trata de una propiedad más débil que la continuidad para funciones reales. 
 \begin{definicion}
 Sea $ \topSpace $ un espacio topológico. Decimos que $ f:\topSpace \longrightarrow \RR $ es superiormente semicontinua si para todo $ r \in \RR $ se cumple que el conjunto $ \lbrace x \in \topSpace : f(x) \geq r \rbrace $ es cerrado.
 \end{definicion}
 
-Por ejemplo, la función $ f:\RR \longrightarrow \RR $ dado por 
+Es claro que toda función continua en $ \topSpace $ es superiormente semicontinua, aunque el recíproco no es cierto, tal y como prueba la función $ f:\RR \longrightarrow \RR $ dada por 
 \[
 f(x) = \begin{cases}
 0, & \mbox{si $ x < 0 $ } \\
-1, & \mbox{si $x \geq 0$ }
+1, & \mbox{si $x \geq 0$ }.
 \end{cases}
 \]
-es superiormente semicontinua. \\
 
-En estos momentos nos encontramos en condiciones de enunciar y demostrar nuestro teorema Minimax.
+En estos momentos nos encontramos en condiciones de enunciar y demostrar el siguiente teorema minimax.
 \begin{teoremaBox}\label{MinMax}
-Sean $ \topSpace, \topSpaceY $ subconjuntos convexos de espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto.Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
+Sean $ \topSpace,\hspace{0.5mm} \topSpaceY $ subconjuntos convexos de sendos espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto. Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
 \begin{itemize}	
 \item[i)] cóncava y superiormente semicontinua en $ \topSpace $ y
 \item[ii)] convexa en $ \topSpaceY $.
@@ -61,19 +60,20 @@ Entonces:
 En primer lugar, podemos escribir máximo en ambos casos en vez de supremo ya que $ f $ es superiormente semicontinua en $ \topSpace $, por ello $ \inf_{y \in Y} f(x,y) $ también lo es (referenciar), y $ \topSpace $ es compacto (referenciar). Como hemos explicado anteriormente, solo necesitamos la desigualdad 
 \begin{equation}\label{desAux1}
 \inf_{y \in Y} \max_{x \in X} f(x,y) \leq \max_{x \in X} \inf_{y \in Y} f(x,y).
-\end{equation}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux1}) es equivalente a:\\
+\end{equation}  Definimos $ \alpha := \inf_{y \in Y} \max_{x \in X} f(x,y) $. Si $ \alpha = -\infty $ no hay nada que probar, por lo que supondremos que $ \alpha \in \RR $. Primero vamos a reescribir el resultado a probar. La desigualdad (\ref{desAux1}) es equivalente a
 \[
 \exists x_0 \in X:\text{ }\alpha \leq \inf_{y \in Y} f(x_0,y),
 \]
 ya que si existe un elemento en $ X $ que lo cumpla el máximo también lo cumplirá y recíprocamente. O lo que es lo mismo:
 \[
-\exists x_0 \in X:\text{ }y \in \topSpaceY \Longrightarrow \alpha \leq f(x_0,y).
+\exists x_0 \in X:\text{ }y \in \topSpaceY \Longrightarrow \alpha \leq f(x_0,y),
 \]
-Entonces, tenemos que:
-\[
-\bigcap_{y\in \topSpaceY}\{x \in \topSpace: \alpha \leq f(x, y) \} \neq \emptyset,
-\]
-debido a que al menos $ x_0 $ está en dicha intersección. Como $ f $ es superiormente semicontinua en $ \topSpace $ estamos ante una intersección de cerrados. Usando la propiedad de intersección finita ($ \topSpace $ es compacto) obtenemos que:
+o lo que es igual, 
+%ya que al menos x_0 está en dicho intersección
+\begin{equation}\label{desAux2}
+\bigcap_{y\in \topSpaceY}\{x \in \topSpace: \alpha \leq f(x, y) \} \neq \emptyset.
+\end{equation}
+Como $ f $ es superiormente semicontinua en $ \topSpace $ estamos ante una intersección de cerrados. Usando la propiedad de intersección finita ($ \topSpace $ es compacto) obtenemos que \ref{desAux2} equivale a
 \[
 N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \bigcap_{i=1}^{N}\{x \in \topSpace: \alpha \leq f(x, y_i) \} \neq \emptyset.
 \]
@@ -89,13 +89,15 @@ N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \exists x_0\in\top
 \begin{equation}\label{desAux}
 N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \alpha \leq \max_{x \in X} \min_{i=1\dots,N }f(x,y_i).
 \end{equation}
-En efecto, sean \vecN{y}$ \in \topSpaceY$ con $ N \in \NN $. Aplicamos el lema de Simons, lema (\ref{Simons}), tomando $ C := \topSpace $ y $ f_i: \topSpace \longrightarrow \RR $ definidas como $ f_i(x):=-f(x,y_i) $ para $ i=1,\dots,N $. Como $ f $ es cóncava respecto a $ X $ tenemos que las $ f_i $ son convexas para X con $  i=1,\dots,N $. De este modo, existe $ \ttt \in \Delta_N$ tal que
+Esta última condición es cierta. En efecto, sean $ N \in \NN $ e \vecN{y}$ \in \topSpaceY$. Aplicamos el lema de Simons, lema (\ref{Simons}), tomando $ C := \topSpace $ y $ f_i: \topSpace \longrightarrow \RR $ definidas como \[
+ f_i(x):=-f(x,y_i), \quad i=1,\dots,N.\]
+Como $ f $ es cóncava respecto a $ X $ tenemos que las $ f_i $ son convexas para X con $  i=1,\dots,N $. De este modo, existe $ \ttt \in \Delta_N$ tal que
 \[
 \inf_{x \in \topSpace}\left[ \max_{i=1\dots,N } \{f_i(x)\}\right] = \inf_{x \in \topSpace} \left[ \sum_{i=1}^{N} t_i f_i(x) \right].
 \] 
-Si ponemos la igualdad en función de $ f $ y recordando que alcanza el supremo en $ X $:
+Si ponemos la igualdad en función de $ f $ y recordamos que alcanza el supremo en $ X $,
 \[
-\inf_{x \in \topSpace}\left[ \max_{i=1\dots,N } \{-f(x,y_i)\}\right] = \inf_{x \in \topSpace} \left[ \sum_{i=1}^{N} t_i (-f(x,y_i)) \right]. 
+\inf_{x \in \topSpace}\left[ \max_{i=1\dots,N } \{-f(x,y_i)\}\right] = \inf_{x \in \topSpace} \left[ \sum_{i=1}^{N} t_i (-f(x,y_i)) \right]
 \] 
 \[
 \big\Downarrow
@@ -105,10 +107,7 @@ Si ponemos la igualdad en función de $ f $ y recordando que alcanza el supremo 
 \] 
 Al ser $ f $ convexa en $ \topSpaceY $:
 \[
-\max_{x \in \topSpace}\left[ \min_{i=1\dots,N } \{f(x,y_i)\}\right] \geq \max_{x \in \topSpace} \left[ f(x,\sum_{i=1}^{N} t_i y_i) \right] \geq \inf_{y \in Y} \max_{x \in \topSpace} f(x,y)= \alpha.
+\max_{x \in \topSpace}\left[ \min_{i=1\dots,N } \{f(x,y_i)\}\right] \geq \text{(¿=? pero es convexa)}\max_{x \in \topSpace} \left[ f(x,\sum_{i=1}^{N} t_i y_i) \right] \geq \inf_{y \in Y} \max_{x \in \topSpace} f(x,y)= \alpha.
 \]
-Hemos probado entonces la desigualdad (\ref{desAux}) y, al ser la otra desigualdad sabida, podemos concluir que
-\[
-\max_{x \in X} \inf_{y \in Y} f(x,y) = \inf_{y \in Y} \max_{x \in X} f(x,y).
-\]
+Hemos probado entonces la desigualdad (\ref{desAux}) y con ello el teorema.
 \end{proof}

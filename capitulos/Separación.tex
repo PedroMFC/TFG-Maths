@@ -15,10 +15,10 @@ En esta sección introducimos algunos resultados sobre separación. En general, 
 \caption{Situación de teoremas de separación}
 \end{figure}
 
-Expones un resultado sencillo en el que solo involucramos un conjunto
+Exponemos un resultado sencillo en el que solo involucramos un conjunto
 
 \begin{teoremaBox}\label{sep1}
-Dado $ N \in \NN $ y sea $ C \subset \RR^N $ convexo y definimos
+Dado $ N \in \NN $, sea $ C \subset \RR^N $ convexo y definimos
 \[
 \delta := \inf\{ \norm{c}: c \in C \}.
 \]
@@ -47,26 +47,27 @@ En primer lugar, vamos a reescribir la tesis del teorema. Queremos ver que:
 \[
 \exists \alpha > 0 : \delta \leq \max_{x\in \alpha B_{\RR^N}}\inf_{c\in C}\langle x,c\rangle.
 \]
-Llamamos $ \topSpace := \alpha B_{\RR^N}$ que es compacto y conexo, $ \topSpaceY:= C$ convexo y $ f $ función a la real y continua con valores en $ \topSpace \times \topSpaceY $ definida como $ f(x,y):=\langle x,y \rangle $ (al ser $ f $ continua, en particular es superiormente semicontinua). Aplicamos el teorema Minimax, teorema (\ref{MinMax}), y obtenemos que probar la última desigualdad es equivalente a probar que
+Llamamos $ \topSpace := \alpha B_{\RR^N}$ que es compacto y conexo, $ \topSpaceY:= C$ convexo y $ f $ a la función real y continua con valores en $ \topSpace \times \topSpaceY $ definida como $ f(x,y):=\langle x,y \rangle $ (al ser $ f $ continua, en particular es superiormente semicontinua). Aplicamos el teorema Minimax, teorema (\ref{MinMax}), y obtenemos que probar la última desigualdad es equivalente a probar que
 \[
 \exists \alpha > 0 : \delta \leq \inf_{c\in C}\max_{x\in \alpha B_{\RR^N}}\langle x_0,c\rangle.
 \]
-Tenemos que $ \max_{x\in \alpha B_{\RR^N}}\langle x,c\rangle \leq \alpha \norm{c} $ por la desigualdad de Cauchy–Schwarz. Así, debemos demostrar que
+Tenemos que $ \max_{x\in \alpha B_{\RR^N}}\langle x,c\rangle \leq \text{(¿=? es desigualdad C-S )} \alpha \norm{c} $ por la desigualdad de Cauchy–Schwarz. Así, debemos demostrar que
 \[
-\exists \alpha > 0 : \delta \leq \inf_{c\in C} \alpha \norm{c} \leq \alpha  \inf_{c\in C}\norm{c} = \alpha \delta.
+\exists \alpha > 0 : \delta \leq \inf_{c\in C} \alpha \norm{c} \leq \alpha \delta.
 \]
 Pero esta desigualdad es cierta tomando, por ejemplo, $ \alpha = 1 $.
 \end{proof}
 
 Ahora, vamos a hacer una generalización de este resultado.
 \begin{teoremaBox}\label{separacion1}
-Sean $ A,B $ subconjuntos convexos de $ \RR^N $ para $ N \in \NN $ tal que $ A $ es cerrado, $ B $ es compacto y $ A \cap B = \emptyset$. Entonces existe $ x_0 \in \RR^N $ tal que
+Sean $ N\in \NN $ y $ A,B $ subconjuntos convexos de $ \RR^N $ para tal que $ A $ es cerrado, $ B $ es compacto y $ A \cap B = \emptyset$. Entonces existe $ x_0 \in \RR^N $ tal que
 \[
 \sup_{a \in A} \langle x_0,a\rangle < \inf_{b\in B} \langle x_0,b\rangle.
 \]
 \end{teoremaBox}
 \begin{proof}
-En primer lugar, veamos que $ \dist(A,B) > 0 $ donde la distancia viene dada por $\dist(A,B) = \inf\{ \norm{a-b} : a\in A, b\in B\}$. Para ello, razonemos por reducción al absurdo. Suponemos $ \dist(A,B) = 0 $, entonces existe una sucesión $ \{u_n\}_{n\in\NN} \subset A-B $ tal que $ \{u_n\}_{n\in\NN} \longrightarrow 0 $. Para $ n\in\NN $ tenemos que $ u_n = a_n - b_n $ con $ a_n \in A $ y $ b_n \in B $. De este modo obtenemos las sucesiones $ \{a_n\}_{n\in\NN} \subset A $ y $ \{b_n\}_{n\in\NN} \subset B $. Como $ B $ es compacto, existe una sucesión parcial convergente, es decir, existe $ \sigma: \NN \longrightarrow \NN $ estrictamente creciente tal que $ \{b_{\sigma(n)}\}_{n\in\NN} \longrightarrow b$ con $ b \in B $. Así,
+En primer lugar, veamos que $ \dist(A,B) > 0 $ donde la distancia viene dada por \[\dist(A,B) = \inf\{ \norm{a-b} : a\in A, b\in B\}.\]
+Para ello, razonemos por reducción al absurdo. Suponemos $ \dist(A,B) = 0 $, entonces existe una sucesión $ \{u_n\}_{n\in\NN} \subset A-B $ tal que $ \{u_n\}_{n\in\NN} \longrightarrow 0 $. Para $ n\in\NN $ tenemos que $ u_n = a_n - b_n $ con $ a_n \in A $ y $ b_n \in B $. De este modo obtenemos las sucesiones $ \{a_n\}_{n\in\NN} \subset A $ y $ \{b_n\}_{n\in\NN} \subset B $. Como $ B $ es compacto, existe una sucesión parcial convergente, es decir, existe $ \sigma: \NN \longrightarrow \NN $ estrictamente creciente tal que $ \{b_{\sigma(n)}\}_{n\in\NN} \longrightarrow b$ con $ b \in B $. Así,
 \[
 \norm{a_{\sigma(n)}-b} = \norm{a_{\sigma(n)} - b_{\sigma(n)} + b_{\sigma(n)} - b} \leq  \norm{a_{\sigma(n)} - b_{\sigma(n)}} + \norm{b_{\sigma(n)} - b}.
 \]
@@ -105,7 +106,7 @@ Del mismo modo, $ c = b-a $ para todo $ c \in C $ con $ a \in A $ y $ b \in B $.
 Por ello, queda probado el teorema.
 \end{proof}
 
-El teorema de separación anterior podemos escribirlo no solo en $ \RR^N $ sino que se puede generalizar a cualquier espacio normado finito dimensional. A continuación, exponemos otro teorema de separación válido solo en espacios normados reales pero que con unas hipótesis más débiles podemos obtener una tesis parecida.
+El teorema de separación anterior podemos escribirlo no solo en $ \RR^N $ sino que se puede generalizar a cualquier espacio normado. A continuación, exponemos otro teorema de separación válido solo en el contexto finito dimensional, con tesis e hipótesis más débiles.
 
 \begin{teoremaBox}
 Sea $ N \in \NN $ y $ A \text{ y } B$ dos subconjuntos convexos y disjuntos de $ \RR^N $. Entonces existe $ x_0 \in \RR^N \setminus \{0\} $ tal que
@@ -122,11 +123,11 @@ equivalentemente,
 \[
 \exists x_0 \in S_{\RR^N} \setminus \{0\}: \quad \sup_{c \in C} \langle x_0, c \rangle \leq 0.
 \]
-Pero esta afirmación no es más que:
+Pero esta afirmación no es más que
 \[
 \bigcap_{c \in C} \{x \in S_{\RR^N}: \langle x, c \rangle \leq 0 \} \neq \emptyset.
 \]
-Usando que $ S_{\RR^N} $ es compacta y por ello tenemos la propiedad ed intersección finita, equivale a que:
+Usamos que $ S_{\RR^N} $ es compacta y por ello tenemos, gracias a la propiedad de intersección finita, que esto equivale a
 \[
 \emptyset \neq C_0 \subset C \text{ finito} \Longrightarrow \bigcap_{c \in C_0} \{x \in S_{\RR^N}: \langle x, c \rangle \leq 0 \} \neq \emptyset.
 \]
@@ -136,9 +137,9 @@ Usando que $ S_{\RR^N} $ es compacta y por ello tenemos la propiedad ed intersec
 \[
 M \in \NN, \text{ } \{c_1,\dots, c_M\} \subset C\Longrightarrow \exists x_0 \in S_{\RR^N}: \quad \max_{i=1,\dots,M} \langle x_0, c_i \rangle \leq 0.
 \]
-Esta condición se cumple, ya que si $ M \geq 1 $ y $ \{c_1,\dots, c_M\} \subset C $, entonces, por ser $ C $ convexo se cumple que $ \mathrm{co}\{c_1,\dots, c_M \} \subset C $ y como $ 0 \notin C $, entonces $  0 \notin \mathrm{co}\{c_1,\dots, c_M \} $. Por tanto, la versión clásica del Teorema de Gordan, teorema (\ref{GordanClasic}):
+Esta condición se verifica, ya que si $ M \geq 1 $ y $ \{c_1,\dots, c_M\} \subset C $, entonces, por ser $ C $ convexo se cumple que $ \mathrm{co}\{c_1,\dots, c_M \} \subset C $ y como $ 0 \notin C $, entonces $  0 \notin \mathrm{co}\{c_1,\dots, c_M \} $. Por tanto, la versión clásica del Teorema de Gordan, teorema (\ref{GordanClasic}), garantiza
 \[
-\exists z_0 \in \RR^N \setminus \{0\}: \quad \max_{i=1,\dots,M} \langle z_0, c_i \rangle \leq 0.
+\exists z_0 \in \RR^N: \quad \max_{i=1,\dots,M} \langle z_0, c_i \rangle < 0.
 \]
 En particular, $ z_0 \neq 0 $ y tomando $ x_0 = \frac{z_0}{\norm{z_0}} $ queda probado el enunciado.
 \end{proof}
@@ -153,15 +154,10 @@ En efecto, dados $ \{x_1,\dots, x_M \} \subset \RR^N $ con $ M, N \in \NN  $ del
 \item Si $ 0 \in \mathrm{co}\{x_1,\dots, x_M \} $ entonces es claro que se cumple la alternativa $ i*) $.
 \item Si $ 0 \notin \mathrm{co}\{x_1,\dots, x_M \} $ entonces $ \{0\} \cap \mathrm{co}\{x_1,\dots, x_M \} = \emptyset $. Al ser ambos conjuntos son compactos usamos el teorema de separación y obtenemos que:
 \[
-\exists y \in \RR^M: \quad \sup_{x \in \mathrm{co}\{x_1,\dots, x_M \}} \langle y, x \rangle < 0.
+\exists y \in \RR^M: \quad \sup_{x \in \mathrm{co}\{x_1,\dots, x_M \}} \langle y, x \rangle < 0,
 \]
-\[
-\big\Updownarrow
-\]
+luego, en particular ($ \{x_1,\dots, x_M \} \subset \mathrm{co}\{x_1,\dots, x_M \}   $),
 \[
 \exists y \in \RR^M: \quad \max_{i = 1,\dots, M} \langle y, x_i \rangle < 0.
-\]
-Esta última equivalencia es válida ya que como
-\[ \{x_1,\dots, x_M \} \subset \mathrm{co}\{x_1,\dots, x_M \}  \Longrightarrow \max_{i = 1,\dots, M} \langle y, x_i \rangle \leq \sup_{x \in \mathrm{co}\{x_1,\dots, x_M \}} \langle y, x \rangle.
 \]
 \end{enumerate}

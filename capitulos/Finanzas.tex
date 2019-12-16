@@ -1,0 +1,90 @@
+\chapter{Finanzas}
+
+Nos introducimos ahora en el mundo de las denominadas \textit{matemáticas financieras}. En las secciones anteriores hemos expuesto todas las herramientas matemáticas necesarias para el trabajo y en esta vamos a explicar los conceptos económicos. Una vez se haya completado este apartado estaremos dispuestos a enunciar y probar el enunciado culmen de este trabajo que nos servirá para la valoración de activos financieros en mercados finitos. \\
+
+Nos preguntamos entonces: ``¿qué es un \textit{activo}?''. Un activo o título de valor se define como un recurso con valor que alguien posee con el fin de obtener un beneficio en el futuro. Podemos diferenciar entre activos seguros, como depósitos en el banco o bonos del estado, y activos con riesgo, como las acciones. Uno de los conceptos más importantes que tenemos es nuestro modelo del mercado financiero es el \textit{principio de no arbitraje}. Este principio intuitivamente nos dice que no podemos obtener beneficio si no corremos algún riesgo. Puede resultar un poco confuso ya que acabamos de diferencias entre activos seguros y con riesgo. Esto se debe a que un activo, aunque se llame seguro, no significa que tenga el  beneficio asegurado. Por ejemplo, si tenemos nuestro dinero depositado es posible que el banco quiebre y perdamos todos nuestros ahorros. Así, en la realidad estas oportunidades, llamadas de arbitraje, son muy raras y cuando se dan suponen una ganancia muy pequeña en comparación con la cantidad de dinero que se está manejando globalmente. \\
+
+Cuando nos movemos en el ámbito financiero también debemos de tener en cuenta el \textit{valor del dinero}. Nuestro dinero se va devaluando con el paso del tiempo. Es preferible obtener una cantidad de dinero en este momento que en el futuro ya que no tendremos el mismo poder adquisitivo. Por eso, cuando alguien tiene una deuda debe devolver el dinero con cierto interés porque, de otro modo, sería injusto para la persona que presta el dinero. Además, dicho interés es en cierta medida una estimación ya que no se puede saber con seguridad el precio en un futuro. Lo mismo pasa con los activos con riesgo, solo sabemos el precio que tienen en este momento. Por tanto, es posible que el precio en el futuro sea mayor que el actual o menor. Matemáticamente, podemos representar su valor mediante una variable aleatoria que generalmente mide la ganancia en vez del precio aunque se puede pasar de una otra fácilmente. Podemos suponer una situación con gran número de posibles ganancias intentando abarcar la mayor cantidad de situaciones que nos podríamos encontrar. Sin embargo, el caso binomial en el que solo existen dos posibilidades es el más habitual ya que es lo suficientemente simple de manejar y además refleja bastantes situaciones del mercado financiero real. Este modelo también supone que en cada paso la ganancia tiene el mismo comportamiento.  Tenemos por tanto la variable aleatoria $ K(n):\Omega \longrightarrow (-1.\infty) $ definida como:
+\[
+K(n) = \begin{cases}
+ u & \text{ con probabilidad } p\\
+ d & \text{ con probabilidad } 1-p
+\end{cases}
+\]
+cumpliendo $ -1 < d < u $ y $ 0 < p <1 $. La primera condición es importante ya que garantiza que todos los precios van a ser positivos. El espacio de probabilidad $ \Omega $ denota todos los posibles escenarios $ \omega \in \Omega $ en los que varía el precio. Como nos hemos restringido al caso binomial tenemos que $ \Omega = \{ \omega_1, \omega_2\} $. Deberíamos denotar como $ K(n,\omega) $ a la ganancia obtenida en el paso $ n $ si el mercado sigue el escenario $ \omega \in \Omega $.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=2.5cm, sibling distance=3cm]
+\tikzstyle{level 2}=[level distance=2.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+% The sloped option gives rotated edge labels. Personally
+% I find sloped labels a bit difficult to read. Remove the sloped options
+% to get horizontal labels. 
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {1}
+child {
+	node[bag] {$ 1+d $}        
+	child {
+		node[label=right:
+		{$ (1+d)^2 $}] {}
+		edge from parent
+		node[above] {$1-p$}
+	}
+	child {
+		node[label=right:
+		{$(1+d)(1+u)$}] {}
+		edge from parent
+		node[above] {$p$}
+	}
+	edge from parent 
+	node[above] {$1-p$}
+}
+child {
+	node[bag] {$ 1+u $}        
+	child {
+		node[label=right:
+		{$(1+u)(1+d)$}] {}
+		edge from parent
+		node[above] {$1-p$}
+	}
+	child {
+		node[label=right:
+		{$(1+p)^2$}] {}
+		edge from parent
+		node[above] {$p$}
+	}
+	edge from parent         
+	node[above] {$p$}
+};
+\end{tikzpicture}
+\caption{Ganancias en un árbol binomial de dos pasos.}
+\end{figure}
+Por lo tanto, si denotamos al precio de una activo en el paso $ n \in \NN$ como $ S(n) $ tenemos que:
+\[
+S(n) = S(0)(1+u)^i(1+d)^{n-i} \text{ con probabilidad } { n \choose i}p^i(1-p)^{n-i},
+\]
+donde $ S(0) $ es el precio actual del activo. \\
+
+Los activos que hasta ahora hemos presentado con denominados \textit{primarios} porque son independientes de otros títulos de valor. Por otro lado tenemos los activos \textit{derivados} que son aquellos cuyo valor cambia en función de otros activos denominados subyacentes que pueden ser primarios u otros derivados. Ejemplos de activos derivados son:
+\begin{enumerate}
+\item Contrato forward (a plazo): es un acuerdo entre dos partes para comprar o vender cierto activo con riesgo a un precio fijo en un momento determinado en el futuro. 
+\item Contrato de futuros: es un tipo de contrato forward pero que está estandarizado y negociado en un mercado organizado.
+\item Opciones: es un contrato mediante el cual el comprador de la opción adquiere el derecho pero no la obligación de comprar o vender un activo subyacente al vendedor de la misma. El precio al que se puede ejercer el derecho de compra o de venta del activo se denomina precio de ejercicio o también strike price. Existen dos tipos de opciones: 
+\begin{enumerate}
+	\item Europeas: solo pueden ser ejercidas en la fecha de vencimiento.
+	\item Americanas:  se puede ejercer en cualquier momento hasta la fecha de vencimiento.
+\end{enumerate}
+A su vez, distinguimos entre:
+\begin{itemize}
+	\item Opciones de compra (\textit{call}): otorga al poseedor de la misma la posibilidad de comprar el activo.
+	\item Opciones de venta (\textit{put}): da al poseedor de la misma la posibilidad de vender el activo.
+\end{itemize}
+
+En este trabajo nos centraremos en las opciones europeas. 
+\end{enumerate} 

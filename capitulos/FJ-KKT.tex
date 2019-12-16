@@ -15,7 +15,7 @@
 	
 	EJEMPLO \\
 	
-	A continuación, demostremos cómo se calcula la derivada de la función máximo, lo que nos será útil en posteriores resultados.
+	A continuación, demostremos cómo se calcula la derivada de la función máximo de un número finito de funciones diferenciables, lo que nos será útil en posteriores resultados.
 	\begin{proposicionBox}\label{dirDeriv}
 		Sean $ D \subset \RR^M$ ($ M \in \NN $) , $ \barx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como $ g(x):=\max_{i=1,...,N}\{g_i(x)\} $ y el conjunto de índices $ K = \lbrace  i : g_i(\barx) =  g(\barx) \rbrace $. Entonces, para toda dirección $ d \in \RR^M $ la derivada direccional de $ g $ existe en todo $ \RR^M $ y viene dada por la siguiente expresión:
 		\begin{equation}
@@ -23,7 +23,7 @@
 		\end{equation}
 	\end{proposicionBox}
 	\begin{proof}
-		Podemos suponer sin pérdida de generalidad que el conjunto $ K = \{1, ..., N \} $ ya que aquellas $ g_i $ que no alcancen el máximo no afectarán al cálculo de la derivada de $ g $. Para cada $ i \in K $ tenemos la siguiente desigualdad:
+		Podemos suponer sin pérdida de generalidad que $ K = \{1, ..., N \} $, ya que aquellas $ g_i $ que no alcancen el máximo no afectarán al cálculo de la derivada de $ g $. Para cada $ i \in K $ tenemos la siguiente desigualdad:
 		\begin{equation*}
 			\liminf_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \geq \liminf_{t\rightarrow0}\frac{g_i(\barx+td) - g_i(\barx)}{t} = \langle \nabla g_i(\barx), d \rangle.
 		\end{equation*}	
@@ -31,7 +31,7 @@
 		\[
 		\liminf_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \geq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle.
 		\]
-		Por otro lado, afirmamos que :
+		Por otro lado, afirmamos que 
 		\begin{equation*}
 			\limsup_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \leq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle.
 		\end{equation*}
@@ -39,7 +39,7 @@
 		\[
 		\frac{g(\barx+t_n d) - g(\barx)}{t_n} \geq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle + \varepsilon \quad \forall n \in \NN.
 		\]
-		Tomamos ahora una sucesión parcial $ \{t_{\sigma(n)}\}_{n \in \NN} $ con $ \sigma:\NN \longrightarrow \NN $ estrictamente creciente y $ j \in K $ un índice fijo tal que para todo $ k \in \{\sigma(n)\}_{n \in \NN} $ se cumple que $ g(\barx + t_k d) = g_j (\barx + t_k d)$. Tomando límite obtenemos que :
+		Tomamos ahora una sucesión parcial $ \{t_{\sigma(n)}\}_{n \in \NN} $ con $ \sigma:\NN \longrightarrow \NN $ estrictamente creciente y $ j \in K $ un índice fijo tal que para todo $ k \in \{\sigma(n): \hspace{1mm} n\in \NN\} $ se cumple que $ g(\barx + t_k d) = g_j (\barx + t_k d)$. Tomando límite obtenemos que :
 		\begin{equation*}
 		\begin{split}
 		\limsup_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} &= 	\limsup_{t\rightarrow0}\frac{g_j(\barx+td) - g_j(\barx)}{t} \\
@@ -62,14 +62,14 @@
 		\begin{cases}
 		\inf_{x\in D} f(x)\\
 		\begin{split}
-		\text{s.a. } g_1(x) &\leq 0 \\
+		\text{s.a } g_1(x) &\leq 0 \\
 		&\vdots \\
-		g_N(x) &\leq 0, \quad N \in \NN
+		g_N(x) &\leq 0
 		\end{split}
 		
 		\end{cases} 
 		\end{equation}
-		donde $ D \subset \RR^M$, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i =1,\dots, N $ funciones reales definidas en $ D $ y continuas. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región de factibilidad} al conjunto de todos los puntos factibles. Para un punto factible $ \barx $ definimos el \textit{conjunto activo} como $ I(\barx) = \{i: g_i(\barx) = 0\}$. Para este problema y asumiendo que $ \barx \in C $, llamamos \textit{vector de multiplicadores de Lagrange para $ \barx $} a $ \lambda \in (\RR^N)^+ $ si $ \barx $ es un punto crítico de:
+		donde $ D \subset \RR^M$, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i =1,\dots, N $ son funciones reales definidas en $ D $ y continuas. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región factible} al conjunto de todos los puntos factibles. Para un punto factible $ \barx $ definimos el \textit{conjunto activo} como $ I(\barx) = \{i: g_i(\barx) = 0\}$. Para este problema y asumiendo que $ \barx \in C $, llamamos \textit{vector de multiplicadores de Lagrange para $ \barx $} a $ \lambda \in (\RR^N)^+ $ si $ \barx $ es un punto crítico de:
 		\[
 		L(x;\lambda) = f(x) + \sum_{i=1}^{N} \lambda_i g_i(x),
 		\]
@@ -102,7 +102,6 @@
 			\langle \nabla g_i(\barx),d \rangle < 0\text{ con } i \in I(\barx)
 			\end{cases}
 			\end{equation*}
-			
 			no tiene solución (para ninguna dirección) ya que al menos uno es no negativo. Si aplicamos el Teorema de la Alternativa de Gordan en su versión clásica, teorema \ref{GordanClasic}, vemos que solo se puede dar la alternativa i*) y en ese caso obtenemos que:
 			\[
 			 \exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx),
@@ -110,7 +109,7 @@
 			con $ M $ el cardinal del conjunto $ I(\barx) $. La demostración concluye llamando $ \lambda_0 = t_0 $ y $ \lambda_i = t_i $ con $ i \in I(\barx) $.
 		\end{proof}
 	
-		\paragraph{}El teorema de Fritz John nos pueden aportan una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente a las restricciones. Por ello, necesitamos imponer algunas condiciones extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema que soluciona el problema que acabamos de comentar.
+		\paragraph{}El teorema de Fritz John nos aporta una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente de las restricciones. Por ello, necesitamos imponer algunas condiciones de regularidad extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema que soluciona el problema que acabamos de comentar.
 		
 		\begin{teoremaBox}[Teorema de Karush-Kuhn-Tucker]
 		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
@@ -121,18 +120,44 @@
 		\[
 		\exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx)
 		\]		
-		con $ M $ el cardinal de $ I(\barx) $. Si multiplicamos escalarmente la igualdad por $ d_0 $ (dirección del espacio vectorial que nos aporta el requisito de  Mangasarian-Fromovitz) obtenemos:
+		con $ M $ el cardinal de $ I(\barx) $. Si multiplicamos escalarmente la igualdad por $ d_0 $ (dirección del espacio vectorial que nos aporta la condición de  Mangasarian-Fromovitz), obtenemos:
 		\[
 		0 = t_0 \langle \nabla f(\barx), d_0 \rangle + \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
 		\]
-		El requisito también nos da que $ t_0 \neq 0$. Razonemos por reducción al absurdo. Si se diese el caso tendríamos que
+		Entonces $ t_0 \neq 0$. Razonemos por reducción al absurdo. Si no fuese así, tendríamos que
 		\[
 		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
 		\]
-		Al tener $ \ttt \in \Delta_{M+1} $ se cumple que todas sus compnentes son positivas y $ \sum_{i \in I(\barx)}  t_i = 1 $ (estamos suponiendo que $ t_0 = 0 $ por lo que no influye en la suma de la definición de $ \Delta_{M+1} $) por lo que algún término es distinto de 0. Tenemos garantizado que $  \langle g_i (\barx), d_0 \rangle < 0 \quad \forall i \in I(\barx) $. Así tendríamos que:
+		Al tener $ \ttt \in \Delta_{M+1} $ se cumple que todas sus componentes son no negativas y $ \sum_{i \in I(\barx)}  t_i = 1 $ (estamos suponiendo que $ t_0 = 0 $ por lo que no influye en la suma de la definición de $ \Delta_{M+1} $) por lo que algún término es distinto de 0. Tenemos garantizado que $  \langle g_i (\barx), d_0 \rangle < 0 \quad \forall i \in I(\barx) $. Así tendríamos que:
 			\[
 		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle < 0,
 		\]
 		lo cual es imposible. Por ello, concluimos que $ t_0 \neq 0 $. La demostración concluye tomando $ \lambda_i = t_i / t_0 $ para $ i \in I(\barx) $.
 		\end{proof}
 		
+		
+La condición de Mangasarian-Fromovitz no es prescindible en el teorema de Karush-Kuhn-Tucker, tal y como pone de manifiesto este sencillo ejemplo.
+
+\begin{equation*}
+\begin{cases}
+f(x,y) = 2x\\
+\begin{split}
+\text{s.a } g_1(x) &= 2y-5x^3 \\
+g_2(x) &= -y
+\end{split}
+\end{cases} 
+\end{equation*}
+
+Es claro que el mínimo se alcanza en $ \barx = (0,0) $ y tenemos que $ \nabla f(0,0) = (2,0) $, $ \nabla g_1(0,0) = (0,2) $, $ \nabla g_2(0,0) = (0,-1) $ e $ I(\barx) = \{1,2\} $. La condición de Mangasarian-Fromovitz no se cumple. Si existiese una dirección $ d = (d_1, d_2) \in V $ que la cumpliese se deberían satisfacer las siguientes condiciones simultáneamente
+
+\begin{equation*}
+\begin{cases}
+\begin{split}
+\langle \nabla g_1(0,0),(d_1, d_2) \rangle < 0 \Longleftrightarrow  \langle (0,2),(d_1, d_2) \rangle < 0 \Longleftrightarrow 2d_2 &< 0\\
+\langle \nabla g_2(0,0),(d_1, d_2) \rangle < 0 \Longleftrightarrow \langle (0,-1),(d_1, d_2) \rangle < 0 \Longleftrightarrow d_2 &> 0
+\end{split}
+\end{cases} 
+\end{equation*}
+lo que es imposible. \\
+
+Finalmente, notamos que los teoremas de Fritz John y de Karush-Kuhn-Tucker que acabamos de demostrar también se pueden considerar consecuencia del lema de Farkas, que veremos posteriormente en este trabajo. Destacar también que en el caso convexo e imponiendo ciertas condiciones de regularidad podemos probar que el recíproco de dichos resultados también es cierto (REFERENCIAR).

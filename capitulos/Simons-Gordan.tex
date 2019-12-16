@@ -7,21 +7,21 @@
 	
 	\paragraph{}Este capítulo se centra en lema de Simons, el cual será de gran ayuda para demostrar el Teorema de la Alternativa de Gordan.
 
-	\paragraph{}Antes de comenzar, necesitamos hacer la siguiente definición. Para hacer más ágil la lectura, dado $ N\in \NN $ en las N-uplas y espacios vectoriales $ \RR^N $ supondremos que $ N \geq 1 $. También notaremos con caracteres en negrita a los elementos de espacios vectoriales reales, por ejemplo, $  \ttt = (t_1,...,t_N)\in \RR^N$. 
+	\paragraph{}Antes de comenzar, necesitamos hacer la siguiente definición. Para agilizar la lectura, dado $ N\in \NN $ en las N-uplas y espacios vectoriales $ \RR^N $ supondremos que $ N \geq 1 $. También notaremos con caracteres en negrita a los elementos de espacios vectoriales reales, por ejemplo, $  \ttt = (t_1,...,t_N)\in \RR^N$. 
 	
 	\begin{definicion}
-		Dado $ N \in \NN $ llamamos símplex unitario de $ \RR^N $ al conjunto convexo y compacto de $ \RR^N $ dado por:
+		Dado $ N \in \NN $ llamamos símplex unitario de $ \RR^N $ al conjunto de $ \RR^N $ dado por:
 		\begin{equation*}
 			\Delta_N := \left\lbrace \ttt \in \RR^N: \sum_{i=1}^{N}{t_i} = 1, \hspace{0.5em} t_1,...,t_N \geq 0 \right\rbrace .
 		\end{equation*}
 	\end{definicion}
 
-	Recordamos ahora la envolvente de un conjunto cualquiera $ X $, que notamos como $ \mathrm{co}(X) $ y que se define como la intersección de todos los conjuntos convexos que contienen a $ X $. En el caso de los símplex, si $ N = 2 $, tenemos que $ \Delta_2 = \mathrm{co} \{(1,0),(0,1)\}$ (envolvente convexa de los vectores de la base usual de $ \RR^2 $). De hecho en general, $ \Delta_N = co\{e_1,...e_N\} $. \\
+	Recordamos ahora la noción de envolvente convexa de un conjunto cualquiera $ X $, que notamos como $ \mathrm{co}(X) $ y que se define como la intersección de todos los conjuntos convexos que contienen a $ X $. Nótese que $ \Delta_N = co\{e_1,...e_N\} $. \\
 	
-	Antes de continuar veamos que efectivamente $ \Delta_N $ es convexo y compacto:
+	Antes de continuar veamos que $ \Delta_N $ es convexo y compacto:
 	
 	\begin{itemize}
-		\item  Convexo: tenemos que comprobar que dados $ \ttt, \sss \in \Delta_N \text{ y } \lambda \in \lbrack 0,1 \rbrack $ entonces $ \lambda\ttt + (1-\lambda)\sss \in \Delta_N $. En efecto, las coordenadas de $ \lambda\ttt + (1-\lambda)\sss \in \RR^N $ verifican:
+		\item  Convexo: tenemos que comprobar que dados $ \ttt, \sss \in \Delta_N \text{ y } \lambda \in \lbrack 0,1 \rbrack $ entonces $ \lambda\ttt + (1-\lambda)\sss \in \Delta_N $. En efecto, las coordenadas $ \lambda t_i + (1-\lambda)s_i \in \RR^N $ verifican:
 		\begin{itemize}
 			\item [i) ] $ \lambda t_i + (1-\lambda)s_i \geq 0 $ para todo $ i = 1,..., N $, ya que $ t_i, s_i \geq 0 $ y $ 0 \leq \lambda \leq 1 $.
 			\item [ii) ] 
@@ -37,7 +37,7 @@
 		
 		\item Compacto: al encontrarnos en $ \RR^N $ y aplicando el conocido Teorema de Heine-Borel basta y sobra ver que $ \Delta_N $ es cerrado y acotado. Claramente es acotado por lo que nos centraremos en probar que es cerrado. Sea $ \lbrace \ttt_n \rbrace_{ n \in \NN} $ una sucesión de $ \Delta_N $ y sea $ \ttt_0 \in \RR^N $ tal que $ \lbrace \ttt_n \rbrace_{ n \in \NN} \longrightarrow \ttt_0 $. Tenemos que comprobar que $ \ttt_0 \in \Delta_N $. 
 		\begin{itemize}
-		\item[i) ] Como todas las coordenadas de cada $ \ttt_n $ para $ n \in \NN $ son no negativas podemos asegurar que las de $ \ttt_0 $ también lo son.
+		\item[i) ] Como todas las coordenadas de cada $ \ttt_n $ para $ n \in \NN $ son no negativas las de $ \ttt_0 $ también lo son.
 		\item[ii) ] La función $ f: \RR^N \longrightarrow \RR $ definida como $ f(\ttt) =  \sum_{i=1}^{N} t_i $ es continua. Claramente $ f(\ttt) = 1 $ para todo $ \ttt \in \Delta_N $ y por ello $ \lbrace f(\ttt_n) \rbrace_{ n \in \NN} \longrightarrow 1$. Por continuidad de $ f $ y unicidad de límite tenemos que $ f(\ttt_0) = 1 $ pero eso implica que la suma de sus componentes vale 1.
 		\end{itemize} 
 	
@@ -45,9 +45,9 @@
 	\end{itemize}
 
 	
-	\paragraph{}Antes de continuar, notamos que el espacio vectorial de todas las aplicaciones lineales de $ \RR^N $ a $ \RR $, con $ N \in \NN $, se puede identificar con $ \RR^N $. Esto se debe a que si $ L:\RR^N \longrightarrow \RR $ es lineal, entonces es de la forma $ L(\xx) = a_1x_1 + \cdots + a_Nx_N $ que se corresponde con $ \textbf{\emph{a}} = (a_1,\dots,a_N) \in \RR^N $. Del mismo modo, dado el vector tenemos la aplicación lineal asociada. En definitiva, el dual de 
-	$ \RR^N $, que notamos como, $ (\RR^N)^* $, lo podemos identificar con $ \RR^N $ .
-	\paragraph{} También presentamos el producto escalar de dos vectores de $ \RR^N $ que definimos como:
+	\paragraph{}Antes de continuar, notamos que el espacio vectorial de todas las aplicaciones lineales de $ \RR^N $ a $ \RR $, con $ N \in \NN $, se puede identificar con $ \RR^N $. Esto se debe a que si $ L:\RR^N \longrightarrow \RR $ es lineal, entonces es de la forma $ L(\xx) = a_1x_1 + \cdots + a_Nx_N $ que se corresponde con $ \textbf{\emph{a}} = (a_1,\dots,a_N) \in \RR^N $. Del mismo modo, dado el vector tenemos la aplicación lineal asociada. En definitiva, el espacio dual de 
+	$ \RR^N $ se identifica con $ \RR^N $ .
+	\paragraph{} También presentamos el producto escalar usual en $ \RR^N $ que definimos como:
 	\[
 	\begin{split}
 	\langle \cdot, \cdot \rangle : \RR^N \times \RR^N \longrightarrow &\RR \\
@@ -75,13 +75,13 @@
 		 a través de la correspondencia mostrada anteriormente entre $ \RR^N $ y su dual.
 		
 		\begin{itemize}
-			\item[$ \supseteq $ )] Sea $ \mathbf{t} \in \Delta_N$ definimos $ L:\RR^N \longrightarrow \RR $ como $ L(\xx):= \langle \mathbf{t},\xx \rangle $. Es evidente que $ L $ es lineal en $ \xx $ al ser el producto escalar bilineal. Dado $ \xx \in \RR^N $:
+			\item[$ \supseteq $ )] Sea $ \mathbf{t} \in \Delta_N$ definimos $ L:\RR^N \longrightarrow \RR $ como $ L(\xx):= \langle \mathbf{t},\xx \rangle $. Es evidente que $ L $ es lineal en $ \xx $ al ser el producto escalar bilineal. Dado $ \xx \in \RR^N $,
 			\begin{equation*}
 				L(\xx) = \sum_{i=1}^{N}{t_i x_i} \leq \sum_{i=1}^{N}{t_i S(\xx)} = S(\xx)\sum_{i=1}^{N}{t_i} = S(\xx)
 			\end{equation*}
-			donde la primera desigualdad se debe a que $ x_i \leq S(\xx)$ para todo $ x_i$ con $ i=1,...,N $ y a que $ t_i \geq 0 $ ya que $ \mathbf{t} \in \Delta_N$. Esto también justifica la que última igualdad ya que $ \sum_{i=1}^{N}{t_i} = 1 $.
+			donde la primera desigualdad se debe a que $ x_i \leq S(\xx)$ para todo $ x_i$ con $ i=1,...,N $ y a que $ t_i \geq 0 $ ya que $ \mathbf{t} \in \Delta_N$. Esto también justifica la última igualdad ya que $ \sum_{i=1}^{N}{t_i} = 1 $.
 			
-			\item[$ \subseteq $ )] Sea $ L = \ttt = (t_1,...,t_N) \in \RR^N $ lineal tal que para todo $ \xx \in \RR^N $ cumple que $ \sum_{i=1}^{N}{t_i x_i} \leq \max\{x_1,...,x_N\}$. Así, si tomamos $ e_i \in \RR^N $ donde $ e_i $ representa el i-ésimo elemento de la base usual de $ \RR^N $ con $ i=1,...,N $, entonces:   		
+			\item[$ \subseteq $ )] Sea $ L = \ttt = (t_1,...,t_N) \in \RR^N $ lineal tal que para todo $ \xx \in \RR^N $ cumple que $ \sum_{i=1}^{N}{t_i x_i} \leq S(\xx)$. Así, si tomamos $ e_i \in \RR^N $ donde $ e_i $ representa el i-ésimo elemento de la base usual de $ \RR^N $ con $ i=1,...,N $, entonces:   		
 			\begin{equation*}
 				L(-e_i) = -t_i \leq 0 \Longrightarrow t_i \geq 0 \quad \forall i=1,...,N.
 			\end{equation*}
@@ -102,7 +102,7 @@
 	\begin{lemaBox}[Lema de Simons]\label{Simons}
 		Sea $ C $ un subconjunto convexo de un espacio vectorial. Dadas $ f_1, \dots, f_N : C \longrightarrow \RR $, con $ N \in \NN $, funciones convexas, entones existe $ \ttt \in \Delta_N $ que cumple
 		\[
-		\inf_{c \in C}\left[ \max_{i=1\dots,N } \{f_i(c)\}\right] = \inf_{c \in C} \left[ \sum_{i=1}^{N} t_i f_i(c) \right].
+		\inf_{c \in C}\left[ \max_{i=1\dots,N } f_i(c)\right] = \inf_{c \in C} \left[ \sum_{i=1}^{N} t_i f_i(c) \right].
 		\] 
 	\end{lemaBox}
 	\begin{proof}
@@ -110,22 +110,22 @@
 		\[ 
 		D = \{ (x_1, ..., x_N)\in V: \exists c \in C \quad \text{ tal que } \quad \forall i = 1,...N,\quad f_i(c) \leq x_i \}.
 		\]
-		$ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
+		Comprobemos en primer lugar que $ D $ es un subconjunto convexo de \vecSpace. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
 		\[
 		f_i(c) = f_i((1-\lambda)c_x + \lambda c_y) \leq (1-\lambda)f(c_x) + \lambda f(c_y) \leq (1-\lambda)x_i + \lambda y_i ,
 		\]
-		donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ x,y \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc, existe $ L $ funcinal lineal sobre \vecSpace tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
+		donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ x,y \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc, existe $ L $ funcinal lineal en \vecSpace tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
 		
 		Nuevamente, por el lema \ref{lema2.1} tenemos que $ L = \ttt \in \Delta_N$. Finalmente:
 		\[
 		\inf_D L = \inf_{c\in C} \left[ t_1 f(c) + \cdots+ t_N f(c) \right] =\inf_{c \in C} \left[ \sum_{i=1}^{N} t_i f_i(c) \right]
 		\]
-		y
+		e
 		\[
-		\inf_D S = \inf_{c\in C} \left[ \max \{f_1(c), \dots, f_N(c)\} \right] = \inf_{c \in C}\left[ \max_{i=1\dots,N } \{f_i(c)\}\right]
+		\inf_D S = \inf_{c \in C}\left[ \max_{i=1\dots,N } f_i(c)\right]
 		\]
 		por lo que 
-		\[ \inf_{c \in C}\left[ \max_{i=1\dots,N } \{f_i(c)\}\right] = \inf_{c \in C} \left[ \sum_{i=1}^{N} t_i f_i(c) \right]. \] 
+		\[ \inf_{c \in C}\left[ \max_{i=1\dots,N } f_i(c)\right] = \inf_{c \in C} \left[ \sum_{i=1}^{N} t_i f_i(c) \right]. \] 
 	\end{proof}
 
 	Enuciamos ahora el Teorema de la Alternativa de Gordan en su versión clásica.
@@ -133,8 +133,8 @@
 		Sean $ \{\xx_1,...\xx_N\}$ con $ \xx_i \in \RR^M \text{ para } i=1,...,N$ y $ N, M \in \NN $. Entonces una, y solo una, de la siguientes afirmaciones se cumple:
 		
 		\begin{itemize}
-			\item[i*)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 = \sum_{i=1}^{N}{t_i \xx_i}$.
-			\item[ii*)] $ \exists \yy \in \RR^M $ tal que cumple $ \max_{i=1,...,N} \langle \yy, \xx_i \rangle < 0 $.
+			\item[i*)] $ \exists \mathbf{t} \in \Delta_N $ tal que  $  0 = \displaystyle \sum_{i=1}^{N}{t_i \xx_i}$.
+			\item[ii*)] $ \exists \yy \in \RR^M $ tal que cumple $ \displaystyle \max_{i=1,...,N} \langle \yy, \xx_i \rangle < 0 $.
 		\end{itemize}
 	\end{teoremaBox}
 
@@ -143,26 +143,37 @@
 	\begin{teoremaBox}[Teorema de la Alternativa de Gordan-versión convexa]\label{Gordan}
 		Sea $ C $ un subconjunto convexo de un espacio vectorial y sean $ f_1,...,f_N : C \longrightarrow \RR $ funciones convexas con $ N \in \NN $. Entonces una, y solo una, de la siguientes afirmaciones se cumple:
 		\begin{itemize}
-			\item[i)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 \leq \inf_{c\in C}  \sum_{i=1}^{N}{t_i f_i (c)}$.
-			\item[ii)] $ \exists c \in C $ que cumple $\max_{i=1\dots,N } \{f_i(c)\} < 0 $.
+			\item[i)] $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 \leq \displaystyle \inf_{c\in C}  \sum_{i=1}^{N}{t_i f_i (c)}$.
+			\item[ii)] $ \exists c \in C $ que cumple $\displaystyle \max_{i=1\dots,N } f_i(c) < 0 $.
 		\end{itemize}
 	\end{teoremaBox}
 	\begin{proof}
-		Si aplicamos el lema de Simons, lema \ref{Simons}, a las funciones $ f_1,...,f_N $ obtenemos:
+		En primer lugar, veamos que las alternativas $ i)$ y $ ii) $ son excluyentes y exhaustivas. Para ello, veamos que $ \neg i) \Longleftrightarrow ii) $ suponiendo que $  \inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] \in \RR $.
+		
+		\begin{itemize}
+		\item [$ \Leftarrow $)] Si existe $ c_0 \in C $ tal que $ \max_{i=1\dots,N } f_i(c) < 0 $, entonces, dado $ \ttt \in \Delta_N $,
+		\[
+		\inf_{ c \in C} \sum_{i=0}^{N}t_i f_i(c) \leq \sum_{i=0}^{N}t_i f_i(c_0) < 0
+		\]
+		donde la última desigualdad se debe a que $ \ttt \in \Delta_N $. Hemos probado entonces $ \neg i) $.
+		\item[$ \Rightarrow $)] 	Si aplicamos el lema de Simons, lema \ref{Simons}, a las funciones $ f_1,...,f_N $ obtenemos:
 		
 		\begin{equation*}
-			\exists t \in \Delta_N \text{ : } \inf_{ c\in C}\left[\max_{i=1\dots,N } \{f_i(c)\} \right] = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i (c).
+		\exists t \in \Delta_N \text{ : } \inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i (c).
 		\end{equation*}
-		Supongamos en primer lugar que $ \alpha := \inf_{ c\in C}\left[\max_{i=1\dots,N } \{f_i(c)\} \right] \in \RR $. Planteamos la siguiente alternativa, cuyos casos son excluyentes:
-		\begin{itemize}
-			\item[a)] $ 0 \leq \alpha $: implica $ i) $ ya que $ \alpha = \inf_{c \in C} \sum_{i=1}^{N}t_i f_i (c) $.
-			\item[b)] $ \alpha < 0 $: este caso, por su parte, implica $ ii) $ ya que:
-			
-			\begin{equation*}
-				\alpha =\inf_{ c\in C}\left[\max_{i=1\dots,N } \{f_i(c)\} \right] < 0 \Longleftrightarrow \exists c \in C  :\max_{i=1\dots,N } \{f_i(c)\} < 0. 
-			\end{equation*}  
+		Entonces, de $ \neg i) $ sabemos que, para este $ \ttt \in \Delta_N $
+		\[
+		\inf_{ c \in C} \sum_{i=0}^{N}t_i f_i(c) < 0
+		\]
+		luego
+		\[
+		\inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] < 0,
+		\]
+		como queríamos demostrar.
+		
 		\end{itemize}
-		Para finalizar, veamos cuando $ \alpha =-\infty $. En este caso, estamos en la misma situación que en b) por lo que solo se puede dar $ ii) $.
+		
+		Para finalizar, si $  \inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] =-\infty $ es claro que estamos en el caso $ ii) $.
 	\end{proof}
 
 	\paragraph{} Destacamos las siguientes observaciones:
@@ -180,7 +191,7 @@
 	\begin{equation*}
 		\exists \mathbf{t} \in \Delta_N \text{ : } 0 \leq \inf_{c \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(c) } = \inf_{c \in \RR^M} \sum_{i=1}^{N}{t_i\langle c, \xx_i \rangle} = \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i 	\xx_i} \rangle. 
 	\end{equation*}
-	Hemos obtenido por ello que  $0  \leq \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ lo que nos lleva a $ 0 \leq \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ para todo $ c \in \RR^M $. Usando la bilinealidad del producto escalar:
+	Hemos obtenido por ello que  $0  \leq \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ lo que significa que $ 0 \leq \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ para todo $ c \in \RR^M $. Usando la bilinealidad del producto escalar:
 	\[
 	0 \leq \langle -c, \sum_{i=1}^{N}{t_i \xx_i} \rangle \Longleftrightarrow 	0 \leq -\langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle 
 	\Longleftrightarrow  \langle c, \sum_{i=1}^{N}{t_i \xx_i}\rangle \leq 0, \quad \forall c \in \RR^M.
@@ -188,7 +199,7 @@
 	Juntando ambas desigualdades obtenemos que $ 0 =  \langle c, \sum_{i=1}^{N}{t_i \xx_i}\rangle, \quad \forall c \in \RR^M $. Como la igualdad anterior se cumple para todo elemento de $ \RR^M $ entonces podemos deducir que $ \sum_{i=1}^{N}{t_i \xx_i} = 0 $	ya que $ \sum_{i=1}^{N}{t_i \xx_i} \in (\RR^M)^{\perp} = \{0\} $. Así pues, tenemos que $ i) $ garantiza $ i*) $.
 	
 	\begin{observacion}
-		El lema de Simons(lema \ref{Simons}) y el Teorema de la Alternativa de Gordan (teorema \ref{Gordan}) son equivalentes.
+		El lema de Simons (lema \ref{Simons}) y el Teorema de la Alternativa de Gordan (teorema \ref{Gordan}) son equivalentes.
 	\end{observacion}
 
 	\paragraph{} Ya hemos visto que el Lema de Simons implica el Teorema de la Alternativa de Gordan. Veamos que el recíproco también es cierto.  \\
@@ -219,7 +230,7 @@
 		\item[ii)] $ \exists c \in C $ que cumple $ \max_{i=1\dots,N } \{g_i(c)\}  < 0 $.
 	\end{itemize}
 	
-	Razonemos que no se puede dar $ ii) $. Si fuese así, tendríamos que $ \exists c \in C $ tal que $ \max_{i=1\dots,N } \{g_i(c)\} =  \max_{i=1\dots,N } \{f_i(c) - \alpha \} < 0 $. En particular, existiría un índice $ j \in {1,...,N} $ que cumpliría $ f_j(c) - \alpha < 0 \Longrightarrow f_j(c) < \alpha = \inf_{ c\in C}\left[\max_{i=1\dots,N } \{f_i(c)\} \right] $. Esto es imposible por la propia definición de ínfimo. Por ello, afirmamos que $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 \leq \inf_{C}  \sum_{i=1}^{N}{t_i g_i}$. Desarrollando el sumatorio:
+	Razonemos que no se puede dar $ ii) $. Si fuese así, tendríamos que $ \exists c \in C $ tal que $ \max_{i=1\dots,N } \{g_i(c)\} =  \max_{i=1\dots,N } \{f_i(c) - \alpha \} < 0 $. En particular, para todo índice $ j \in {1,...,N} $ se cumpliría $ f_j(c) - \alpha < 0 \Longrightarrow f_j(c) < \alpha = \inf_{ c\in C}\left[\max_{i=1\dots,N } \{f_i(c)\} \right] $. Esto es imposible por la propia definición de $ \alpha $. Por ello, afirmamos que $ \exists \mathbf{t} \in \Delta_N $ tal que $ 0 \leq \inf_{C}  \sum_{i=1}^{N}{t_i g_i}$. Desarrollando el sumatorio:
 	\begin{equation*}
 	\begin{split}
 	0 &\leq \inf_{c \in C}  \sum_{i=1}^{N}{t_i g_i (c)} = \inf_{c \in C}  \sum_{i=1}^{N}{t_i(f_i(c) - \alpha)} = \inf_{c |in C} \left[ \sum_{i=1}^{N}{t_i f_i(c)} - \sum_{i=1}^{N}{t_i\alpha} \right]\\
