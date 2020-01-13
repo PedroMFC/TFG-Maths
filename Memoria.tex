@@ -12,6 +12,7 @@
 \usepackage{dcolumn}
 \usepackage{titlesec}
 \usepackage{pgfplots} %% PINTAR
+\graphicspath{{./imagenes/}}
 \newcolumntype{.}{D{.}{\esperiod}{-1}}
 \makeatletter
 \makeatother
@@ -233,7 +234,7 @@ pdfproducer = {pdflatex}
 
 \input{capitulos/Finanzas}
 %% Incluir en la bibliografía las referencias no citadas
- \nocite{*}
+\nocite{*}
 \bibliographystyle{alpha-es}
 \bibliography{bibliografia/bibliografia}
 
