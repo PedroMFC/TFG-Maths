@@ -106,6 +106,42 @@ Del mismo modo, $ c = b-a $ para todo $ c \in C $ con $ a \in A $ y $ b \in B $.
 Por ello, queda probado el teorema.
 \end{proof}
 
+A partir de este resultado, llegamos al siguiente corolario que será necesario en la parte final del trabajo.
+
+\begin{corolarioBox}
+Sean $ N \in \NN $, $ L \leq \RR^N $ subespacio vectorial y $ K \subset \RR^N $ un subconjunto compacto y convexo tales que $ L \cap K = \emptyset $. Entonces, $ \exists x_0 \in \RR^N $ tal que si $ y \in L $, entonces $ \langle x_0, y\rangle = 0 $ y 
+\[
+0 < \inf_{ x \in K} \langle x_0, x\rangle.
+\]
+\end{corolarioBox} 
+\begin{proof}
+Como $ L \leq \RR^N $ entonces $ L $ es convexo y además, como $ \RR^N $ es finito dimensional, también es cerrado. Esto último se debe a que $ L $ es de la forma
+\begin{equation*}
+L = \left\{(x_1,\dots,x_N):\hspace{1mm}
+\begin{rcases}
+\begin{split}
+a_{11}x_1+\cdots+a_{1N}x_N &= 0 \\
+\vdots \\
+a_{N1}x_1+\cdots+a_{NN}x_N &= 0
+\end{split}
+\end{rcases} \right. .
+\end{equation*}
+Para cada una de las ecuaciones anteriores definimos la función continua $ f:\RR^N \longrightarrow \RR $ tal que $ f(x) = a_{11}x_1+\cdots+a_{1N}x_N$ para cada $ x \in \RR^N $. De este modo, el conjunto del puntos que cumplen la primera ecuación se puede escribir como $ f^{-1}(\{0\}) $, que es cerrado al ser la imagen inversa de un cerrado por una función continua. Por lo tanto, $ L $ es la intersección finita de cerrado y por ello cerrado. Entonces entonces bajo las condiciones del teorema \ref{separacion1}, que nos aporta la existencia de un $ x_0 \in \RR^N $ que cumple:
+\[
+\sup_{y \in L} \langle x_0,y\rangle < \inf_{x\in K} \langle x_0,K\rangle.
+\]
+Tomamos ahora $ y \in L $ con $ \langle x_0,y\rangle \neq 0 $ (si $ \langle x_0,y\rangle = 0$ no hay nada que probar) y $ \rho > 0 $. Así,
+\[
+\rho \langle x_0,y\rangle = \langle x_0,\rho y\rangle < \inf_{x\in K} \langle x_0,K\rangle.
+\]
+Como $ \inf_{x\in K} \langle x_0,K\rangle \in \RR $, la arbitrariedad de $ \rho > 0 $ obliga a que $ \langle x_0,y\rangle \leq 0$ ya que si no fuese así $ \RR $ estaría acotado. Como $ L \leq \RR^N$, cambiamos $ y $ por $ -y $ y obtenemos que $ -\langle x_0,y\rangle \leq 0 $, por lo que $ \langle x_0,y\rangle = 0 $. Finalmente, el hecho de que 
+\[
+0 < \inf_{ x \in K} \langle x_0, x\rangle
+\]
+se deduce del teorema. \ref{separacion1}
+\end{proof}
+
+
 El teorema de separación anterior podemos escribirlo no solo en $ \RR^N $ sino que se puede generalizar a cualquier espacio normado. A continuación, exponemos otro teorema de separación válido solo en el contexto finito dimensional, con tesis e hipótesis más débiles.
 
 \begin{teoremaBox}

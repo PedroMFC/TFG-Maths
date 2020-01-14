@@ -11,11 +11,27 @@
 			siempre y cuando el límite exista. Diremos que g es diferenciable en el sentido de Gâteaux en x si $ g'(x;\cdot):\RR^M \longrightarrow \RR $ es lineal y en ese caso escribimos $ \nabla g(x) = g'(x;\cdot) $, es decir, $ g'(x;d) = \langle \nabla g(x), d\rangle $ con $ d \in \RR^M $.
 	\end{definicion}
 	
-	Dentro del contexto de este trabajo, cuando decimos que una función es diferenciable nos referimos a que lo es en el sentido de Gâteaux. A estas funciones también las llamaremos Gâteaux diferenciables. Destacamos que este concepto de diferenciabilidad es más débil que el de Fréchet, que es el más frecuente dentro de nuestros estudios. De hecho, si una función $ g $ es diferenciable en $ x_0 \in D$ en el sentido de Fréchet, y notamos su derivada como $ Dg(x_0) $ entonces $ g $ también es diferenciable en el sentido de Gâteaux en $ x_0 $ y además $ Dg(x_0) = \nabla g(x_0) $. El recíproco no es cierto tal y como mostramos en el siguiente ejemplo:\\
+	Dentro del contexto de este trabajo, cuando decimos que una función es diferenciable nos referimos a que lo es en el sentido de Gâteaux. A estas funciones también las llamaremos Gâteaux diferenciables. Destacamos que este concepto de diferenciabilidad es más débil que el de Fréchet, que es el más frecuente dentro de nuestros estudios. De hecho, si una función $ g $ es diferenciable en $ x_0 \in D$ en el sentido de Fréchet, y notamos su derivada como $ Dg(x_0) $ entonces $ g $ también es diferenciable en el sentido de Gâteaux en $ x_0 $ y además $ Dg(x_0) = \nabla g(x_0) $. El recíproco no es cierto tal y como mostramos en el siguiente ejemplo. Sea $ f:\RR^2 \longrightarrow \RR $ definida como:
+	\[
+	f(x,y) = \begin{cases}
+	\frac{xy^3}{x^2+y^2}, & \mbox{si $ (x,y) \neq (0,0) $ } \\
+	0, & \mbox{si $ (x,y) = (0,0) y$ }
+	\end{cases}.
+	\]
+	Sabemos que si una función es Fréchet diferenciable $ x_0 $, entonces es continua en $ x_0 $. Como $ f $ no es continua en $ (0,0) $, podemos afirmar que no es Fréchet diferenciable en dicho punto. Sin embargo, sí es Gâteaux diferenciable en $ (0,0) $. Para $ \dd =  (d_1, d_2) \in \RR^2 $,
 	
-	EJEMPLO \\
-	
-	A continuación, demostremos cómo se calcula la derivada de la función máximo de un número finito de funciones diferenciables, lo que nos será útil en posteriores resultados.
+\begin{equation*}
+\begin{split}
+f'((0,0); (d_1, d_2)) &= \lim_{t\rightarrow0}\frac{f((0,0)+t(d_1, d_2)) - f(0,0)}{t} \\
+&= \lim_{t\rightarrow0}\frac{\frac{td_1(td_2)^2}{(td_1)^2+(td_2)^6} - 0}{t} \\
+&= \lim_{t\rightarrow0}\frac{t^3d_1d_2^2}{t^3d_1^2+t^7d_2^6} \\
+&= \lim_{t\rightarrow0}\frac{d_1d_2^2}{d_1^2+t^4d_2^6} \\
+& = \frac{d_2^2}{d_1}.
+\end{split}
+\end{equation*}
+Como el límite existe, la función es diferenciable en el sentido Gâteaux en $ (0,0) $. \\
+
+A continuación, demostremos cómo se calcula la derivada de la función máximo de un número finito de funciones diferenciables, lo que nos será útil en posteriores resultados.
 	\begin{proposicionBox}\label{dirDeriv}
 		Sean $ D \subset \RR^M$ ($ M \in \NN $) , $ \barx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como $ g(x):=\max_{i=1,...,N}\{g_i(x)\} $ y el conjunto de índices $ K = \lbrace  i : g_i(\barx) =  g(\barx) \rbrace $. Entonces, para toda dirección $ d \in \RR^M $ la derivada direccional de $ g $ existe en todo $ \RR^M $ y viene dada por la siguiente expresión:
 		\begin{equation}

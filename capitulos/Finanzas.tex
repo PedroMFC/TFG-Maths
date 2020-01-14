@@ -89,42 +89,45 @@ A su vez, distinguimos entre:
 En este trabajo nos centraremos en las opciones europeas. 
 \end{enumerate} 
 
-Si la situación es la que se ha explicado anteriormente, el comprador de una opción puede obtener un beneficio sin riesgo. Por ejemplo, supongamos que tenemos un opción que nos otorga el derecho de comprar un bien a un determinado precio. Si en el momento de ejercer dicha opción el precio de mercado es más bajo, no ejerzo el derecho y la compro a precio de mercado. Por otro lado, si es más alto puedo ejercer la opción y pagar menos dinero. De este modo, si $ S(t) $ representa la variable aleatoria que modela el precio del activo y $ K $ es el precio acordado en la opción, el \textit{payoff} obtenido en una opción call es $ C(T) = \max\{S(T)-K, 0\} $ y de una opción put $ C(T) = \max\{K-S(T), 0\}  $. Por eso, el comprados debe pagar una especie de tasa para obtener una opción. Este precio no puede ser ni demasiado bajo ni demasiado alto ya que, de ese modo, nadie compraría la opción. Si representamos por $ C_0 $ el precio de una opción y no tenemos en cuenta que el precio del dinero cambia con el tiempo, las ganancias o pérdidas se representan en las gráficas \ref{graphCall} y \ref{graphPut}. \\
+Si la situación es la que se ha explicado anteriormente, el propietario de una opción puede obtener un beneficio sin riesgo. Por ejemplo, supongamos que tenemos un opción que nos otorga el derecho de comprar un bien a un determinado precio. Si en el momento de ejercer dicha opción el precio de mercado es más bajo, no ejerzo el derecho y la compro a precio de mercado. Por otro lado, si es más alto puedo ejercer la opción y pagar menos dinero. De este modo, si $ S(t) $ representa la variable aleatoria que modela el precio del activo y $ K $ es el precio acordado en la opción, el \textit{payoff} o ganancia obtenida en una opción \textit{call} es $ C(T) = \max\{S(T)-K, 0\} $ y de una opción \textit{put} $ C(T) = \max\{K-S(T), 0\}  $. Por eso, el comprados debe pagar una especie de tasa para obtener una opción. Este precio no puede ser ni demasiado bajo ni demasiado alto ya que, de ese modo, nadie compraría la opción. Si representamos por $ C_0 $ el precio de una opción y no tenemos en cuenta que el precio del dinero cambia con el tiempo, las ganancias o pérdidas se representan en las gráficas \ref{graphCall} y \ref{graphPut}. \\
 
 \begin{figure}[h!]\label{graphCall}
 	
 	\begin{minipage}{0.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Buyer_call} 
-		%\caption{Tras prealineado.}
+		%\includegraphics[width=1\linewidth]{Buyer_call} 
+		\includegraphics[width=1\linewidth]{Buyer_call_mio} 
+		\caption*{Propietario}
 		%\label{fig:subim1}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
-		\includegraphics[width=1\linewidth]{Writer_call}
-		%\caption{Tras cuatro iteraciones.}
+		%\includegraphics[width=1\linewidth]{Writer_call}
+		\includegraphics[width=1\linewidth]{Writer_call_mio}
+		\caption*{Vendedor}
 		
 		%\label{fig:subim2}
 	\end{minipage}
 	
-	\caption{\textit{Payoff} opción call.}
+	\caption{Ganancia opción \textit{call}.}
 \end{figure}
 
 \begin{figure}[h!]\label{graphPut}
 	
 	\begin{minipage}{0.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Buyer_put} 
-		%\caption{Tras prealineado.}
+		\includegraphics[width=1\linewidth]{Buyer_put_mio} 
+		\caption*{Propietario}
 		%\label{fig:subim1}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
-		\includegraphics[width=1\linewidth]{Writer_put}
+		\includegraphics[width=1\linewidth]{Writer_put_mio}
+		\caption*{Vendedor}
 		%\caption{Tras cuatro iteraciones.}
 		
 		%\label{fig:subim2}
 	\end{minipage}
 	
-	\caption{\textit{Payoff} opción put.}
+	\caption{Ganancia opción \textit{put}.}
 \end{figure} 
 Uno de los problemas más importantes es determinar de manera única el precio ``justo'' de una opción en un momento determinado para que ambas partes estén de acuerdo.\\
 
