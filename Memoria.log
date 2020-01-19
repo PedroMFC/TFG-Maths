@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.12.24)  14 JAN 2020 22:44
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.12.24)  19 JAN 2020 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,18 +996,18 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
 de.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-)))
-\c@teoremaBox=\count304
-\c@lemaBox=\count305
-\c@proposicionBox=\count306
-\c@corolarioBox=\count307
-\c@observacion=\count308
- (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+))) (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks48
 \verbatim@line=\toks49
 \verbatim@in@stream=\read2
 )
+\c@teoremaBox=\count304
+\c@lemaBox=\count305
+\c@proposicionBox=\count306
+\c@corolarioBox=\count307
+\c@observacion=\count308
+
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
@@ -1162,19 +1162,19 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 93.
+(hyperref)                removing `subscript' on input line 94.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 93.
+(hyperref)                removing `subscript' on input line 94.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 93.
+(hyperref)                removing `subscript' on input line 94.
 
 
 Package hyperref Warning: pdfproducer: xdvipdfmx will use its own setting
-(hyperref)                instead of the value given on input line 93.
+(hyperref)                instead of the value given on input line 94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
@@ -1225,27 +1225,27 @@ LaTeX Info: Redefining \% on input line 24.
 )
 \openout1 = `Memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 212.
-LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
 \c@lstlisting=\count331
-LaTeX Info: Redefining \. on input line 212.
-LaTeX Info: Redefining \% on input line 212.
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
 \AtBeginShipoutBox=\box73
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
@@ -1260,9 +1260,9 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
 your preamble.
- on input line 212.
+ on input line 213.
 
-Package hyperref Info: Link coloring OFF on input line 212.
+Package hyperref Info: Link coloring OFF on input line 213.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1271,9 +1271,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 212.
-LaTeX Info: Redefining \pageref on input line 212.
-LaTeX Info: Redefining \nameref on input line 212.
+LaTeX Info: Redefining \ref on input line 213.
+LaTeX Info: Redefining \pageref on input line 213.
+LaTeX Info: Redefining \nameref on input line 213.
 
 (./Memoria.out) (./Memoria.out)
 \@outlinefile=\write4
@@ -2583,214 +2583,237 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 8.
 [37]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 138.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 138.
+ [38]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 70.
+(amsmath)                 on input line 139.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-
- []
-
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 75.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 75.
-[38]
-
-Package caption Warning: \label without proper reference on input line 94.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `graphCall' on page 39 undefined on input line 92.
-
-
-Package caption Warning: \label without proper reference on input line 114.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `graphPut' on page 39 undefined on input line 92.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
+
+Package caption Warning: \label without proper reference on input line 164.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `graphCall' on page 39 undefined on input line 162.
+
+
+Package caption Warning: \label without proper reference on input line 184.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `graphPut' on page 39 undefined on input line 162.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 163.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 163.
+[39]
 File: ./imagenes/Buyer_call_mio.png Graphic file (type bmp)
 <./imagenes/Buyer_call_mio.png>
 File: ./imagenes/Writer_call_mio.png Graphic file (type bmp)
 <./imagenes/Writer_call_mio.png>
 
-Overfull \hbox (2.43091pt too wide) in paragraph at lines 96--110
+Overfull \hbox (2.43091pt too wide) in paragraph at lines 166--180
 []$[]$ $[]$ 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: ./imagenes/Buyer_put_mio.png Graphic file (type bmp)
 <./imagenes/Buyer_put_mio.png>
 File: ./imagenes/Writer_put_mio.png Graphic file (type bmp)
 <./imagenes/Writer_put_mio.png>
 
-Overfull \hbox (2.43091pt too wide) in paragraph at lines 116--129
+Overfull \hbox (2.43091pt too wide) in paragraph at lines 186--199
 []$[]$ $[]$ 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
-LaTeX Info: Redefining \. on input line 133.
-LaTeX Info: Redefining \% on input line 133.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 133.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 133.
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 135.
+(babel)             in language  on input line 205.
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
-LaTeX Info: Redefining \. on input line 157.
-LaTeX Info: Redefining \% on input line 157.
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 157.
+(babel)             in language  on input line 213.
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 165.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 165.
-Package mdframed Info: mdframed works in twoside mode on input line 184.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 184.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 242.
 [42]
-Overfull \hbox (14.084pt too wide) in paragraph at lines 208--209
+Package mdframed Info: mdframed works in twoside mode on input line 255.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 255.
+LaTeX Info: Redefining \. on input line 268.
+LaTeX Info: Redefining \% on input line 268.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 268.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 268.
+ [43]
+Package mdframed Info: mdframed works in twoside mode on input line 274.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 274.
+
+Overfull \hbox (14.084pt too wide) in paragraph at lines 298--299
 [][]\TU/lmr/bx/n/10.95 Definición 8.1. []\TU/lmr/m/it/10.95 Un proceso $\U/msb/
 m/n/10.95 F$\TU/lmr/m/it/10.95 -adaptado $\OML/cmm/m/it/10.95 M \OT1/cmr/m/n/10
 .95 = (\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 )[]$ \TU/lmr/m/it/10.95 es una
@@ -2798,103 +2821,227 @@ m/n/10.95 F$\TU/lmr/m/it/10.95 -adaptado $\OML/cmm/m/it/10.95 M \OT1/cmr/m/n/10
 95 )$\TU/lmr/m/it/10.95 -martingala
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 225.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 225.
-LaTeX Info: Redefining \. on input line 241.
-LaTeX Info: Redefining \% on input line 241.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 241.
+(babel)             in language  on input line 305.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 241.
-[43]
-Package mdframed Info: mdframed works in twoside mode on input line 263.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 263.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 265.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 265.
- [44]
-Package mdframed Info: Not enough space on this page on input line 265.
-Package mdframed Info: mdframed works in twoside mode on input line 268.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 268.
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+(babel)             in language  on input line 305.
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
 
  []
 
-LaTeX Info: Redefining \. on input line 283.
-LaTeX Info: Redefining \% on input line 283.
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 320.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 320.
+LaTeX Info: Redefining \. on input line 343.
+LaTeX Info: Redefining \% on input line 343.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 343.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 283.
-[45]) (./Memoria.bbl
+(babel)             in language  on input line 343.
+[45]
+Package mdframed Info: mdframed works in twoside mode on input line 359.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 359.
+Package mdframed Info: mdframed works in twoside mode on input line 364.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 364.
+Package mdframed Info: Not enough space on this page on input line 366.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 366.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 366.
+ [46]
+Package mdframed Info: Not enough space on this page on input line 366.
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+
+ []
+
+
+Overfull \hbox (3.9256pt too wide) in paragraph at lines 377--379
+\TU/lmr/m/n/10.95 Hemos una estrategia auto-financiada $\OML/cmm/m/it/10.95 ^^R
+$ \TU/lmr/m/n/10.95 con $\OML/cmm/m/it/10.95 V[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/
+it/10.95 ^^R\OT1/cmr/m/n/10.95 ) = 0$\TU/lmr/m/n/10.95 ????????. Como $[]\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ) =
+ []
+
+LaTeX Info: Redefining \. on input line 383.
+LaTeX Info: Redefining \% on input line 383.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 383.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 383.
+[47]
+Package mdframed Info: mdframed works in twoside mode on input line 390.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 390.
+Package mdframed Info: mdframed works in twoside mode on input line 408.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 408.
+
+Overfull \hbox (5.187pt too wide) detected at line 417
+\OML/cmm/m/it/10.95 E[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 R[]\OMS/cmsy/m/n
+/10.95 jF[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 E[]\OT1/cmr/m/n/10.95 (\O
+ML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 q\OT1/cmr/m/n/1
+0.95 (1 + \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 ) + (1 \OMS/cmsy/m/n/10.95 ^^
+@ \OML/cmm/m/it/10.95 q\OT1/cmr/m/n/10.95 )(1 + \OML/cmm/m/it/10.95 d\OT1/cmr/m
+/n/10.95 ) = \OML/cmm/m/it/10.95 q\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u \OM
+S/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 ) + 1 + \OML/cmm/m
+/it/10.95 d \OT1/cmr/m/n/10.95 = 1 + \OML/cmm/m/it/10.95 r:
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 417.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 417.
+[48]
+Overfull \hbox (23.18228pt too wide) detected at line 463
+[]
+ []
+
+LaTeX Info: Redefining \. on input line 463.
+LaTeX Info: Redefining \% on input line 463.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 463.
+[49]) (./Memoria.bbl
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -2919,54 +3066,54 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
- [46])
+ [50])
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 272.
+(babel)             in language  on input line 273.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 272.
- [47
+(babel)             in language  on input line 273.
+ [51
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
  (./Memoria.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 272.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 273.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 273.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 43410 strings out of 494906
- 941539 string characters out of 6175975
- 1191644 words of memory out of 5000000
- 46633 multiletter control sequences out of 15000+600000
+ 43416 strings out of 494906
+ 941626 string characters out of 6175975
+ 1194861 words of memory out of 5000000
+ 46639 multiletter control sequences out of 15000+600000
  536313 words of font info for 57 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 62i,19n,96p,10415b,1082s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,21n,96p,10415b,1082s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Memoria.pdf (47 pages).
+Output written on Memoria.pdf (51 pages).
