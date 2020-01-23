@@ -436,7 +436,7 @@ donde
 \[
 q_i =  \begin{cases}
 q & \text{ si } \omega_i = 1+u\\
-S(0)(1+d) & \text{ si } \omega_i = 1+d
+1-q& \text{ si } \omega_i = 1+d
 \end{cases}.
 \]
 Por lo tanto, las variables $ R_t $ son independientes e idénticamente distribuidas.
@@ -463,6 +463,6 @@ V_t (C_T) &= \frac{\beta_T}{\beta_t}E_Q(\left[S_t\prod_{u=t+1}^{T}R_u - K\right]
 \end{equation*}
 Donde en el último paso se ha usado la fórmula \eqref{valorBino}. Finalmente, en el instante 0, el valor de la opción es:
 \begin{equation*}
-V_0(C_T) = (1+r)^{-T} \sum_{v=A}^{T-t}\binom{T}{v}q^v(1-q)^{T-v}\left[S_0(1+u)^v(1+d)^{T-v}-K\right],
+V_0(C_T) = (1+r)^{-T} \sum_{v=A}^{T}\binom{T}{v}q^v(1-q)^{T-v}\left[S_0(1+u)^v(1+d)^{T-v}-K\right],
 \end{equation*}
 donde $ A $ denota el primer entero $ k $ que cumple $ S_0(1+u)^k(1+d)^{T-k} > K $. Esto se debe a que \[\left[S_0(1+u)^j(1+d)^{T-j}-K\right]^+ = 0, \hspace{1mm}\text{ para } j<k.\]
