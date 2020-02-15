@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt]{book}
 %\documentclass[a4paper,twoside,11pt,titlepage]{book}
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Código}% Listing -> Código
 \usepackage[utf8]{inputenc}
 % \usepackage[style=list, number=none]{glossary} %
 %\usepackage{titlesec}
@@ -31,7 +32,7 @@
 \renewcommand\qedsymbol{$ \blacksquare $}
 %\renewcommand\proof{\textit{Demostración:}  \qedsymbol}
 
- % EVITAR QUE PONGA "CHAPTER *" AL INICIO DEL CAPÍTULO
+% EVITAR QUE PONGA "CHAPTER *" AL INICIO DEL CAPÍTULO
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 
 \def\spanishoperators{adj traza vect dom dist sop vol sgn  Hess Jac rango grado diag img longitud Maximizar Minimizar Optimizar sec cotan cosec}
@@ -211,8 +212,9 @@ pdfproducer = {pdflatex}
 
 \usepackage{pdfpages}
 \begin{document}
+	\input{portada/portada}
 %\frontmatter
-%\tableofcontents
+\tableofcontents
 %\listoffigures
 %\listoftables
 %
@@ -220,26 +222,42 @@ pdfproducer = {pdflatex}
 %\setlength{\parskip}{5pt}
 
 %\input{portada/portada}
+%\input{capitulos/Introducción.tex}
+%\input{capitulos/HB-MO.tex}
+%\input{capitulos/igualdad.tex}
+%\input{capitulos/Simons-Gordan}
+%\input{capitulos/FJ-KKT}
+%\input{capitulos/Minimax}
+%\input{capitulos/Separación}
+%\input{capitulos/Farkas}
+%\input{capitulos/Finanzas}
 
-\input{capitulos/HB-MO.tex}
+\input{capitulos/resumen+KW.tex}
+\input{capitulos/resumenExt+KW(Eng).tex}
 
-\input{capitulos/igualdad.tex}
+\input{capitulos/Intro+M-O-K.tex}
+\input{capitulos/Gordan.tex}
 
-\input{capitulos/Simons-Gordan}
+\input{capitulos/Intro2+minimax.tex}
+\input{capitulos/separación.tex}
 
+\input{capitulos/Intro3+Farkas.tex}
+\input{capitulos/programación-lineal.tex}
 \input{capitulos/FJ-KKT}
 
-\input{capitulos/Minimax}
-
-\input{capitulos/Separación}
-
-\input{capitulos/Farkas}
-
-\input{capitulos/Finanzas}
+\input{capitulos/Intro4+preliminaresFinanzas.tex}
+\input{capitulos/PrimerTeorema.tex}
+\input{capitulos/aplicación.tex}
 %% Incluir en la bibliografía las referencias no citadas
 \nocite{*}
-\bibliographystyle{alpha-es}
-\bibliography{bibliografia/bibliografia}
+% \bibliographystyle{alpha-es}
+% \bibliography{bibliografia/bibliografia}
+\begin{thebibliography}{X}
+	\bibitem{schechter1996handbook} E. Schechter,
+	\textsl{Handbook of analysis and its foundations}, Academic Press, Inc., San Diego, CA, 1999.
+	\bibitem{Simons2008} S. Simons, \textsl{From Hahn-Banach to Monotonicity}, 2nd edition, Lectures notes in Mathematics 1693, Springer, New York, 2008.
+	\bibitem{König1} H. König, \textsl{Über dans von Neumannsche minimax-theorem}, Archiv der Mathematik 19(1968), 482-487.
+\end{thebibliography}
 
 %\bibliographystyle{apalike-es}
 %\bibliography{bibliografia/bibliografia}

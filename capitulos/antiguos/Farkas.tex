@@ -1,4 +1,6 @@
 \chapter{Lema de Farkas}
+\newcommand{\bb}{\textbf{\emph{b}}}
+\newcommand{\cc}{\textbf{\emph{c}}}
 
 En la sección anterior hemos vimos como uno de los teoremas de separación implica el único teorema de la alternativa que hemos visto hasta el momento. Ahora, vamos a deducir de manera parecida otro teorema de la alternativa. Antes exponemos la siguiente definición.
 
@@ -87,4 +89,86 @@ Planteamos las siguientes alternativas, que obviamente son excluyentes, y que im
 	ya que obviamente $  \{x_1,\dots, x_M \} \subset \mathrm{cone}\{x_1,\dots, x_M \} $. En particular, hemos probado 1.
 	\end{itemize}
 \end{itemize}
+\end{proof}
+
+Gracias al lema de Farkas podemos probar resultados como el teorema de dualidad en Programación Lineal que enunciamos a continuación.
+\begin{teoremaBox}(Teorema de dualidad en Prgramación Lineal)
+Dados $ N,M \in \RR $ tomamos la matriz $ A \in \RR^{N\times M} $ y los vectores $ \bb \in \RR^M $ y $ \cc \in \RR^N $. Consideramos el problema de optimización primal:
+
+\begin{equation*}\label{primal}
+\begin{rcases*}
+p:= \inf_{x} \cc^T x\\
+\begin{split}
+\text{s.a } A^T x &\leq \bb \\
+x &\in \RR^N
+\end{split}
+\end{rcases*} = (P),
+\end{equation*}
+
+donde $ A^T x \leq \bb $ nos aporta un total de $ M $ restricciones. Sea el problema dual:
+
+\begin{equation*}\label{dual}
+\begin{rcases*}
+d:= \sup_{y} -\bb^T y\\
+\begin{split}
+\text{s.a } Ay &= -\cc \\
+y &\in \RR^N_+
+\end{split}
+\end{rcases*} = (D).
+\end{equation*}
+
+Entonces, la solución del problema primal y el dual coincide, o lo que es lo mismo, $ p = d $.
+\end{teoremaBox}
+\begin{proof}
+En primer lugar, veamos que $ p \geq d $. Para ello, tomamos $ x \in \RR^N$ e $ y \in \RR^N $ factibles, es decir, cumplen las restricciones de sus respectivos problemas. Así:
+\[
+\begin{cases}
+A^T x - \bb \leq 0 \\
+y \geq 0
+\end{cases}
+\]
+\[
+\big\Downarrow
+\]
+\[
+(A^T x -\bb)^Ty =x^TAy -\bb^Ty\leq 0
+\]
+\[
+\big\Updownarrow
+\]
+\[
+ -\bb^Ty\leq \cc^T x,
+\]
+donde la última desigualdad se debe a que $ Ay = -\cc $. Supongamos ahora que $ p \in \RR $. Consideramos el problema homogeneizado:
+
+\begin{equation*}
+\begin{rcases*}
+\begin{split} 
+A^T x - z\bb&\leq 0  \\
+-\cc^Tx  + zp &>0  \\
+x \in \RR^N , \hspace{1mm} z &\in \RR_+
+\end{split}
+\end{rcases*}.
+\end{equation*}
+Este problema no tiene solución ya que $ p= \inf_{x} \cc^T x $ y como $ z \geq 0 $ se tiene que $ -zp \leq \cc^T x $. Aplicamos el lema de Farkas, y al no tener el sistema solución observamos que no se puede dar la alternativa $ ii') $. Para ello, consideramos cada fila de la matriz $ A^T $ como un vector de $ \RR^N $, teniendo un total de $ M $ vectores. Notamos las filas de la matriz $ A^T $ como $ A_{j\cdot} $ con $ j=1,\dots,M $. Entonces, tenemos que existen escalares $\mu_1,\dots,\mu_M,\beta \geq 0 $ que cumplen
+\[
+\sum_{j=1}^{M}\mu_j (A_{j\cdot},-b_j) + \beta(0,-1) = (-\cc,p).
+\]
+Reescribiendo lo anterior, llamamos $ \mu = \begin{pmatrix}
+\mu_{1} \\
+\vdots \\
+\mu_{M}
+\end{pmatrix} $ y obtenemos
+
+\begin{equation*}
+\begin{rcases*}
+\begin{split} 
+\sum_{j=1}^{M}\mu_j A_{j\cdot} = A \mu &= -\cc\\
+\mu &\in \RR^M_+ \\
+-\bb^T \mu - \beta &= p
+\end{split}
+\end{rcases*}.
+\end{equation*}
+
+El vector $ \mu $ es una solución factible para el problema dual $ (D) $ con valor objetivo al menos $ p $ obteniendo entonces que $ p \leq d $ quedando probado el resultado.
 \end{proof}

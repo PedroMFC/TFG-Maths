@@ -1,0 +1,96 @@
+\chapter{Optimización}
+Si en el capítulo anterior dábamos las primeras aplicaciones del teorema de Gordan en forma de teorema minimax y, consecuentemente, de teoremas de separación, ahora usamos los teoremas de la alternativa en su contexto original: a optimización. Tras presentar un nuevo resultado de la alternativa, el lema de Farkas, abordamos el estudio de dos problemas clásicos: uno de dualidad en programación lineal; otro de paso de un problema de optimización con restricciones (en este caso de tipo desigualdad) a otro sin restricciones, vía los teoremas de Fritz-John y Karush-Kuhn-Tucker. Para el primero de ellos usamos el de Farkas y para el segundo el teorema de Gordan en su versión clásica.
+
+\section{Lema de Farkas}
+\newcommand{\bb}{\textbf{\emph{b}}}
+\newcommand{\cc}{\textbf{\emph{c}}}
+
+En el capítulo anterior hemos vimos como uno de los teoremas de separación implica el único teorema de la alternativa que hemos visto hasta el momento. Ahora, vamos a deducir de manera parecida otro teorema de la alternativa. Antes exponemos la siguiente definición.
+
+\begin{definicion}
+	Dados $ M, N \in \NN $ y $ \{x_1,\dots, x_M \} \subset \RR^N  $, llamamos cono generado por $ \{x_1,\dots, x_M \} $ al conjunto de $ \RR^N $ dado por:
+	\begin{equation*}
+	\mathrm{cone}\{x_1,\dots, x_M \} := \left\lbrace \sum_{j=1}^{N}{\mu_j x_j } : \text{ } \mu_1,...,\mu_N \geq 0 \right\rbrace .
+	\end{equation*}
+\end{definicion}
+
+Veamos que $ \mathrm{cone}\{x_1,\dots, x_M \} $ es un subconjunto convexo y compacto de $ \RR^N $:
+
+\begin{itemize}
+	\item  Convexo: tenemos que comprobar que dados $ \ttt, \sss \in \mathrm{cone}\{x_1,\dots, x_M \} $ y $ \lambda \in \lbrack 0,1 \rbrack $ entonces $ \lambda\ttt + (1-\lambda)\sss \in \mathrm{cone}\{x_1,\dots, x_M \} $. En efecto:
+	
+	\begin{equation*}
+	\begin{split}
+	\lambda\ttt + (1-\lambda)\sss &=   \lambda \sum_{j=1}^{N}{\mu_j^t x_j } + (1-\lambda)\sum_{j=1}^{N}{\mu_j^s x_j } \\
+	&= \sum_{j=1}^{N}{\lbrack \lambda \mu_j^t x_j  + (1-\lambda)\mu_j^s x_j \rbrack} \\
+	&= \sum_{j=1}^{N}{\lbrack \lambda \mu_j^t  + (1-\lambda)\mu_j^s \rbrack x_j}.
+	\end{split}
+	\end{equation*}
+	Como $ \mu_j^t \text{ y } \mu_j^s $ son no negativos, entonces $ \lambda \mu_j^t  + (1-\lambda)\mu_j^s  $ también es una cantidad no negativa para $ j=1,\dots,M $. Así, podemos concluir que $ \lambda\ttt + (1-\lambda)\sss \in \mathrm{cone}\{x_1,\dots, x_M \} $ y por tanto es un subconjunto convexo.
+	
+	\item Cerrado: sea $ \lbrace \ttt_n \rbrace_{ n \in \NN} $ una sucesión de $ \mathrm{cone}\{x_1,\dots, x_M \} $ y sea $ \ttt_0 \in \RR^N $ tal que $ \lbrace \ttt_n \rbrace_{ n \in \NN} \longrightarrow \ttt_0 $. Si notamos $ \ttt_n = \sum_{j=1}^{N}{\mu_j^n x_j }$, entonces:
+	\[
+	\lbrace \ttt_n \rbrace_{ n \in \NN} = \lbrace \sum_{j=1}^{N}{\mu_j^n x_j } \rbrace_{ n \in \NN} \longrightarrow \sum_{j=1}^{N}{\mu_j^0 x_j } = \ttt_0.
+	\]
+	Como para cada $ \ttt_n $ cumple que $ \mu_j^n \geq 0$ con $ j=1,\dots,N $ podemos asegurar que $ \mu_j^0 \geq $ con $ j=1,\dots,N $. Hemos demostrado que $ \ttt_0 $ se expresa como combinación de $ \{x_1,\dots, x_M \} $ con coeficientes no negativos. Por lo tanto, $ \ttt_0 \in \mathrm{cone}\{x_1,\dots, x_M \}  $ y por consiguiente es cerrado. 
+\end{itemize} 
+
+Enunciamos ahora otro de los teoremas de la alternativa más conocidos.
+\bigskip
+\begin{lemaBox}[Farkas]
+	Sean $ M,N \in \NN $ y $ \{x_1,\dots, x_M \} \subset \RR^N $ y $ b \in \RR^N $. Entonces una, y solo una, de la siguientes alternativas se cumple:
+	\begin{itemize}
+		\item[i')] $ \exists \mu_1,\dots,\mu_M \geq 0 $ tal que $ b = \sum_{j=1}^{M} \mu_j x_j$.
+		\item[ii')]$ \exists z_0 \in \RR^N $ que cumple que:
+		\begin{enumerate}
+			\item $ \displaystyle\max_{ j=1,\dots,M} \langle z_0, x_j \rangle \leq 0$ y
+			\item $ \langle z_0, b\rangle > 0$.
+		\end{enumerate} 
+	\end{itemize}
+\end{lemaBox}
+
+\begin{proof}
+	Planteamos las siguientes alternativas, que obviamente son excluyentes, y que implican las de la tesis del lema:
+	\begin{itemize}
+		\item[a)] $b \in \mathrm{cone}\{x_1,\dots, x_M \} $. Estamos en el caso $ i') $  ya que:
+		\[
+		b \in \left\lbrace \sum_{j=1}^{N}{\mu_j x_j } : \text{ } \mu_1,...,\mu_N \geq 0 \right\rbrace .
+		\]
+		\item[b)] $ b \notin \mathrm{cone}\{x_1,\dots, x_M \} $. Por su parte, esta alternativa equivale a $ ii') $. En efecto: 
+		
+		\begin{itemize}
+			\item[$ ii') \Longrightarrow b) $] Razonamos por reducción al absurdo. Suponemos que el elemento $ b \in \mathrm{cone}\{x_1,\dots, x_M \} $, entonces, podemos expresar $ b =  \sum_{j=1}^{N}{\mu_j x_j } $ con $ \mu_1,...,\mu_N \geq 0$. Como se da $ ii') $, en particular se cumple 1 y obtenemos, para el $ z_0 $ cuya existencia se garantiza,
+			\begin{equation*}
+			\begin{split}
+			\langle z_0, b \rangle & = \langle z_0, \sum_{j=1}^{N}{\mu_j x_j } \rangle \\
+			&= \sum_{j=1}^{N}{\mu_j\langle z_0, x_j \rangle } \leq 0.
+			\end{split}
+			\end{equation*}
+			
+			Por otro lado, por 2 se tiene que  $ \langle z_0, b\rangle > 0$. Así, obtenemos que
+			\[
+			\langle z_0, b \rangle \leq 0 <  \langle z_0, b \rangle,
+			\]
+			lo cual es imposible.
+			\item[$ b) \Longrightarrow ii') $] Si $ b \notin \mathrm{cone}\{x_1,\dots, x_M \} $ aplicamos el teorema de separación \ref{separacion1} a los conjuntos $ \{b\} $ que es compacto y convexo y a $ \mathrm{cone}\{x_1,\dots, x_M \} $ que es cerrado y convexo. Obtenemos que:
+			\[
+			\exists z_0 \in \RR^N: \text{ } \sup_{a \in \mathrm{cone}\{x_1,\dots, x_M \}} \langle z_0, a \rangle < \langle z_0, b \rangle.
+			\]
+			Por un lado, es obvio que $ 0 \in \mathrm{cone}\{x_1,\dots, x_M \} $ y por ello:
+			\[
+			0 = \langle z_0, 0\rangle \leq \sup_{a \in \mathrm{cone}\{x_1,\dots, x_M \}} \langle z_0, a \rangle < \langle z_0, b \rangle.
+			\]
+			Hemos obtenido por tanto que es cierto $ 2 $. Para probar $ 1 $, fijamos $ a_0 \in \mathrm{co}\{x_1,\dots, x_M \}$ (es obvio si $ \mathrm{co}\{x_1,\dots, x_M \} = \{0\}$). Entonces, dado $ \rho > 0 $,
+			\[
+			\rho\langle z_0, a_0 \rangle = \langle z_0, \rho a_0 \rangle \leq \sup_{a \in \mathrm{cone}\{x_1,\dots, x_M \}} \langle z_0, a_0 \rangle.
+			\]
+			Llegamos a que el conjunto $ \lbrace\rho\langle z_0, a_0 \rangle: \text{ } \rho > 0 \rbrace  $ está acotado y eso solo es posible si $ \langle z_0, a_0 \rangle \leq 0 $. La arbitrariedad de $ a_0 $ nos aporta que 
+			\[ \sup_{a \in \mathrm{cone}\{x_1,\dots, x_M \}} \langle z_0, a \rangle= 0 \] de donde 
+			\[
+			\max_{ j=1,\dots,M} \langle z_0, x_j \rangle \leq \sup_{a \in \mathrm{cone}\{x_1,\dots, x_M \}} \langle z_0, a \rangle \leq 0  
+			\]
+			ya que obviamente $  \{x_1,\dots, x_M \} \subset \mathrm{cone}\{x_1,\dots, x_M \} $. En particular, hemos probado 1.
+		\end{itemize}
+	\end{itemize}
+\end{proof}
+\bigskip

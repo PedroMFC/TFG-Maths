@@ -1,8 +1,16 @@
-\BOOKMARK [0][-]{chapter.1}{Teoremas\040de\040Hanh-Banach\040y\040de\040Mazur-Orlicz}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Igualdad}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Lema\040de\040Simons\040y\040Teorema\040de\040la\040Alternativa\040de\040Gordan}{}% 3
-\BOOKMARK [0][-]{chapter.4}{Teoremas\040de\040Fritz\040John\040y\040de\040Karush-Kuhn-Tucker}{}% 4
-\BOOKMARK [0][-]{chapter.5}{Minimax}{}% 5
-\BOOKMARK [0][-]{chapter.6}{Teorema de Separación}{}% 6
-\BOOKMARK [0][-]{chapter.7}{Lema\040de\040Farkas}{}% 7
-\BOOKMARK [0][-]{chapter.8}{Finanzas y primer teorema de asignación de precios}{}% 8
+\BOOKMARK [0][-]{chapter.1}{Resumen\040y\040palabras\040clave}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Resumen extendido y palabras clave en inglés}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Teoremas\040de\040la\040alternativa}{}% 3
+\BOOKMARK [1][-]{section.3.1}{Teorema de Mazur-Orlicz-König}{chapter.3}% 4
+\BOOKMARK [1][-]{section.3.2}{Teorema\040de\040la\040alternativa\040de\040Gordan.\040Reformulaciones.}{chapter.3}% 5
+\BOOKMARK [0][-]{chapter.4}{Alternativa\040y\040minimax}{}% 6
+\BOOKMARK [1][-]{section.4.1}{Una\040desigualdad\040minimax}{chapter.4}% 7
+\BOOKMARK [1][-]{section.4.2}{Separación de convexos}{chapter.4}% 8
+\BOOKMARK [0][-]{chapter.5}{Optimización}{}% 9
+\BOOKMARK [1][-]{section.5.1}{Lema\040de\040Farkas}{chapter.5}% 10
+\BOOKMARK [1][-]{section.5.2}{Dualidad en programación lineal}{chapter.5}% 11
+\BOOKMARK [1][-]{section.5.3}{Optimización con restricciones: Fritz John y Karush-Kuhn-Tucker}{chapter.5}% 12
+\BOOKMARK [0][-]{chapter.6}{Valoración de activos financieros}{}% 13
+\BOOKMARK [1][-]{section.6.1}{Preliminares\040financieros}{chapter.6}% 14
+\BOOKMARK [1][-]{section.6.2}{Primer\040teorema\040fundamental}{chapter.6}% 15
+\BOOKMARK [1][-]{section.6.3}{Aplicación al modelo binomial}{chapter.6}% 16
