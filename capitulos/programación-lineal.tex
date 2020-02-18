@@ -50,29 +50,56 @@ Gracias al lema de Farkas podemos probar resultados como el teorema de dualidad 
 	\]
 	donde la última desigualdad se debe a que $ Ay = -\cc $. Tomando ínfimos en la izquierda y supremos en la derecha llegamos a $ p \geq d $. \\
 	
-	Supongamos ahora que $ p \in \RR $. Consideramos el problema homogeneizado:
-	
+	Supongamos ahora que $ p \in \RR $. Consideramos el problema homogeneizado, 
+	\begin{equation*}
+	\begin{rcases*}
+	\begin{split} 
+	\langle A_i, x \rangle - zb_i&\leq 0  \\
+	pz &< \cc^Tx \\
+	x \in \RR^N, z &\leq 0
+	\end{split}
+	\end{rcases*},
+	\end{equation*}
+	para cada $ i=1,\dots M $ donde $ A_i $ denota la fila i-ésima de la matriz $ A^T $. Utilizando notación matricial obtendríamos:
 	\begin{equation*}
 	\begin{rcases*}
 	\begin{split} 
 	A^T x - z\bb&\leq 0  \\
-	\cc^Tx  - zp &>0  \\
-	x \in \RR^N , \hspace{1mm} z &\leq 0
+	-\cc^Tx  + zp &>0  \\
+	x \in \RR^N , \hspace{1mm} z &\in \RR_+
 	\end{split}
 	\end{rcases*}.
-	\end{equation*}
-	Este problema no tiene solución ya que en caso contrario, si $ z > 0 $ entonces $ A^T \displaystyle \frac{x}{z} < \bb$ y, por la definición de $ p $, $ \cc^T \frac{x}{z} \geq p $ si, y solo si, $ zp \leq \cc^T x $, lo que no es posible, pues debe ser $ zp > \cc^Tx $. En el caso $ z=0 $, el problema\\
-	\begin{equation*}
+	\end{equation*} 
+	Este problema no tiene solución ya que en caso contrario, si $ z > 0 $, entonces $ A^T \displaystyle \frac{x}{z} < \bb$ y, por la definición de $ p $, $ \cc^T \frac{x}{z} \geq p $ si, y solo si, $ zp \leq \cc^T x $, lo que no es posible, pues debe ser $ zp > \cc^Tx $. En el caso $ z=0 $, el problema\\
+	\begin{equation}\label{eq}
 	\begin{rcases*}
 	\begin{split} 
 	A^T x &\leq 0  \\
-	\cc^Tx &<0  \\
-	x \in \RR^N , \hspace{1mm} z &\leq 0
+	\cc^Tx &<0 
 	\end{split}
-	\end{rcases*}.
+	\end{rcases*}
+	\end{equation}
+	tiene solución. Es claro que si $ x_0 $ es solución de este problema, también lo es para cualquier $ \rho x_0 $ con $ \rho > 0 $. Por tanto, al ser $ \cc^T x_0 < 0$, 
+	\begin{equation*}
+	\begin{split}
+	\cc^T \rho x_0 \longrightarrow -\infty,
+	\end{split}
 	\end{equation*}
-	
-	 $ p= \inf_{x} \cc^T x $ y como $ z \geq 0 $ se tiene que $ -zp \leq \cc^T x $. Aplicamos el lema de Farkas, y al no tener el sistema solución observamos que no se puede dar la alternativa $ ii') $. Para ello, consideramos cada fila de la matriz $ A^T $ como un vector de $ \RR^N $, teniendo un total de $ M $ vectores. Notamos las filas de la matriz $ A^T $ como $ A_{j\cdot} $ con $ j=1,\dots,M $. Entonces, tenemos que existen escalares $\mu_1,\dots,\mu_M,\beta \geq 0 $ que cumplen
+	cuando $ \rho \longrightarrow +\infty $. Al ser $ \rho $ finito, a partir de cierto $ \rho_0 > 0 $,
+	\[
+	p \geq p_0 \Longrightarrow A^T \rho x_0 \leq b,
+	\]
+	esto es,
+	\[
+	\exists i: \hspace{1.5mm}  \rho\langle A_i, x_0 \rangle > b_i, \hspace{2mm} \forall \rho \geq \rho_0
+	\]
+	\[
+	\big\Downarrow
+	\]
+	\[
+	\langle A_i, x_0 \rangle > 0
+	\]
+	y no se cumple la primera condición de \ref{eq}. Aplicamos el lema de Farkas al problema homogeneizado, y al no tener el sistema solución observamos que no se puede dar la alternativa $ ii') $. Entonces, tenemos que existen escalares $\mu_1,\dots,\mu_M,\beta \geq 0 $ que cumplen
 	\[
 	\sum_{j=1}^{M}\mu_j (A_{j\cdot},-b_j) + \beta(0,-1) = (-\cc,p).
 	\]

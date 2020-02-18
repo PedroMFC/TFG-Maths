@@ -103,19 +103,17 @@ Una vez obtenida la fórmula y hecha la aclaración sobre la relación de precio
 
 \begin{lstlisting}[label={definiciones}, caption={Definición en Sage de las funciones}, morekeywords={sage}]
 sage: def getA(K, T, S, d, u):
-k = 0
-while True:
-if S*(1+u)^(k)*(1+d)^(T-k) > K
-return k
-else:
-k += 1
+          k = 0
+          while S*(1+u)^(k)*(1+d)^(T-k) < K:
+                k+=1
+          return k
 sage: def getV(K, T, S, d, r, u):
-A = getA(K, T, S, d, u)
-q = (r-d)/(u-d)
-if r <= d or r >= u:
-return 0
-else:
-return (1+r)^(-T)*sum(binomial(T,v)*q^v*(1-q)^(T-v)*(S*(1+u)^(v)*(1+d)^(T-v)- K) for v in range(A,T))           	 
+          A = getA(K, T, S, d, u)
+          q = (r-d)/(u-d)
+          if r <= d or r >= u:
+              return 0
+          else:
+              return (1+r)^(-T)*sum(binomial(T,v)*q^v*(1-q)^(T-v)*(S*(1+u)^(v)*(1+d)^(T-v)- K) for v in range(A,T))           	 
 \end{lstlisting}
 
 Para ello, partiremos del siguiente problema general del que iremos variando los diferentes parámetros en el que tomamos una unidad monetaria (u.m.) cualquiera. \\
@@ -137,17 +135,17 @@ sage: point([(T, getV(K, T, S, d, r, u)) for T in srange(1, 25,1) ], rgbcolor = 
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_T}
+	\includegraphics[width=0.6\linewidth]{value_T}
 	\caption{Valor de la opción en función del número de pasos.}
 	\label{valueT}
 \end{figure}
 
-Vemos que tendríamos que poner una fecha de compra superior a los 4 meses ya que durante los tres primeros $ A = T $, lo que significa que lo más seguro es que no ejerciéramos nuestro derecho a la opción. Observamos que los valores crecen en función de este parámetro. Veamos qué pasa si variamos el precio de la acción fijado en la opción de compra, es decir, $ K $. Se ha obtenido la gráfica \ref{valueK} en la que $ K $ varía de 23 a 33. Vemos que en este caso es decreciente. Esta situación podemos considerar que es la esperada. Cuanto menor sea precio más posibilidades tiene el propietario de ejercerla ya que es raro que en el futuro la acción tenga ese valor tan bajo. Por ello, el vendedor tiene que exigir un mayor. Por otro lado, cuanto mayor sea el precio acordado es el comprador el que corre un mayor riesgo de no ejercerla en el futuro por lo que tiene que pagar menos por ella ahora. 
+Vemos que tendríamos que poner una fecha de compra superior a los 4 meses ya que durante los tres primeros $ A = T $, lo que significa que lo más seguro es que no ejerciéramos nuestro derecho a la opción. Observamos que los valores crecen en función de este parámetro. Veamos qué pasa si variamos el precio de la acción fijado en la opción de compra, es decir, $ K $. Se ha obtenido des este modo la gráfica \ref{valueK} en la que $ K $ varía de 23 a 33. Vemos que en este caso es decreciente. Esta situación podemos considerar que es la esperada. Cuanto menor sea precio más posibilidades tiene el propietario de ejercerla ya que es raro que en el futuro la acción tenga ese valor tan bajo. Por ello, el vendedor tiene que exigir un mayor. Por otro lado, cuanto mayor sea el precio acordado es el comprador el que corre un mayor riesgo de no ejercerla en el futuro por lo que tiene que pagar menos por ella ahora. 
 
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_K}
+	\includegraphics[width=0.6\linewidth]{value_K}
 	\caption{Valor de la opción en función del precio acordado.}
 	\label{valueK}
 \end{figure} 
@@ -157,7 +155,7 @@ Obtengamos ahora el precio en función del valor actual $ S_0 $. Hemos variado d
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_S}
+	\includegraphics[width=0.6\linewidth]{value_S}
 	\caption{Valor de la opción en función del valor actual.}
 	\label{valueS}
 \end{figure}
@@ -165,7 +163,7 @@ En este caso vuelven a ser crecientes, lo que era de espera, r ya que en la fór
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_r}
+	\includegraphics[width=0.6\linewidth]{value_r}
 	\caption{Valor de la opción en función del interés.}
 	\label{valuer}
 \end{figure}
@@ -173,7 +171,7 @@ La variación de este valor es quizás la más interesante desde el punto de vis
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_d}
+	\includegraphics[width=0.6\linewidth]{value_d}
 	\caption{Valor de la opción en función de $ d $.}
 	\label{valued}
 \end{figure}
@@ -181,8 +179,9 @@ En este caso también es creciente lo que es normal ya que cuanto mayor sea $ d 
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
-	\includegraphics[width=0.7\linewidth]{value_u}
+	\includegraphics[width=0.6\linewidth]{value_u}
 	\caption{Valor de la opción en función de $ u $.}
 	\label{valueu}
 \end{figure}
+
 Observamos que para valores cercanos al interés el valor de la opción es relativamente bajo ya que la ganancia que obtendremos sería menor. El precio va aumentando aunque llega un punto que dicho crecimiento se reduce.
