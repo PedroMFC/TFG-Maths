@@ -1,10 +1,10 @@
 \chapter{Teoremas de la alternativa}
-Los teoremas de la alternativa constituyen una potente herramienta en optimización. A pesar de tener un claro carácter convexo, se aplican incluso a problemas no convexos, tal y como se comprobará a lo largo de esta memoria. Nuestro punto de partida es el resultado del análisis  convexo, más importante, el teorema de Hahn-Banach. Es más, daremos una versión equivalente debida a H. König, conocida como el teorema de Mazur-Orlicz-König. Como consecuencia, obtendremos el teorema de la alternativa de Gordan, tanto en su versión convexa como una más general. 
+Los teoremas de la alternativa constituyen una potente herramienta en optimización. A pesar de tener un claro carácter convexo, se aplican incluso a problemas no convexos, tal y como se comprobará a lo largo de esta memoria. Nuestro punto de partida es el resultado del análisis  convexo, más importante, el teorema de Hahn-Banach. Es más, daremos una versión equivalente debida a H. König, conocida como el teorema de Mazur-Orlicz-König. Como consecuencia, obtendremos el teorema de la alternativa de Gordan, tanto en su versión clásica como una más general. 
 
 \section{Teorema de Mazur-Orlicz-König}
 El objetivo principal de esta sección es demostrar una versión equivalente no muy conocida del clásico teorema de Hanh-Banach, el teorema de Mazur-Orlicz-König. Iremos de una versión básica y algebraica del teorema de Hahn-Banach al teorema de Mazur-Orlicz-König siguiendo como aparece en el texto de S. Simons \cite{Simons2008}. \\
 	
-En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace . Notar que todos los espacios vectoriales que vamos a usar son reales. Del mismo modo, los espacios y conjuntos que usaremos asumiremos que son no vacíos.
+En primer lugar vamos a recordar la definición de funcional sublineal sobre un espacio vectorial \vecSpace. Notar que todos los espacios vectoriales que vamos a usar son reales. Del mismo modo, los conjuntos que usaremos asumiremos que son no vacíos.
 	
 \begin{definicion}
 Sea \vecSpace un espacio vectorial. Decimos que el $P:\vecSpace \rightarrow \RR$ es sublineal si cumple las siguientes condiciones:
@@ -19,7 +19,7 @@ Como consecuencia, podemos afirmar que $ P(0) = 0 $. En efecto:
 P(0) = P(2\times0) = 2\times P(0) \Longrightarrow P(0) = 0.
 \]
 
-Por ejemplo, toda norma o incluso toda seminorma sobre \vecSpace es un funcional sublineal. Así, dados $ a,b \in \RR $ con $ a <b $ tenemos que $ P:H^{1} (a,b) \longrightarrow \RR$ definida como \[ P(x) = \norm{x'}_{L^2(a,b)} \] es una seminorma y por ello sublineal. También, si $ \vecSpace = \RR $ y definimos la parte positiva \[ P(x) = [x]^{+} = \max \{0,x\}, \forall x \in \RR \] obtenemos un funcional sublineal sobre $\RR$. \\
+Por ejemplo, toda norma o incluso toda seminorma sobre \vecSpace es un funcional sublineal. Así, dados $ a,b \in \RR $ con $ a <b $ tenemos que $ P:H^{1} (a,b) \longrightarrow \RR$ definida como \[ P(x) = \norm{x'}_{L^2(a,b)} \] es una seminorma y por ello sublineal. También, si $ \vecSpace = \RR $ y definimos la parte positiva \[ P(x) = [x]^{+} = \max \{0,x\}, \quad \forall x \in \RR \] obtenemos un funcional sublineal sobre $\RR$. \\
 	
 El lema que exponemos a continuación, y que generalizaremos posteriormente en el lema \ref{lema2}, nos servirá para demostrar el teorema de Hanh-Banach. 
 	
@@ -27,9 +27,8 @@ El lema que exponemos a continuación, y que generalizaremos posteriormente en e
 	\begin{lemaBox}\label{lema1}
 		Sea\vecSpace un espacio vectorial y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Fijamos un elemento $ y \in \vecSpace $ y para todo $ x \in \vecSpace $ tomamos  
 		\begin{center}
-			$ P_y(x) := \displaystyle\inf_{\lambda > 0} \left[P(x+\lambda y) - \lambda P(y)\right] $
+			$ P_y(x) := \displaystyle\inf_{\lambda > 0} \left[P(x+\lambda y) - \lambda P(y)\right]. $
 		\end{center}
-		
 		Entonces, $ P_y(\vecSpace) \subset \RR$, $ P_y:\vecSpace \longrightarrow \RR $ es sublineal, $ P_y \leq P $ y además $ P_y (-y) \leq  -P(y)$.
 	\end{lemaBox} 
 	\begin{proof}
@@ -42,8 +41,8 @@ El lema que exponemos a continuación, y que generalizaremos posteriormente en e
 		Probaremos ahora que $ P_y $ es sublineal. Empezamos viendo la subaditividad. Tomamos $ x_1, x_2 \in V $ y sean $ \lambda_1, \lambda_2 > 0$ arbitrarios. Entonces, la definición de $ P_y $ da 
 		\begin{equation*}
 		\begin{split}
-		( P(x_1 + \lambda_1 y) - \lambda_1 P(y) ) &+ ( P(x_2 + \lambda_2 y) - \lambda_2 P(y) ) \\
-		& \geq ( P(x_1 + x_2 + (\lambda_1+\lambda_2)y)) - (\lambda_1+\lambda_2) P(y) \\
+		 P(x_1 + \lambda_1 y) - \lambda_1 P(y)  &+  P(x_2 + \lambda_2 y) - \lambda_2 P(y)  \\
+		& \geq  P(x_1 + x_2 + (\lambda_1+\lambda_2)y) - (\lambda_1+\lambda_2) P(y) \\
 		&\geq P_y (x_1 + x_2 ).
 		\end{split}
 		\end{equation*}
@@ -59,7 +58,7 @@ El lema que exponemos a continuación, y que generalizaremos posteriormente en e
 		Obtenemos que $ P_y $ es positivamente homogénea y como consecuencia sublineal. \\
 		
 		Para demostrar que $ P_y \leq P $, sea $ x \in V $ y tomando $ \lambda = 1 $ en la definición de $ P_y $,
-		\[ P_y(x) \leq P(x+y) - P(y) \leq P(x)+ P(y) - P(y) = P(x) \]
+		\[ P_y(x) \leq P(x+y) - P(y) \leq P(x)+ P(y) - P(y) = P(x). \]
 		Como $ x \in \vecSpace $ es arbitrario, entonces $ P_y \leq P $. Finalmente, razonando de manera similar,
 		\[P_y(-y) \leq P(-y+y) - P(y) = -P(y).  \]
 		
@@ -79,15 +78,19 @@ El teorema de Hahn-Banach que hemos mencionado antes (básico y algebraico) se e
 \end{figure}
 
 	\begin{proof}
-		Sea $ \text{SUB} = \lbrace Q:\vecSpace \longrightarrow \RR : Q \leq P \rbrace$, es decir, el conjunto de funcionales sublineales sobre \vecSpace que minoren a $ P $. Nuestro propósito es emplear el lema de Zorn con objeto de probar que tiene un elemento minial y tal elemento será el funcional $ L $ que buscamos. Para ello, dados $ T_1 ,T_2 \in \text{SUB} $ consideramos la relación de orden usual, es decir:
+		Sea $ \text{SUB} = \lbrace Q:\vecSpace \longrightarrow \RR : Q \leq P \rbrace$, es decir, el conjunto no vacío de funcionales sublineales sobre \vecSpace que minoren a $ P $. Nuestro propósito es emplear el lema de Zorn con objeto de probar que tiene un elemento minial y tal elemento será el funcional $ L $ que buscamos. Para ello, dados $ T_1 ,T_2 \in \text{SUB} $ consideramos la relación de orden usual, es decir:
 		\begin{center}
 			$ T_1 \leq T_2 \Longleftrightarrow T_1 (x) \leq T_2 (x) \quad \forall x \in \vecSpace $.
 		\end{center}
 		Primero probaremos que todo subconjunto $ \mathcal{T} $ totalmente ordenado de $SUB $ tiene una cota inferior en  SUB. Definimos $ Q(x):=\inf \{ T(x): T \in \mathcal{T} \} $ y queremos ver que $ Q(x) \in \RR $. Si $ x \in \vecSpace $ y $ T \in \mathcal{T} $, como T es subaditiva obtenemos la siguiente relación:
-		\[ 0 = T(0) = T(x-x) \leq T(x) + T(-x) \Longrightarrow T(x) \geq -T(-x) \quad (1)\]  
+		\begin{equation}\label{6.1}
+		 0 = T(0) = T(x-x) \leq T(x) + T(-x) \Longrightarrow T(x) \geq -T(-x)
+		\end{equation}  
 		Por otro lado:
-		\[ T \in \mathcal{Q} \Longrightarrow T(x) \leq P(x) \Longrightarrow -T(x) \geq -P(x) \quad (2)\] 
-		Usando (1), (2) y tomando ínfimo sobre $  T $  llegamos a $ Q(x) \geq -P(x) \geq - \infty $. Por lo tanto $ Q:V \rightarrow \RR$. \\
+		\begin{equation}\label{6.2}
+		T \in \mathcal{Q} \Longrightarrow T(x) \leq P(x) \Longrightarrow -T(x) \geq -P(x)
+		\end{equation}
+		Usando \eqref{6.1}, \eqref{6.2} y tomando ínfimo sobre $  T $  llegamos a $ Q(x) \geq -P(x) > - \infty $. Por lo tanto $ Q:V \rightarrow \RR$. \\
 		
 		Ahora probaremos que $ Q $ es subaditiva. Para ello, tomamos $ x_1, x_2\in \vecSpace $. Sean $ T_1 , T_2 \in \mathcal{T} $ arbitrarios. Si $ T_1 \geq T_2 $ (el caso de $ T_2 \geq T_1 $ es análogo.):
 		
@@ -122,21 +125,20 @@ El teorema de Hahn-Banach que hemos mencionado antes (básico y algebraico) se e
 	\end{proof}
 \bigskip
 
-Nos disponemos a probar, a partir de el teorema de Hahn-Banach el de Mzur-Orlicz-König, que supone un refinamiento. Antes, necesitamos un resultado técnico, que constituye una especie de versión global sobre un convexo del lema \ref{lema1}.
+Nos disponemos a probar, a partir del teorema de Hahn-Banach el de Mzur-Orlicz-König, que supone un refinamiento. Destacamos que el teorema de Hahn-Banach tiene gran cantidad de versiones equivalentes. Véase, por ejemplo, \cite{schechter1996handbook}. Antes, necesitamos un resultado técnico, que constituye una especie de versión global sobre un convexo del lema \ref{lema1}.
 	
 \bigskip 
 	\begin{lemaBox}\label{lema2}
 		Sea\vecSpace un espacio vectorial y $P:\vecSpace \rightarrow \RR$ un funcional sublineal. Sea $ D $ un subconjunto convexo de \vecSpace y sea $ \beta := \inf_D P \in \RR $. Para todo $ x \in V $ tomamos  
 		\begin{center}
-			$ Q(x) := \inf_{d \in D, \lambda > 0} \left[P(x+\lambda d) - \lambda \beta\right] $
+			$ Q(x) := \inf_{d \in D, \lambda > 0} \left[P(x+\lambda d) - \lambda \beta\right]. $
 		\end{center}
-		
 		Entonces, $ Q(\vecSpace) \subset \RR $, $ Q:V \rightarrow \RR$ es sublineal, $ Q \leq P $ y además $ \forall d \in D$ se cumple  $-Q(-d) \geq \beta$.
 	\end{lemaBox} 
 	\begin{proof}
 		Si $ x \in \vecSpace,\text{ }d \in D $ y $ \lambda > 0 $, entonces
 		\begin{center}
-			$ P(x+ \lambda d) - \lambda \beta \geq -P(-x) + \lambda P(d)-\lambda\beta \geq -P(-x) \geq -\infty$.
+			$ P(x+ \lambda d) - \lambda \beta \geq -P(-x) + \lambda P(d)-\lambda\beta \geq -P(-x) > -\infty$.
 		\end{center}
 		La primera desigualdad se deduce de la linealidad de P ya que:
 		\begin{equation*}
@@ -148,10 +150,10 @@ Nos disponemos a probar, a partir de el teorema de Hahn-Banach el de Mzur-Orlicz
 		\end{equation*}
 		por lo que $ \lambda P(d)-P(-x) \leq P(x+\lambda d) $. La segunda se debe a que
 		\[\beta = \inf_D P \Longrightarrow \lambda P(d) \geq \lambda\beta \Longrightarrow\lambda P(d) - \lambda\beta \geq 0. \]
-		Tomando el ínfimo sobre $ d \in D  $ y $ \lambda > 0 $ llegamos a \[ Q(x)\geq -P(-x) > -\infty,\] por lo que $ Q(\vecSpace) \longrightarrow \RR$. Es relativamente fácil probar que $ Q $ es positivamente homogénea por lo que para ver que es sublineal solo queda comprobar la subaditividad. Para ello, tomamos $ x_1, x_2 \in V $. Sean $ d_1, d_2 \in D $ y $ \lambda_1, \lambda_2 > 0$ arbitrarios. Para simplificar la notación llamamos $ x := x_1 + x_2 $, $ \lambda := \lambda_1 + \lambda_2 $ y $ d:= (\lambda_1/\lambda)d_1 + (\lambda_2/\lambda)d_2 $. Notar que $ d \in D $, al ser este convexo. Entonces: 
+		Tomando el ínfimo sobre $ d \in D  $ y $ \lambda > 0 $ llegamos a \[ Q(x)\geq -P(-x) > -\infty,\] por lo que $ Q(\vecSpace) \subset \RR$. Es relativamente fácil probar que $ Q $ es positivamente homogénea por lo que para ver que es sublineal solo queda comprobar la subaditividad. Para ello, tomamos $ x_1, x_2 \in V $. Sean $ d_1, d_2 \in D $ y $ \lambda_1, \lambda_2 > 0$ arbitrarios. Para simplificar la notación llamamos $ x := x_1 + x_2 $, $ \lambda := \lambda_1 + \lambda_2 $ y $ d:= (\lambda_1/\lambda)d_1 + (\lambda_2/\lambda)d_2 $. Notar que $ d \in D $, al ser este convexo. Entonces: 
 		\begin{equation*}
 		\begin{split}
-		( P(x_1 + \lambda_1 d_1) - \lambda_1 \beta ) + ( P(x_2 + \lambda_2 d_2) - \lambda_2 \beta ) &\geq P(x + \lambda_1 d_1 + \lambda_2 d_2) - \lambda \beta\\
+		 P(x_1 + \lambda_1 d_1) - \lambda_1 \beta  +  P(x_2 + \lambda_2 d_2) - \lambda_2 \beta &\geq P(x + \lambda_1 d_1 + \lambda_2 d_2) - \lambda \beta\\
 		& = P(x +\lambda d) - \lambda \beta\\ 
 		& \geq Q(x) = Q(x_1 + x_2).
 		\end{split}
@@ -162,15 +164,15 @@ Nos disponemos a probar, a partir de el teorema de Hahn-Banach el de Mzur-Orlicz
 	\end{proof}
 \bigskip
 
-Ya estamos preparados para probar el teorema de Mazur-Orlicz-König, debido a H. König \cite{König1, König2}. No solo es una versión equivalente del teorema de Hahn-Banach, también de un teorema de Mazur-Orlicz \cite{mo}, aunque es solo una reformulación. 
+Ya estamos preparados para probar el teorema de Mazur-Orlicz-König, debido a H. König \cite{König1, König2}. No solo es una versión equivalente del teorema de Hahn-Banach, también de un teorema de Mazur-Orlicz \cite{mo}. 
 
 \bigskip
 	
 	\begin{teoremaBox}[Mazur-Orlicz-König]\label{M-O}
-		Sea\vecSpace un espacio vectorial y $P:\vecSpace \rightarrow \RR$ un funcional sublineal.  Sea $ D $ un subconjunto no vacío y convexo de \vecSpace. Entonces existe un funcional $ L: \vecSpace \longrightarrow \RR $ lineal tal que $ L \leq P $ e $ \inf_D L = \inf_D P $.
+		Sea\vecSpace un espacio vectorial y $P:\vecSpace \rightarrow \RR$ un funcional sublineal.  Sea $ D $ un subconjunto no vacío y convexo de $ V $. Entonces existe un funcional $ L: \vecSpace \longrightarrow \RR $ lineal tal que $ L \leq P $ e $ \inf_D L = \inf_D P $.
 	\end{teoremaBox}
 
-Antes de pasar a la demostración, observemos que, aunque es un resultado puramente algebraico, tiene una fuerte interpretación geométrica: el teorema de Hahn-Banach garantiza, dado un funcional sublineal, $ P: \vecSpace \longrightarrow \RR $, la existencia de un funcional lineal $ L:\vecSpace \longrightarrow \RR $ con $ L \leq P $. En la imagen \ref{H-B-varios} mostramos unos ejemplos de funcionales que nos aporta el teorema de Hahn-Banach. \\
+Antes de pasar a la demostración, observemos que, aunque es un resultado puramente algebraico, tiene una fuerte interpretación geométrica: el teorema de Hahn-Banach garantiza, dado un funcional sublineal $ P: \vecSpace \longrightarrow \RR $, la existencia de un funcional lineal $ L:\vecSpace \longrightarrow \RR $ con $ L \leq P $. En la figura \ref{H-B-varios} mostramos unos ejemplos de funcionales que nos aporta el teorema de Hahn-Banach. \\
 
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
@@ -196,7 +198,7 @@ En la imagen \ref{M-O-K-fotos} se muestra un ejemplo del teorema.
 	\begin{proof}
 		Sea $ \beta := \inf_D P $. En el caso de que $ \beta = -\infty $ por el teorema de Hanh-Banach tenemos que $ \exists L $ sobre \vecSpace tal que es lineal y $ L \leq P$. Así:
 		\begin{center}
-			$ L \leq P \Longrightarrow inf_D L \leq \inf_D P = -\infty \Longrightarrow inf_D L = \inf_D P.$ 
+			$ L \leq P \Longrightarrow \inf_D L \leq \inf_D P = -\infty \Longrightarrow \inf_D L = \inf_D P.$ 
 		\end{center}
 		Supongamos entonces que $ \beta \in \RR $. Definimos el funcional auxiliar $ Q $ como en el lema \ref{lema2}. Del teorema de Hanh-Banach obtenemos que existe un funcional lineal $ L $ sobre \vecSpace tal que $ L \leq Q$ (como $ Q \leq P $ tenemos que $ L \leq P $). Sea $ d \in D $, entonces:
 		\[
@@ -217,7 +219,7 @@ En la imagen \ref{M-O-K-fotos} se muestra un ejemplo del teorema.
 
 %%% IGUALDAD
 \newcommand{\normSpace}{E}
-Antes de probar la eficiencia del teorema de Mazur-Orlicz-König en el siguiente apartado, presentamos una consecuencia bien conocida. En particular, nos será de utilidad posteriormente para el teorema de Separación. Recordemos dados $ \normSpace_1, \normSpace_2 $ dos espacios normados y $ T:\normSpace_1 \longrightarrow \normSpace_2 $ un operador lineal, entonces $ T $ es continuo si, y solo si, verifica la siguiente condición:
+Antes de probar la eficiencia del teorema de Mazur-Orlicz-König en el siguiente apartado, presentamos una consecuencia bien conocida. En particular, nos será de utilidad posteriormente para el teorema de separación. Recordemos dados $ \normSpace_1, \normSpace_2 $ dos espacios normados y $ T:\normSpace_1 \longrightarrow \normSpace_2 $ un operador lineal, entonces $ T $ es continuo si, y solo si, verifica la siguiente condición:
 \[
 \exists \alpha > 0 : \norm{T(x)} \leq \alpha \norm{x} \quad \forall x \in \normSpace_1,
 \]

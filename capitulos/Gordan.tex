@@ -6,13 +6,14 @@
 \newcommand{\vv}{\textbf{\emph{v}}}
 \newcommand{\ww}{\textbf{\emph{w}}}
 \newcommand{\zz}{\textbf{\emph{z}}}
+\newcommand{\ccc}{\textbf{\emph{c}}}
 
 Una vez que disponemos de la herramienta fundamental, el teorema de Mazur-Orlicz-König, nos disponemos a dar una versión convexa del teorema de la alternativa de Gordan. Antes de ello, y haciendo uso de este teorema tipo Hahn-Banach, probaremos el lema de Simons, sobre cierta condición de optimalidad para funciones convexas. \\
 
 Antes de comenzar, necesitamos hacer la siguiente definición. Para agilizar la lectura, cuando indicamos $ N\in \NN $ estamos suponiendo que $ N \geq 1 $. También, para $ N \in \NN $, notaremos con caracteres en negrita a los elementos de $ \RR^N $, por ejemplo, $  \ttt = (t_1,...,t_N)\in \RR^N$. 
 
 \begin{definicion}
-	Dado $ N \in \NN $ llamamos símplex unitario de $ \RR^N $ al conjunto de $ \RR^N $ definido como:
+	Dado $ N \in \NN $ llamamos símplex unitario de $ \RR^N $ al subconjunto de $ \RR^N $ definido como:
 	\begin{equation*}
 	\Delta_N := \left\lbrace \ttt \in \RR^N: \sum_{i=1}^{N}{t_i} = 1, \hspace{0.5em} t_1,...,t_N \geq 0 \right\rbrace .
 	\end{equation*}
@@ -53,7 +54,7 @@ $ \RR^N $ se identifica con $ \RR^N $ .
 \[
 \begin{split}
 \langle \cdot, \cdot \rangle : \RR^N \times \RR^N \longrightarrow &\RR \\
-(\xx, \yy) \longmapsto &\langle \xx, \yy \rangle = \sum_{i=0}^{N}x_iy_i.
+(\xx, \yy) \longmapsto &\langle \xx, \yy \rangle = \sum_{i=1}^{N}x_iy_i.
 \end{split}
 \]
 
@@ -111,15 +112,15 @@ Enunciamos ahora el lema de Simons \cite{Simons2008}. Tal y como se ha mencionad
 	\] 
 \end{lemaBox}
 \begin{proof}
-	Sea  $ \vecSpace = \RR^N $. Definimos $S:\vecSpace \longrightarrow \RR $ como \[ S(x_1, ..., x_N) := \max \{x_1, ..., x_N\}. \] Por el lema \ref{lema2.1}, $ S $ es sublineal. Tomamos el subconjunto:
+	Sea  $ \vecSpace = \RR^N $. Definimos $S:\hspace{1mm}\vecSpace \longrightarrow \RR $ como \[ S(x_1, ..., x_N) := \max \{x_1, ..., x_N\}. \] Por el lema \ref{lema2.1}, $ S $ es sublineal. Tomamos el subconjunto:
 	\[ 
 	D = \{ (x_1, ..., x_N)\in V: \exists c \in C \quad \text{ tal que } \quad \forall i = 1,...N,\quad f_i(c) \leq x_i \}.
 	\]
-	Comprobemos en primer lugar que $ D $ es un subconjunto convexo de $ \vecSpace $. Sean $ x, y \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
+	Comprobemos en primer lugar que $ D $ es un subconjunto convexo de $ \vecSpace $. Sean $ \xx, \yy \in D $, por ello, existen $ c_x, c_y \in C $ tales que $ f_i (c_x) \leq x_i  $ y $ f_i (c_y) \leq y_i \quad \forall i=1,...,N $. Dado $ \lambda \in [0,1] $, llamamos $ c := (1-\lambda)c_x + \lambda c_y $ que pertenece a $ C $ por ser este convexo. Veamos que $ c $ es el elemento necesario de $ C $ para que cualquier combinación convexa de $ x $ e $ y $ esté en $ D $. Así, para todo $ i =1,...,N  $:	
 	\[
 	f_i(c) = f_i((1-\lambda)c_x + \lambda c_y) \leq (1-\lambda)f(c_x) + \lambda f(c_y) \leq (1-\lambda)x_i + \lambda y_i ,
 	\]
-	donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ x,y \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc-König, existe $ L $ funcional lineal en $ \vecSpace $ tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
+	donde la primera desigualdad se debe a que las $ f_i $ son convexas y la segunda a que $ \xx,\yy \in D $. Por ello, $ (1-\lambda)x_i + \lambda y_i \in D , \quad \forall \lambda \in [0,1] $ por lo que $ D $ es convexo. Aplicando el Teorema de Mazur-Orlizc-König, existe $ L $ funcional lineal en $ \vecSpace $ tal que $ L \leq S $ e $ \inf_D L = \inf_D S $. \\
 	
 	Nuevamente, por el lema \ref{lema2.1} tenemos que $ L = \ttt \in \Delta_N$. Finalmente:
 	\[
@@ -144,7 +145,7 @@ Enuciamos ahora el Teorema de la Alternativa de Gordan en su versión clásica.
 	\end{itemize}
 \end{teoremaBox}
 \bigskip
-Omitimos esta demostración ya que a continuación mostramos la versión convexa del mismo y será la que probaremos. Después veremos que la versión convexa  implica la clásica por lo que quedará probada. Antes de continuar, destacar que la interpretación geométrica de este resultado se observa en la imágen \ref{fig:gordan-clasic}.
+Omitimos esta demostración ya que a continuación mostramos la versión convexa del mismo y será la que probaremos. Después veremos que la versión convexa  implica la clásica por lo que quedará probada. Antes de continuar, destacar que la interpretación geométrica de este resultado se observa en la figura \ref{fig:gordan-clasic}.
 
 \begin{figure}[h!]
 	\begin{minipage}{0.5\textwidth}
@@ -173,7 +174,7 @@ Omitimos esta demostración ya que a continuación mostramos la versión convexa
 	\end{itemize}
 \end{teoremaBox}
 \begin{proof}
-	Veamos que las alternativas $ i)$ y $ ii) $ son excluyentes y exhaustivas. Para ello, veamos que $ \neg i) \Longleftrightarrow ii) $. Suponemos inicialmente que $  \inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] \in \RR $.
+	Veamos que las alternativas $ i)$ y $ ii) $ son excluyentes y exhaustivas. Para ello, veamos que $ \neg i) \Longleftrightarrow ii) $. Suponemos en primer lugar que el valor de $  \inf_{ c\in C}\left[\max_{i=1\dots,N } f_i(c) \right] \in \RR $.
 	
 	\begin{itemize}
 		\item [$ \Leftarrow $)] Si existe $ c_0 \in C $ tal que $ \max_{i=1\dots,N } f_i(c) < 0 $, entonces, dado $ \ttt \in \Delta_N $,
@@ -207,21 +208,21 @@ Destacamos las siguientes observaciones:
 	Esta versión convexa del teorema implica la versión clásica del mismo.
 \end{observacion}
 
-Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por \[ f_i(c):=\langle c, \xx_i \rangle , \forall i=1,...,N.\] Notar que las funciones $ f_1,...,f_N $ son lineales por la izquierda y como consecuencia son convexas. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
+Para ello, basta aplicar la versión convexa del teorema a $ C := \RR^M $ y a las funciones $ f_1,...,f_N : C \longrightarrow \RR $ definidas por \[ f_i(\ccc):=\langle \ccc, \xx_i \rangle , \forall i=1,...,N.\] Notar que las funciones $ f_1,...,f_N $ son lineales por la izquierda y como consecuencia son convexas. En este caso, la alternativa $ ii) $ implica $ ii*) $ ya que:
 
 \begin{equation*}
-\exists c \in C = \RR^M \text{ : } \max_{i=1,...,N} {\langle c,x_i \rangle}  =  \max_{i=1,...,N}f_i (c) < 0 .
+\exists \ccc \in C = \RR^M \text{ : } \max_{i=1,...,N} {\langle \ccc,x_i \rangle}  =  \max_{i=1,...,N}f_i (\ccc) < 0 .
 \end{equation*}
 Por su parte, la alternativa $ i) $ nos da:
 \begin{equation*}
-\exists \mathbf{t} \in \Delta_N \text{ : } 0 \leq \inf_{c \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(c) } = \inf_{c \in \RR^M} \sum_{i=1}^{N}{t_i\langle c, \xx_i \rangle} = \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i 	\xx_i} \rangle. 
+\exists \mathbf{t} \in \Delta_N \text{ : } 0 \leq \inf_{\ccc \in \RR^M}  \sum_{i=1}^{N}{t_i f_i(\ccc) } = \inf_{\ccc \in \RR^M} \sum_{i=1}^{N}{t_i\langle \ccc, \xx_i \rangle} = \inf_{\ccc \in \RR^M} \langle \ccc, \sum_{i=1}^{N}{t_i 	\xx_i} \rangle. 
 \end{equation*}
-Hemos obtenido por ello que  $0  \leq \inf_{c \in \RR^M} \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ lo que significa que $ 0 \leq \langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ para todo $ c \in \RR^M $. Usando la bilinealidad del producto escalar:
+Hemos obtenido por ello que  $0  \leq \inf_{\ccc \in \RR^M} \langle \ccc, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ lo que significa que $ 0 \leq \langle \ccc, \sum_{i=1}^{N}{t_i \xx_i} \rangle  $ para todo $ \ccc \in \RR^M $. Usando la bilinealidad del producto escalar:
 \[
-0 \leq \langle -c, \sum_{i=1}^{N}{t_i \xx_i} \rangle \Longleftrightarrow 	0 \leq -\langle c, \sum_{i=1}^{N}{t_i \xx_i} \rangle 
-\Longleftrightarrow  \langle c, \sum_{i=1}^{N}{t_i \xx_i}\rangle \leq 0, \quad \forall c \in \RR^M.
+0 \leq \langle -\ccc, \sum_{i=1}^{N}{t_i \xx_i} \rangle \Longleftrightarrow 	0 \leq -\langle \ccc, \sum_{i=1}^{N}{t_i \xx_i} \rangle 
+\Longleftrightarrow  \langle \ccc, \sum_{i=1}^{N}{t_i \xx_i}\rangle \leq 0, \quad \forall \ccc \in \RR^M.
 \]
-Juntando ambas desigualdades obtenemos que $ 0 =  \langle c, \sum_{i=1}^{N}{t_i \xx_i}\rangle, \quad \forall c \in \RR^M $. Como la igualdad anterior se cumple para todo elemento de $ \RR^M $ entonces podemos deducir que $ \sum_{i=1}^{N}{t_i \xx_i} = 0 $	ya que $ \sum_{i=1}^{N}{t_i \xx_i} \in (\RR^M)^{\perp} = \{0\} $. Así pues, tenemos que $ i) $ equivale a $ i*) $. \hspace{5.7cm}\qedsymbol 
+Juntando ambas desigualdades obtenemos que $ 0 =  \langle \ccc, \sum_{i=1}^{N}{t_i \xx_i}\rangle, \quad \forall \ccc \in \RR^M $. Como la igualdad anterior se cumple para todo elemento de $ \RR^M $ entonces podemos deducir que $ \sum_{i=1}^{N}{t_i \xx_i} = 0 $	ya que $ \sum_{i=1}^{N}{t_i \xx_i} \in (\RR^M)^{\perp} = \{0\} $. Así pues, tenemos que $ i) $ equivale a $ i*) $. \hspace{8.5cm}\qedsymbol 
 
 \bigskip
 \begin{observacion}
@@ -277,7 +278,7 @@ El lema \ref{lema2.1} nos aporta la otra desigualdad y llegamos nuevamente a que
 
 \bigskip
 
-Mencionemos antes de terminar que el teorema de la alternativa de Gordan no solo es equivalente al lema de Simons. Otro tipo de teorema de la alternativa equivalente es el lema de Farkas que estudiaremos en el capítulo 3. Son muchos los teoremas de la alternativa que se conocen, y siempre vinculados a la optimización: véase, por ejemplo, la amplia muestra que aparece recogida en \cite{giorgi2004mathematics}. A modo de ejemplo, y usando la notación clásica matricial, enunciaremos algunos de los resultados más conocidos:
+Mencionemos antes de terminar que el teorema de la alternativa de Gordan no solo es equivalente al lema de Simons. Otro tipo de teorema de la alternativa equivalente es el lema de Farkas que estudiaremos en el capítulo sobre optimización. Son muchos los teoremas de la alternativa que se conocen, y siempre vinculados a la optimización: véase, por ejemplo, la amplia muestra que aparece recogida en \cite{giorgi2004mathematics}. A modo de ejemplo, y usando la notación clásica matricial, enunciaremos algunos de los resultados más conocidos:
 
 \bigskip
 \begin{teoremaBox}[Motzkin]

@@ -1,17 +1,20 @@
 \section{Optimización con restricciones: Fritz John y Karush-Kuhn-Tucker}
 		\newcommand{\barx}{\bar{x} }
+		\newcommand{\barxx}{\bar{\mathbf{x}}}
+		\newcommand{\lambdaa}{\boldsymbol{\mathbf{\lambda}}}
 		\newcommand{\dd}{\textbf{\emph{d}}}
+
 	
-Concluimos este capítulo con un apartado dedicado a la optimización con restricciones. A pesar de tratarse de resultados no lineales, el	teorema de Gordan clásico basta para establecer los resultados fundamentales. Al igual que en el apartado anterior, seguimos el texto \cite{borwein}.En primer lugar, empezamos recordando la definición de derivada direccional. 
+Concluimos este capítulo con un apartado dedicado a la optimización con restricciones. A pesar de tratarse de resultados no lineales, el	teorema de Gordan clásico basta para establecer los resultados fundamentales. Al igual que en el apartado anterior, seguimos el texto \cite{borwein}. En primer lugar, empezamos recordando la definición de derivada direccional. 
 	\begin{definicion}
-			Sea $ D \subset \RR^M $ con $ M \in \NN $ y sea la función $ g: D \longrightarrow  \RR$, definimos la derivada direccional de g en $ x \in D $ en la dirección del vector $ d\in \RR^M $ como
+			Sea $ D \subset \RR^M $ con $ M \in \NN $ y sea la función $ g: D \longrightarrow  \RR$, definimos la derivada direccional de g en $\xx \in D $ en la dirección del vector $ \dd\in \RR^M $ como
 			\[
-			g'(x;d) = \lim_{t\rightarrow0}\frac{g(x+td) - g(x)}{t}
+			g'(\xx;\dd) = \lim_{t\rightarrow0}\frac{g(\xx+t\dd) - g(\xx)}{t}
 			\]
-			siempre y cuando el límite exista. Diremos que g es diferenciable en el sentido de Gâteaux en x si $ g'(x;\cdot):\RR^M \longrightarrow \RR $ es lineal y en ese caso escribimos $ \nabla g(x) = g'(x;\cdot) $, es decir, $ g'(x;d) = \langle \nabla g(x), d\rangle $ con $ d \in \RR^M $.
+			siempre y cuando el límite exista. Diremos que g es diferenciable en el sentido de Gâteaux en $ \xx $ si $ g'(\xx;\cdot):\RR^M \longrightarrow \RR $ es lineal y en ese caso escribimos $ \nabla g(\xx) = g'(\xx;\cdot) $, es decir, $ g'(\xx;\dd) = \langle \nabla g(\xx), \dd\rangle $ con $ \dd \in \RR^M $.
 	\end{definicion}
 	
-	Dentro del contexto de este trabajo, cuando decimos que una función es diferenciable nos referimos a que lo es en el sentido de Gâteaux. A estas funciones también las llamaremos Gâteaux diferenciables. Destacamos que este concepto de diferenciabilidad es más débil que el de Fréchet. De hecho, si una función $ g $ es diferenciable en $ x_0 \in D$ en el sentido de Fréchet, y notamos su derivada como $ Dg(x_0) $ entonces $ g $ también es diferenciable en el sentido de Gâteaux en $ x_0 $ y además $ Dg(x_0) = \nabla g(x_0) $. El recíproco no es cierto tal y como mostramos en el siguiente ejemplo. Sea $ f:\RR^2 \longrightarrow \RR $ definida como:
+	Dentro del contexto de este trabajo, cuando decimos que una función es diferenciable nos referimos a que lo es en el sentido de Gâteaux. A estas funciones también las llamaremos Gâteaux diferenciables. Destacamos que este concepto de diferenciabilidad es más débil que el de Fréchet. De hecho, si una función $ g $ es diferenciable en $ \xx_0 \in D$ en el sentido de Fréchet, y notamos su derivada como $ Dg(\xx_0) $ entonces $ g $ también es diferenciable en el sentido de Gâteaux en $ \xx_0 $ y además $ Dg(\xx_0) = \nabla g(\xx_0) $. El recíproco no es cierto tal y como mostramos en el siguiente ejemplo. Sea $ f:\RR^2 \longrightarrow \RR $ definida como:
 	\[
 	f(x,y) = \begin{cases}
 	\displaystyle \frac{xy^3}{x^2+y^2}, & \mbox{si $ (x,y) \neq (0,0) $ } \\
@@ -24,8 +27,8 @@ Concluimos este capítulo con un apartado dedicado a la optimización con restri
 \begin{split}
 f'((0,0); (d_1, d_2)) &= \lim_{t\rightarrow0}\frac{f((0,0)+t(d_1, d_2)) - f(0,0)}{t} \\
 &=  \lim_{t\rightarrow0}\frac{\frac{td_1(td_2)^3}{(td_1)^2+(td_2)^2} - 0}{t} \\
-&= \lim_{t\rightarrow0}\frac{t^4d_1d_2^2}{t^3d_1^2+t^3d_2^2} \\
-&= \lim_{t\rightarrow0}\frac{td_1d_2^2}{d_1^2+d_2^2} \\
+&= \lim_{t\rightarrow0}\frac{t^4d_1d_2^3}{t^3d_1^2+t^3d_2^2} \\
+&= \lim_{t\rightarrow0}\frac{td_1d_2^3}{d_1^2+d_2^2} \\
 & = 0.
 \end{split}
 \end{equation*}
@@ -34,42 +37,42 @@ Como el límite existe y es lineal, la función es diferenciable en el sentido G
 A continuación, demostremos cómo se calcula la derivada de la función máximo de un número finito de funciones diferenciables, lo que nos será útil en posteriores resultados.
 \bigskip
 	\begin{proposicionBox}\label{dirDeriv}
-		Sean $ D \subset \RR^M$ ($ M \in \NN $) , $ \barx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como \[ g(x):=\max_{i=1,...,N}\{g_i(x)\} \] y el conjunto de índices $ K = \lbrace  i : g_i(\barx) =  g(\barx) \rbrace $. Entonces, para toda dirección $ d \in \RR^M $ la derivada direccional de $ g $ existe en todo $ \RR^M $ y viene dada por la siguiente expresión:
+		Sean $ D \subset \RR^M$ ($ M \in \NN $) , $ \barxx $ un punto del interior de $ D $ y sean $ g_1, ..., g_N : D \longrightarrow \RR $  funciones continuas y diferenciables en $ \barxx $ donde $ N \in \NN $. Definimos $ g:D \longrightarrow \RR $ como \[ g(\xx):=\max_{i=1,...,N}\{g_i(\xx)\} \] y el conjunto de índices $ K = \lbrace  i : g_i(\barxx) =  g(\barxx) \rbrace $. Entonces, para toda dirección $ \dd \in \RR^M $ la derivada direccional de $ g $ existe en todo $ \RR^M $ y viene dada por la siguiente expresión:
 		\begin{equation}
-			g'(\barx;d) = \max_{i \in K} \langle \nabla g_i(\barx), d \rangle, \quad d\in\RR^M.
+			g'(\barxx;\dd) = \max_{i \in K} \langle \nabla g_i(\barxx), \dd \rangle, \quad \dd\in\RR^M.
 		\end{equation}
 	\end{proposicionBox}
 	\begin{proof}
-		Podemos suponer sin pérdida de generalidad que el conjunto $ K = \{1, ..., N \} $, por facilitar la notación. Para cada $ i \in K $ tenemos la siguiente desigualdad:
+		Podemos suponer sin pérdida de generalidad que $ K = \{1, ..., N \} $, por facilitar la notación. Para cada $ i \in K $ tenemos la siguiente desigualdad:
 		\begin{equation*}
-			\liminf_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \geq \liminf_{t\rightarrow0}\frac{g_i(\barx+td) - g_i(\barx)}{t} = \langle \nabla g_i(\barx), d \rangle.
+			\liminf_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} \geq \liminf_{t\rightarrow0}\frac{g_i(\barxx+t\dd) - g_i(\barxx)}{t} = \langle \nabla g_i(\barxx), \dd \rangle.
 		\end{equation*}	
-		La primera desigualdad se deduce de la definición de $ g $ ya que es el máximo de las $ g_i $ e $ i \in K $ para $ i=1,...,N$ y la segunda igualdad de que todas las $ g_i $ son diferenciables en $ \barx $ y por tanto existe el límite de la definición de derivada direccional y coincide con el límite inferior. Por lo tanto:
+		La primera desigualdad se deduce de la definición de $ g $ ya que es el máximo de las $ g_i $ e $ i \in K $ para $ i=1,...,N$ y la segunda igualdad de que todas las $ g_i $ son diferenciables en $ \barxx $ y por tanto existe el límite de la definición de derivada direccional y coincide con el límite inferior. Por lo tanto:
 		\[
-		\liminf_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \geq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle.
+		\liminf_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} \geq \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle.
 		\]
 		Por otro lado, afirmamos que 
 		\begin{equation*}
-			\limsup_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \leq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle.
+			\limsup_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} \leq \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle.
 		\end{equation*}
 		De lo contrario, existirían una sucesión $ \{t_n\}\rightarrow 0 $ y $ \varepsilon > 0 $ que cumplirían:
 		\[
-		\frac{g(\barx+t_n d) - g(\barx)}{t_n} \geq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle + \varepsilon \quad \forall n \in \NN.
+		\frac{g(\barxx+t_n \dd) - g(\barxx)}{t_n} \geq \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle + \varepsilon \quad \forall n \in \NN.
 		\]
-		Tomamos ahora una sucesión parcial $ \{t_{\sigma(n)}\}_{n \in \NN} $ con $ \sigma:\NN \longrightarrow \NN $ estrictamente creciente y $ j \in K $ un índice fijo tal que para todo $ k \in \{\sigma(n): \hspace{1mm} n\in \NN\} $ se cumple que $ g(\barx + t_k d) = g_j (\barx + t_k d)$. Tomando límite obtenemos que :
+		Tomamos ahora una sucesión parcial $ \{t_{\sigma(n)}\}_{n \in \NN} $ con $ \sigma:\NN \longrightarrow \NN $ estrictamente creciente y $ j \in K $ un índice fijo tal que para todo $ k \in \{\sigma(n): \hspace{1mm} n\in \NN\} $ se cumple que $ g(\barxx + t_k \dd) = g_j (\barxx + t_k \dd)$. Tomando límite obtenemos que:
 		\begin{equation*}
 		\begin{split}
-		\limsup_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} &= 	\limsup_{t\rightarrow0}\frac{g_j(\barx+td) - g_j(\barx)}{t} \\
-		&= \langle \nabla g_j(\barx), d \rangle \\ &\geq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle + \varepsilon,
+		\limsup_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} &= 	\limsup_{t\rightarrow0}\frac{g_j(\barxx+t\dd) - g_j(\barxx)}{t} \\
+		&= \langle \nabla g_j(\barxx), \dd \rangle \\ &\geq \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle + \varepsilon,
 		\end{split}
 		\end{equation*}
 		lo cual, es imposible. Finalmente, hemos obtenido que:
 		\[
-		\limsup_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} \leq \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle \leq 	\liminf_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t}.
+		\limsup_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} \leq \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle \leq 	\liminf_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t}.
 		\]
 		Como el límite inferior es siempre menor o igual que el superior concluimos que ambos coinciden y por lo tanto existe el límite y además:
 		\[
-		\lim_{t\rightarrow0}\frac{g(\barx+td) - g(\barx)}{t} = g'(\barx;d) = \max_{i=1,...,N}\langle \nabla g_i(\barx), d \rangle.
+		\lim_{t\rightarrow0}\frac{g(\barxx+t\dd) - g(\barxx)}{t} = g'(\barxx;\dd) = \max_{i=1,...,N}\langle \nabla g_i(\barxx), \dd \rangle.
 		\]
 	\end{proof}
 \bigskip
@@ -77,93 +80,93 @@ A continuación, demostremos cómo se calcula la derivada de la función máximo
 	
 		\begin{equation}\label{probMin}
 		\begin{cases}
-		\displaystyle\inf_{x\in D} f(x)\\
+		\displaystyle\inf_{\xx\in D} f(\xx)\\
 		\begin{split}
-		\text{s.a } g_1(x) &\leq 0 \\
+		\text{s.a } g_1(\xx) &\leq 0 \\
 		&\vdots \\
-		g_N(x) &\leq 0
+		g_N(\xx) &\leq 0
 		\end{split}
 		
 		\end{cases} 
 		\end{equation}
-		donde $ D \subset \RR^M$, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i =1,\dots, N $ son funciones reales definidas en $ D $ y continuas. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región factible} al conjunto de todos los puntos factibles. Para un punto factible $ \barx $ definimos el \textit{conjunto activo} como $ I(\barx) = \{i: g_i(\barx) = 0\}$. El papel que juega este conjunto de índices no es trivial, apareciendo en los teoremas de Fritz John y Karush-Kuhn-Tucker como los únicos necesarios. Este trabajo ya se ha realizado en la proposición \ref{dirDeriv}. Para este problema y asumiendo que $ \barx \in C $, llamamos \textit{vector de multiplicadores de Lagrange para $ \barx $} a $ \lambda \in (\RR^N)^+ $ si $ \barx $ es un punto crítico de:
+		donde $ D \subset \RR^M$, $ f  $ es la función objetivo y las restricciones $ g_i $ con $ i =1,\dots, N $ son funciones reales definidas en $ D $ y continuas. Si un punto satisface todas las restricciones diremos que es \textit{factible}  y como consecuencia llamamos \textit{región factible} al conjunto de todos los puntos factibles. Para un punto factible $ \barxx $ definimos el \textit{conjunto activo} como $ I(\barxx) = \{i: g_i(\barxx) = 0\}$. El papel que juega este conjunto de índices no es trivial, apareciendo en los teoremas de Fritz John y Karush-Kuhn-Tucker como los únicos necesarios. Este trabajo ya se ha realizado en la proposición \ref{dirDeriv}. Para este problema y asumiendo que $ \barxx \in D $, llamamos \textit{vector de multiplicadores de Lagrange para $ \barxx $} a $ \lambdaa \in (\RR^N)^+ $ si $ \barxx $ es un punto crítico de:
 		\[
-		L(x;\lambda) = f(x) + \sum_{i=1}^{N} \lambda_i g_i(x),
+		L(\xx;\lambdaa) = f(\xx) + \sum_{i=1}^{N} \lambda_i g_i(\xx),
 		\]
-		es decir, se cumple que (cuando $ f,g_1,\dots,g_N $ sean diferenciables):
+		es decir, se cumple que $ f,g_1,\dots,g_N $ son diferenciables y:
 		\[
-		\nabla f(\barx) + \sum_{i=1}^{N} \lambda_i \nabla g_i(\barx) = 0
+		\nabla f(\barxx) + \sum_{i=1}^{N} \lambda_i \nabla g_i(\barxx) = 0.
 		\]
-		y además $ \lambda_i = 0 $ si $ i \notin I(\barx) $, por tanto
+		Además, $ \lambda_i = 0 $ si $ i \notin I(\barxx) $, por tanto
 		\[
-		\nabla f(\barx) + \sum_{i \in I(\barx)} \lambda_i \nabla g_i(\barx) = 0.
+		\nabla f(\barxx) + \sum_{i \in I(\barxx)} \lambda_i \nabla g_i(\barxx) = 0.
 		\] 
-		También, se dice que un punto $ \barx \in D $ es un \textit{mínimo global} del problema \ref{probMin} si es un punto factible y además $ f(\barx) \leq f(x) $ para todo $ x \in D $ factible. Por otro lado, diremos que $ \barx \in D $ es un \textit{mínimo local} del problema \ref{probMin} si es un punto factible y existe $ U $ entorno de $ \barx $ tal que $ f(\barx) \leq f(x) $ para todo $ x \in D\cap U $ factible. Los resultados que exponemos a continuación se centran en mínimos locales.
+		También, se dice que un punto $ \barxx \in D $ es un \textit{mínimo global} del problema \ref{probMin} si es un punto factible y además $ f(\barxx) \leq f(\xx) $ para todo $ \xx \in D $ factible. Por otro lado, diremos que $ \barxx \in D $ es un \textit{mínimo local} del problema \ref{probMin} si es un punto factible y existe $ U $ entorno de $ \barxx $ tal que $ f(\barxx) \leq f(\xx) $ para todo $ \xx \in D\cap U $ factible. Los resultados que exponemos a continuación se centran en mínimos locales.
 		\bigskip
 		\begin{teoremaBox}[Teorema de Fritz John]\label{FritzJohn}
-			Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ entonces existen $ \lambda_0, \lambda_i \in \RR^+ $ para $ i \in I(\barx) $, no todas cero, que satisfacen:
+			Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barxx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barxx) $ son diferenciables en $ \barxx $ entonces existen $ \lambda_0, \lambda_i \in \RR^+ $ para $ i \in I(\barxx) $, no todas cero, que satisfacen:
 			\[
-			\lambda_0 \nabla f(\barx) + \sum_{i \in I(\barx)} \lambda_i \nabla g_i(\barx) = 0.
+			\lambda_0 \nabla f(\barxx) + \sum_{i \in I(\barxx)} \lambda_i \nabla g_i(\barxx) = 0.
 			\]
 		\end{teoremaBox}
 		\begin{proof}
 			Consideramos la función
 			\[
-			g(x) = \max \{ f(x) - f(\barx),\text{ } g_i(x) : i \in I(\barx)\}.
+			g(\xx) = \max \{ f(\xx) - f(\barxx),\text{ } g_i(\xx) : i \in I(\barxx)\}.
 			\]
-			definida para todo punto $ x \in D$ y perteneciente a la región de factibilidad del problema \eqref{probMin}. Como $ \barx $ es un mínimo local de dicho problema también lo es de $ g $. Supongamos que no fuera así, es decir, existe $ U $ entorno de $ \barx $ existe un punto $ x_0 \in D \cap U $  factible tal que $ g(x_0) < g(\barx) $. Como $ \barx $ es un mínimo local del problema se tiene que $ f(x_0)-f(\barx) > 0 $. En ese caso, como $ x $ es factible (y por ello cumple las restricciones), se tiene que 
+			definida para todo punto $ \xx \in D$ y perteneciente a la región factible del problema \eqref{probMin}. Como $ \barxx $ es un mínimo local de dicho problema también lo es de $ g $. Supongamos que no fuera así, es decir, existe $ U $ entorno de $ \barxx $ existe un punto $ \xx_0 \in D \cap U $  factible tal que $ g(\xx_0) < g(\barxx) $. Como $ \barxx $ es un mínimo local del problema se tiene que $ f(\xx_0)-f(\barxx) > 0 $. En ese caso, como $ \xx $ es factible (y por ello cumple las restricciones), se tiene que 
 			\begin{equation*}
 			\begin{split}
-			g(x_0) & = \max \{ f(x_0) - f(\barx),\text{ } g_i(x_0) : i \in I(\barx)\} \\ 
-			&=  f(x_0) - f(\barx)\\ &
+			g(\xx_0) & = \max \{ f(\xx_0) - f(\barxx),\text{ } g_i(\xx_0) : i \in I(\barxx)\} \\ 
+			&=  f(\xx_0) - f(\barxx)\\ &
 			> 0. 
 			\end{split}
 			\end{equation*}
-			Esto es imposible ya que se tendría que $ 0 < g(x_0) < g(x) = 0 $. Por la proposición \ref{dirDeriv} tenemos que para toda dirección $ d \in \vecSpace $ se cumple:
+			Esto es imposible ya que se tendría que $ 0 < g(\xx_0) < g(\xx) = 0 $. Por la proposición \ref{dirDeriv} tenemos que para toda dirección $ \dd \in \RR^M $ se cumple:
 			\[
-			g'(\barx;d) = \max \{ \langle \nabla f(\barx), d\rangle , \langle \nabla g_i(\barx),d \rangle : i \in I(\barx)\} \geq 0,
+			g'(\barxx;\dd) = \max \{ \langle \nabla f(\barxx), \dd\rangle , \langle \nabla g_i(\barxx),\dd \rangle : i \in I(\barxx)\} \geq 0,
 			\]
-			ya que si $ g'(\barx;d) < 0 $, para todo $ t > 0 $ suficientemente pequeño tendríamos que $ g(\barx + td) < g(\barx) $ lo que contradice que $ g $ alcanza un mínimo local en $ \barx $. \\
+			ya que si $ g'(\barxx;\dd) < 0 $, para todo $ t > 0 $ suficientemente pequeño tendríamos que $ g(\barxx + t\dd) < g(\barxx) $ lo que contradice que $ g $ alcanza un mínimo local en $ \barxx $. \\
 			
 			Por lo tanto, el sistema 
 			\begin{equation*}
 			\begin{cases}
-			\langle \nabla f(\barx), d\rangle  < 0 \\
-			\langle \nabla g_i(\barx),d \rangle < 0\text{ con } i \in I(\barx)
+			\langle \nabla f(\barxx), \dd\rangle  < 0 \\
+			\langle \nabla g_i(\barxx),\dd \rangle < 0\text{ con } i \in I(\barxx)
 			\end{cases}
 			\end{equation*}
 			no tiene solución (para ninguna dirección) ya que al menos uno es no negativo. Si aplicamos el Teorema de la Alternativa de Gordan en su versión clásica, teorema \ref{GordanClasic}, vemos que solo se puede dar la alternativa i*) y en ese caso obtenemos que:
 			\[
-			 \exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx),
+			 \exists \ttt = (t_0, ..., t_{R})\in \Delta_{R+1}  \text{ tal que }0 = t_0 \nabla f(\barxx) + \sum_{i \in I(\barxx)}  t_i \nabla g_i (\barxx),
 			 \]
-			con $ M $ el cardinal del conjunto $ I(\barx) $. La demostración concluye llamando $ \lambda_0 = t_0 $ y $ \lambda_i = t_i $ con $ i \in I(\barx) $.
+			con $ R $ el cardinal del conjunto $ I(\barxx) $. La demostración concluye llamando $ \lambda_0 = t_0 $ y $ \lambda_i = t_i $ con $ i \in I(\barxx) $.
 		\end{proof}
 	\bigskip
-		\paragraph{}El teorema de Fritz John nos aporta una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente de las restricciones y no influye en la información que se da. Por ello, necesitamos imponer algunas condiciones de regularidad extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ d_0 \in \vecSpace $ que satisface que $ \langle \nabla g_i(\barx),d_0 \rangle < 0 $ para todo índice $ i \in I(\barx)$. Enunciamos ahora otro teorema clásico que soluciona el problema que acabamos de comentar.
+		\paragraph{}El teorema de Fritz John nos aporta una gran desventaja y es que es posible que $ \lambda_0 = 0 $ por lo que la función objetivo es independiente de las restricciones y no influye en la información que se da. Por ello, necesitamos imponer algunas condiciones de regularidad extra. En esta situación diremos que se cumple la \textit{condición de Mangasarian-Fromovitz} si existe una dirección $ \dd_0 \in \RR^M $ que satisface que $ \langle \nabla g_i(\barxx),\dd_0 \rangle < 0 $ para todo índice $ i \in I(\barxx)$. Enunciamos ahora otro teorema clásico que soluciona el problema que acabamos de comentar.
 		
 		\bigskip
 		\begin{teoremaBox}[Karush-Kuhn-Tucker]
-		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barx) $ son diferenciables en $ \barx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barx $.
+		Supongamos que el problema (\ref{probMin}) tiene un mínimo local en $ \barxx \in D $. Si las funciones $ f, g_i $ con $ i \in I(\barxx) $ son diferenciables en $ \barxx $ y se cumple la condición de Mangasarian-Fromovitz entonces existe un vector de multiplicadores de Lagrange para $ \barxx $.
 		\end{teoremaBox} 
 	
 		\begin{proof}
 		Del teorema \ref{FritzJohn} de Fritz John obtenemos que:
 		\[
-		\exists \ttt = (t_0, ..., t_{M})\in \Delta_{M+1}  \text{ tal que }0 = t_0 \nabla f(\barx) + \sum_{i \in I(\barx)}  t_i \nabla g_i (\barx)
+		\exists \ttt = (t_0, ..., t_{R})\in \Delta_{R+1}  \text{ tal que }0 = t_0 \nabla f(\barxx) + \sum_{i \in I(\barxx)}  t_i \nabla g_i (\barxx)
 		\]		
-		con $ M $ el cardinal de $ I(\barx) $. Si multiplicamos escalarmente la igualdad por $ d_0 $ (dirección del espacio vectorial que nos aporta la condición de  Mangasarian-Fromovitz), obtenemos:
+		con $ R $ el cardinal de $ I(\barxx) $. Si multiplicamos escalarmente la igualdad por $ \dd_0 $ (dirección del espacio vectorial que nos aporta la condición de  Mangasarian-Fromovitz), obtenemos:
 		\[
-		0 = t_0 \langle \nabla f(\barx), d_0 \rangle + \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
+		0 = t_0 \langle \nabla f(\barxx), \dd_0 \rangle + \sum_{i \in I(\barxx)}  t_i \langle \nabla g_i (\barxx), \dd_0 \rangle.
 		\]
 		Entonces $ t_0 \neq 0$. Razonemos por reducción al absurdo. Si no fuese así, tendríamos que
 		\[
-		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle.
+		0 = \sum_{i \in I(\barxx)}  t_i \langle \nabla g_i (\barxx), \dd_0 \rangle.
 		\]
-		Al tener $ \ttt \in \Delta_{M+1} $ se cumple que todas sus componentes son no negativas y $ \sum_{i \in I(\barx)}  t_i = 1 $ (estamos suponiendo que $ t_0 = 0 $ por lo que no influye en la suma de la definición de $ \Delta_{M+1} $) por lo que algún término es distinto de 0. Tenemos garantizado que $  \langle g_i (\barx), d_0 \rangle < 0 \quad \forall i \in I(\barx) $. Así tendríamos que:
+		Al tener $ \ttt \in \Delta_{R+1} $ se cumple que todas sus componentes son no negativas y $ \sum_{i \in I(\barxx)}  t_i = 1 $ (estamos suponiendo que $ t_0 = 0 $ por lo que no influye en la suma de la definición de $ \Delta_{R+1} $) por lo que algún término es distinto de 0. Tenemos garantizado que $  \langle g_i (\barxx), \dd_0 \rangle < 0 \quad \forall i \in I(\barxx) $. Así tendríamos que:
 			\[
-		0 = \sum_{i \in I(\barx)}  t_i \langle \nabla g_i (\barx), d_0 \rangle < 0,
+		0 = \sum_{i \in I(\barxx)}  t_i \langle \nabla g_i (\barxx), \dd_0 \rangle < 0,
 		\]
-		lo cual es imposible. Por ello, concluimos que $ t_0 \neq 0 $. La demostración finaliza tomando $ \lambda_i = t_i / t_0 $ para $ i \in I(\barx) $.
+		lo cual es imposible. Por ello, concluimos que $ t_0 \neq 0 $. La demostración finaliza tomando $ \lambda_i = t_i / t_0 $ para $ i \in I(\barxx) $.
 		\end{proof}
 		\bigskip
 		
@@ -173,12 +176,12 @@ La condición de Mangasarian-Fromovitz no es prescindible en el teorema de Karus
 \begin{cases}
 f(x,y) = 2x\\
 \begin{split}
-\text{s.a } g_1(x) &= 2y-5x^3\\
-g_2(x) &= -y
+\text{s.a } g_1(x,y) &= 2y-5x^3\\
+g_2(x,y) &= -y
 \end{split}
 \end{cases}.
 \end{equation*}
-Es claro que el mínimo se alcanza en $ \barx = (0,0) $ y tenemos que $ \nabla f(0,0) = (2,0) $, $ \nabla g_1(0,0) = (0,2) $, $ \nabla g_2(0,0) = (0,-1) $ e $ I(\barx) = \{1,2\} $. La condición de Mangasarian-Fromovitz no se cumple. Si existiese una dirección $ d = (d_1, d_2) \in V $ que la cumpliese se deberían satisfacer las siguientes condiciones simultáneamente
+Es claro que el mínimo se alcanza en $ \barxx = (0,0) $ y tenemos que $ \nabla f(0,0) = (2,0) $, $ \nabla g_1(0,0) = (0,2) $, $ \nabla g_2(0,0) = (0,-1) $ e $ I(\barxx) = \{1,2\} $. La condición de Mangasarian-Fromovitz no se cumple. Si existiese una dirección $ d = (d_1, d_2) \in \RR^2 $ que la cumpliese se deberían satisfacer las siguientes condiciones simultáneamente
 
 \begin{equation*}
 \begin{cases}
@@ -200,4 +203,4 @@ lo que es imposible. Además, si $ \lambda, \mu \geq 0$ fuesen multiplicadores d
 \]
 que no se puede dar. \\
 
-Finalmente, notamos que los teoremas de Fritz John y de Karush-Kuhn-Tucker que acabamos de demostrar también se pueden considerar consecuencia del lema de Farkas. Destacar también que en el caso convexo e imponiendo ciertas condiciones de regularidad podemos probar que el recíproco de dichos resultados también es cierto \cite{borwein}.
+Finalmente, notamos que los teoremas de Fritz John y de Karush-Kuhn-Tucker que acabamos de demostrar también se pueden considerar consecuencia del lema de Farkas. Destacar también que en el caso convexo e imponiendo ciertas condiciones de regularidad podemos probar resultados análogos sin hipótesis de diferenciabilidad \cite{borwein}.

@@ -48,7 +48,7 @@ A continuación, vamos a construir dicha medida $ Q $ mediante el siguiente lema
 		\[
 		(1+d)(1-q) + (1+u)q = 1+r \Longrightarrow q = \frac{r-d}{u-d}.
 		\]
-		Para $ \omega = (\omega_1,\dots,\omega_T) \in \Omega $ vemos que
+		Con un argumento inductivo, para $ \omega = (\omega_1,\dots,\omega_T) \in \Omega $ vemos que
 		\[
 		Q(R_1 = \omega_1,\dots,R_t = \omega_t) = \prod_{i=1}^{t}q_i
 		\]
@@ -66,7 +66,7 @@ A continuación, vamos a construir dicha medida $ Q $ mediante el siguiente lema
 \end{proof}
 \bigskip
 
-Al valor $ q = (r-d)/(u-d) $ obtenido en el resultado anterior se le suele denominar \textit{probabilidad de riesgo neutral}. Es un objeto matemático abstracto que no tiene que coincidir con la probabilidad real del mercado o estar relacionada con la misma. Sin embargo, para la valoración de opciones se utiliza $ q $ ya que es la que hace que los precios actualizados se comporten según una martingala tal y como acabamos de probar. De este modo, la ganancia $ C_T = \left[S_T - K\right]^+$ de una opción \textit{call} en el instante $ t \in \mathbb{T} $ viene dada por
+Al valor $ q = (r-d)/(u-d) $ obtenido en el resultado anterior se le suele denominar \textit{probabilidad de riesgo neutral}. Es un objeto matemático abstracto que no tiene que coincidir con la probabilidad real del mercado o estar relacionada con la misma y que de hecho, se conoce \textit{a priori}. Sin embargo, para la valoración de opciones se utiliza $ q $ ya que es la que hace que los precios actualizados se comporten según una martingala tal y como acabamos de probar. De este modo, la ganancia $ C_T = \left[S_T - K\right]^+$ de una opción \textit{call} en el instante $ t \in \mathbb{T} $ viene dada por
 \[
 V_t(C_T) = \frac{1}{\beta_t} E_Q(\beta_T C_T | \mathcal{F}_t).
 \]
@@ -99,7 +99,7 @@ C_t - P_t = S_t - (1+r)^{-(T-t)}K,
 \]
 donde el $ (1+r)^{-(T-t)} $ es el factor de actualización entre los instantes $ t $ y $ T $. Este hecho es bastante conocido y aparece recogido, por ejemplo, en \cite{elliot1999mathematics}.\\
 
-Una vez obtenida la fórmula y hecha la aclaración sobre la relación de precios entre los dos tipos de opciones, podemos realizar una serie de simulaciones para ver cómo varía el precio de una opción de compra según los distintos parámetros $ (K, T, S, d, r, u) $. Estas simulaciones se han realizado en  \textit{SageMath 2.8}. Para ello se han implementado las siguientes funciones como se observa en \ref{definiciones}: una para obtener el valor de $ A $ llamada \textit{getA} y otro el de la propia opción, \textit{getV}. E
+Una vez obtenida la fórmula y hecha la aclaración sobre la relación de precios entre los dos tipos de opciones, podemos realizar una serie de simulaciones para ver cómo varía el precio de una opción de compra según los distintos parámetros $ (K, T, S, d, r, u) $. Estas simulaciones se han realizado en  \textit{SageMath 2.8}. Para ello se han implementado las siguientes funciones como se observa en \ref{definiciones}: una para obtener el valor de $ A $ llamada \textit{getA} y otro el de la propia opción, \textit{getV}.
 
 \begin{lstlisting}[label={definiciones}, caption={Definición en Sage de las funciones}, morekeywords={sage}]
 sage: def getA(K, T, S, d, u):
@@ -118,7 +118,7 @@ sage: def getV(K, T, S, d, r, u):
 
 Para ello, partiremos del siguiente problema general del que iremos variando los diferentes parámetros en el que tomamos una unidad monetaria (u.m.) cualquiera. \\
 
-\textit{``Las acciones de una empresa tienen valor actual 25 u.m.cada una. Queremos comprar acciones de dicha empresa pero no estamos seguros de obtener una gran ganancia con ellas en el futuro. Por eso, decidimos realizar una opción de compra de aquí a un año en el que se nos ofrece un precio de 27 u.m. Los tiempos se mueven en el intervalo de meses. Según las estimaciones suponemos que en cada mes el retorno podría ser de 1.2 (u = 0.2)  pero también podemos perder dinero llegando este a tomar el valor 0.72 (d = -0.28). Consideramos que el precio del dinero se incrementa de manera constante cada mes un 0.1 (de este modo el mercado es viable).''} \\
+\textit{``Las acciones de una empresa tienen valor actual 25 u.m. cada una. Queremos comprar acciones de dicha empresa pero no estamos seguros de obtener una gran ganancia con ellas en el futuro. Por eso, decidimos realizar una opción de compra de aquí a un año en el que se nos ofrece un precio de 27 u.m. Los tiempos se mueven en el intervalo de meses. Según las estimaciones suponemos que en cada mes el retorno podría ser de 1.2 (u = 0.2)  pero también podemos perder dinero llegando este a tomar el valor 0.72 (d = -0.28). Consideramos que el precio del dinero se incrementa de manera constante cada mes un 0.1 (de este modo el mercado es viable).''} \\
 
 El precio en esta situación es aproximadamente de $  12.9325 $ u.m. Veamos cómo varía en función de cada parámetro manteniendo el resto como en el enunciado. En primer lugar, consideremos el valor como función de $ T $ y tomamos valores desde un mes hasta dos años, es decir, 24 meses. Los resultado se obtienen en la figura \ref{valueT}. También se incluye un ejemplo del código en \ref{pintar} para dibujar la gráfica en este caso junto con la definición de los parámetros generales5. Para el resto de parámetros se hace de manera análoga. 
 

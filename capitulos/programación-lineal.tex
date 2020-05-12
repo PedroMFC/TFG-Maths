@@ -1,109 +1,98 @@
 \section{Dualidad en programación lineal}
+\newcommand{\muu}{\boldsymbol{\mathbf{\mu}}}
+
 Gracias al lema de Farkas podemos probar resultados como el teorema de dualidad en programación lineal que enunciamos a continuación. La prueba se recoge en \cite{borwein}.
 \bigskip
 \begin{teoremaBox}(Teorema de dualidad en programación lineal)
 	Dados $ N,M \in \RR $ tomamos la matriz $ A \in \RR^{N\times M} $ y los vectores $ \bb \in \RR^M $ y $ \cc \in \RR^N $. Consideramos el problema de optimización primal:
 	
-	\begin{equation*}\label{primal}
+	\begin{equation*}\label{primal}\tag{$ P $}
 	\begin{rcases*}
-	p:=\displaystyle \inf_{x} \cc^T x\\
+	p:=\displaystyle \inf_{\xx} \cc^T \xx\\
 	\begin{split}
-	\text{s.a } A^T x &\leq \bb \\
-	x &\in \RR^N
+	\text{s.a } A^T \xx &\leq \bb \\
+	\xx &\in \RR^N
 	\end{split}
-	\end{rcases*} (P),
+	\end{rcases*},
 	\end{equation*}
+	donde $ A^T \xx \leq \bb $ nos aporta un total de $ M $ restricciones. Sea el problema dual:
 	
-	donde $ A^T x \leq \bb $ nos aporta un total de $ M $ restricciones. Sea el problema dual:
-	
-	\begin{equation*}\label{dual}
+	\begin{equation*}\label{dual}\tag{$ D $}
 	\begin{rcases*}
-	d:= \displaystyle \sup_{y} -\bb^T y\\
+	d:= \displaystyle \sup_{\yy} -\bb^T \yy\\
 	\begin{split}
-	\text{s.a } Ay &= -\cc \\
-	y &\in \RR^N_+
+	\text{s.a } A\yy &= -\cc \\
+	\yy &\in \RR^M_+
 	\end{split}
-	\end{rcases*} (D).
+	\end{rcases*} .
 	\end{equation*}
 	
 	Entonces, la solución del problema primal y el dual coincide, o lo que es lo mismo, $ p = d $.
 \end{teoremaBox}
 \begin{proof}
-	En primer lugar, veamos que $ p \geq d $. Para ello, tomamos $ x \in \RR^N$ e $ y \in \RR^N $ factibles, es decir, cumplen las restricciones de sus respectivos problemas. Así:
+	En primer lugar, veamos que $ p \geq d $. Para ello, tomamos $ \xx \in \RR^N$ e $ \yy \in \RR^N $ factibles, es decir, cumplen las restricciones de sus respectivos problemas. Así:
 	\[
 	\begin{cases}
-	A^T x - \bb \leq 0 \\
-	y \geq 0
+	A^T \xx - \bb \leq 0 \\
+	\yy \geq 0
 	\end{cases}
 	\]
 	\[
 	\big\Downarrow
 	\]
 	\[
-	(A^T x -\bb)^Ty =x^TAy -\bb^Ty\leq 0
+	(A^T \xx -\bb)^T\yy =\xx^TA\yy -\bb^T\yy\leq 0
 	\]
 	\[
 	\big\Updownarrow
 	\]
 	\[
-	-\bb^Ty\leq \cc^T x,
+	-\bb^T\yy\leq \cc^T \xx,
 	\]
-	donde la última desigualdad se debe a que $ Ay = -\cc $. Tomando ínfimos en la izquierda y supremos en la derecha llegamos a $ p \geq d $. \\
+	donde la última desigualdad se debe a que $ A\yy = -\cc $. Tomando supremos en la izquierda e ínfimos en la derecha llegamos a $ d \leq p $. \\
 	
-	Supongamos ahora que $ p \in \RR $. Consideramos el problema homogeneizado, 
+	Supongamos ahora que $ p \in \RR $ ya que en caso contrario habríamos terminado. Consideramos el problema homogeneizado, 
 	\begin{equation*}
 	\begin{rcases*}
 	\begin{split} 
-	\langle A_i, x \rangle - zb_i&\leq 0  \\
-	pz &< \cc^Tx \\
-	x \in \RR^N, z &\leq 0
-	\end{split}
-	\end{rcases*},
-	\end{equation*}
-	para cada $ i=1,\dots M $ donde $ A_i $ denota la fila i-ésima de la matriz $ A^T $. Utilizando notación matricial obtendríamos:
-	\begin{equation*}
-	\begin{rcases*}
-	\begin{split} 
-	A^T x - z\bb&\leq 0  \\
-	-\cc^Tx  + zp &>0  \\
-	x \in \RR^N , \hspace{1mm} z &\in \RR_+
+	A^T \xx - z\bb&\leq 0  \\
+	-\cc^T\xx  + zp &>0  \\
+	\xx \in \RR^N , \hspace{1mm} z &\geq 0
 	\end{split}
 	\end{rcases*}.
 	\end{equation*} 
-	Este problema no tiene solución ya que en caso contrario, si $ z > 0 $, entonces $ A^T \displaystyle \frac{x}{z} < \bb$ y, por la definición de $ p $, $ \cc^T \frac{x}{z} \geq p $ si, y solo si, $ zp \leq \cc^T x $, lo que no es posible, pues debe ser $ zp > \cc^Tx $. En el caso $ z=0 $, el problema\\
+	Este problema no tiene solución ya que en caso contrario, si $ z > 0 $, entonces $ A^T \displaystyle \frac{\xx}{z} < \bb$ y, por la definición de $ p $, $ \cc^T \frac{\xx}{z} \geq p $ si, y solo si, $ zp \leq \cc^T \xx $, lo que no es posible, pues debe ser $ zp > \cc^T\xx $. En el caso $ z=0 $, el problema queda \\
 	\begin{equation}\label{eq}
 	\begin{rcases*}
 	\begin{split} 
-	A^T x &\leq 0  \\
-	\cc^Tx &<0 
+	A^T \xx &\leq 0  \\
+	\cc^T\xx &<0 
 	\end{split}
-	\end{rcases*}
+	\end{rcases*}.
 	\end{equation}
-	tiene solución. Es claro que si $ x_0 $ es solución de este problema, también lo es para cualquier $ \rho x_0 $ con $ \rho > 0 $. Por tanto, al ser $ \cc^T x_0 < 0$, 
+	Sea $ \uu \in \RR^N$ un punto factible del problema primal, esto es,
+	\[
+	A^T\uu \leq \bb.
+	\]
+	Entonces, dado $ \rho > 0$,
 	\begin{equation*}
 	\begin{split}
-	\cc^T \rho x_0 \longrightarrow -\infty,
+	A^T(\rho\xx + \uu) &= \rho A^T\xx + A^T\uu \\
+	&\leq \bb
 	\end{split}
 	\end{equation*}
-	cuando $ \rho \longrightarrow +\infty $. Al ser $ \rho $ finito, a partir de cierto $ \rho_0 > 0 $,
+	ya que $ A^T\xx \leq 0$, $ \rho >0 $ y $ A^T\uu \leq \bb $. Usando la definición de $ p $, 
+	\begin{equation*}
+	\begin{split}
+	p &\leq \cc^T(\rho\xx + \uu)\\
+	&=\rho\cc^T\xx + \rho\uu.
+	\end{split}
+	\end{equation*}
+	Como $ p \in \RR $, $ \cc^T\xx < 0 $ y $ \rho >0 $ es arbitrario, llegamos a una contradicción (tómese límite cuando $ \rho \longrightarrow +\infty $). Aplicamos el lema de Farkas al problema homogeneizado, y al no tener el sistema solución observamos que no se puede dar la alternativa $ ii') $. Entonces, tenemos que existen escalares $\mu_1,\dots,\mu_M,\beta \geq 0 $ que cumplen
 	\[
-	p \geq p_0 \Longrightarrow A^T \rho x_0 \leq b,
+	\sum_{j=1}^{M}\mu_j (A_{j},-b_j) + \beta(0,-1) = (-\cc,p),
 	\]
-	esto es,
-	\[
-	\exists i: \hspace{1.5mm}  \rho\langle A_i, x_0 \rangle > b_i, \hspace{2mm} \forall \rho \geq \rho_0
-	\]
-	\[
-	\big\Downarrow
-	\]
-	\[
-	\langle A_i, x_0 \rangle > 0
-	\]
-	y no se cumple la primera condición de \ref{eq}. Aplicamos el lema de Farkas al problema homogeneizado, y al no tener el sistema solución observamos que no se puede dar la alternativa $ ii') $. Entonces, tenemos que existen escalares $\mu_1,\dots,\mu_M,\beta \geq 0 $ que cumplen
-	\[
-	\sum_{j=1}^{M}\mu_j (A_{j\cdot},-b_j) + \beta(0,-1) = (-\cc,p).
-	\]
-	Reescribiendo lo anterior, llamamos $ \mu = \begin{pmatrix}
+	donde para cada $ j = 1,\dots,M $, $ A_j $ denota la fila j-ésima de $ A^T $. Reescribiendo lo anterior, llamamos $ \muu = \begin{pmatrix}
 	\mu_{1} \\
 	\vdots \\
 	\mu_{M}
@@ -112,9 +101,9 @@ Gracias al lema de Farkas podemos probar resultados como el teorema de dualidad 
 	\begin{equation*}
 	\begin{rcases*}
 	\begin{split} 
-	\sum_{j=1}^{M}\mu_j A_{j\cdot} = A \mu &= -\cc\\
+	\sum_{j=1}^{M}\mu_j A_{j} = A \muu &= -\cc\\
 	\mu &\in \RR^M_+ \\
-	-\bb^T \mu - \beta &= p
+	-\bb^T \muu - \beta &= p
 	\end{split}
 	\end{rcases*}.
 	\end{equation*}

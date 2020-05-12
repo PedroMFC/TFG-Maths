@@ -1,13 +1,13 @@
 \chapter{Alternativa y minimax}
 \newcommand{\topSpace}{X}
 \newcommand{\topSpaceY}{Y}
-Este segundo capítulo se centra en el uso de los teoremas de la alternativa en la teoría minimax, surgida a finales de la década de 1920 de la mano de J. von Neumann en el seno de la teoría de juegos. Sin embargo, nosotros aplicaremos un teorema minimax deducido del teorema de la alternativa de Gordan para obtener resultados de separación de convexos
+Este capítulo se centra en el uso de los teoremas de la alternativa en la teoría minimax, surgida a finales de la década de 1920 de la mano de J. von Neumann en el seno de la teoría de juegos. Sin embargo, nosotros aplicaremos un teorema minimax deducido del teorema de la alternativa de Gordan para obtener resultados de separación de convexos
 \section{Una desigualdad minimax}
 \paragraph{}En esta sección llegaremos a otro de los resultados clave del trabajo. Será uno de los denominados teoremas minimax. A rasgos generales y a modo introductorio, podemos decir que un teroema minimax es un resultado que afirma, bajo ciertas hipótesis, que:
 \[
 \inf_{y \in Y} \sup_{x \in X} f(x,y) = \sup_{x \in X} \inf_{y \in Y} f(x,y),
 \] 
-donde $ X \text{ e } Y$ son conjuntos no vacíos y $ f: X \times Y \longrightarrow \RR $. Obviamente, esta igualdad no es cierta en general tal y como mostramos en el siguiente ejemplo. Definimos $ f:\{0,1\} \times \{0,1\} \longrightarrow \RR$ como:
+donde $ X \text{ e } Y$ son conjuntos y $ f: X \times Y \longrightarrow \RR $. Obviamente, esta igualdad no es cierta en general tal y como mostramos en el siguiente ejemplo. Definimos $ f:\{0,1\} \times \{0,1\} \longrightarrow \RR$ como:
 \[
 f(x,y) = \begin{cases}
 0, & \mbox{si $ x=y $ } \\
@@ -46,7 +46,7 @@ f(x) = \begin{cases}
 \end{cases}
 \]
 
-Para funciones superiormente semicontinuas, podemos enunciar los siguientes resultados análogos al caso continuo,
+Para funciones superiormente semicontinuas, podemos enunciar los siguientes resultados. En particular, el lema \ref{supConMax} es análogo al del caso continuo.
 \bigskip
 \begin{lemaBox}\label{infDeSupSemi}
 El ínfimo de una familia de funciones reales $ (f_\lambda)_{\lambda \in \Lambda} $ definidas en el mismo espacio topológico $ X $, si es finito, determina una función superiormente semicontinua. 
@@ -118,7 +118,7 @@ N\in\NN, \text{ }y_1,\dots,y_N \in \topSpaceY \Longrightarrow \alpha \leq \max_{
 \end{equation}
 Esta última condición es cierta. En efecto, sean $ N \in \NN $ e \vecN{y}$ \in \topSpaceY$. Aplicamos el lema de Simons, lema \ref{Simons}, tomando $ C := \topSpace $ y $ f_i: \topSpace \longrightarrow \RR $ definidas como \[
  f_i(x):=-f(x,y_i), \quad i=1,\dots,N.\]
-Como $ f $ es cóncava respecto a $ X $ tenemos que las $ f_i $ son convexas para X con $  i=1,\dots,N $. De este modo, existe $ \ttt \in \Delta_N$ tal que
+Como $ f $ es cóncava respecto a $ X $ tenemos que las $ f_i $ son convexas en $ X $ con $  i=1,\dots,N $. De este modo, existe $ \ttt \in \Delta_N$ tal que
 \[
 \inf_{x \in \topSpace} \max_{i=1\dots,N } \{f_i(x)\} = \inf_{x \in \topSpace} \left[ \sum_{i=1}^{N} t_i f_i(x) \right].
 \] 
