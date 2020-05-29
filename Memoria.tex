@@ -13,8 +13,11 @@
 \usepackage{dcolumn}
 \usepackage{titlesec}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage{pgfplots} %% PINTAR
 \usepackage{tikz}
+\usepackage{multirow}
+\usepackage{graphicx}
 \usepackage{siunitx, mhchem}
 \usepackage{booktabs,makecell}
 \usetikzlibrary{arrows.meta}
@@ -232,7 +235,7 @@ pdfproducer = {pdflatex}
 \input{capitulos/Desarrollo.tex}\\
 
 \part{Teoremas de la alternativa, optimización convexa y valoración de activos financieros}
-\input{capitulos/Intro+M-O-K.tex}
+%\input{capitulos/Intro+M-O-K.tex}
 %\input{capitulos/Gordan.tex}
 
 %\input{capitulos/Intro2+minimax.tex}
@@ -247,8 +250,19 @@ pdfproducer = {pdflatex}
 %\input{capitulos/aplicación.tex}
 
 \part{Procesamiento de nubes de puntos generadas por escáner láser}
+\input{capitulos/ICP.tex}
+
+\input{capitulos/descriptoresICP.tex}
+
+\input{capitulos/Más-ejemplos.tex}
+
+\input{capitulos/RANSAC.tex}
+
+\input{capitulos/banco.tex}
+
 
 \input{capitulos/Conclusiones.tex}
+
 %% Incluir en la bibliografía las referencias no citadas
 \nocite{*}
 % \bibliographystyle{alpha-es}
