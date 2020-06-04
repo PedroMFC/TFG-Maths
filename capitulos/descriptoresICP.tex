@@ -28,7 +28,7 @@ En primer lugar, debemos calcular las normales de cada punto de la nube. General
 La idea del algoritmo propuesto se basa en que en zonas relativamente planas las normales son muy parecidas por lo que la suma los productos escalares de la normal en un punto con aquellos contenidos en un entorno suyo es prácticamente 0. Razonemos lo que pasa en los lugares en los que hay esquinas. Tomamos un punto y sus vecinos, que en general son un total de 8. Suponemos una situación ideal en la que el punto que hemos escogido está en un borde. Si es así, consideramos que dos de los puntos adyacentes también están en dicho borde. \begin{comment}
 INCLUIR DIBUJO !!!!!!!!!!!!!!!11
 \end{comment} 
-Así, tenemos que de sus vecinos adyacentes, dos tienen una normal parecida y los seis restantes perpendicular. Si calculamos el producto escalar medio en esta situación ideal obtenemos que es de $ 0.25 $. Por ello, el algoritmo propuesto tiene en cuenta este valor y solo se queda con los puntos cuyo descriptor de normales esté en un rango próximo al valor comentado, que pertenecería a la situación ideal. En nuestros experimentos hemos usado como criterio que el valor del producto escalar medio esté entre $ 0.15 $ y $ 0.3 $. \\
+Así, tenemos que de sus vecinos adyacentes, dos tienen una normal parecida y los seis restantes perpendicular. Si calculamos el producto escalar medio en esta situación ideal obtenemos que es de $ 0.25 $. Por ello, el algoritmo propuesto tiene en cuenta este valor y solo se queda con los puntos cuyo descriptor de normales esté en un rango próximo al valor comentado, que pertenecería a la situación ideal. En nuestros experimentos hemos usado como criterio que el valor del producto escalar medio esté entre 0.15 y 0.3. \\
 
 A continuación mostramos un ejemplo de los resultados obtenidos. Para ello, hemos usado diferentes niveles de precisión. Esto se ha conseguido simplificando la malla implícita que tenemos del modelo e indicando el número de filas y columnas que queremos conservar. Por ejemplo, si tenemos un nivel de precisión de 5, toma como puntos válidos aquellos que están cada 5 filas y 5 columnas. De este modo, de cada 25 puntos nos quedamos con uno. Si el nivel de precisión es 8, nos quedamos con un punto de 64. En la figura \ref{Ej_simpli} se muestran varios ejemplos de cómo varía la densidad de la malla en función del nivel de simplificado.
 \begin{figure}[h!]
@@ -59,11 +59,11 @@ A continuación mostramos un ejemplo de los resultados obtenidos. Para ello, hem
 		\thead{Nivel de\\ simplificado} & \thead{Puntos \\ totales}  & \thead{Tiempo cálculo \\normales (seg. )} & \thead{Tiempo cálculo \\ptos. clave (seg. )} & \thead{Puntos \\ clave} \\
 		\hline
 		1 & 2\,275\,886 & 25.1373 & 13.0592 & 592\,611 \\			 
-		2 & 568\,830 & 6.39203  &  3.26905 & 192\,031 \\
-		3 & 252\,881 & 2.82 &  1.47162 & 46\,610 \\
-		4 &  142\,186 &  1.72909 &  0.837061 & 11\,866\\
-		5 & 90\,983 & 1.00018 & 0.549648 & 4490 \\
-		8 & 35\,519 &   0.394472 &   0.215125 &  1\,885\\
+		2 & 568\,830 & 6.39203  &  3.2690 & 192\,031 \\
+		3 & 252\,881 & 2.82000 &  1.4716 & 46\,610 \\
+		4 &  142\,186 &  1.72909 &  0.8370 & 11\,866\\
+		5 & 90\,983 & 1.00018 & 0.5496 & 4490 \\
+		8 & 35\,519 &   0.394472 &   0.2151 &  1\,885\\
 		\hline
 	\end{tabular}
 	\caption{Resultados del cálculo de puntos clave. En la primera columna aparece el nivel de simplificado utilizado, en la segunda el número total de puntos de la malla (simplificada), en la tercera y cuarta se incluye el tiempo en segundos para el cálculo de las normales y el cálculo de los valores del descriptor respectivamente. En la última columna se aporta el número de puntos clave obtenidos en cada caso. }
@@ -91,7 +91,7 @@ A continuación mostramos un ejemplo de los resultados obtenidos. Para ello, hem
 	\caption{Descriptor normales según el nivel de simplificado.}
 	\label{Ej_simpli_real}
 \end{figure}
-Los resultados obtenidos tras aplicar el algoritmo de detección de puntos claves se muestran en la tabla \ref{table:desNormales} y figura \ref{Ej_simpli_real}. Vemos que uno de los problemas que tiene este método es que muy sensible al ruido. Cuanto más preciso sea el modelo base menos adecuado es el descriptor propuesto. Por lo tanto, si queremos que los puntos obtenidos tras el proceso sean significativos tenemos que calcularlos a partir del modelo simplificado. Esto no debe de ser una problema ya que esto solo lo usaremos en las primeras iteraciones del método ICP ya que para obtener la solución deseada debemos tener en cuenta posteriormente el modelo entero debido a la sensibilidad del procedimiento. 
+Los resultados obtenidos tras aplicar el algoritmo de detección de puntos claves se muestran en la tabla \ref{table:desNormales} y figura \ref{Ej_simpli_real}. Vemos que uno de los problemas que tiene este método es que muy sensible al ruido. Esto, unido a la alta densidad de puntos con la que estamos trabajando hace que detectemos una gran cantidad de puntos clave. Por lo tanto, si queremos que los puntos obtenidos tras el proceso sean significativos tenemos que calcularlos a partir del modelo simplificado. Esto no debe de ser una problema ya que esto solo lo usaremos en las primeras iteraciones del método ICP ya que para obtener la solución deseada debemos tener en cuenta posteriormente el modelo entero debido a la sensibilidad del procedimiento. 
 
 \section{Pruebas}
 \subsection{De puntos clave a todo el modelo}
@@ -150,19 +150,19 @@ El número de puntos característicos detectados en la toma de la izquierda medi
 	\centering
 	\begin{tabular}{| c | c | c | c |} 
 		\hline
-		Iteración & Dist. antes ($ m^2 $)  & Dist. después ($ m^2 $) & Segundos \\
+		Iteración & Dist. antes (mm)  & Dist. después (mm) & Segundos \\
 		\hline
-		1 &  0.000545768 &  0.00028771 & 20.0778\\			 
-		2 & 0.000260278 & 0.000240228 &   19.7434\\	
-		3 & 0.000231921 & 0.00022784  & 19.4636\\
-		4 & 0.000224222 &  0.00022315 & 19.4807\\
+		1 &  23.3617 &  16.9620 & 20.0778\\			 
+		2 & 16.1331 & 15.4993 &   19.7434\\	
+		3 & 15.2290 & 15.0944  & 19.4636\\
+		4 & 14.9740 &  14.9382 & 19.4807\\
 		\hline
 	\end{tabular}
 	\caption{Resultados ajuste mediante ICP.}
 	\label{table:ICPKPtotal}
 \end{table}
 
-Vemos que el procedimiento funciona correctamente y además que el tiempo empleado se reduce considerablemente respecto a los tiempos que habríamos necesitado considerando los conjuntos completos. Para hacernos una idea del tiempo que habría tardado basta tomar el ejemplo del pie de la sección \ref{ejemPrac1}. En ese caso, los conjuntos tenían unos 7\,000 y 8\,000 puntos cada uno y tardaba poco más de un minuto. Ahora unos de ellos tiene casi 80\,000, por lo que teniendo en cuenta el orden cuadrático del método, incrementaría bastante el tiempo necesario para completar cada iteración. Destacar que al igual que el procedimiento original, es posible que el resultado obtenido no sea el deseado y tenga que aplicarse desde el principio.
+Vemos que el procedimiento funciona correctamente y además que el tiempo empleado se reduce considerablemente respecto a los tiempos que habríamos necesitado considerando los conjuntos completos. Para hacernos una idea de ese tiempo basta tomar el ejemplo del pie de la sección \ref{ejemPrac1}. En ese caso, los conjuntos tenían unos 7\,000 y 8\,000 puntos cada uno y tardaba poco más de un minuto. Ahora unos de ellos tiene casi 80\,000, por lo que teniendo en cuenta el orden cuadrático del método, incrementaría bastante el tiempo necesario para completar cada iteración. Destacar que al igual que el procedimiento original, es posible que el resultado obtenido no sea el deseado y tenga que aplicarse desde el principio.
 \subsection{De puntos clave a puntos clave}
 Nuestro propósito ahora es intentar reducir aún más el conjunto de puntos con los que realizar el proceso ICP. Para ello, vamos a probar qué pasa si aplicamos el algoritmo solamente a los conjuntos de puntos clave calculados. Este paso hay que hacerlo con cuidado ya que, incluso en mayor medida que tomando en una muestra la toma entera, nos arriesgamos a que muchos puntos no tengan una correspondencia. Así, para el cálculo del punto más cercano se ha tenido en cuenta: 
 
@@ -191,23 +191,24 @@ En la figura \ref{fig:KPKPICP} mostramos un ejemplo del resultado obtenido impon
 	\label{fig:KPKPICP}
 \end{figure}
 
-Se han realizado dos iteraciones. En ambas ha tardado aproximadamente $ 0.7 $ segundos y la distancia media (en metros al cuadrado) ha variado de $ 0.000782562 $ a $ 0.000722275 $. Los puntos clave calculados en cada caso son en el primera toma un total de $ 1142 $ y en la segunda $ 2273 $. Observamos cómo tras las dos iteraciones se han conseguido ajustar mejor las dos tomas. Nuevamente, hacemos hincapié en que el algoritmo ha tardado menos de lo que habría necesitado en caso de haber tomado las nubes de puntos completas gracias a la reducción del número de elementos de ambos conjuntos. \\
+Se han realizado dos iteraciones. En ambas ha tardado aproximadamente 0.7 segundos y la distancia media (en milímetros) ha variado de 27.9743 a 26.8752. Los puntos clave calculados en cada caso son en el primera toma un total de $ 1\,142 $ y en la segunda $ 2\,273 $. Observamos cómo tras las dos iteraciones se han conseguido ajustar mejor las dos tomas. Nuevamente, hacemos hincapié en que el algoritmo ha tardado menos de lo que habría necesitado en caso de haber tomado las nubes de puntos completas gracias a la reducción del número de elementos de ambos conjuntos. \\
 
-Una segunda aproximación es contar el número de productos escalares que dan ``cero'' para saber el número de planos perpendiculares que tiene cada punto. De este modo, solo comparamos con puntos cuyo número de ceros es el mismo. Se ha tomado perpendicularidad cuando el producto escalar sea menor que $ 0.01 $ debido a errores en la toma de muestras y simplificado de la malla. Notar que seguimos teniendo en cuenta la cota de la distancia máxima. Esto puede hacer que en un paso del método la distancia puede ser mayor que el anterior al existir un mayor o menor número de puntos que se han tomado como referencia. Esto no debería ser ningún problema \textit{a priori}. En el ejemplo que mostramos ese número no ha variado entre iteraciones.
+Una segunda aproximación es contar el número de productos escalares que dan ``cero'' para saber el número de planos perpendiculares que tiene cada punto. De este modo, solo comparamos con puntos cuyo número de ceros es el mismo. Se ha tomado perpendicularidad cuando el producto escalar sea menor que 0.01 debido a errores en la toma de muestras y simplificado de la malla. Notar que seguimos teniendo en cuenta la cota de la distancia máxima. Esto puede hacer que en un paso del método la distancia puede ser mayor que el anterior al existir un mayor o menor número de puntos que se han tomado como referencia. Esto no debería ser ningún problema \textit{a priori}. En el ejemplo que hemos usado ese número no ha variado entre iteraciones. En la tabla \ref{talbe:ICPceros} se recogen los resultados para cada iteración.\\
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{| c | c | c | c |} 
 		\hline
-		Iteración & Dist. antes ($ m^2 $)  & Dist. después ($ m^2 $) & Segundos \\
+		Iteración & Dist. antes (mm)  & Dist. después (mm) & Segundos \\
 		\hline
-		1 &  0.00124479 &  0.00121367 & 2.33132\\			 
-		2 & 0.00119796 &  0.0011896 &   2.32062\\	
-		3 &  0.00118431 & 0.00118055  & 2.30985\\
-		4 & 0.00117839 &  0.00117688 & 2.32283\\
+		1 &  35.2816 &  34.8378 & 2.33132\\			 
+		2 & 34.6116 &  34.4906 &   2.32062\\	
+		3 &  34.4138 & 34.3591  & 2.30985\\
+		4 & 34.3277 &  34.3057 & 2.32283\\
 		\hline
 	\end{tabular}
-	\caption{Resultados ajuste mediante ICP.}
+	\caption{Resultados ajuste mediante ICP del modelo del con puntos clave agrupándolos por el número de ceros de sus productos escalares.}
+	\label{talbe:ICPceros}
 \end{table}
 
 \begin{figure}[th!]
@@ -230,4 +231,4 @@ Una segunda aproximación es contar el número de productos escalares que dan ``
 	\label{fig:ICPej5}
 \end{figure}
 
-En la figura \ref{fig:ICPej5}, vemos que nuevamente se ha obtenido un proceso satisfactorio en la zona de los dedos del pie aunque ha tardado más tiempo en cada iteración que en el caso anterior.
+Con este procedimiento, en la figura \ref{fig:ICPej5} vemos que nuevamente se ha obtenido un proceso satisfactorio en la zona de los dedos del pie aunque ha tardado más tiempo en cada iteración que en el caso anterior.

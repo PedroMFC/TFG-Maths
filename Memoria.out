@@ -4,35 +4,19 @@
 \BOOKMARK [0][-]{chapter.4}{Objetivos}{}% 4
 \BOOKMARK [0][-]{chapter.5}{Desarrollo}{}% 5
 \BOOKMARK [-1][-]{part.1}{I Teoremas de la alternativa, optimización convexa y valoración de activos financieros}{}% 6
-\BOOKMARK [-1][-]{part.2}{II Procesamiento de nubes de puntos generadas por escáner láser}{}% 7
-\BOOKMARK [0][-]{chapter.6}{Iterative\040Closest\040Point\040\(ICP\)}{part.2}% 8
-\BOOKMARK [1][-]{section.6.1}{Cuaternios}{chapter.6}% 9
-\BOOKMARK [2][-]{subsection.6.1.1}{Suma\040y\040producto}{section.6.1}% 10
-\BOOKMARK [2][-]{subsection.6.1.2}{Conjugado,\040norma\040e\040inverso}{section.6.1}% 11
-\BOOKMARK [2][-]{subsection.6.1.3}{Cuaternios\040y\040rotaciones}{section.6.1}% 12
-\BOOKMARK [1][-]{section.6.2}{Cuaternios y optimización}{chapter.6}% 13
-\BOOKMARK [1][-]{section.6.3}{Algoritmo\040ICP}{chapter.6}% 14
-\BOOKMARK [1][-]{section.6.4}{Ejemplos prácticos}{chapter.6}% 15
-\BOOKMARK [0][-]{chapter.7}{Cambios en el método: uso de normales}{part.2}% 16
-\BOOKMARK [1][-]{section.7.1}{Variación de la normal}{chapter.7}% 17
-\BOOKMARK [1][-]{section.7.2}{Pruebas}{chapter.7}% 18
-\BOOKMARK [2][-]{subsection.7.2.1}{De\040puntos\040clave\040a\040todo\040el\040modelo}{section.7.2}% 19
-\BOOKMARK [2][-]{subsection.7.2.2}{De\040puntos\040clave\040a\040puntos\040clave}{section.7.2}% 20
-\BOOKMARK [1][-]{section.7.3}{Torre\040de\040las\040gallinas}{chapter.7}% 21
-\BOOKMARK [1][-]{section.7.4}{Sensibilidad\040y\040uso\040en\040prealineado}{chapter.7}% 22
-\BOOKMARK [1][-]{section.7.5}{Conclusiones}{chapter.7}% 23
-\BOOKMARK [0][-]{chapter.8}{RANSAC:\040algoritmo\040de\040consenso}{part.2}% 24
-\BOOKMARK [1][-]{section.8.1}{Algoritmo}{chapter.8}% 25
-\BOOKMARK [1][-]{section.8.2}{Número de iteraciones}{chapter.8}% 26
-\BOOKMARK [1][-]{section.8.3}{Ejemplos\040sencillos}{chapter.8}% 27
-\BOOKMARK [2][-]{subsection.8.3.1}{Pie}{section.8.3}% 28
-\BOOKMARK [2][-]{subsection.8.3.2}{Torre}{section.8.3}% 29
-\BOOKMARK [1][-]{section.8.4}{Cálculo de los puntos de intersección}{chapter.8}% 30
-\BOOKMARK [1][-]{section.8.5}{Ejemplo\040despacho}{chapter.8}% 31
-\BOOKMARK [1][-]{section.8.6}{Ejemplo específico}{chapter.8}% 32
-\BOOKMARK [0][-]{chapter.9}{Banco\040de\040pruebas}{part.2}% 33
-\BOOKMARK [1][-]{section.9.1}{Estructura básica de la aplicación}{chapter.9}% 34
-\BOOKMARK [2][-]{subsection.9.1.1}{Clase\040_basic_object3D}{section.9.1}% 35
-\BOOKMARK [1][-]{section.9.2}{Picking}{chapter.9}% 36
-\BOOKMARK [1][-]{section.9.3}{Selección mediante rectángulo}{chapter.9}% 37
-\BOOKMARK [0][-]{chapter.10}{Conclusiones y vías futuras}{part.2}% 38
+\BOOKMARK [0][-]{chapter.6}{Teoremas\040de\040la\040alternativa}{part.1}% 7
+\BOOKMARK [1][-]{section.6.1}{Teorema de Mazur-Orlicz-König}{chapter.6}% 8
+\BOOKMARK [1][-]{section.6.2}{Teorema\040de\040la\040alternativa\040de\040Gordan.\040Reformulaciones.}{chapter.6}% 9
+\BOOKMARK [0][-]{chapter.7}{Alternativa\040y\040minimax}{part.1}% 10
+\BOOKMARK [1][-]{section.7.1}{Una\040desigualdad\040minimax}{chapter.7}% 11
+\BOOKMARK [1][-]{section.7.2}{Separación de convexos}{chapter.7}% 12
+\BOOKMARK [0][-]{chapter.8}{Optimización}{part.1}% 13
+\BOOKMARK [1][-]{section.8.1}{Lema\040de\040Farkas}{chapter.8}% 14
+\BOOKMARK [1][-]{section.8.2}{Dualidad en programación lineal}{chapter.8}% 15
+\BOOKMARK [1][-]{section.8.3}{Optimización con restricciones: Fritz John y Karush-Kuhn-Tucker}{chapter.8}% 16
+\BOOKMARK [0][-]{chapter.9}{Valoración de activos financieros}{part.1}% 17
+\BOOKMARK [1][-]{section.9.1}{Preliminares\040financieros}{chapter.9}% 18
+\BOOKMARK [1][-]{section.9.2}{Primer\040teorema\040fundamental}{chapter.9}% 19
+\BOOKMARK [1][-]{section.9.3}{Aplicación al modelo binomial}{chapter.9}% 20
+\BOOKMARK [-1][-]{part.2}{II Procesamiento de nubes de puntos generadas por escáner láser}{}% 21
+\BOOKMARK [0][-]{chapter.10}{Conclusiones y vías futuras}{part.2}% 22

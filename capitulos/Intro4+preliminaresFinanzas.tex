@@ -18,7 +18,7 @@ R_t = \begin{cases}
 \end{cases}
 \]
 % Cómo definir K ya que es parecido a la R_t. Ver página 60 para ver que la probabilidad es la misma pero E(K) = r y la nuestra es E(R) = 1 + r y K = R- 1.
-cumpliendo $ -1 < d < u $ y $ 0 < p <1 $. La primera condición es importante ya que garantiza que todos los precios van a ser positivos tal y como especificaremos más adelante. Si por ejemplo $ d < 0 $, significa que $ R_t < 1 $ y por tanto $ S_t < S_{t-1} $, es decir, hemos perdido dinero. Si por es contrario es positivo, significa que hemos obtenido beneficio. No se tiene que dar que $ d < 0 < u$ ya que podríamos estar en una situación en la que siempre perdamos dinero o lo ganemos. El valor $ d $ significa la menor ganancia y $ u $ la mayor. Deberíamos denotar como $ R_t(\omega) $ al retorno obtenida en el paso $ t $ si el mercado sigue el escenario $ \omega \in \Omega $. El árbol de probabilidad para dos pasos se observa en la figura \ref{arbol2Pasos}.
+cumpliendo $ -1 < d < u $ y $ 0 < p <1 $. La primera condición es importante ya que garantiza que todos los precios van a ser positivos tal y como especificaremos más adelante. Si por ejemplo $ d < 0 $, significa que $ R_t < 1 $ y por tanto $ S_t < S_{t-1} $, es decir, hemos perdido dinero. Si por es contrario es positivo, significa que hemos obtenido beneficio. No se tiene que dar que $ d < 0 < u$ ya que podríamos estar en una situación en la que siempre perdamos dinero o lo ganemos. El valor $ d $ significa la menor ganancia y $ u $ la mayor. Deberíamos denotar como $ R_t(\omega) $ al retorno obtenida en el paso $ t $ si el mercado sigue el escenario $ \omega \in \Omega $. El árbol de probabilidad para dos pasos se observa en la figura \ref{arbol2Pasos}. \\
 
 \begin{comment}
 % Set the overall layout of the tree
@@ -152,7 +152,7 @@ Los activos que hasta ahora hemos presentado son denominados \textit{primarios} 
 \begin{enumerate}
 	\item Contrato forward (a plazo): es un acuerdo entre dos partes para comprar o vender cierto activo con riesgo a un precio fijo en un momento determinado en el futuro. 
 	\item Contrato de futuros: es un tipo de contrato forward pero que está estandarizado y negociado en un mercado organizado, como el de Chicago.
-	\item Opciones: es un contrato mediante el cual el comprador de la opción adquiere el derecho pero no la obligación de comprar o vender un activo subyacente al vendedor de la misma. El precio al que se puede ejercer el derecho de compra o de venta del activo se denomina precio de ejercicio o también strike price. Existen dos tipos de opciones: 
+	\item Opciones: es un contrato mediante el cual el comprador de la opción adquiere el derecho pero no la obligación de comprar o vender un activo subyacente al vendedor de la misma. El precio al que se puede ejercer el derecho de compra o de venta del activo se denomina precio de ejercicio o también \textit{strike price}. Existen dos tipos de opciones: 
 	\begin{enumerate}
 		\item Europeas: solo pueden ser ejercidas en la fecha de vencimiento.
 		\item Americanas:  se puede ejercer en cualquier momento hasta la fecha de vencimiento.

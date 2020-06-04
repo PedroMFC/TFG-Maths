@@ -20,6 +20,7 @@
 \usepackage{graphicx}
 \usepackage{siunitx, mhchem}
 \usepackage{booktabs,makecell}
+\usepackage{float}
 \usetikzlibrary{arrows.meta}
 \usepackage{verbatim} % comentarios
 \graphicspath{{./imagenes/}}
@@ -218,8 +219,8 @@ pdfproducer = {pdflatex}
 \makeatother
 
 \usepackage{pdfpages}
-\begin{document}
-	\input{portada/portada}
+\begin{document}	
+\input{portada/portada}
 %\frontmatter
 \tableofcontents
 %\listoffigures
@@ -235,30 +236,29 @@ pdfproducer = {pdflatex}
 \input{capitulos/Desarrollo.tex}\\
 
 \part{Teoremas de la alternativa, optimización convexa y valoración de activos financieros}
-%\input{capitulos/Intro+M-O-K.tex}
-%\input{capitulos/Gordan.tex}
+\input{capitulos/Intro+M-O-K.tex}
+\input{capitulos/Gordan.tex}
 
-%\input{capitulos/Intro2+minimax.tex}
-%\input{capitulos/separación.tex}
+\input{capitulos/Intro2+minimax.tex}
+\input{capitulos/separación.tex}
 
-%\input{capitulos/Intro3+Farkas.tex}
-%\input{capitulos/programación-lineal.tex}
-%\input{capitulos/FJ-KKT}
+\input{capitulos/Intro3+Farkas.tex}
+\input{capitulos/programación-lineal.tex}
+\input{capitulos/FJ-KKT}
 
-%\input{capitulos/Intro4+preliminaresFinanzas.tex}
-%\input{capitulos/PrimerTeorema.tex}
-%\input{capitulos/aplicación.tex}
+\input{capitulos/Intro4+preliminaresFinanzas.tex}
+\input{capitulos/PrimerTeorema.tex}
+\input{capitulos/aplicación.tex}
 
 \part{Procesamiento de nubes de puntos generadas por escáner láser}
-\input{capitulos/ICP.tex}
+%\input{capitulos/ICP.tex}
 
-\input{capitulos/descriptoresICP.tex}
+%\input{capitulos/descriptoresICP.tex}
+%\input{capitulos/Más-ejemplos.tex}
 
-\input{capitulos/Más-ejemplos.tex}
+%\input{capitulos/RANSAC.tex}
 
-\input{capitulos/RANSAC.tex}
-
-\input{capitulos/banco.tex}
+%\input{capitulos/banco.tex}
 
 
 \input{capitulos/Conclusiones.tex}
@@ -285,22 +285,22 @@ pdfproducer = {pdflatex}
 	
 	\bibitem{Simons2008} S. Simons, \textsl{From Hahn-Banach to monotonicity}, 2nd edition, Lectures notes in Mathematics 1693, Springer, New York, 2008.
 	
-	\bibitem{tam2012registration} Gary KL Tam, Zhi-Quan Cheng, Yu-Kun Lai, Frank C Langbein, Yonghuai Liu, David Marshall, Ralph R Martin, Xian-Fang Sun, Paul L Rosin, \textsl{Registration of 3D point clouds and meshes: A survey from rigid to nonrigid}, IEEE transactions on visualization and computer graphics, 2012.
-	
-	\bibitem{QuatYan} Yan-Bin Jia, \textsl{Quaternions and rotations}, Com S 477/577, 2013.
-	Notes
-	
 	\bibitem{QuatPowerPoint} Jernej Barbic, \textsl{Quaternions and Rotations}, CSCI 520 Computer Animation and Simulation, University of Southern California.
 	
 	\bibitem{ICPBesl} Paul J.Besl y Neil D.McKay, \textsl{A method for registration of 3d-shapes}, IEEE Transactions on Pattern Analysis and Machine Inteligence, 1992.
 	
-	\bibitem{hartley2003multiple} Richard Hartley y Andrew Zisserman, \textsl{Multiple view geometry in computer vision}, Cambridge university press, 2003.
-	
 	\bibitem{fischler1981random} Martin A Fischler y Robert C Bolles, \textsl{Random sample consensus: a paradigm for model fitting with applications to image analysis and automated cartography}, Communications of the ACM, 24(6):381–395, 1981.
 	
-	\bibitem{theiler2012automatic} PW Theiler, K Schindler, et al, \textsl{Automatic registration of terrestrial laser scanner point clouds using natural planar surfaces}, ISPRS Annals of Photogrammetry, Remote Sensing and Spatial	Information Sciences, 3:173–178, 2012.
+	\bibitem{hartley2003multiple} Richard Hartley y Andrew Zisserman, \textsl{Multiple view geometry in computer vision}, Cambridge university press, 2003.
 	
+	\bibitem{QuatYan} Yan-Bin Jia, \textsl{Quaternions and rotations}, Com S 477/577, 2013.
+	Notes.
+		
 	\bibitem{QT+Opengl} Domingo Martín Perandrés, \textsl{Informática Gráfica con OpenGL 4}, 2018.
+	
+	\bibitem{tam2012registration} Gary KL Tam, Zhi-Quan Cheng, Yu-Kun Lai, Frank C Langbein, Yonghuai Liu, David Marshall, Ralph R Martin, Xian-Fang Sun, Paul L Rosin, \textsl{Registration of 3D point clouds and meshes: A survey from rigid to nonrigid}, IEEE transactions on visualization and computer graphics, 2012.
+			
+	\bibitem{theiler2012automatic} PW Theiler, K Schindler, et al, \textsl{Automatic registration of terrestrial laser scanner point clouds using natural planar surfaces}, ISPRS Annals of Photogrammetry, Remote Sensing and Spatial	Information Sciences, 3:173–178, 2012.
 	
 	\bibitem{QTdocu} \textsl{Qt Documentation}, \url{https://doc.qt.io/qt-5/reference-overview.html}
 	

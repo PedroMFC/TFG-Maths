@@ -575,12 +575,13 @@ En la imagen \ref{fig:ICP_1} se muestran los puntos antes y después de aplicar 
 	\label{fig:ICP_1}
 \end{figure}
 
-Según los datos calculados, la distancia media a pasado de $ 0.162697  $ a $ 0.00372463 $. El tiempo que ha tardado en realizar el proceso es de $ 0.00226548 $ segundos. La traslación y rotación expresada como cuaternio vienen dadas por 
+Según los datos calculados, la distancia media en milímetros ha pasado de 403.3571 a 61.0297. El tiempo que ha tardado en realizar el proceso es de 0.00226548 segundos. La traslación y rotación expresada como cuaternio vienen dadas por 
 \[
-q_T =  (0.166271, 0.165485, 0.349303).
+q_T =  (\text{0.166271}, \text{ 0.165485}, \text{ 0.349303})
 \]
+y 
 \[
-q_R = (0.0234481, 0.0238614, -0.154144, 0.987482).
+q_R = (\text{0.0234481}, \text{ 0.0238614}, \text{ -0.154144}, \text{ 0.987482}).
 \]
 
 %%Besl y McKay también aportan en su artículo un estimación del la cantidad de operación necesarias en este caso. Para estos conjuntos con 8 y 11 puntos respectivamente ..... COMPRENDER. ¿Es necesario?. \\
@@ -647,13 +648,13 @@ A continuación, comenzamos usamos el algoritmo ICP. La tabla \ref{table:ICP2} r
 	\centering
 	\begin{tabular}{| c | c | c | c |} 
 		\hline
-		Iteración & Dist. antes ($ m^2 $)  & Dist. después ($ m^2 $) & Segundos \\
+		Iteración & Dist. antes (mm)  & Dist. después (mm) & Segundos \\
 		\hline
-		1 & 0.000449468 & 0.000328695 & 62.8672\\		 
-		2 & 0.00027947 &  0.000251878 &  62.7888\\	
-		3 & 0.000229901 & 0.000209142  & 62.8636\\
-		4 & 0.000195308 &  0.000188837 & 63.059\\
-		5 &  0.000186373 &  0.000185154 & 62.8259\\
+		1 & 21.2000 & 18.1299 & 62.8672\\		 
+		2 & 16.7174 &  15.8707 &  62.7888\\	
+		3 & 15.1625 & 14.4617  & 62.8636\\
+		4 & 13.9753 &  13.7418 & 63.059\\
+		5 &  13.6518 &  13.6071 & 62.8259\\
 		\hline
 	\end{tabular}
 	\caption{Resultados ajuste mediante ICP.}
