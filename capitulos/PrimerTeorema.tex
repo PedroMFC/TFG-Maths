@@ -1,11 +1,11 @@
 \section{Primer teorema fundamental}
-Una vez explicada de manera simplificada el contexto financiero debemos formalizar matemáticamente el modelo del mercado. Para ello, seguimos \cite{elliot1999mathematics}. Fijamos el conjunto de tiempos $ \mathbb{T} = \{0,1,\dots,T\}$ con $ T $ el instante en el que finaliza el modelado de nuestra actividad económica. También fijamos el espacio de probabilidad $ (\Omega, \mathcal{F}, P) $. Este espacio contiene todos los posibles estados del mercado. La información de la que disponen los inversores acerca de la estructura en cada momento $ t \in \mathbb{T}$ viene dada por una sucesión finita y creciente de sub-$ \sigma $-álgebras de $ \mathcal{F} $, $ \mathcal{F}_0 \subset \cdots \subset \mathcal{F}_T = \mathcal{F} $ con $ \mathcal{F}_0 $ trivial, es decir, contiene solamente conjuntos con medida 0 o 1. A este secuencia se le denomina filtración y se denota como $ \mathbb{F} = (\mathcal{F}_t)_{t \in \mathbb{T}} $. El sentido financiero de esta filtración es indicar la información conocida hasta el momento acerca de la evolución de los precios. Por ejemplo, si comenzamos a modelar nuestro mercado hoy, $ \mathcal{F}_0 $ nos aporta únicamente el valor actual. Sin embargo, mañana tendremos la información de los precios en ese momento junto con la obtenida hoy, por lo que es claro que $ \mathcal{F}_0 \subset \mathcal{F}_1  $. También es claro que al llegar al instante final tenemos toda la información acerca del modelo. Llamamos $ d  $ a la dimensión de nuestro mercado, es decir, el número de activos que manejamos. La evolución de los precios de los activos viene dada  por el proceso estocástico $ S = \{S^i_t:\hspace{1mm} t \in \mathbb{T},\hspace{1mm} i=0,\dots,d\} $ donde cada $ S^i_t $ es una variable aleatoria. Todos son activos con riesgos menos el marcado por $ 0 $. Asumimos que el proceso $ S_t^i $ es $ \mathcal{F}_t $-medible para $ i=0,\dots,d $, es decir, se adapta a la filtración $ \mathbb{F} $. Eso significa que para cada $ t \in \mathbb{T} $ se conocen los precios de cada activo hasta ese instante como se ha explicado anteriormente. En general, primero se escoge $ S $ y se toma $ \mathbb{F} $ como la filtración que genera. La tupla $ (\Omega, \mathcal{F}, P, \mathbb{F}, S) $ es la que modela nuestro mercado de valores. \\
+Una vez explicada de manera simplificada el contexto financiero debemos formalizar matemáticamente el modelo del mercado. Para ello, seguimos \cite{elliot1999mathematics}. Fijamos el conjunto de tiempos $ \mathbb{T} = \{0,1,\dots,T\}$ con $ T $ el instante en el que finaliza el modelado de nuestra actividad económica. También fijamos el espacio de probabilidad $ (\Omega, \mathcal{F}, P) $. Este espacio contiene todos los posibles estados del mercado. La información de la que disponen los inversores acerca de la estructura en cada momento $ t \in \mathbb{T}$ viene dada por una sucesión finita y creciente de sub-$ \sigma $-álgebras de $ \mathcal{F} $, $ \mathcal{F}_0 \subset \cdots \subset \mathcal{F}_T = \mathcal{F} $ con $ \mathcal{F}_0 $ trivial, es decir, contiene solamente conjuntos con medida 0 o 1. A este secuencia se le denomina filtración y se denota como $ \mathbb{F} = (\mathcal{F}_t)_{t \in \mathbb{T}} $. El sentido financiero de esta filtración es indicar la información conocida hasta el momento acerca de la evolución de los precios. Por ejemplo, si comenzamos a modelar nuestro mercado hoy, $ \mathcal{F}_0 $ nos aporta únicamente el valor actual. Sin embargo, mañana tendremos la información de los precios en ese momento junto con la obtenida hoy, por lo que es claro que $ \mathcal{F}_0 \subset \mathcal{F}_1  $. También es claro que al llegar al instante final tenemos toda la información acerca del modelo. Llamamos $ d  $ a la dimensión de nuestro mercado, es decir, el número de activos que manejamos. La evolución de los precios de los activos viene dada  por el proceso estocástico $ S = \{S^i_t:\hspace{1mm} t \in \mathbb{T},\hspace{1mm} i=0,\dots,l\} $ donde cada $ S^i_t $ es una variable aleatoria. Todos son activos con riesgos menos el marcado por $ 0 $. Asumimos que el proceso $ S_t^i $ es $ \mathcal{F}_t $-medible para $ i=0,\dots,l $, es decir, se adapta a la filtración $ \mathbb{F} $. Eso significa que para cada $ t \in \mathbb{T} $ se conocen los precios de cada activo hasta ese instante como se ha explicado anteriormente. En general, primero se escoge $ S $ y se toma $ \mathbb{F} $ como la filtración que genera. La tupla $ (\Omega, \mathcal{F}, P, \mathbb{F}, S) $ es la que modela nuestro mercado de valores. \\
 
 El poder adquisitivo de una misma cantidad decrece con el tiempo, consideramos el factor de descuento (o de actualización) en el instante $ t $ dado por $ \beta_t < 1 $ y notamos al valor actual como $ \bar{S}_t = \beta_t S_t $. Sin pérdida de generalidad se puede asumir que $ S^0(0) = 1 $ por lo que podemos expresar todas las unidades en función a dicho valor. En ese caso, el factor $ \beta_t = 1/S^0_t $ es la cantidad de dinero que necesitamos para invertir en bonos en el instante 0 para tener una unidad en el instante $ t $. Podríamos considerar que tomar $ S^0(0) = 1 $  es una simple normalización de los precios. El factor de descuento se puede ver como $ \beta_t = (1+r)^{-t} $. Para entender esta fórmula podemos ver la situación contraria: calcular una cantidad con cierto intereses. De este modo, $ r $ representa el interés considerado o cómo aumentará el valor del dinero en el futuro. Así, el valor de una cantidad $ S $ en el futuro es $ (1+r)S $ considerando solo un paso o $ (1+r)^t S $ si consideramos varios. Por eso, al actualizar pasamos dicho término dividiendo y llegamos a la fórmula de $ \beta_t $ expuesta. Observemos que en ocasiones, como en el caso continuo, el papel de $ (1+r)^t $ es una función exponencial.\\
 
-La cartera de inversión o portafolio para el instante $ t \in \mathbb{T} $ viene dada por la variable aleatoria $ d+1 $ dimensional $ \theta_t = (\theta_t^0,\dots,\theta_t^d) $. Cada $ \theta_t^i $ indica el número de activos del tipo $ i $ que tiene un inversor en el instante $ t $. El valor de la cartera viene determinado por $ V_t(\theta) $ donde
+La cartera de inversión o portafolio para el instante $ t \in \mathbb{T} $ viene dada por la variable aleatoria $ l+1 $ dimensional $ \theta_t = (\theta_t^0,\dots,\theta_t^l) $. Cada $ \theta_t^i $ indica el número de activos del tipo $ i $ que tiene un inversor en el instante $ t $. El valor de la cartera viene determinado por $ V_t(\theta) $ donde
 \[
-V_0(\theta) = \langle \theta_1 , S_0\rangle, \hspace{2.5mm} V_t(\theta) = \langle \theta_t , S_t\rangle = \sum_{i=0}^{d} \theta_t^i S_t^i \text{ para } \hspace{0.5mm} t \in \mathbb{T}, t \geq 1.
+V_0(\theta) = \langle \theta_1 , S_0\rangle, \hspace{2.5mm} V_t(\theta) = \langle \theta_t , S_t\rangle = \sum_{i=0}^{l} \theta_t^i S_t^i \text{ para } \hspace{0.5mm} t \in \mathbb{T}, t \geq 1.
 \]
 Cada inversor selecciona la cartera de inversión del instante $ t $ una vez se conocen los precios del momento anterior $ t-1 $. La estrategia de inversión $ \theta = \{\theta_t: \hspace{0.5mm}t=1,\dots,T\} $ es el conjunto de todas las carteras de inversión \textit{predecibles}. Decimos que una cartera $ \theta_{t} $ es predecible si depende solamente de los precios de los activos hasta el instante $ t-1 $. Cuando cada cartera de inversión $ \theta_{t+1} $ se puede financiar completamente con las ganancias o pérdidas actuales decimos que la estrategia es \textit{autofinanciada}, es decir, 
 \begin{equation*}\label{selfinance}
@@ -30,11 +30,11 @@ También es necesario imponer o aclarar una serie de suposiciones sobre nuestro 
 	\item Ninguna de las transacciones conlleva un coste extra.
 	\item Positividad: todos los precios son positivos, es decir,
 	\[
-	S_t^i > 0 \text{ para } t \in \mathbb{T},\hspace{1mm} i=0,\dots,d.
+	S_t^i > 0 \text{ para } t \in \mathbb{T},\hspace{1mm} i=0,\dots,l.
 	\]
 	\item Divisibilidad, liquidez y \textit{short selling} (venta en corto): el número de activos que posee un inversor puede ser cualquier valor real. Así,
 	\[
-	\theta_t^i \in \RR \text{ para } t \in \mathbb{T},\hspace{1mm} i=0,\dots,d.
+	\theta_t^i \in \RR \text{ para } t \in \mathbb{T},\hspace{1mm} i=0,\dots,l.
 	\]
 	La divisibilidad hace referencia a que $ \theta_t^i $ puede ser una fracción. Claramente, no podemos tener, por ejemplo, media acción. Sin embargo, cuando estamos trabajando con un gran número de acciones podemos considerar que tienen cifras decimales para trabajar con números menores. El hecho de que tome valores en $ \RR $ también significa que podemos comprar o vender el número de acciones deseado, es decir, no imponemos ninguna restricción. Este hecho se conoce como liquidez. Claramente, en mercados reales sí existe dicha restricción en el volumen de las transacciones pero nosotros estamos trabajando con un modelo idealizado. Finalmente, cuando dichos valores son positivos decimos que el inversor tiene una posición larga o \textit{long position}. Si por el contrario estos son negativos, tiene una posición corta o \textit{short position}, por ejemplo, cuando vende algún tipo de bono. Estas acciones se suelen llevar a cabo, por ejemplo, en las denominadas ventas en corto o \textit{short selling} que se usan cuando se prevé que un determinado activo va a bajar de valor. Así, suponemos que tenemos una acción cuyo precio actual es 100 cuyo valor suponemos que va a disminuir. Antes de que baje más, la vendemos, es decir, tomamos una posición \textit{short}. Pasado un periodo de tiempo, la acción bajan a 70 por lo que tomamos una posición \textit{long} y las compramos de nuevo. De este modo, tenemos las misma cantidad de activos que al principio pero hemos obtenido un beneficio de 70. En estas operaciones también corremos el riesgo de perder dinero ya que es posible que el valor de los activos crezca en vez de disminuir. 
 	
@@ -51,17 +51,17 @@ Ya tenemos el modelo financiero sobre el que vamos a trabajar. Exponemos ahora u
 %% Parecido Prop 4.1 del otro libro Mathematics for finance
 %% LEMMA 2.2.1
 \begin{lemaBox}\label{2.2.1}
-	Dada $ V_0 $ una función $ \mathcal{F}_0 $-medible y para $ d \in \NN  $ sean los procesos reales y predecibles $ \theta^1,\dots,\theta^d $, el único proceso predecible $ \theta^0 $ que convierte a $ \theta = (\theta^0,\theta^1,\dots,\theta^d) $ en una estrategia autofinanciada con valor $ V_0 (\theta)= V_0 $ viene dado por
+	Dada $ V_0 $ una función $ \mathcal{F}_0 $-medible y para $ l \in \NN  $ sean los procesos reales y predecibles $ \theta^1,\dots,\theta^l $, el único proceso predecible $ \theta^0 $ que convierte a $ \theta = (\theta^0,\theta^1,\dots,\theta^l) $ en una estrategia autofinanciada con valor $ V_0 (\theta)= V_0 $ viene dado por
 	\[
-	\theta^0_t = V_0 + \sum_{i=1}^{t-1}(\theta^1_i\Delta\bar{S}^1_i+\cdots+\theta^d_i\Delta\bar{S}^d_i) - (\theta^1_t\bar{S}^1_{t-1}+\cdots+\theta^d_t\bar{S}^d_{t-1}).
+	\theta^0_t = V_0 + \sum_{i=1}^{t-1}(\theta^1_i\Delta\bar{S}^1_i+\cdots+\theta^l_i\Delta\bar{S}^l_i) - (\theta^1_t\bar{S}^1_{t-1}+\cdots+\theta^l_t\bar{S}^l_{t-1}).
 	\]
 \end{lemaBox}
 \begin{proof}
 	Claramente $ \theta^0 $ es predecible. Para ver que la estrategia es autofinanciada, por \eqref{selfinifonlyif} solo necesitamos ver que $ \theta^0_t $ es la única solución predecible de la ecuación 
 	\begin{equation*}
 	\begin{split}
-	\bar{V}_t(\theta) &= \theta^0_t + \theta^1_t\bar{S}^1_t+\cdots+\theta^d_t\bar{S}^d_t \\
-	&= V_0 + \sum_{i=1}^{t}(\theta^1_i\Delta\bar{S}^1_i+\cdots+\theta^d_i\Delta\bar{S}^d_i)
+	\bar{V}_t(\theta) &= \theta^0_t + \theta^1_t\bar{S}^1_t+\cdots+\theta^l_t\bar{S}^l_t \\
+	&= V_0 + \sum_{i=1}^{t}(\theta^1_i\Delta\bar{S}^1_i+\cdots+\theta^l_i\Delta\bar{S}^l_i)
 	\end{split}
 	\end{equation*}
 \end{proof}
@@ -71,7 +71,7 @@ Introducimos ahora el concepto de \textit{viabilidad}, esencial para lo que sigu
 \bigskip
 %% LEMMA 3.2.1
 \begin{lemaBox}\label{3.2.1}
-	Si el modelo de mercado es viable, las ganancias actualizadas a cualquier proceso predecible $ \hat{\theta} \in \RR ^d $ no pueden pertenecer a 
+	Si el modelo de mercado es viable, las ganancias actualizadas a cualquier proceso predecible $ \hat{\theta} \in \RR ^l $ no pueden pertenecer a 
 	\[
 	C = \{Y \in \RR^n: Y_i \geq 0\text{ para } i=1,\dots,n \text{ y } \exists i \text{ tal que } Y_i > 0\}.
 	\]
@@ -81,9 +81,9 @@ Introducimos ahora el concepto de \textit{viabilidad}, esencial para lo que sigu
 	\[
 	\bar{V}_t(\theta) = \bar{G}_t (\theta) \notin C.
 	\]
-	Por el lema \ref{2.2.1}, dados los procesos predecibles $ \hat{\theta} = (\theta^1, \dots,\theta^d) $, existe un único proceso real $ \theta^0 $ tal que $ \theta = (\theta^0, \theta^1,\dots, \theta^d) $ es autofinanciada y $ V_0(\theta) = 0 $. Las ganancias con los valores actualizados viene dada por
+	Por el lema \ref{2.2.1}, dados los procesos predecibles $ \hat{\theta} = (\theta^1, \dots,\theta^l) $, existe un único proceso real $ \theta^0 $ tal que $ \theta = (\theta^0, \theta^1,\dots, \theta^l) $ es autofinanciada y $ V_0(\theta) = 0 $. Las ganancias con los valores actualizados viene dada por
 	\[
-	\bar{G}_t(\hat{\theta}) = \sum_{j=1}^{t} \langle \theta_j, \Delta \bar{S}_j \rangle =   \sum_{j=1}^{t} \left( \sum_{i=1}^{d} \theta_j^i \Delta \bar{S}_j^i  \right).
+	\bar{G}_t(\hat{\theta}) = \sum_{j=1}^{t} \langle \theta_j, \Delta \bar{S}_j \rangle =   \sum_{j=1}^{t} \left( \sum_{i=1}^{l} \theta_j^i \Delta \bar{S}_j^i  \right).
 	\]
 	Supongamos que $ \bar{G}_t(\hat{\theta}) \in C $; si $ \beta_T $ denota el factor de descuento en el instante $ T $,
 	\[
@@ -140,14 +140,14 @@ El siguiente resultado es meramente técnico y nos servirá posteriormente.
 \bigskip
 Nos encontramos ahora un contexto general donde no asumimos que el modelo sea finito o que $ \mathbb{F} $ sea generada por $ S $. Supongamos que el proceso de los precios actualizados $ \bar{S} $ es una martingala bajo una probabilidad $ Q $, esto es:
 \[
-E_Q (\Delta \bar{S}^i_t | \mathcal{F}_{t-1}) = 0, \text{ para } t \in \mathbb{T}\setminus \{0\} \text{ e } i = 0,\dots,d,
+E_Q (\Delta \bar{S}^i_t | \mathcal{F}_{t-1}) = 0, \text{ para } t \in \mathbb{T}\setminus \{0\} \text{ e } i = 0,\dots,l,
 \]
 donde $ E_Q $ significa la esperanza respecto de la probabilidad (medida) $ Q $. Sea $ \theta \in \Theta_a $ una estrategia admisible tal que los procesos de los precios actualizados son integrables respecto a $ Q $. Por \eqref{selfinifonlyif} tenemos que:
 \begin{equation*}
 \begin{split}
 \bar{V}_t(\theta) &= V_0(\theta) + \bar{G}_t(\theta) \\
 &= \langle \theta_{1}, S_0 \rangle + \sum_{u=1}^{t} \langle \theta_{u}, \Delta \bar{S}_u \rangle \\
-&= \sum_{i=1}^{d}(\theta_1^i S_0^i + \sum_{u=1}^{t} \theta_{u}^i \Delta \bar{S}_u^i).
+&= \sum_{i=1}^{l}(\theta_1^i S_0^i + \sum_{u=1}^{t} \theta_{u}^i \Delta \bar{S}_u^i).
 \end{split}
 \end{equation*}
 Vemos entonces que $ \bar{V}(\theta) $ es una constante más una suma finita de martingalas transformadas, por lo que también es una martingala con valor inicial $ V_0 (\theta) $. Entonces, tenemos que: \[ E(\bar{V}_t (\theta)) = E(V_0 (\theta)) = V_0(\theta) .\] 
@@ -171,13 +171,13 @@ El recíproco de esta afirmación es cierto, tal y como exponemos en el siguient
 \begin{proof}
 	Ya sabemos por la proposición \ref{martThenViab} que la existencia de una medida de martingala equivalente garantiza la viabilidad del modelo por lo que solo tenemos que probar la otra implicación. \\
 	
-	Suponemos entonces que el modelo es viable. Necesitamos construir una medida $ Q \sim P $ en la que los precios son martingalas relativas a la filtración $ \mathbb{F} $. Sea $ C $ es el cono convexo de todas las variables aleatorias reales $ \phi $ en $ (\Omega, \mathcal{F}) $ tales que $ \phi(\omega) \geq 0 $ casi seguramente y $ \phi(\omega_i) > 0 $ para al menos un $ \omega_i = \Omega = \{\omega_i,\dots, \omega_n \} $. Asumimos $ p_i = P(\{\omega_i\}) > 0 $. Por el lema \ref{3.2.1}, hemos visto que para un mercado viable debemos tener $ \bar{G}_t(\hat{\theta}) \notin C$ para todos los procesos predecibles $ \hat{\theta} \in  \RR^d $. Por otro lado, el conjunto definido por tales ganancias 
+	Suponemos entonces que el modelo es viable. Necesitamos construir una medida $ Q \sim P $ en la que los precios son martingalas relativas a la filtración $ \mathbb{F} $. Sea $ C $ es el cono convexo de todas las variables aleatorias reales $ \phi $ en $ (\Omega, \mathcal{F}) $ tales que $ \phi(\omega) \geq 0 $ casi seguramente y $ \phi(\omega_i) > 0 $ para al menos un $ \omega_i = \Omega = \{\omega_i,\dots, \omega_n \} $. Asumimos $ p_i = P(\{\omega_i\}) > 0 $. Por el lema \ref{3.2.1}, hemos visto que para un mercado viable debemos tener $ \bar{G}_t(\hat{\theta}) \notin C$ para todos los procesos predecibles $ \hat{\theta} \in  \RR^l $. Por otro lado, el conjunto definido por tales ganancias 
 	\[
-	L = \{\bar{G}_t(\hat{\theta}):\hspace{0.5mm} \hat{\theta}=(\theta^1,\dots,\theta^d),\text{ con } \theta^i \text{ predecible para } i=1,\dots,d \},
+	L = \{\bar{G}_t(\hat{\theta}):\hspace{0.5mm} \hat{\theta}=(\theta^1,\dots,\theta^l),\text{ con } \theta^i \text{ predecible para } i=1,\dots,l \},
 	\]
-	es un subespacio vectorial del espacio de todas las funciones reales y  $ \mathcal{F} $-medibles en $ \Omega $. Como $ L $ y $ C $ son disjuntos, podemos separar $ L $ y el subconjunto compacto de $ C $ definido como $ K =\{X\in C: \hspace{0.5mm} E_P(X) = 1\} $ gracias al corolario \ref{coroSep}. Sea $ \xx^0 \in \RR^d $ el elemento que proporciona dicho resultado. Tomamos $ \xi_i = (0,\dots,\frac{1}{p_i},\dots,0) $ para $ i \leq n $. Vemos que $ E_P(\xi_i) = \frac{p_i}{p_i} = 1$ por lo que $ \xi_i \in K $ y $ \langle \xx^0, \xi_i \rangle = \frac{x^0_i}{p_i} > 0$. Por ello, $ x^0_i > 0$ para todo $ i=1,\dots,n $.
+	es un subespacio vectorial del espacio de todas las funciones reales y  $ \mathcal{F} $-medibles en $ \Omega $. Como $ L $ y $ C $ son disjuntos, podemos separar $ L $ y el subconjunto compacto de $ C $ definido como $ K =\{X\in C: \hspace{0.5mm} E_P(X) = 1\} $ gracias al corolario \ref{coroSep}. Sea $ \xx^0 \in \RR^n $ el elemento que proporciona dicho resultado. Tomamos $ \xi_i = (0,\dots,\frac{1}{p_i},\dots,0) $ para $ i \leq n $. Vemos que $ E_P(\xi_i) = \frac{p_i}{p_i} = 1$ por lo que $ \xi_i \in K $ y $ \langle \xx^0, \xi_i \rangle = \frac{x^0_i}{p_i} > 0$. Por ello, $ x^0_i > 0$ para todo $ i=1,\dots,n $.
 	
-	Definimos ahora el funcional lineal $ g(\xx) = \frac{\langle \xx^0, \xx\rangle}{\alpha} $ donde $ \alpha = \sum_{i=1}^{n} x^0_i$. Sea $ p^* \in \RR^d$ un vector con $ p^*_i = \frac{x_i^0}{\alpha} $ por lo que $ \sum_{i=1}^{n} p^*_i = 1 $. Usamos el vector $ p^* $ para inducir una probabilidad $ P^* $ en $ \Omega = \{\omega_1,\dots,\omega_n\} $ haciendo $ P^*(\{\omega_i\}) = p^*_{i} > 0 $. Veamos que $ P^* $ es la martingala equivalente deseada. En efecto, sea $ E^*(\cdot) $ que denota la esperanza relativa a $ P^* $. Nuevamente, por el corolario \ref{coroSep}, tenemos que $ g(\xx) = \frac{1}{\alpha}\langle \xx^0,\xx\rangle = 0$ para todo $ \xx\in L $. En particular, esta situación se da para  para $ \bar{G}_T (\hat{\theta}) $ con $ \hat{\theta}=(\theta^1,\dots,\theta^d) $ un vector de procesos predecibles por lo que.
+	Definimos ahora el funcional lineal $ g(\xx) = \frac{\langle \xx^0, \xx\rangle}{\alpha} $ donde $ \alpha = \sum_{i=1}^{n} x^0_i$. Sea $ p^* \in \RR^n$ un vector con $ p^*_i = \frac{x_i^0}{\alpha} $ por lo que $ \sum_{i=1}^{n} p^*_i = 1 $. Usamos el vector $ p^* $ para inducir una probabilidad $ P^* $ en $ \Omega = \{\omega_1,\dots,\omega_n\} $ haciendo $ P^*(\{\omega_i\}) = p^*_{i} > 0 $. Veamos que $ P^* $ es la martingala equivalente deseada. En efecto, sea $ E^*(\cdot) $ que denota la esperanza relativa a $ P^* $. Nuevamente, por el corolario \ref{coroSep}, tenemos que $ g(\xx) = \frac{1}{\alpha}\langle \xx^0,\xx\rangle = 0$ para todo $ \xx\in L $. En particular, esta situación se da para  para $ \bar{G}_T (\hat{\theta}) $ con $ \hat{\theta}=(\theta^1,\dots,\theta^l) $ un vector de procesos predecibles por lo que.
 	\[ E^*(\bar{G}_T (\hat{\theta})) = 0.\]
 	Hemos conseguido una estrategia auto-financiada $ \theta $ con $ V_0(\theta) = 0 $. Como $ \bar{V}_t (\theta) = V_0(\theta) + \bar{G}_T (\theta)$, implica que $ E^*(\bar{V}_t (\theta)) = 0 $ para cada $ \theta $. Por el lema \ref{2.2.1} podemos generar tal $ \theta $ para cada proceso predecible de $ n $  dimensiones. En particular, lo podemos hacer para $ (0,\dots, \theta^i,\dots,0) $ donde $ i\leq n $. Por lo tanto
 	\[

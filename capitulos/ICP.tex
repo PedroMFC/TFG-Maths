@@ -6,13 +6,13 @@
 	\newcommand{\kk}{\textbf{\emph{k}}}
 	\newcommand{\qq}{\textbf{\emph{q}}}
 	\newcommand{\pp}{\textbf{\emph{p}}}
-	\newcommand{\vv}{\textbf{\emph{v}}}
-	\newcommand{\xx}{\textbf{\emph{x}}}
-	\newcommand{\uu}{\textbf{\emph{u}}}
-	\newcommand{\ww}{\textbf{\emph{w}}}
-	\newcommand{\aaa}{\textbf{\emph{a}}}
+%	\newcommand{\vv}{\textbf{\emph{v}}}
+%	\newcommand{\xx}{\textbf{\emph{x}}}
+%	\newcommand{\uu}{\textbf{\emph{u}}}
+%	\newcommand{\ww}{\textbf{\emph{w}}}
+%	\newcommand{\aaa}{\textbf{\emph{a}}}
 	\newcommand{\nn}{\textbf{\emph{n}}}
-	\newcommand{\bb}{\textbf{\emph{b}}}
+%	\newcommand{\bb}{\textbf{\emph{b}}}
 	
 	\paragraph{}En esta sección explicaremos el primer algoritmo denominado \textit{Iterative Closest Point} (ICP), o Iteración del Punto más Cercano. Este algoritmo se utiliza en la etapa de alineación y su finalidad es que todas las tomas de datos estén referenciadas respecto al mismo sistemas de coordenadas. Este proceso también se suele denominar \textit{registro de datos} o \textit{data registration}. Veremos el método inicial propuesto en $ 1\,992 $ por Paul J.Besl and Neil D.MacKay \cite{ICPBesl}. Como veremos, este es un algoritmo complejo en tiempo y por ello, se tarda bastante en obtener los resultados deseados. Por ello, una vez estudiado el algoritmo se propondrán unas pequeñas mejoras del mismo que consistirán, básicamente, en el uso de las normales en cada punto para acelerar el proceso.\\
 	
@@ -33,7 +33,7 @@
 \end{figure}
 
 	\section{Cuaternios}
-		Su desarrollo se atribuye a W.R Hamilton en $ 1\,843 $.  Son una extensión de los números complejos. Mientras que estos últimos solo incluyen la unidad imaginaria $ \ii$, los cuaternios añaden la unidades imaginarias $ \ii, \jj, \kk $ tales que:
+		Su desarrollo se atribuye a W.R Hamilton en $ 1\,843 $.  Son una extensión de los números complejos. Mientras que estos últimos solo incluyen la unidad imaginaria $ \ii$, los cuaternios añaden las unidades imaginarias $ \ii, \jj, \kk $ tales que:
 		\begin{equation*}
 			\ii^2 = \jj^2 = \kk^2 = \ii\jj\kk = -1.
 		\end{equation*} 
@@ -84,7 +84,7 @@
 			\]			
 			No es difícil comprobar que el producto es asociativo y distributivo respecto a la suma pero no conmutativo. La no conmutatividad se puede observar del hecho de que el producto vectorial no es conmutativo. Es importante notar que los cuaternios son cerrados bajo la suma y el producto definidos anteriormente. En el caso del producto, obtenemos otro cuaternio con parte escalar $ p_0q_0 -  \langle \pp , \qq \rangle $ y vector $ p_0\qq + q_0\pp + \pp \times \qq $. \\
 			
-			Este conjunto con las operaciones de suma y producto forman un anillo no conmmutativo. El elemento neutro para la suma sería un cuaternio donde $ q_0 = q_1 = q_1 = q_3 = 0 $ y dado un elemento $  q = q_0 + \qq $ su opuesto sería $ -q = -q_0-\qq  $. Por su parte, el elemento neutro para el producto sería un cuaternio con parte real $ 1 $ y vector $ \mathbf{0} $.
+			Este conjunto con las operaciones de suma y producto forman un anillo no conmutativo. El elemento neutro para la suma sería un cuaternio donde $ q_0 = q_1 = q_1 = q_3 = 0 $ y dado un elemento $  q = q_0 + \qq $ su opuesto sería $ -q = -q_0-\qq  $. Por su parte, el elemento neutro para el producto sería un cuaternio con parte real $ 1 $ y vector $ \mathbf{0} $.
 		\end{subsection}
 	
 		\subsection{Conjugado, norma e inverso}
@@ -234,7 +234,7 @@ Tomamos $ \vv \in \RR^3 $ y lo expresamos en términos de $ \qq $ y $ \lbrace\qq
 			&= \cos\theta\nn + \sen\theta\nn_0.
 			\end{split}
 			\end{equation*}
-			Las últimas igualdades se han obtenido mediante las fórmulas del seno y coseno del ángulo doble. Vemos que el vector resultante es la rotación de $ \nn $ un ángulo $ \theta $ en el plano definido por $ \nn \text{ y } \nn_0 $. Claramente el vector resultante es perpendicular al eje de rotación ya que $ \nn$ y $ \nn_0 $ pertenecen a $ \lbrace \qq \rbrace ^\perp$. La demostración termina usando la linealidad que nos aporta la observación 3.
+			Las últimas igualdades se han obtenido mediante las fórmulas del seno y coseno del ángulo doble. Vemos que el vector resultante es la rotación de $ \nn $ un ángulo $ \theta $ en el plano definido por $ \nn \text{ y } \nn_0 $. Claramente el vector resultante es perpendicular al eje de rotación, ya que $ \nn$ y $ \nn_0 $ pertenecen a $ \lbrace \qq \rbrace ^\perp$. La demostración termina usando la linealidad que nos aporta la observación 3.
 		\end{proof}
 	 	\bigskip
 	 	
@@ -265,7 +265,7 @@ Sea $ P = \{\pp_i\} $ un conjunto con $ N_p $ puntos que queremos alinear tomand
 		\begin{equation}\label{min}
 		F (R,\bb) = \sum_{i = 1}^{N_p} \norm{R\pp_i + \bb - \xx_i}^2.
 		\end{equation}
-		En primer lugar, obtenemos los centroides de ambos conjuntos de puntos. Recordando que que $ N_p = N_x $, los notamos como:
+		En primer lugar, obtenemos los centroides de ambos conjuntos de puntos. Recordando que $ N_p = N_x $, los notamos como:
 		\[
 		\bar{\pp} = \frac{1}{N_p} \sum_{i=i}^{N_p} \pp_i,  \quad \bar{\xx} = \frac{1}{N_p} \sum_{i=i}^{N_p} \xx_i.
 		\]
@@ -396,7 +396,7 @@ y
 \[\Delta = \begin{pmatrix}
 A_{12} & A_{20} & A_{01}  \\
 \end{pmatrix}. \]
-No es difícil comprobar que ambas definiciones son equivalentes haciendo la construcción elemento a elemento. Destacar que se han presentado estas dos definiciones de la misma matriz ya que la dada por (\ref{MSum}) es más fácil de comprender en el proceso de minimización. Por su parte, (\ref{matCov}) será la que se implementará en el código del algoritmo al ser la propuesta original. \\
+No es difícil comprobar que ambas definiciones son equivalentes haciendo la construcción elemento a elemento. Destacar que se han presentado estas dos definiciones de la misma matriz, ya que la dada por (\ref{MSum}) es más fácil de comprender en el proceso de minimización. Por su parte, (\ref{matCov}) será la que se implementará en el código del algoritmo al ser la propuesta original. \\
 
 Así, con todo los mecanismos a nuestra disposición, la solución propuesta para alinear ambas nubes de puntos es la siguiente:
 \begin{enumerate}
@@ -410,7 +410,7 @@ Así, con todo los mecanismos a nuestra disposición, la solución propuesta par
 \end{enumerate}
 \end{enumerate}
 
-En el pseudocódigo hemos notado como $  R(qR_{k}) $ a la rotación asociada al cuaternio $ qR_{k} $ de la iteración k-ésima. Notar que cada $ y_{i,k} $ es el punto más cercano asociado a $ p_{i,k} $ para $ i = 1,\dots, N_p $. De este modo, queda clara la nota que apuntamos al inicio de la sección y es que podemos suponer que los conjuntos tienen el mismo número de puntos ya que el proceso no se realiza con el modelo $ X $ sino con el conjunto de puntos más cercanos. \\
+En el pseudocódigo hemos notado como $  R(qR_{k}) $ a la rotación asociada al cuaternio $ qR_{k} $ de la iteración k-ésima. Notar que cada $ y_{i,k} $ es el punto más cercano asociado a $ p_{i,k} $ para $ i = 1,\dots, N_p $. De este modo, queda clara la nota que apuntamos al inicio de la sección y es que podemos suponer que los conjuntos tienen el mismo número de puntos, ya que el proceso no se realiza con el modelo $ X $ sino con el conjunto de puntos más cercanos. \\
  
 Exponemos ahora el teorema que nos asegura la convergencia del método sugerido, que en este caso es convergencia local. Esto nos impondrá una serie de restricciones que explicaremos más adelante.
 
@@ -503,9 +503,9 @@ El cálculo de los puntos más cercanos entre las nubes de puntos es un proceso 
 \end{observacion}
 Este paso del algoritmo es el que más tiempo ocupa de todo el proceso al tener una complejidad O($ N_p^2 $) en el peor de los casos. También tenemos que tener en cuenta el tamaño de los conjuntos de los puntos. La finalidad de este proceso es tener un modelo digital detallado y fiel a la realidad de un objeto real. Ello conlleva que las tomas se realicen con cierta calidad lo que hace que, incluso en modelos relativamente pequeños, cada una ronde los 2 millones de puntos. Si es un modelo más complejo podríamos llegar a los 20 millones. En estas situaciones, aplicar el método tradicional podría durar horas en completarse. \\
 
-En esta situación, nos planteamos la posibilidad de una variante para no tener que comprobar todos y cada uno de los puntos en el proceso. En una primera aproximación, podríamos pensar en coger una subconjunto aleatorio de puntos de cada toma y aplicar el proceso descrito. Sin embargo, enseguida comprobamos que esta solución no es válida. Esto se debe a la convergencia local del método lo que nos conduce a las situaciones indeseadas que queremos evitar con el prealineado. Por ello, nos tenemos que plantear mecanismos más complejos que aseguren que se tienen en cuenta las tomas completas. \\
+En esta situación, nos planteamos la posibilidad de una variante para no tener que comprobar todos y cada uno de los puntos en el proceso. En una primera aproximación, podríamos pensar en coger un subconjunto aleatorio de puntos de cada toma y aplicar el proceso descrito. Sin embargo,  comprobamos que esta solución no es válida. Esto se debe a la convergencia local del método lo que nos conduce a las situaciones indeseadas que queremos evitar con el prealineado. Por ello, nos tenemos que plantear mecanismos más complejos que aseguren que se tienen en cuenta las tomas completas. \\
 
-Un primer método sería usar usar índices espaciales como los \textit{octrees}. Los \textit{octrees} son estructuras jerárquicas que dividen el espacio en cubos denominados \textit{voxels}. Cada \textit{voxel} puede contener un máximo número de puntos por lo que si se supera dicho número el \textit{voxel} se dividiría en otros \textit{voxels} más pequeños. También podríamos imponer un profundidad máxima del árbol. En esta situación, solo deberíamos comprobar la distancia con un punto de cada \textit{voxel} y una vez se tiene, filtrar los puntos del modelo por esa distancia. \\
+Un primer método sería usar índices espaciales como los \textit{octrees}. Los \textit{octrees} son estructuras jerárquicas que dividen el espacio en cubos denominados \textit{voxels}. Cada \textit{voxel} puede contener un máximo número de puntos por lo que si se supera dicho número el \textit{voxel} se dividiría en otros \textit{voxels} más pequeños. También podríamos imponer una profundidad máxima del árbol. En esta situación, solo deberíamos comprobar la distancia con un punto de cada \textit{voxel} y una vez se tiene, filtrar los puntos del modelo por esa distancia. \\
 
 Otro mecanismo sería identificar alguna característica que nos permita clasificar los puntos. Como las tomas corresponden al mismo modelo, podemos suponer que la característica que buscamos se mantienen en cierta medida en ambos casos y solo tenemos que buscar el punto más cercano con aquellos que tienen características similares. Esta será la opción que nosotros usaremos para proponer alternativas basadas en este procedimiento y que veremos en la sección \ref{varNormal} .
 \bigskip
@@ -584,7 +584,7 @@ y
 q_R = (\text{0.0234481}, \text{ 0.0238614}, \text{ -0.154144}, \text{ 0.987482}).
 \]
 
-%%Besl y McKay también aportan en su artículo un estimación del la cantidad de operación necesarias en este caso. Para estos conjuntos con 8 y 11 puntos respectivamente ..... COMPRENDER. ¿Es necesario?. \\
+%%Besl y McKay también aportan en su artículo una estimación del la cantidad de operación necesarias en este caso. Para estos conjuntos con 8 y 11 puntos respectivamente ..... COMPRENDER. ¿Es necesario?. \\
 
 El segundo ejemplo que vamos a probar consiste en un caso real, concretamente dos tomas de una escultura de un pie perteneciente a la Facultad de Bellas Artes de la Universidad de Granada tomadas con un escáner láser Faro Focus 130. Queremos alinear dos tomas obtenidas desde diferentes ángulos: \\
 
@@ -677,7 +677,7 @@ A continuación, comenzamos usamos el algoritmo ICP. La tabla \ref{table:ICP2} r
 	\caption{Vistas tras cinco iteraciones del ICP.}
 	\label{fig:subim2}
 \end{figure}
-En conclusión, vemos cómo el programa propuesto ha sido capaz de realizar un buen ajuste y por ello hemos conseguido un modelo más completo al original uniendo ambas tomas. Destacamos nuevamente la importancia que tiene en el proceso el prealineado. No solo na necesidad de hacerlo sino también la manera en la que sea lleva a cabo este proceso. Es posible que incluso incluyendo esta etapa el resultado no sea el deseado. Este comportamiento se debe como  ya hemos indicado a la convergencia local del método ICP. Las dos nubes de puntos tienen que estar los no solo lo suficientemente cerca sino también colocadas de tal manera que el algoritmo propuesto solo deba realizar un pequeño ajuste. \\
+En conclusión, vemos cómo el programa propuesto ha sido capaz de realizar un buen ajuste y por ello hemos conseguido un modelo más completo al original uniendo ambas tomas. Destacamos nuevamente la importancia que tiene en el proceso el prealineado. No solo la necesidad de hacerlo sino también la manera en la que sea lleva a cabo este proceso. Es posible que incluso incluyendo esta etapa el resultado no sea el deseado. Este comportamiento se debe como  ya hemos indicado a la convergencia local del método ICP. Las dos nubes de puntos tienen que estar los no solo lo suficientemente cerca sino también colocadas de tal manera que el algoritmo propuesto solo deba realizar un pequeño ajuste. \\
 
 Por otro lado, también vemos que el tiempo empleado es elevado tal y como se indicó en la observación \ref{ObsTmp}: cada iteración ha durado algo más de un minuto. Hay que tener en cuenta que las nubes de puntos tomadas como modelo tienen un tamaño muy pequeño. En situaciones reales las tomas pueden tener millones de puntos lo que conllevaría mucho tiempo a la hora de aplicar el algoritmo e incluso sin la certeza de si el resultado es el que deseamos. En la siguiente sección planteamos unos métodos para acelerar este proceso.
 
