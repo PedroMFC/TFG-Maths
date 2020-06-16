@@ -34,7 +34,7 @@ En secciones anteriores, hemos realizado diversas pruebas con un modelo de un pi
 
 Destacamos la gran cantidad de puntos que tiene cada una de las nubes: la primera de ellas consta de $ 10\,557\,654 $ puntos y la segunda de $ 10\,801\,863 $ puntos. Si aplicáramos el procedimiento ICP original necesitaríamos bastantes horas para realizar el proceso. Por ello, lo que vamos a hacer es calcular los puntos clave de las tomas y luego aplicamos el algoritmo de alineado a los puntos obtenidos.\\
 
-En primer lugar, vamos a comprobar cómo se compartan las tomas para la obtención de puntos clave sin simplificado y con simplificado tal y como hemos hecho en la sección \ref{varNormal}. También tendremos en cuenta el número de puntos que se detectan en cada una de ellas. El nivel de simplificado que se ha escogido ha sido 5, ya que se ha considerado que puede ser un buen valor para tener la suficiente densidad en la malla y a su vez tener un número de puntos más tratable. Veamos cómo varían los datos de tiempo y tamaño mostrados en la tabla \ref{table:me-normal}. Notamos que se han usado las mismas cotas para el cálculo de los puntos clave que anteriormente.
+En primer lugar, vamos a comprobar cómo se compartan las tomas para la obtención de puntos clave sin simplificado y con simplificado tal y como hemos hecho en la sección \ref{varNormal}. También tendremos en cuenta el número de puntos que se detectan en cada una de ellas. El nivel de simplificado que se ha escogido ha sido 5, ya que se ha considerado que puede ser un buen valor para tener la suficiente densidad en la malla y a su vez tener un número de puntos más tratable. Veamos cómo varían los datos de tiempo y tamaño mostrados en la tabla \ref{table:me-normal}. Notamos que se han usado las mismas cotas para el cálculo de los puntos clave que anteriormente.\\
 
 \begin{table}[h!]
 	\centering
@@ -51,7 +51,6 @@ En primer lugar, vamos a comprobar cómo se compartan las tomas para la obtenci�
 	\label{table:me-normal}
 \end{table}
 
-Las imágenes con los puntos clave obtenidos se muestran en \ref{me_50_KP} y \ref{me_50_KP_simp4}. 
 
 \begin{figure}[h!]	
 	\begin{minipage}[b]{0.5\textwidth}
@@ -82,7 +81,7 @@ Las imágenes con los puntos clave obtenidos se muestran en \ref{me_50_KP} y \re
 	\label{me_50_KP_simp4}
 \end{figure}
 
-Vemos que a pesar de que en la toma simplificada la densidad de puntos es menor, el algoritmo nuevamente ha sido capaz de identificar mejor las aristas que en la original. Además, se observa que los tiempos empleados para el cálculo de las normales y obtención de puntos clave es considerablemente mejor. Finalmente, en la toma original se han obtenido un total de $ 862\,225 $ puntos lo que sigue siendo un valor demasiado alto para obtener resultados con el algoritmo ICP en un tiempo razonable. Por otro lado, con la versión simplificada hemos obtenido $16\,412 $. Mostramos también los puntos clave de la otra nube de puntos en la figura \ref{me_51_KP_simp4}. Se observa que en la zona superior de la cúpula se han detectado una gran cantidad de los mismos al estar hecha de ladrillo visto. Ahora realizaremos las pruebas del algoritmo comparando los valores del descriptor para la obtención de los puntos clave, ya que, en el ejemplo del pie anterior hemos observado que tardaba menos en la ejecución de cada iteración que viendo el número de ceros de los productos escalares.
+Las imágenes con los puntos clave obtenidos se muestran en \ref{me_50_KP} y \ref{me_50_KP_simp4}. Vemos que a pesar de que en la toma simplificada la densidad de puntos es menor, el algoritmo nuevamente ha sido capaz de identificar mejor las aristas que en la original. Además, se observa que los tiempos empleados para el cálculo de las normales y obtención de puntos clave es considerablemente mejor. Finalmente, en la toma original se han obtenido un total de $ 862\,225 $ puntos lo que sigue siendo un valor demasiado alto para obtener resultados con el algoritmo ICP en un tiempo razonable. Por otro lado, con la versión simplificada hemos obtenido $16\,412 $. Mostramos también los puntos clave de la otra nube de puntos en la figura \ref{me_51_KP_simp4}. Se observa que en la zona superior de la cúpula se han detectado una gran cantidad de los mismos al estar hecha de ladrillo visto. Ahora realizaremos las pruebas del algoritmo comparando los valores del descriptor para la obtención de los puntos clave, ya que, en el ejemplo del pie anterior hemos observado que tardaba menos en la ejecución de cada iteración que viendo el número de ceros de los productos escalares. \\
 
 \begin{figure}[h!]	
 	\begin{minipage}[b]{0.5\textwidth}

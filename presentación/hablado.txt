@@ -1,0 +1,13 @@
+(Pág. 72/80)
+
+The importance of the first fundamental theorem should be clear: it
+provides the vital link between the economically meaningful assumption of
+the absence of arbitrage and the mathematical concept of the existence of
+equivalent measures under which the discounted stock prices are martin-
+gales. In generalising from the relatively simple context of finite market
+models, one wishes to maintain the essential aspects of the equivalence
+of these two conditions. In the continuous-time setting, however, the two
+conditions are no longer equivalent and much work has gone into reformu-
+lations that reflect the requirement that the market should be ‘essentially’
+arbitrage-free while seeking to maintain a close link with the existence of
+equivalent martingale measures.

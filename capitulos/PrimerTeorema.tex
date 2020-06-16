@@ -97,7 +97,7 @@ Nuestro objetivo es caracterizar la viabilidad de un mercado en términos de los
 \begin{definicion}
 	Un proceso $ \mathbb{F} $-adaptado $ M = (M_t)_{t\in \mathbb{T}} $ es una $ ( \mathbb{F},P)$-mar\-tingala si $ E(|M_t|) < \infty $ para todo $ t \in \mathbb{T} $ y 
 	\[
-	E(M_{t+1}|\mathcal{F}_t) = M_t \textit{ para todo } t \in \mathbb{T}\setminus{T}.
+	E(M_{t+1}|\mathcal{F}_t) = M_t \textit{ para todo } t \in \mathbb{T}\setminus\{T\}.
 	\]
 	Si $ M = (M_t) $ es una martingala y $ \phi = (\phi_t)_{t\in \mathbb{T}} $ es un proceso predecible en $ (\Omega, \mathcal{F}, P, \mathbb{F}, S) $ entonces al proceso $ X = \phi \cdot M $ dado por
 	\[
@@ -112,7 +112,7 @@ E(\Delta M_{t+1} |\mathcal{F}_t ) = 0 \text{ para todo } t\in \mathbb{T}\setminu
 \]
 También es importante destacar que, por la linealidad de la esperanza, cualquier combinación lineal de martingalas es una martingala. \\
 
-Que los precios en el mercado sigan una martingala no debe de ser extraño. Recordemos que para $ t \in \mathbb{T} $, $ \mathcal{F}_t $ indica la cantidad de información acerca de los precios de los activos hasta dicho momento. Por lo tanto, la esperanza condicionada solo nos indica que estamos calculando el valor esperado a partir de lo que conocemos hasta ahora. Además, para que el mercado sea ``justo'', dicho valor en el futuro debería ser, en media, el que tenemos ahora. \\
+Que los precios en el mercado sigan una martingala, tal y como veremos, no debe de ser extraño. Recordemos que para $ t \in \mathbb{T} $, $ \mathcal{F}_t $ indica la cantidad de información acerca de los precios de los activos hasta dicho momento. Por lo tanto, la esperanza condicionada solo nos indica que estamos calculando el valor esperado a partir de lo que conocemos hasta ahora. Además, para que el mercado sea ``justo'', dicho valor en el futuro debería ser, en media, el que tenemos ahora. \\
 
 El siguiente resultado es meramente técnico y nos servirá posteriormente. 
 

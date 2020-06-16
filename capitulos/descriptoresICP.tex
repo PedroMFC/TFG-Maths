@@ -167,11 +167,11 @@ Vemos que el procedimiento funciona correctamente y además que el tiempo emplea
 Nuestro propósito ahora es intentar reducir aún más el conjunto de puntos con los que realizar el proceso ICP. Para ello, vamos a probar qué pasa si aplicamos el algoritmo solamente a los conjuntos de puntos clave calculados. Este paso hay que hacerlo con cuidado, ya que, incluso en mayor medida que tomando en una muestra la toma entera, nos arriesgamos a que muchos puntos no tengan una correspondencia. Así, para el cálculo del punto más cercano se ha tenido en cuenta: 
 
 \begin{enumerate}
-\item Solo se comprueban puntos clave con un valor de descriptor parecido. Así, se ha fijado una diferencia máxima permitida y solo se comprueban los puntos que tengan un valor dentro de ese intervalo. Este se debe a que al ser movimientos rígidos no hay ningún tipo de deformación por lo que los planos serán los ``mismos'' mismos entre una toma y otra. Sin embargo, ponemos un intervalo debido a los errores del escáner y a las pérdidas de precisión debido al simplificado del modelo para la obtención de puntos clave.
+\item Solo se comprueban puntos clave con un valor de descriptor parecido. Así, se ha fijado una diferencia máxima permitida y solo se comprueban los puntos que tengan un valor dentro de ese intervalo. Esto se debe a que al ser movimientos rígidos no hay ningún tipo de deformación por lo que los planos serán los ``mismos'' entre una toma y otra. Sin embargo, ponemos un intervalo debido a los errores del escáner y a las pérdidas de precisión debido al simplificado del modelo para la obtención de puntos clave.
 \item Se ha acotado la distancia máxima permitida para un punto. Así, una vez calculada la distancia mínima de un punto al otro conjunto comprobamos que esa distancia no supere un umbral que hemos prefijado. Si lo supera significa que el punto más cercano está demasiado lejos y por ello no se corresponden realmente. De este modo, nos aseguramos que zonas que no se solapen se intenten ajustar y acabemos teniendo una solución errónea. 
 \end{enumerate}
 
-En la figura \ref{fig:KPKPICP} mostramos un ejemplo del resultado obtenido imponiendo que los valores de los descriptores entre los puntos claven difieran en $ 0.01 $ y que la distancia (en metros al cuadrado) entre ellos no sea mayor a $ 0.1 $. \\
+En la figura \ref{fig:KPKPICP} mostramos un ejemplo del resultado obtenido imponiendo que los valores de los descriptores entre los puntos claven difieran en $ 0.01 $ y que el cuadrado de la distancia (en metros) entre ellos no sea mayor a $ 0.1 $. Las dos tomas contienen tanto la figura del pie como el tablero en el que se apoya y contienen unos $ 80\,000 $ puntos cada una.\\
 
 \begin{figure}[h!]
 	
