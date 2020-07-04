@@ -1,15 +1,25 @@
-A rasgos generales y a modo introductorio, podemos decir que un teroema minimax es un resultado que afirma, bajo ciertas hipótesis, que:
-^^I^^I\[
-^^I^^I\inf_{y \in Y} \sup_{x \in X} f(x,y) \leq \sup_{x \in X} \inf_{y \in Y} f(x,y),
-^^I^^I\]
-^^I^^I\begin{teorema}\label{MinMax}
-^^I^^I^^ISean $ \topSpace,\hspace{0.5mm} \topSpaceY $ subconjuntos convexos de sendos espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto. Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
-^^I^^I^^I\begin{itemize}
-^^I^^I^^I^^I\item[i)] cóncava y superiormente semicontinua en $ \topSpace $ y
-^^I^^I^^I^^I\item[ii)] convexa en $ \topSpaceY $.
-^^I^^I^^I\end{itemize}
-^^I^^I^^IEntonces:
-^^I^^I^^I\begin{equation*}\label{eqMinMax}
-^^I^^I^^I\inf_{y \in Y} \max_{x \in X} f(x,y) = \max_{x \in X} \inf_{y \in Y} f(x,y).
-^^I^^I^^I\end{equation*}
-^^I^^I\end{teorema}
+\begin{teorema}[Teorema de la alternativa de Gordan]\label{GordanClasic}
+^^I^^I^^I^^IDados $N, M \in \NN   $, sean $ \{\xx_1,...\xx_N\}$ con $ \xx_i \in \RR^M \text{ para } i=1,...,N$. Entonces una, y solo una, de la siguientes afirmaciones se cumple:
+
+^^I^^I^^I^^I\begin{itemize}
+^^I^^I^^I^^I^^I\item[i*)] $ \exists \mathbf{t} \in \Delta_N $ tal que  $  0 = \displaystyle \sum_{i=1}^{N}{t_i \xx_i}$.
+^^I^^I^^I^^I^^I\item[ii*)] $ \exists \yy \in \RR^M $ tal que cumple $ \displaystyle \max_{i=1,...,N} \langle \yy, \xx_i \rangle < 0 $.
+^^I^^I^^I^^I\end{itemize}
+^^I^^I^^I\end{teorema}
+^^I^^I^^I\begin{columns}
+^^I^^I^^I^^I\column{0.5\textwidth}
+^^I^^I^^I^^I\begin{figure}[h!]
+^^I^^I^^I^^I^^I%\includegraphics[width=1\linewidth]{Writer_call}
+^^I^^I^^I^^I^^I\centering
+^^I^^I^^I^^I^^I\includegraphics[width=0.7\linewidth]{Gordan-i*}
+^^I^^I^^I^^I^^I\caption{Alternativa i*).}
+^^I^^I^^I^^I\end{figure}
+^^I^^I^^I^^I\column{0.5\textwidth}
+^^I^^I^^I^^I\begin{figure}[h!]
+^^I^^I^^I^^I^^I%\includegraphics[width=1\linewidth]{Writer_call}
+^^I^^I^^I^^I^^I\centering
+^^I^^I^^I^^I^^I\includegraphics[width=0.7\linewidth]{Gordan-ii*}
+^^I^^I^^I^^I^^I\caption{Alternativa ii*).}
+^^I^^I^^I^^I\end{figure}
+^^I^^I^^I\end{columns}
+

@@ -309,7 +309,7 @@ Sea $ P = \{\pp_i\} $ un conjunto con $ N_p $ puntos que queremos alinear tomand
 		\end{split}
 		\end{equation*} 
 		La traslación $ \bb $ buscada debería hacer 0 el segundo término obteniendo entonces:
-		\[\bb = R\bar{\pp}  + \bar{\xx}.
+		\[\bb =- R\bar{\pp}  + \bar{\xx}.
 		\]
 		Ahora, para obtener la mejor rotación utilizamos el primero término. Reescribiendo la misma llegamos a:
 		\begin{equation*}
@@ -390,7 +390,7 @@ tr(\Sigma_{px}) & \Delta^t \\
 \end{equation}
 donde 
 \[
-\Sigma_{px} = \frac{1}{N_p}\sum_{i=1}^{N_p} \lbrack (p_i-\bar{\pp})(x_i - \bar{\xx})^t\rbrack, \]
+\Sigma_{px} = \frac{1}{N_p}\sum_{i=1}^{N_p} \lbrack (\pp_i-\bar{\pp})(\xx_i - \bar{\xx})^t\rbrack, \]
 \[A_{ij} = (\Sigma_{px}-\Sigma_{px}^t)_{ij} \quad i,j \in \lbrace 0,1,2 \rbrace,\]
 y 
 \[\Delta = \begin{pmatrix}

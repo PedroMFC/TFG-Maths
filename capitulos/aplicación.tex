@@ -1,9 +1,9 @@
 \section{Aplicación al modelo binomial}
-Usemos toda la información obtenida para llegar a una fórmula que nos permitirá establecer el precio de una opción europea. Para ello, utilizaremos un modelo binomial con más de un paso en el que suponemos que $ l = 1 $. De este modo, tenemos un activo sin riesgo con precios $ S^0 $ y uno con riesgo con precios $ S^1$ los cuales denotaremos por $ S $. También, como mencionamos anteriormente, sin pérdida de generalidad asumimos que $ S^0_0  = 1$ por lo que $ S_t^0 =  (1+r)^t $ para $ t \in \mathbb{T} $. Los precios de nuestro activo con riesgo vienen determinados por $ S_{t-1}(1+u) $ o $ S_{t-1}(1+d) $ cumpliendo $ -1 < d < u $, es decir, siguen una distribución de Bernoulli. El valor inicial $ S_0 $ es constante y conocido. Tomamos entonces como espacio de probabilidad $ \Omega = \{1+u,1+d\}^T $ con la filtración $ \mathbb{F} $ dada por $ \mathcal{F}_0 = \{\emptyset, \Omega\} $ y $ \mathcal{F}_t = \sigma(S_u^1: \hspace{1mm} u \leq t) $ para $ t >0 $. Para $ \omega = \{\omega_1,\dots,\omega_n\} $ en $ \Omega $ definimos
+Usemos toda la información obtenida para llegar a una fórmula que nos permitirá establecer el precio de una opción europea. Para ello, utilizaremos un modelo binomial con más de un paso en el que suponemos que $ l = 1 $. De este modo, tenemos un activo sin riesgo con precios $ S^0 $ y uno con riesgo con precios $ S^1$ los cuales denotaremos por $ S $. También, como mencionamos anteriormente, sin pérdida de generalidad asumimos que $ S^0_0  = 1$ por lo que $ S_t^0 =  (1+r)^t $ para $ t \in \mathbb{T} $. Los precios de nuestro activo con riesgo vienen determinados por $ S_{t-1}(1+u) $ o $ S_{t-1}(1+d) $ cumpliendo $ -1 < d < u $, es decir, siguen una distribución de Bernoulli. El valor inicial $ S_0 $ es constante y conocido. Tomamos entonces como espacio de probabilidad $ \Omega = \{1+u,1+d\}^T $ con la filtración $ \mathbb{F} $ dada por $ \mathcal{F}_0 = \{\emptyset, \Omega\} $ y $ \mathcal{F}_t = \sigma(S_u^1: \hspace{1mm} u \leq t) $ para $ t >0 $. Para $ \omega = \{\omega_1,\dots,\omega_T\} $ en $ \Omega $ definimos
 \[
 P(\{\omega\}) = P(\frac{S_t}{S_{t-1}} = \omega_t, \hspace{1mm} t=1,\dots,T).
 \]
-Notamos a $ \frac{S_t}{S_{t-1}} $ como $ R_t $ tal y como ya hemos hecho anteriormente. Veamos la relación necesaria entre $ d,u \text{ y } r$ para que tengamos una medida martingala equivalente.
+Notamos a $ \frac{S_t}{S_{t-1}} $ como $ R_t $ tal y como ya hemos hecho anteriormente. Veamos la relación necesaria entre $ d,u \text{ y } r$ para que tengamos una medida martingala equivalente. En el libro de referencia aparece una errata en el razonamiento de este resultado debido a una confusión en la relación entre $ \beta_t $ y $ \beta_{t-1} $.
 \bigskip
 \begin{lemaBox}\label{cotasUpDown}
 	Para tener una EMM en el modelo binomial se debe cumplir que $ d < r < u $.
@@ -17,9 +17,9 @@ Notamos a $ \frac{S_t}{S_{t-1}} $ como $ R_t $ tal y como ya hemos hecho anterio
 	\big\Updownarrow
 	\]
 	\[
-	E_Q(R_t | \mathcal{F}_{t-1} ) = E_Q(\frac{\bar{S}_t}{\bar{S}_{t-1}} | \mathcal{F}_{t-1}) = E_Q(\frac{\beta_t}{\beta_{t-1}} | \mathcal{F}_{t-1}) = \frac{\beta_t}{\beta_{t-1}} = 1+r.
+	E_Q(\frac{\bar{S}_t}{\bar{S}_{t-1}} | \mathcal{F}_{t-1}) = E_Q(\frac{\beta_t S_t}{\beta_{t-1} S_{t-1}} | \mathcal{F}_{t-1}) =  \frac{(1+r)^{-t}}{(1+r)^{-(t-1)}} E_Q(R_t | \mathcal{F}_{t-1}) = 1.
 	\]
-	Como $ R_t $ solo puede tomar valores $ 1+u $ y $ 1+d $, su valor medio solo puede $ 1+r $ si, y solo si, $ d < r < u $.
+	Entonces, $ E_Q(\bar{S}_t | \mathcal{F}_{t-1}) = \bar{S}_{t-1} $  es equivalente a que $ E_Q(R_t| \mathcal{F}_{t-1}) =\frac{\beta_{t-1}}{\beta_t}=1+r $. Como solo puede tomar valores $ 1+u $ y $ 1+d $, su valor medio solo puede $ 1+r $ si, y solo si, $ d < r < u $.
 \end{proof}
 \bigskip
 
@@ -104,7 +104,7 @@ Una vez obtenida la fórmula y hecha la aclaración sobre la relación de precio
 \begin{lstlisting}[label={definiciones}, caption={Definición en Sage de las funciones}, morekeywords={sage}]
 sage: def getA(K, T, S, d, u):
           k = 0
-          while S*(1+u)^(k)*(1+d)^(T-k) < K:
+          while S*(1+u)^(k)*(1+d)^(T-k) <= K:
                 k+=1
           return k
 sage: def getV(K, T, S, d, r, u):
@@ -120,7 +120,7 @@ Para ello, partiremos del siguiente problema general del que iremos variando los
 
 \textit{``Las acciones de una empresa tienen valor actual 25 u.m. cada una. Queremos comprar acciones de dicha empresa pero no estamos seguros de obtener una gran ganancia con ellas en el futuro. Por eso, decidimos realizar una opción de compra de aquí a un año en el que se nos ofrece un precio de 27 u.m. Los tiempos se mueven en el intervalo de meses. Según las estimaciones suponemos que en cada mes el retorno podría ser de 1.2 (u = 0.2)  pero también podemos perder dinero llegando este a tomar el valor 0.72 (d = -0.28). Consideramos que el precio del dinero se incrementa de manera constante cada mes un 0.1 (de este modo el mercado es viable).''} \\
 
-El precio en esta situación es aproximadamente de 12.9325 u.m. Veamos cómo varía en función de cada parámetro manteniendo el resto como en el enunciado. En primer lugar, consideremos el valor como función de $ T $ y tomamos valores desde un mes hasta dos años, es decir, 24 meses. Los resultado se obtienen en la figura \ref{valueT}. También se incluye un ejemplo del código en \ref{pintar} para dibujar la gráfica en este caso junto con la definición de los parámetros generales5. Para el resto de parámetros se hace de manera análoga. 
+El precio en esta situación es aproximadamente de 12.9325 u.m. Veamos cómo varía en función de cada parámetro manteniendo el resto como en el enunciado. En primer lugar, consideremos el valor como función de $ T $ y tomamos valores desde un mes hasta dos años, es decir, 24 meses. Los resultado se obtienen en la figura \ref{valueT}. También se incluye un ejemplo del código en \ref{pintar} para dibujar la gráfica en este caso junto con la definición de los parámetros generales. Para el resto de parámetros se hace de manera análoga. 
 
 \begin{lstlisting}[label={pintar}, caption={Código en Sage para dibujar una gráfica}, morekeywords={sage}]
 sage:K = 27
@@ -140,7 +140,7 @@ sage: point([(T, getV(K, T, S, d, r, u)) for T in srange(1, 25,1) ], rgbcolor = 
 	\label{valueT}
 \end{figure}
 
-Vemos que tendríamos que poner una fecha de compra superior a los 4 meses ya que durante los tres primeros $ A = T $, lo que significa que lo más seguro es que no ejerciéramos nuestro derecho a la opción. Observamos que los valores crecen en función de este parámetro. Veamos qué pasa si variamos el precio de la acción fijado en la opción de compra, es decir, $ K $. Se ha obtenido des este modo la gráfica \ref{valueK} en la que $ K $ varía de 23 a 33. Vemos que en este caso es decreciente. Esta situación podemos considerar que es la esperada. Cuanto menor sea precio más posibilidades tiene el propietario de ejercerla ya que es raro que en el futuro la acción tenga ese valor tan bajo. Por ello, el vendedor tiene que exigir un mayor. Por otro lado, cuanto mayor sea el precio acordado es el comprador el que corre un mayor riesgo de no ejercerla en el futuro por lo que tiene que pagar menos por ella ahora. 
+Vemos que tendríamos que poner una fecha de compra superior a los 4 meses ya que durante los tres primeros $ A = T $, lo que significa que lo más seguro es que no ejerciéramos nuestro derecho a la opción. Observamos que los valores crecen en función de este parámetro. Veamos qué pasa si variamos el precio de la acción fijado en la opción de compra, es decir, $ K $. Se ha obtenido des este modo la gráfica \ref{valueK} en la que $ K $ varía de 23 a 33. Vemos que en este caso es decreciente. Esta situación podemos considerar que es la esperada. Cuanto menor sea el precio más posibilidades tiene el propietario de ejercerla ya que es raro que en el futuro la acción tenga ese valor tan bajo. Por ello, el vendedor tiene que exigir un mayor. Por otro lado, cuanto mayor sea el precio acordado es el comprador el que corre un mayor riesgo de no ejercerla en el futuro por lo que tiene que pagar menos por ella ahora. \\
 
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
@@ -175,7 +175,7 @@ La variación de este valor es quizás la más interesante desde el punto de vis
 	\caption{Valor de la opción en función de $ d $.}
 	\label{valued}
 \end{figure}
-En este caso también es creciente lo que es normal ya que cuanto mayor sea $ d $ mayor será la posible ganancia del comprador. Por último veamos cómo varía en función de $ u $. Para ello se han tomado valores entre $ 0.1 $ y $ 0.55 $. Se muestran en la gráfica \ref{valueu}.
+En este caso también es creciente lo que es normal ya que cuanto mayor sea $ d $ mayor será la posible ganancia del comprador. Por último veamos cómo varía en función de $ u $. Para ello se han tomado valores entre $ 0.1 $ y $ 0.55 $. Se muestran en la gráfica \ref{valueu}.\\
 \begin{figure}[h!]
 	%\includegraphics[width=1\linewidth]{Writer_call}
 	\centering
@@ -184,4 +184,4 @@ En este caso también es creciente lo que es normal ya que cuanto mayor sea $ d 
 	\label{valueu}
 \end{figure}
 
-Observamos que para valores cercanos al interés el valor de la opción es relativamente bajo ya que la ganancia que obtendremos sería menor. El precio va aumentando aunque llega un punto que dicho crecimiento se reduce.
+Observamos que para valores cercanos al interés el valor de la opción es relativamente bajo ya que la ganancia que obtendremos sería menor. El precio va aumentando aunque llega un punto en el que dicho crecimiento se reduce.

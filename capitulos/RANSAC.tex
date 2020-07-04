@@ -125,7 +125,7 @@ El valor obtenido no tiene que ser obligatoriamente un número natural por lo qu
 En esta sección, veremos cómo actúa al algoritmo en dos ejemplos concretos: el del pie y en el de la torre. En ambos casos usaremos los modelos simplificados tal y como hemos visto en la sección \ref{varNormal}. Esto no debería de ser una restricción, ya que la densidad total del modelo no varía y los planos se mantienen. Para cada, utilizaremos diferente valores de los parámetros y veremos cómo de buenos son los resultados obtenidos. Al ser modelos en los que buscamos planos el valor de $ m $ es 3. Destacamos que para el cálculo de la distancia entre el modelo y cada punto se ha hecho mediante la función distancia con signo (en valor absoluto).
 
 \subsection{Pie}
-Se ha tomado como nivel de tolerancia $ \varepsilon = 0.05 $, ya que ese valor depende sobre todo del modelo que estamos trabajando. El modelo consta de un total de $ 34.120 $ puntos. En la tabla \ref{table:RANSACpieTable} y en la figura \ref{fig:RANSACpie} están los resultados que nos proporciona. \\
+Se ha tomado como nivel de tolerancia $ \varepsilon = $0.05 , ya que ese valor depende sobre todo del modelo que estamos trabajando. El modelo consta de un total de $ 34\,120 $ puntos. En la tabla \ref{table:RANSACpieTable} y en la figura \ref{fig:RANSACpie} están los resultados que nos proporciona. \\
 
 \begin{figure}[h!]
 	\begin{minipage}[b]{0.5\textwidth}
@@ -196,7 +196,7 @@ Se ha tomado como nivel de tolerancia $ \varepsilon = 0.05 $, ya que ese valor d
 Vemos que al ser un proceso aleatorio los resultados que se han obtenido son dispares pero en este caso, en un número ``bajo'' de iteraciones hemos visto que es capaz de detectar el plano que contiene el modelo.
 
 \subsection{Torre}
-Realizamos diferentes pruebas con nuestro modelo de la torre que consta de $ 431\,254 $ puntos. En esta ocasión se ha optado por una tolerancia de $ \varepsilon = 0.03 $. Los resultados se recogen en la tabla \ref{table:RANSACtorreTable} y en la figura \ref{fig:RANSACtorre}. \\
+Realizamos diferentes pruebas con nuestro modelo de la torre que consta de $ 431\,254 $ puntos. En esta ocasión se ha optado por una tolerancia de $ \varepsilon =$ 0.03. Los resultados se recogen en la tabla \ref{table:RANSACtorreTable} y en la figura \ref{fig:RANSACtorre}. \\
 
 \begin{figure}[h!]
 	\begin{minipage}[b]{0.5\textwidth}
@@ -260,18 +260,18 @@ Realizamos diferentes pruebas con nuestro modelo de la torre que consta de $ 431
 		(f2) & 0.85 & 0.8 & 55.98620 & 237\\
 		\hline
 	\end{tabular}
-	\caption{Resultados de aplicar el algoritmo RANSAC una vez a una toma de  la torre. La primera columna identifica la prueba (ver figura \ref{fig:RANSACpie}), la segunda y tercera los valores de $ p $ y $ v $ escogidos y las dos últimas el tiempo empleado en el cálculo del plano y las iteraciones que se han realizado.}
+	\caption{Resultados de aplicar el algoritmo RANSAC una vez a una toma de  la torre. La primera columna identifica la prueba (ver figura \ref{fig:RANSACtorre}), la segunda y tercera los valores de $ p $ y $ v $ escogidos y las dos últimas el tiempo empleado en el cálculo del plano y las iteraciones que se han realizado.}
 	\label{table:RANSACtorreTable}
 \end{table}
 
 Vemos que nuevamente se han podido obtener resultados buenos en relativamente pocas iteraciones.
 
 \section{Cálculo de los puntos de intersección}
-En esta sección, vamos a obtener mediante el algoritmo RANSAC un punto que sea intersección de tres planos. Para ello, tomamos el ejemplo de la torre. En primer lugar, veamos cómo calculamos dicha intersección. Lo único que tenemos que hacer, dado un conjunto de puntos que hemos obtenido como plano, es tomar una normal del mismo. Esta normal puede ser, por ejemplo, la misma que hemos usado para el cálculo de las distancias mediante la función distancia con signo que la podemos ir almacenando para evitar su cálculo posterior. Notamos a la normal obtenida para el paso $ i $ como $ N_i = (N_{i1}, N_{i2}, N_{i3}) \in \RR^3$. De este modo, cada punto $ (x,y,z) $ del conjunto debe cumplir la ecuación:
+En esta sección, vamos a obtener un punto que sea intersección de tres planos obtenidos mediante el algoritmo RANSAC. Para ello, tomamos el ejemplo de la torre. En primer lugar, veamos cómo calculamos dicha intersección. Lo único que tenemos que hacer, dado un conjunto de puntos que hemos obtenido como plano, es tomar una normal del mismo. Esta normal puede ser, por ejemplo, la misma que hemos usado para el cálculo de las distancias mediante la función distancia con signo, la cual, se va almacenando para evitar su cálculo posterior. Notamos a la normal obtenida para el paso $ i $ como $ N_i = (N_{i1}, N_{i2}, N_{i3}) \in \RR^3$. De este modo, cada punto $ (x,y,z) $ del conjunto debe cumplir la ecuación:
 \[
 N_{i1} x + N_{i2} y + N_{i3} z = d_i.
 \]
-Finalmente, solo nos queda calcular $ d _i$, que se puede hacer de manera sencilla sustituyendo el valor de $ (x,y,z) $ por un punto conocido del conjunto obtenido. Hemos calculado la ecuación del plano de una manera sencilla. Ahora solo nos queda calcular la intersección de tres planos. Para ello, tenemos que resolver el sistema para las iteraciones $ i,j,k $:
+Finalmente, solo nos queda calcular $ d _i$, que se puede hacer simplemente sustituyendo el valor de $ (x,y,z) $ por un punto conocido del conjunto obtenido. Hemos calculado la ecuación del plano de una manera sencilla. Ahora solo nos queda calcular la intersección de tres planos. Para ello, tenemos que resolver el sistema para los planos obtenidos en las iteraciones $ i,j,k $:
 
 \[
 \left.
@@ -325,7 +325,7 @@ z\\
 \end{pmatrix} = A^{-1}\mathbf{d}.
 \]
 
-Veamos este caso en el modelo real. Primero, obtenemos tres planos de la nube de puntos. Usamos el algoritmo con valor $ p = 0.8 $, $ v = 0.8 $ y $ \varepsilon = 0.03 $. Los planos que se han obtenido se muestran en la siguiente figura \ref{fig:RNASACptoInter}. \\
+Veamos este caso en el modelo real. Primero, obtenemos tres planos de la nube de puntos. Usamos el algoritmo con valor $ p =$ 0.8, $ v =$ 0.8 y $ \varepsilon =$ 0.03. Los planos que se han obtenido se muestran en la siguiente figura \ref{fig:RNASACptoInter}. \\
 \begin{figure}[h!]
 	\begin{minipage}{0.5\textwidth}
 		\centering
@@ -347,7 +347,7 @@ Veamos este caso en el modelo real. Primero, obtenemos tres planos de la nube de
 		%\label{fig:subim1}
 	\end{minipage}
 	\end{center}
-	\caption{Planos detectados iterativamente en el ejemplo de la torre de las gallinas de la Alhambra. Los parámetros son $ p = 0.8 $, $ v = 0.8 $ y $ \varepsilon = 0.03 $.}
+	\caption{Planos detectados iterativamente en el ejemplo de la torre de las gallinas de la Alhambra. Los parámetros son $ p =$ 0.8, $ v =$ 0.8 y $ \varepsilon =$ 0.03.}
 	\label{fig:RNASACptoInter}
 \end{figure}
 
@@ -530,7 +530,7 @@ Repitamos el proceso con la otra toma. Los resultados se encuentran en las figur
 	\label{fig:inter1}
 \end{figure}
 
-Una vez que hemos obtenido los puntos clave, lo que tenemos que hacer es agruparlos, es decir, ver la correspondencia entre ellos y calcular la transformación que lleva un conjunto en otro. Así, la idea es calcular tres correspondencias y aplicar un prealineado al igual que hicimos en la fase previa del algoritmo ICP. Nuevamente, utilizaremos los descriptores para obtener características significativas de los puntos y poder asignar unos con otros. Para ello, tomamos como referencia el artículo \cite{theiler2012automatic}. En él, propone varios parámetros posibles para formar parte del descriptor aunque el mejor de todos y el que usaremos es el vector formado por los ángulos de intersección de los planos en dicho punto. La explicación de usar este descriptor es que estos ángulos solo dependen de la geometría del modelo y no de otros factores como pueden ser el punto de vista. Una vez los hemos calculado, se obtiene una matriz con las distancias entre los ángulos. Ahora, aplicamos un algoritmo \textit{greedy} o voraz para obtener las tres mejores correspondencias: vamos tomando en cada paso la menor de las distancias siempre y cuando no se repitan puntos ya obtenidos. La razón de que no se puedan repetir los puntos es bastante simple, ya que, de otro modo no se podría realizar el prealineado.  Por ello, el resultado obtenido se muestra en la figura \ref{fig:lab-alineado}. \\
+Una vez que hemos obtenido los puntos clave, lo que tenemos que hacer es agruparlos, es decir, ver la correspondencia entre ellos y calcular la transformación que lleva un conjunto en otro. Así, la idea es calcular tres correspondencias y aplicar un prealineado al igual que hicimos en la fase previa del algoritmo ICP. Nuevamente, utilizaremos los descriptores para obtener características significativas de los puntos y poder asignar unos con otros. Para ello, tomamos como referencia el artículo \cite{theiler2012automatic}. En él, propone varios parámetros posibles para formar parte del descriptor aunque el mejor de todos y el que usaremos es el vector formado por los ángulos de intersección de los planos en dicho punto. La explicación de usar este descriptor es que estos ángulos solo dependen de la geometría del modelo y no de otros factores como pueden ser el punto de vista. Una vez los hemos calculado, se obtiene una matriz con las ``distancias'' entre los ángulos de los puntos de ambas tomas. Ahora, aplicamos un algoritmo \textit{greedy} o voraz para obtener las tres mejores correspondencias: vamos tomando en cada paso la menor de las distancias siempre y cuando no se repitan puntos ya obtenidos. La razón de que no se puedan repetir los puntos es bastante simple, ya que, de otro modo no se podría realizar el prealineado.  Por ello, el resultado obtenido se muestra en la figura \ref{fig:lab-alineado}. \\
 
 \begin{figure}[h!]
 	\centering
@@ -551,9 +551,9 @@ Una vez que hemos obtenido los puntos clave, lo que tenemos que hacer es agrupar
 	\label{fig:lab-alineado}
 \end{figure}
 
-Tal y como se aprecia en la figura, los resultados no han sido los esperados. ¿A qué se puede deber este resultado? En primer lugar, a la propia geometría del modelo. La habitación tiene sus paredes formando un ángulo recto entre ellas lo que hace que todos los descriptores sean bastante parecidos. Sin embargo, como ya hemos dicho: no existe un algoritmo que funcione con todos los modelos. En segundo lugar, a los propios errores de medición a los que se suman los del cálculo de los planos. Esto hace que las pequeñas variaciones que pueda haber se disipen. También tenemos que tener en cuenta las propias apreciaciones realizadas en el artículo tomado como referencia. Indica que la única manera para obtener la solución óptima sería hacer un algoritmo exhaustivo, es decir, probar todas las posibilidades. Ello conllevaría un gasto de tiempo enorme para el cálculo de la alineación al tener que calcular en cada combinación posible la distancia mínima entre los modelos (que ya hemos visto que es muy costoso). Otras posibles soluciones serían, por ejemplo, a partir de esos puntos que el usuario los seleccione manualmente como en el prealineado de ICP. La ventaja frente a esa situación es, que al ser calculados los puntos automáticamente, se obtendría un mejor resultado que si el usuario lo hiciera de una manera visual. Otra opción sería, siempre y cuando se hubiesen obtenido los mismos puntos en ambos casos, calcular la distancia media solo entre los puntos obtenidos mediante RANSAC. \\
+Tal y como se aprecia en la figura, los resultados no han sido los esperados. ¿A qué se puede deber este resultado? En primer lugar, a la propia geometría del modelo. La habitación tiene sus paredes formando un ángulo recto entre ellas lo que hace que todos los descriptores sean bastante parecidos. Sin embargo, como ya hemos dicho: no existe un algoritmo que funcione con todos los modelos. En segundo lugar, a los propios errores de medición a los que se suman los del cálculo de los planos. Esto hace que las pequeñas variaciones que pueda haber se disipen. También tenemos que tener en cuenta las propias apreciaciones realizadas en el artículo tomado como referencia. Indica que la única manera para obtener la solución óptima sería hacer un algoritmo exhaustivo, es decir, probar todas las posibilidades. Ello conllevaría un gasto de tiempo enorme para el cálculo de la alineación al tener que calcular en cada combinación posible la distancia mínima entre los modelos (que ya hemos visto que es muy costoso). Otras posibles soluciones serían, por ejemplo, a partir de esos puntos que el usuario los seleccione manualmente como en el prealineado de ICP. La ventaja frente a esa situación es, que al ser calculados los puntos automáticamente, se obtendría un mejor resultado que si el usuario lo hiciera de una manera visual. Otra opción sería, siempre y cuando se hubiesen obtenido los mismos puntos en ambos casos, calcular la distancia media solo entre los puntos de intersección. \\
 
-También influye en gran medida el número de planos obtenido durante el proceso. Según el artículo de referencia, el porcentaje de acierto con 15 planos no llega ni al 10\% mientras que unos 30 ya ronda el 80\%. Esto hace pensar que el algoritmo será más indicado con modelos más complejos que el usado en nuestro caso.
+También influye en gran medida el número de planos obtenido durante el proceso. Según el artículo de referencia, el porcentaje de acierto con 15 planos no llega ni al 10\% mientras que unos 30 ya ronda el 80\%. Esto hace pensar que el algoritmo será más indicado con modelos más ``complejos'' que el usado en nuestro caso.
 
 \section{Ejemplo específico}
 En la sección anterior acabamos de ver que el algoritmo propuesto no funcionaba correctamente en nuestro modelo. Como adelantamos, esto no significa que no se pueda utilizar en otras ocasiones en las que podamos disponer de un modelo adecuado. Incluso en \cite{theiler2012automatic}, dice que en el ejemplo que propone no se realizan todas las correspondencias adecuadamente. Por ello, se ha creado un ejemplo \textit{ad hoc} para demostrar que realmente funciona. En nuestro ejemplo ficticio tenemos los planos
@@ -604,7 +604,7 @@ Si calculamos los ángulos que forman los planos en cada uno de los puntos obten
 	\caption{Planos de ejemplo. Notamos que en una toma se ha modificado la matriz de modelado\footnotemark \hspace{0.5mm}  para poder visualizarlos por separado.}
 	\label{fig:ad-hoc}
 \end{figure}
-\footnotetext{Esta matriz posiciona los puntos en su lugar en coordenadas de mundo.}
+\footnotetext{Esta matriz posiciona los puntos en su lugar en coordenadas de mundo. Se explica con algo más en detalle en el próximo capítulo.}
 \begin{figure}[h!]
 	\begin{minipage}{0.5\textwidth}
 		\centering
@@ -621,7 +621,7 @@ Si calculamos los ángulos que forman los planos en cada uno de los puntos obten
 \end{figure}
 
 
-Concluimos que los resultados desfavorables obtenidos en la sección anterior se deben sobre todo a la simetría del modelo disponible y que en otros modelos sí es capaz de funcionar correctamente.
+Concluimos que los resultados desfavorables obtenidos en la sección anterior se deben en gran medida a la simetría del modelo disponible y que en otros modelos sí es capaz de funcionar correctamente.
 \newpage
 \begin{figure}[H]
 	\centering

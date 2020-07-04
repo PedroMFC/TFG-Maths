@@ -63,7 +63,7 @@ En primer lugar, vamos a comprobar cómo se compartan las tomas para la obtenci�
 		\includegraphics[width=1\linewidth]{/Más-ejemplos/me_50_KP_2}
 		%\label{fig:subim2}
 	\end{minipage}
-	\caption{Puntos clave detectados toma 1 de la torre de las gallinas.}
+	\caption{Puntos clave detectados en la toma 1 de la torre de las gallinas. Se han detectado $ 862\,225 $ puntos.}
 	\label{me_50_KP}
 \end{figure}
 \begin{figure}[h!]	
@@ -77,7 +77,7 @@ En primer lugar, vamos a comprobar cómo se compartan las tomas para la obtenci�
 		\includegraphics[width=1\linewidth]{/Más-ejemplos/me_50_simp5_KP_2}
 		%\label{fig:subim2}
 	\end{minipage}
-	\caption{Puntos clave detectados toma 1 simplificada (nivel 5) de la torre de las gallinas.}
+	\caption{Puntos clave detectados en la toma 1 simplificada (nivel 5) de la torre de las gallinas. Se han detectado $ 16\,412 $ puntos.}
 	\label{me_50_KP_simp4}
 \end{figure}
 
@@ -97,7 +97,6 @@ Las imágenes con los puntos clave obtenidos se muestran en \ref{me_50_KP} y \re
 	\label{me_51_KP_simp4}
 \end{figure}
 
-En la figura \ref{fig:ICPtorrePre} aparecen las tomas tras el prealineado y en la \ref{fig:ICPtorre} mostramos los pasos del proceso aplicando el algoritmo entre puntos clave. \\
 
 \begin{figure}[h!]	
 	\begin{minipage}[b]{0.5\textwidth}
@@ -157,8 +156,7 @@ EN los segundos me salía entorno a 17!!!! con cota unos 0.003
 	\end{tabular}
 	\caption{Resultados ajuste mediante ICP de la torre de las gallinas usando puntos clave. En la primera columna aparece el número de cada iteración en la segunda y tercera las distancias medias antes y después de cada iteración respectivamente. En la cuarta se incluye el tiempo en segundos que ha tardado cada iteración y en última columna el número de puntos clave de la primera toma con ``correspondencia'' en la segunda.}
 \end{table}
-
-Vemos cómo el método ha funcionada correctamente a la hora de hacer corresponder el hueco en la pared que se encuentra a la izquierda y cuadrar las paredes de la habitación. Recordamos que el alineado obtenido no es el más refinado, ya que en caso de quererlo deberíamos usar todo el modelo. Finalmente, destacamos que en el último paso, la distancia ha aumentado tras el procedimiento lo que puede parecer contradictorio. Sin embargo, en ocasiones se ha visto en la práctica que el método cuando está cerca de la solución óptima empieza a oscilar. Además,  en las pruebas que estamos realizado no tenemos en cuenta un criterio de parada en función de la variación de la distancia media obtenida. Por último, también vemos que el número de puntos clave a los que se le aplica el método no es el mismo en cada caso. Por ello, entre una iteración y otra no es raro que aumente la distancia media. En lo relativo al número de puntos clave, vemos que ha ido aumentando en cada paso por lo que las tomas están cada vez ``más cerca''.
+En la figura \ref{fig:ICPtorrePre} aparecen las tomas tras el prealineado y en la \ref{fig:ICPtorre} mostramos los pasos del proceso aplicando el algoritmo entre puntos clave. Vemos cómo el método ha funcionada correctamente a la hora de hacer corresponder el hueco en la pared que se encuentra a la izquierda y cuadrar las paredes de la habitación. Recordamos que el alineado obtenido no es el más refinado, ya que en caso de quererlo deberíamos usar todo el modelo. Finalmente, destacamos que en el último paso, la distancia ha aumentado tras el procedimiento lo que puede parecer contradictorio. Sin embargo, en ocasiones se ha visto en la práctica que el método cuando está cerca de la solución óptima empieza a oscilar. Además,  en las pruebas que estamos realizado no tenemos en cuenta un criterio de parada en función de la variación de la distancia media obtenida. Por último, también vemos que el número de puntos clave a los que se le aplica el método no es el mismo en cada caso. Por ello, entre una iteración y otra no es raro que aumente la distancia media. En lo relativo al número de puntos clave, vemos que ha ido aumentando en cada paso por lo que las tomas están cada vez ``más cerca''.
 
 \section{Sensibilidad y uso en prealineado}
 En la sección anterior, hemos usado los puntos clave para alinear dos tomas. En el ejemplo, tras el prealineado dichas tomas estaban ``bien'' posicionadas, es decir, lo suficientemente cerca la una de la otra para asegurar en todo lo posible que el algoritmo funcionase correctamente. Nos hacemos ahora las siguientes preguntas: ¿cómo de sensible es el método propuesto a la alineación inicial? o ¿se podría usar para el propio prealineado?. La primera no es una cuestión baladí, ya que, como se ha indicado anteriormente, es un paso crucial. Si a dos nubes de puntos, se le aplica el procedimiento general ICP no podemos asegurar que si repetimos el proceso con otro prealineado  también funcione. Con esta sección, pretendemos determinar cómo de bien posicionadas deben de estar las tomas. Cuanto menos sensible sea, menos nos debemos de preocupar del mismo e incluso si le afecta poco, podríamos usarlo sin necesidad de prealineado. Destacar que el objetivo de esta sección no es el análisis del tiempo que tarda en ejecutarse el algoritmo por lo que no se incluirán dichas tablas como en anteriores ejemplos.\\

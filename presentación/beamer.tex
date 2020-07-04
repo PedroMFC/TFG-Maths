@@ -13,6 +13,7 @@
 \usepackage{url}
 \usepackage{tikz}
 \usepackage{relsize}
+\usepackage{verbatim}
 \graphicspath{{./imgs/}}
 \usetheme{JuanLesPins}
 \setbeamertemplate{navigation symbols}{}
@@ -55,7 +56,7 @@
 
 \author[]{Pedro Manuel Flores Crespo}
 \title[Trabajo Fin de Grado]{Teoremas de la alternativa, optimización convexa, valoración de activos financiero y procesamiento de nubes de puntos generadas por escáner láser.}
-\date{8-9 julio de 2020} 
+\date{9 julio de 2020} 
 
 \AtBeginSection[]
 {
@@ -168,24 +169,26 @@
 		\end{itemize}
 	\end{frame}
 
+	\begin{comment}
 	\subsection{Minimax}
 	\begin{frame}[fragile]
-		A rasgos generales y a modo introductorio, podemos decir que un teroema minimax es un resultado que afirma, bajo ciertas hipótesis, que:
-		\[
-		\inf_{y \in Y} \sup_{x \in X} f(x,y) \leq \sup_{x \in X} \inf_{y \in Y} f(x,y),
-		\] 
-		\begin{teorema}\label{MinMax}
-			Sean $ \topSpace,\hspace{0.5mm} \topSpaceY $ subconjuntos convexos de sendos espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto. Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
-			\begin{itemize}	
-				\item[i)] cóncava y superiormente semicontinua en $ \topSpace $ y
-				\item[ii)] convexa en $ \topSpaceY $.
-			\end{itemize}
-			Entonces:
-			\begin{equation*}\label{eqMinMax}
-			\inf_{y \in Y} \max_{x \in X} f(x,y) = \max_{x \in X} \inf_{y \in Y} f(x,y).
-			\end{equation*}
-		\end{teorema}
+	A rasgos generales y a modo introductorio, podemos decir que un teroema minimax es un resultado que afirma, bajo ciertas hipótesis, que:
+	\[
+	\inf_{y \in Y} \sup_{x \in X} f(x,y) \leq \sup_{x \in X} \inf_{y \in Y} f(x,y),
+	\] 
+	\begin{teorema}\label{MinMax}
+	Sean $ \topSpace,\hspace{0.5mm} \topSpaceY $ subconjuntos convexos de sendos espacios vectoriales (no tienen que ser el mismo) tal que $ \topSpace $ está dotado de una topología que lo hace compacto. Supongamos además que $ f:  \topSpace \times \topSpaceY \longrightarrow \RR $ es:
+	\begin{itemize}	
+	\item[i)] cóncava y superiormente semicontinua en $ \topSpace $ y
+	\item[ii)] convexa en $ \topSpaceY $.
+	\end{itemize}
+	Entonces:
+	\begin{equation*}\label{eqMinMax}
+	\inf_{y \in Y} \max_{x \in X} f(x,y) = \max_{x \in X} \inf_{y \in Y} f(x,y).
+	\end{equation*}
+	\end{teorema}
 	\end{frame}
+	\end{comment}
 
 	\subsection{Separación de convexos}
 	\begin{frame}
@@ -220,11 +223,11 @@
 	\subsection{Valoración de activos financieros}
 	\begin{frame}{Preliminares financieros}
 		\begin{itemize}
-			 \item Definición de activo y opción de compra (europea). Opciones \textit{call} y \textit{put}.
+			 \item Principio de arbitraje.
+			 \item Opción de compra (\textit{call}) europea.
 			 \[
 			 C_T = \max\{S_T-K, 0\} = \left[S_T - K\right]^+
 			 \] 
-			 \item Principio de arbitraje.
 		\end{itemize}
 		\begin{columns}
 			\column{0.5\textwidth}
@@ -244,15 +247,17 @@
 	\end{frame}
 
 	\begin{frame}{Martingalas}
-		Un proceso $ \mathbb{F} $-adaptado $ M = (M_t)_{t\in \mathbb{T}} $ es una $ ( \mathbb{F},P)$-mar\-tingala si $ E(|M_t|) < \infty $ para todo $ t \in \mathbb{T} $ y 
+		Un proceso $ \mathbb{F} $-adaptado $ S = (S_t)_{t\in \mathbb{T}} $ es una $ ( \mathbb{F},P)$-mar\-tingala si $ E(|S_t|) < \infty $ para todo $ t \in \mathbb{T} $ y 
 		\[
-		E(M_{t+1}|\mathcal{F}_t) = M_t \textit{ para todo } t \in \mathbb{T}\setminus\{T\}.
+		E(S_{t+1}|\mathcal{F}_t) = S_t \textit{ para todo } t \in \mathbb{T}\setminus\{T\}.
 		\]
-		\begin{teorema}(Primer reorema fundamental de asignación de precios)\label{VIABLEiofEMM}
+		\begin{teorema}(Primer teorema fundamental de asignación de precios)\label{VIABLEiofEMM}
 			Un modelo de mercado discreto es viable si, y solo si, existe una medida de martingala equivalente para $ S $.
 		\end{teorema}
+	
+		La medida martingala equivalente para $ S $ significa que los precios actualizados a su poder adquisitivo actual, $ \bar{S} $, siguen la martingala.
 	\end{frame}
-
+	
 	\begin{frame}{Precio de una opción de compra \textit{call}. Modelo binomial}
 		
 	El precio el instante $ t \in \mathbb{T} $ viene dado por
@@ -266,11 +271,11 @@
 	La medida martingala equivalente $ Q $ es:
 	\[
 	\begin{cases}
-	Q (\frac{S_t}{S_{t-1}} = 1+u ) =  q \\
-	Q (\frac{S_t}{S_{t-1}} = 1+d ) =  1-q
+	Q (\frac{S_t}{S_{t-1}} = 1+u ) =  q = \frac{r-d}{u-d} \\
+	Q (\frac{S_t}{S_{t-1}} = 1+d ) =  1-q =  1- \frac{r-d}{u-d}
 	\end{cases}
 	\]
-	con $ q = \frac{r-d}{u-d} $ con $ d < r < u $. El valor de una opción viene dado por
+	con $ d < r < u $. El valor de una opción viene dado por
 	\begin{equation*}
 	V_0(C_T) = (1+r)^{-T} \sum_{v=A}^{T}\binom{T}{v}q^v(1-q)^{T-v}\left[S_0(1+u)^v(1+d)^{T-v}-K\right],
 	\end{equation*}
@@ -279,6 +284,7 @@
 	\end{frame}
 	
 	\begin{frame}{Estudio del valor en función de algunos de sus parámetros}
+		Ejemplo realizado con \textit{SageMath}.
 		\begin{columns}
 			\column{0.5\textwidth}
 			\begin{figure}[h!]
@@ -324,11 +330,11 @@
 	\end{columns}
 
 	\end{frame}
-	\subsection{ICP}
+	\subsection{ICP: \textit{Iterative Closest Point}}
 	\begin{frame}
 		\begin{itemize}
 			\item Uso de cuaternios para expresar las rotaciones. 
-			\item Para minimizar la distancia (euclidea) entre el conjunto de puntos $ P $ a alinear con el modelo $ X $, calculamos los vectores propios de 
+			\item Para minimizar la distancia (euclídea) entre el conjunto de puntos $ P = \{\pp_i\}$ a alinear con el modelo $ X = \{\xx_i\} $, calculamos los vectores propios de 
 		\end{itemize}
 	
 		\begin{equation}\label{matCov}
@@ -340,14 +346,14 @@
 		\end{equation}
 		donde 
 		\[
-		\Sigma_{px} = \frac{1}{N_p}\sum_{i=1}^{N_p} \lbrack (p_i-\bar{\pp})(x_i - \bar{\xx})^t\rbrack, \]
+		\Sigma_{px} = \frac{1}{N_p}\sum_{i=1}^{N_p} \lbrack (\pp_i-\bar{\pp})(\xx_i - \bar{\xx})^t\rbrack, \]
 		\[A_{ij} = (\Sigma_{px}-\Sigma_{px}^t)_{ij} \quad i,j \in \lbrace 0,1,2 \rbrace,\]
 		y 
 		\[\Delta = \begin{pmatrix}
 		A_{12} & A_{20} & A_{01}  \\
 		\end{pmatrix}. \]
 		
-		El cuaternio que representa la rotación viene dado por el vector propio asociado al mayor valor propio de $ M $ y la traslación por el vector $ \bb = R\bar{\pp}  + \bar{\xx} $. \\
+		El cuaternio que representa la rotación viene dado por el vector propio asociado al mayor valor propio de $ M $ y la traslación por el vector $ \bb = -R\bar{\pp}  + \bar{\xx} $. 
 		
 		El algoritmo ICP intenta minimizar la distancia entre los puntos más cercanos.
 	
@@ -424,11 +430,11 @@
 			\begin{figure}[h!]
 				%\includegraphics[width=1\linewidth]{Writer_call}
 				\includegraphics[width=0.4\textwidth]{desNormal-simp8}
-				\caption{Puntos clave en la malla simplificada ($ 1\,885 $).}
+				\caption{Puntos clave en la malla simplificada. Ha tardado 0.4 segundos en calcular las normales 0.2 segundos para obtener los puntos clave.}
 			\end{figure} 
 			
 			\item Podemos tomar puntos clave en una toma o en las dos (con algunas consideraciones).
-			\item En la segunda opción, se han reducido dos conjuntos de puntos de unos $ 80\,000 $ puntos a $ 1\,1142 $ y $ 2\,273 $ obteniendo resultados satisfactorios empleando 0.7 segundos por iteración.
+			\item En la segunda opción, se han reducido dos conjuntos de puntos de unos $ 35\,000 $ puntos (ya simplificado) a $ 1\,1142 $ y $ 2\,273 $ obteniendo resultados satisfactorios empleando 0.7 segundos por iteración.
 		\end{itemize}
 		
 		
@@ -463,7 +469,23 @@
 	\end{frame}	
 
 	\begin{frame}{Aplicación en alineado}
-	Usamos el algoritmo RANSAC para obtener los puntos de intersección entre planos y alineamos el modelo en base a esos puntos.
+		Usamos el algoritmo RANSAC para obtener los puntos de intersección entre planos y alineamos el modelo en base a esos puntos.
+		\begin{columns}
+			\column{0.5\textwidth}
+			\begin{figure}[h!]
+				%\includegraphics[width=1\linewidth]{Writer_call}
+				\includegraphics[width=1\linewidth]{lab0-1}
+				\caption{Plano detectado en RANSAC.}
+			\end{figure}
+			\column{0.5\textwidth}
+			\begin{figure}[h!]
+				%\includegraphics[width=1\linewidth]{Writer_call}
+				\includegraphics[width=1\linewidth]{lab0-2}
+				\caption{Plano detectado en RANSAC.}
+			\end{figure} 
+		\end{columns}
+	\end{frame}
+	\begin{frame}{Aplicación en alineado}
 	\begin{figure}[h!]
 		%\includegraphics[width=1\linewidth]{Writer_call}
 		\includegraphics[width=0.7\linewidth]{inter0-pared+mesas}		
