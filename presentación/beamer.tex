@@ -54,7 +54,7 @@
 \newcommand{\pp}{\textbf{\emph{p}}}
 \newcommand{\bb}{\textbf{\emph{b}}}
 
-\author[]{Pedro Manuel Flores Crespo}
+\author[]{Pedro Manuel Flores Crespo  \\ \vspace{6mm} \small Ingeniería Informática y Matemáticas \\ \small Universidad de Granada}
 \title[Trabajo Fin de Grado]{Teoremas de la alternativa, optimización convexa, valoración de activos financiero y procesamiento de nubes de puntos generadas por escáner láser.}
 \date{9 julio de 2020} 
 
@@ -334,7 +334,7 @@
 	\begin{frame}
 		\begin{itemize}
 			\item Uso de cuaternios para expresar las rotaciones. 
-			\item Para minimizar la distancia (euclídea) entre el conjunto de puntos $ P = \{\pp_i\}$ a alinear con el modelo $ X = \{\xx_i\} $, calculamos los vectores propios de 
+			\item Para minimizar la distancia (euclídea) al cuadrado entre el conjunto de puntos $ P = \{\pp_i\}$ a alinear con el modelo $ X = \{\xx_i\} $, calculamos los vectores propios de 
 		\end{itemize}
 	
 		\begin{equation}\label{matCov}
@@ -443,7 +443,7 @@
 	\subsection{RANSAC}
 	\begin{frame}
 		\justifying
-		EL algoritmo RANSAC (\textit{RAndom Sample Consensus}) es del tipo hipótesis-y-prueba y sirve para ajustar parámetros de un modelo matemático
+		El algoritmo RANSAC (\textit{Random Sample Consensus}) es del tipo hipótesis-y-prueba y sirve para ajustar parámetros de un modelo matemático
 		
 		\begin{columns}
 			\column{0.33\textwidth}
@@ -491,7 +491,7 @@
 		\includegraphics[width=0.7\linewidth]{inter0-pared+mesas}		
 	\end{figure} 
 
-	Problema $ \Longleftrightarrow $ se necesitan muchos planos para obtener resultados satisfactorios y que se puedan diferenciar fácilmente unos puntos de otros.
+	Problema: se necesitan muchos planos para obtener resultados satisfactorios y es dependiente de la propia geometría del modelo.
 	
 	\end{frame}
 
@@ -506,6 +506,11 @@
 	\end{frame}
 
 	\section{}
+	
+	\begin{frame}
+		\maketitle
+	\end{frame}
+
 	\begin{frame}{Algunas referencias}
 		\justifying
 		\begin{thebibliography}{X}
